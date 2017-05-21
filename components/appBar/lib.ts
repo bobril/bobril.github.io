@@ -6,8 +6,8 @@ import * as AppButton from './button';
 export const Button = AppButton;
 
 interface IData {
-    buttons: b.IBobrilChildren[];
-    rightButtons?: b.IBobrilChildren[];
+    leftChildren: b.IBobrilChildren[];
+    rightChildren?: b.IBobrilChildren[];
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -19,8 +19,8 @@ export const create = b.createDerivedComponent<IData>(m.Paper, {
         const d = ctx.data;
 
         me.children = [
-            d.buttons && b.styledDiv(
-                d.buttons.map((button) => {
+            d.leftChildren && b.styledDiv(
+                d.leftChildren.map((button) => {
                     return b.styledDiv(
                         button,
                         styles.button,
@@ -28,8 +28,8 @@ export const create = b.createDerivedComponent<IData>(m.Paper, {
                 }),
                 styles.buttonsContainer
             ),
-            d.rightButtons && b.styledDiv(
-                d.rightButtons.map((button) => {
+            d.rightChildren && b.styledDiv(
+                d.rightChildren.map((button) => {
                     return b.styledDiv(
                         button,
                         styles.rightButton,

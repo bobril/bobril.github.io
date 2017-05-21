@@ -4,6 +4,8 @@ import * as BasicLayout from '../components/lBasicLayout/lib';
 import * as LMainContent from '../components/lMainContent/lib';
 import * as AppBar from '../components/appBar/lib';
 import * as router from '../pages/router';
+import * as Image from '../components/image/lib';
+import * as assets from '../assets/assets';
 
 interface IData {
 
@@ -23,7 +25,12 @@ const app = b.createComponent<IData>({
             BasicLayout.create({
                 backgroundColor: m.grey100,
                 header: AppBar.create({
-                    buttons: [
+                    leftChildren: [
+                        Image.create({
+                            asset: assets.bobrilLogoInverse,
+                            width: 64,
+                            height: 64 
+                        }),
                         AppBar.Button.create({
                             label: 'BOBRIL',
                             isActive: actualPageId === router.home,
@@ -39,7 +46,7 @@ const app = b.createComponent<IData>({
                             }
                         })
                     ],
-                    rightButtons: [
+                    rightChildren: [
                         AppBar.Button.create({
                             label: 'GitHub',
                             action: () => {

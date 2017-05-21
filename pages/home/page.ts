@@ -4,6 +4,8 @@ import * as assets from '../../assets/assets';
 import * as Label from '../../components/label/lib';
 import * as m from 'bobril-m';
 import * as Href from '../../components/href/lib';
+import * as Splitter from '../../components/splitter/lib';
+import * as PromoList from '../../components/promoList/lib';
 
 interface IData {
 }
@@ -14,22 +16,82 @@ interface IContext extends b.IBobrilCtx {
 
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-
         me.children = [
-            b.styledDiv([
-                    Label.create({
-                        label: 'Bobril',
-                        size: Label.LabelSize.Display3
-                    }),
-                    Image.create({
-                        asset: assets.bobrilLogo,
-                        width: 300,
-                        height: 284,
-                        style: {
-                            margin: 'auto'
-                        }
-                    }),
-                ],
+            b.styledDiv(
+                Splitter.create({
+                    children: [
+                        b.styledDiv([
+                                Label.create({
+                                    label: 'Features',
+                                    size: Label.LabelSize.Display2,
+                                    style: {
+                                        fontSize: 20,
+                                        fontWeight: 600,
+                                        textAlign: 'left'
+                                    }
+                                }),
+                                PromoList.create({
+                                    items: [
+                                        {
+                                            text: 'Component Oriented Framework'
+                                        },
+                                        {
+                                            text: 'Small'
+                                        },
+                                        {
+                                            text: 'Fast Virtual DOM diffing'
+                                        },
+                                        {
+                                            text: 'Media detection'
+                                        },
+                                        {
+                                            text: 'Normalization of events'
+                                        },
+                                        {
+                                            text: '... and a lot of more'
+                                        }
+                                    ]
+                                }),
+                                {
+                                    textAlign: 'left'
+                                }
+                            ]
+                        ),
+                        b.styledDiv(
+                            [
+                                Label.create({
+                                    label: 'Bobril',
+                                    size: Label.LabelSize.Display2,
+                                    style: {
+                                        fontSize: 30,
+                                        fontWeight: 600
+                                    }
+                                }),
+                                Image.create({
+                                    asset: assets.bobrilLogo,
+                                    width: 300,
+                                    height: 284,
+                                    style: {
+                                        margin: 'auto'
+                                    }
+                                })
+                            ]
+                        ),
+                        b.styledDiv(
+                            [
+                                Label.create({
+                                    label: 'Release',
+                                    size: Label.LabelSize.Display2,
+                                    style: {
+                                        fontSize: 20,
+                                        fontWeight: 600,
+                                        textAlign: 'right'
+                                    }
+                                }),
+                            ]
+                        ),
+                    ]
+                }),
                 bobrilPromoStyle
             ),
             b.styledDiv([
@@ -37,16 +99,13 @@ const home = b.createComponent<IData>({
                     label: 'Component oriented framework...',
                     size: Label.LabelSize.Title
                 }),
-                Label.create({
-                    label: '...inspired by ReactJs' +
-                    ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
-                    ' Compared to ReactJS Added speeeed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
-                    'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
-                    'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
-                    'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
-                    'be optional or its perceived value to minified size ratio must be high enough.',
-                    size: Label.LabelSize.Body2
-                })
+                '...inspired by ReactJs' +
+                ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
+                ' Compared to ReactJS Added speeeed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
+                'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
+                'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
+                'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
+                'be optional or its perceived value to minified size ratio must be high enough.',
             ], {
                 marginTop: 24
             }),
@@ -55,17 +114,14 @@ const home = b.createComponent<IData>({
                     label: 'Create Bobril application in few minutes = Bobril Build',
                     size: Label.LabelSize.Title
                 }),
-                Label.create({
-                    label: ['Bobril is intend to be used with ',
-                        Href.create({
-                            label: 'Bobril Build',
-                            href: 'https://github.com/Bobris/bobril-build'
-                        }),
-                        '. It will ensures continuous build of your application. ' +
-                        'It supports: copying sprites, building big sprites, i18n.' +
-                        ' Bobril provide all this during optimal TypeScript compilation.'],
-                    size: Label.LabelSize.Body2
-                })
+                'Bobril is intend to be used with ',
+                Href.create({
+                    label: 'Bobril Build',
+                    href: 'https://github.com/Bobris/bobril-build'
+                }),
+                '. It will ensures continuous build of your application. ' +
+                'It supports: copying sprites, building big sprites, i18n.' +
+                ' Bobril provide all this during optimal TypeScript compilation.'
             ], {
                 marginTop: 24
             })
