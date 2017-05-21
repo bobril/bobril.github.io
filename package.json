@@ -1,0 +1,24 @@
+{
+  "name": "bobril.github.io",
+  "version": "1.0.0",
+  "description": "Webpage for Bobril",
+  "main": "main.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xrew/bobril.github.io.git"
+  },
+  "author": "Tomas Sychra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xrew/bobril.github.io/issues"
+  },
+  "homepage": "https://github.com/Xrew/bobril.github.io#readme",
+  "bobril": {
+    "title": "Bobril - Component oriented framework"
+  },
+  "dependencies": {
+    "bobril": "^7.2.0",
+    "bobril-m": "^0.9.0",
+    "bobril-m-icons": "^2.0.0"
+  }
+}
