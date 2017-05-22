@@ -5,7 +5,7 @@ import * as Label from '../../components/label/lib';
 import * as m from 'bobril-m';
 import * as Href from '../../components/href/lib';
 import * as Splitter from '../../components/splitter/lib';
-import * as PromoList from '../../components/promoList/lib';
+import * as List from '../../components/list/lib';
 import * as NpmFury from '../../components/npmFury/lib';
 
 interface IData {
@@ -90,25 +90,25 @@ function getFeatureListSection(): b.IBobrilChildren {
                     textAlign: 'left'
                 }
             }),
-            PromoList.create({
+            List.create({
                 items: [
                     {
-                        text: 'Component Oriented Framework'
+                        children: 'Component Oriented Framework'
                     },
                     {
-                        text: 'Small'
+                        children: 'Small'
                     },
                     {
-                        text: 'Fast Virtual DOM diffing'
+                        children: 'Fast Virtual DOM diffing'
                     },
                     {
-                        text: 'Media detection'
+                        children: 'Media detection'
                     },
                     {
-                        text: 'Normalization of events'
+                        children: 'Normalization of events'
                     },
                     {
-                        text: '... and a lot of more'
+                        children: '... and a lot of more'
                     }
                 ]
             }),

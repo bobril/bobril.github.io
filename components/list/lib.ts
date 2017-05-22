@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 
 export interface Item {
-    text: string;
+    children: b.IBobrilChildren;
 }
 interface IData {
     items: Item[];
@@ -17,7 +17,7 @@ export const create = b.createComponent<IData>({
 
         me.children = [
             d.items.map(item => {
-                return b.styledDiv(item.text, itemStyle)
+                return b.styledDiv(item.children, itemStyle)
             })
         ];
 
