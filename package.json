@@ -14,7 +14,8 @@
   },
   "homepage": "https://github.com/Xrew/bobril.github.io#readme",
   "bobril": {
-    "title": "Bobril - Component oriented framework"
+    "title": "Bobril - Component oriented framework",
+    "dir": "."
   },
   "dependencies": {
     "bobril": "^7.2.0",
