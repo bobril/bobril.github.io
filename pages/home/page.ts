@@ -7,6 +7,7 @@ import * as Href from '../../components/href/lib';
 import * as Splitter from '../../components/splitter/lib';
 import * as List from '../../components/list/lib';
 import * as NpmFury from '../../components/npmFury/lib';
+import * as styles from '../styles';
 
 interface IData {
 }
@@ -19,47 +20,59 @@ const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
             b.styledDiv(
-                Splitter.create({
-                    maxWidth: 1000,
-                    children: [
-                        getFeatureListSection(),
-                        getBobrilLogoSection(),
-                        getFurrySection(),
-                    ]
-                }),
+                b.styledDiv(
+                    Splitter.create({
+                        children: [
+                            getFeatureListSection(),
+                            getBobrilLogoSection(),
+                            getFurrySection(),
+                        ]
+                    }),
+                    {
+                        width: styles.maxPageWidth,
+                        margin: 'auto'
+                    }
+                ),
                 bobrilPromoStyle
             ),
             b.styledDiv([
-                Label.create({
-                    label: 'Component oriented framework...',
-                    size: Label.LabelSize.Title
-                }),
-                '...inspired by ReactJs' +
-                ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
-                ' Compared to ReactJS Added speeeed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
-                'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
-                'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
-                'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
-                'be optional or its perceived value to minified size ratio must be high enough.',
-            ], {
-                marginTop: 24
-            }),
-            b.styledDiv([
-                Label.create({
-                    label: 'Create Bobril application in few minutes = Bobril Build',
-                    size: Label.LabelSize.Title
-                }),
-                'Bobril is intend to be used with ',
-                Href.create({
-                    label: 'Bobril Build',
-                    href: 'https://github.com/Bobris/bobril-build'
-                }),
-                '. It will ensures continuous build of your application. ' +
-                'It supports: copying sprites, building big sprites, i18n.' +
-                ' Bobril provide all this during optimal TypeScript compilation.'
-            ], {
-                marginTop: 24
-            })
+                    b.styledDiv([
+                        Label.create({
+                            label: 'Component oriented framework...',
+                            size: Label.LabelSize.Title
+                        }),
+                        '...inspired by ReactJs' +
+                        ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
+                        ' Compared to ReactJS Added speeeed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
+                        'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
+                        'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
+                        'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
+                        'be optional or its perceived value to minified size ratio must be high enough.',
+                    ], {
+                        marginTop: 24
+                    }),
+                    b.styledDiv([
+                        Label.create({
+                            label: 'Create Bobril application in few minutes = Bobril Build',
+                            size: Label.LabelSize.Title
+                        }),
+                        'Bobril is intend to be used with ',
+                        Href.create({
+                            label: 'Bobril Build',
+                            href: 'https://github.com/Bobris/bobril-build'
+                        }),
+                        '. It will ensures continuous build of your application. ' +
+                        'It supports: copying sprites, building big sprites, i18n.' +
+                        ' Bobril provide all this during optimal TypeScript compilation.'
+                    ], {
+                        marginTop: 24
+                    })
+                ],
+                {
+                    width: styles.maxPageWidth,
+                    margin: 'auto'
+                }
+            )
         ]
     }
 });

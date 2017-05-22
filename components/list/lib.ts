@@ -27,7 +27,6 @@ export const create = b.createComponent<IData>({
 
 export const itemsContainerStyle = b.styleDef({
     textAlign: 'left',
-    cssFloat: 'left',
     paddingLeft: 16
 });
 
