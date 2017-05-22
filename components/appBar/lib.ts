@@ -8,6 +8,7 @@ export const Button = AppButton;
 interface IData {
     leftChildren: b.IBobrilChildren[];
     rightChildren?: b.IBobrilChildren[];
+    contentWidth?: number;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -19,23 +20,32 @@ export const create = b.createDerivedComponent<IData>(m.Paper, {
         const d = ctx.data;
 
         me.children = [
-            d.leftChildren && b.styledDiv(
-                d.leftChildren.map((button) => {
-                    return b.styledDiv(
-                        button,
-                        styles.button,
-                    );
-                }),
-                styles.buttonsContainer
-            ),
-            d.rightChildren && b.styledDiv(
-                d.rightChildren.map((button) => {
-                    return b.styledDiv(
-                        button,
-                        styles.rightButton,
-                    );
-                }),
-                styles.rightButtonsContainer
+            b.styledDiv(
+                [
+                    d.leftChildren && b.styledDiv(
+                        d.leftChildren.map((button) => {
+                            return b.styledDiv(
+                                button,
+                                styles.button,
+                            );
+                        }),
+                        styles.buttonsContainer
+                    ),
+                    d.rightChildren && b.styledDiv(
+                        d.rightChildren.map((button) => {
+                            return b.styledDiv(
+                                button,
+                                styles.rightButton,
+                            );
+                        }),
+                        styles.rightButtonsContainer
+                    )
+                ],
+                d.contentWidth && {
+                    minWidth: 852,
+                    maxWidth: d.contentWidth,
+                    margin: 'auto'
+                }
             )
         ];
 

@@ -25,6 +25,7 @@ const app = b.createComponent<IData>({
             BasicLayout.create({
                 backgroundColor: m.grey100,
                 header: AppBar.create({
+                    contentWidth: 1000,
                     leftChildren: [
                         Image.create({
                             asset: assets.bobrilLogoInverse,

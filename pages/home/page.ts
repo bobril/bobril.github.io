@@ -22,102 +22,9 @@ const home = b.createComponent<IData>({
                 Splitter.create({
                     maxWidth: 1000,
                     children: [
-                        b.styledDiv([
-                                Label.create({
-                                    label: 'Features',
-                                    size: Label.LabelSize.Display2,
-                                    style: {
-                                        fontSize: 20,
-                                        fontWeight: 600,
-                                        textAlign: 'left'
-                                    }
-                                }),
-                                PromoList.create({
-                                    items: [
-                                        {
-                                            text: 'Component Oriented Framework'
-                                        },
-                                        {
-                                            text: 'Small'
-                                        },
-                                        {
-                                            text: 'Fast Virtual DOM diffing'
-                                        },
-                                        {
-                                            text: 'Media detection'
-                                        },
-                                        {
-                                            text: 'Normalization of events'
-                                        },
-                                        {
-                                            text: '... and a lot of more'
-                                        }
-                                    ]
-                                }),
-                                {
-                                    textAlign: 'left'
-                                }
-                            ]
-                        ),
-                        b.styledDiv(
-                            [
-                                Label.create({
-                                    label: 'Bobril',
-                                    size: Label.LabelSize.Display2,
-                                    style: {
-                                        fontSize: 30,
-                                        fontWeight: 600
-                                    }
-                                }),
-                                Image.create({
-                                    asset: assets.bobrilLogo,
-                                    width: 300,
-                                    height: 284,
-                                    style: {
-                                        margin: 'auto'
-                                    }
-                                })
-                            ]
-                        ),
-                        b.styledDiv(
-                            [
-                                Label.create({
-                                    label: 'Release',
-                                    size: Label.LabelSize.Display2,
-                                    style: {
-                                        fontSize: 20,
-                                        fontWeight: 600,
-                                        textAlign: 'right'
-                                    }
-                                }),
-                                b.styledDiv(
-                                    [
-                                        b.styledDiv('Bobril', {marginRight: 8}),
-                                        NpmFury.create({
-                                            url: 'https://badge.fury.io/js/bobril',
-                                            urlSvg: 'https://badge.fury.io/js/bobril.svg'
-                                        })
-                                    ],
-                                    {
-                                        textAlign: 'right',
-                                        marginTop: 8
-                                    }
-                                ),
-                                b.styledDiv(
-                                    [
-                                        b.styledDiv('Bobril build', {marginRight: 8}),
-                                        NpmFury.create({
-                                            url: 'https://badge.fury.io/js/bobril-build',
-                                            urlSvg: 'https://badge.fury.io/js/bobril-build.svg'
-                                        })
-                                    ],
-                                    {
-                                        textAlign: 'right',
-                                        marginTop: 16
-                                    }
-                                )
-                            ]
-                        ),
+                        getFeatureListSection(),
+                        getBobrilLogoSection(),
+                        getFurrySection(),
                     ]
                 }),
                 bobrilPromoStyle
@@ -153,7 +60,6 @@ const home = b.createComponent<IData>({
             ], {
                 marginTop: 24
             })
-
         ]
     }
 });
@@ -166,7 +72,114 @@ const bobrilPromoStyle = b.styleDef({
     marginLeft: -imageContainerPadding,
     marginRight: -imageContainerPadding,
     paddingTop: imageContainerPadding,
+    paddingLeft: imageContainerPadding,
+    paddingRight: imageContainerPadding,
     boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)',
 });
 
 export default home;
+
+function getFeatureListSection(): b.IBobrilChildren {
+    return b.styledDiv([
+            Label.create({
+                label: 'Features',
+                size: Label.LabelSize.Display2,
+                style: {
+                    fontSize: 20,
+                    fontWeight: 600,
+                    textAlign: 'left'
+                }
+            }),
+            PromoList.create({
+                items: [
+                    {
+                        text: 'Component Oriented Framework'
+                    },
+                    {
+                        text: 'Small'
+                    },
+                    {
+                        text: 'Fast Virtual DOM diffing'
+                    },
+                    {
+                        text: 'Media detection'
+                    },
+                    {
+                        text: 'Normalization of events'
+                    },
+                    {
+                        text: '... and a lot of more'
+                    }
+                ]
+            }),
+            {
+                textAlign: 'left'
+            }
+        ]
+    );
+}
+
+function getBobrilLogoSection(): b.IBobrilChildren {
+    return b.styledDiv(
+        [
+            Label.create({
+                label: 'Bobril',
+                size: Label.LabelSize.Display2,
+                style: {
+                    fontSize: 30,
+                    fontWeight: 600
+                }
+            }),
+            Image.create({
+                asset: assets.bobrilLogo,
+                width: 300,
+                height: 284,
+                style: {
+                    margin: 'auto'
+                }
+            })
+        ]
+    );
+}
+
+function getFurrySection(): b.IBobrilChildren {
+    return b.styledDiv(
+        [
+            Label.create({
+                label: 'Release',
+                size: Label.LabelSize.Display2,
+                style: {
+                    fontSize: 20,
+                    fontWeight: 600,
+                    textAlign: 'right'
+                }
+            }),
+            b.styledDiv(
+                [
+                    b.styledDiv('Bobril', {marginRight: 8}),
+                    NpmFury.create({
+                        url: 'https://badge.fury.io/js/bobril',
+                        urlSvg: 'https://badge.fury.io/js/bobril.svg'
+                    })
+                ],
+                {
+                    textAlign: 'right',
+                    marginTop: 8
+                }
+            ),
+            b.styledDiv(
+                [
+                    b.styledDiv('Bobril build', {marginRight: 8}),
+                    NpmFury.create({
+                        url: 'https://badge.fury.io/js/bobril-build',
+                        urlSvg: 'https://badge.fury.io/js/bobril-build.svg'
+                    })
+                ],
+                {
+                    textAlign: 'right',
+                    marginTop: 16
+                }
+            )
+        ]
+    );
+}
