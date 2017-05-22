@@ -6,6 +6,7 @@ import * as m from 'bobril-m';
 import * as Href from '../../components/href/lib';
 import * as Splitter from '../../components/splitter/lib';
 import * as PromoList from '../../components/promoList/lib';
+import * as NpmFury from '../../components/npmFury/lib';
 
 interface IData {
 }
@@ -19,6 +20,7 @@ const home = b.createComponent<IData>({
         me.children = [
             b.styledDiv(
                 Splitter.create({
+                    maxWidth: 1000,
                     children: [
                         b.styledDiv([
                                 Label.create({
@@ -88,6 +90,32 @@ const home = b.createComponent<IData>({
                                         textAlign: 'right'
                                     }
                                 }),
+                                b.styledDiv(
+                                    [
+                                        b.styledDiv('Bobril', {marginRight: 8}),
+                                        NpmFury.create({
+                                            url: 'https://badge.fury.io/js/bobril',
+                                            urlSvg: 'https://badge.fury.io/js/bobril.svg'
+                                        })
+                                    ],
+                                    {
+                                        textAlign: 'right',
+                                        marginTop: 8
+                                    }
+                                ),
+                                b.styledDiv(
+                                    [
+                                        b.styledDiv('Bobril build', {marginRight: 8}),
+                                        NpmFury.create({
+                                            url: 'https://badge.fury.io/js/bobril-build',
+                                            urlSvg: 'https://badge.fury.io/js/bobril-build.svg'
+                                        })
+                                    ],
+                                    {
+                                        textAlign: 'right',
+                                        marginTop: 16
+                                    }
+                                )
                             ]
                         ),
                     ]

@@ -2,6 +2,7 @@ import * as b from 'bobril';
 
 interface IData {
     children: b.IBobrilChildren[];
+    maxWidth?: number;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -17,17 +18,23 @@ export const create = b.createComponent<IData>({
                 return b.styledDiv(item, itemStyle)
             });
 
-        b.style(me, containerStyle);
+        b.style(
+            me,
+            containerStyle,
+            d.maxWidth && {maxWidth: d.maxWidth}
+        );
     }
 });
 
 export const containerStyle = b.styleDef({
     textAlign: 'center',
-    width: '100%'
+    width: '100%',
+    margin: 'auto',
+    display: 'table'
 });
 
 export const itemStyle = b.styleDef({
     width: '30%',
     margin: 'auto',
-    display: 'inline-block'
+    display: 'table-cell'
 });
