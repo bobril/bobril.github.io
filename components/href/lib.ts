@@ -5,6 +5,7 @@ interface IData {
     label: string;
     href?: string;
     action?: () => boolean;
+    newWindow? : boolean;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -17,8 +18,8 @@ export const create = b.createComponent<IData>({
 
         me.tag = 'a';
         me.attrs = {
-
-            href: d.href || '#'
+            href: d.href || '#',
+            target: d.newWindow === true ? '_blank' : '_self'
         };
 
         me.children = d.label;
