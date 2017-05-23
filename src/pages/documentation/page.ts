@@ -35,7 +35,7 @@ const documentation = b.createComponent<IData>({
                     getExamplesSection()
                 ],
                 {
-                    width: styles.maxPageWidth,
+                    maxWidth: styles.maxPageWidth,
                     margin: 'auto'
                 }
             )

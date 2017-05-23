@@ -29,7 +29,7 @@ const home = b.createComponent<IData>({
                         ]
                     }),
                     {
-                        width: styles.maxPageWidth,
+                        maxWidth: styles.maxPageWidth,
                         margin: 'auto'
                     }
                 ),
@@ -69,7 +69,7 @@ const home = b.createComponent<IData>({
                     })
                 ],
                 {
-                    width: styles.maxPageWidth,
+                    maxWidth: styles.maxPageWidth,
                     margin: 'auto'
                 }
             )
