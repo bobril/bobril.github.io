@@ -18,9 +18,6 @@ export const create = b.createComponent<IData>({
             //     label: 'Get Started',
             //     size: Label.LabelSize.Title
             // }),
-
         ];
-
-        b.style(me, {});
     }
 });
