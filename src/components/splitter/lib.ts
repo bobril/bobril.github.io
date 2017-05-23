@@ -2,6 +2,7 @@ import * as b from 'bobril';
 
 interface IData {
     children: b.IBobrilChildren[];
+    style?: b.IBobrilStyle;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -19,7 +20,8 @@ export const create = b.createComponent<IData>({
 
         b.style(
             me,
-            containerStyle
+            containerStyle,
+            d.style && d.style
         );
     }
 });
@@ -28,11 +30,11 @@ export const containerStyle = b.styleDef({
     textAlign: 'center',
     width: '100%',
     margin: 'auto',
-    display: 'table'
+    overflow: 'auto'
 });
 
 export const itemStyle = b.styleDef({
-    width: '30%',
+    width: '33.3%',
     margin: 'auto',
-    display: 'table-cell'
+    cssFloat: 'left'
 });

@@ -2,7 +2,7 @@
   "name": "bobril.github.io",
   "version": "1.0.0",
   "description": "Webpage for Bobril",
-  "main": "main.ts",
+  "main": "src/main.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Xrew/bobril.github.io.git"

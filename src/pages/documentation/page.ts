@@ -2,6 +2,7 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as List from '../../components/list/lib';
 import * as Href from '../../components/href/lib';
+import * as LCenter from '../../components/lCenter/lib';
 import * as styles from '../styles';
 
 interface IData {
@@ -14,29 +15,27 @@ interface IContext extends b.IBobrilCtx {
 const documentation = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
-            b.styledDiv(
-                [
-                    Label.create({
-                        label: 'Documentation under construction.',
-                        size: Label.LabelSize.Title,
-                        style: {
-                            textAlign: 'center'
-                        }
-                    }),
-                    b.styledDiv(
-                        'We know, that it is not easy to develop application without any documentation. ' +
-                        'We hope, that these materials will help you to start.',
-                        {
-                            marginTop: 24,
-                            marginBottom: 24
-                        }
-                    ),
-                    getHowToStartSection(),
-                    getExamplesSection()
-                ],
-                {
-                    width: styles.maxPageWidth,
-                    margin: 'auto'
+            LCenter.create({
+                    children: [
+                        Label.create({
+                            label: 'Documentation under construction.',
+                            size: Label.LabelSize.Title,
+                            style: {
+                                textAlign: 'center'
+                            }
+                        }),
+                        b.styledDiv(
+                            'We know, that it is not easy to develop application without any documentation. ' +
+                            'We hope, that these materials will help you to start.',
+                            {
+                                marginTop: 24,
+                                marginBottom: 24
+                            }
+                        ),
+                        getHowToStartSection(),
+                        getExamplesSection()
+                    ],
+                    maxWidth: styles.maxPageWidth,
                 }
             )
         ]

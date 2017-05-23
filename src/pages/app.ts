@@ -3,7 +3,7 @@ import * as m from 'bobril-m';
 import * as BasicLayout from '../components/lBasicLayout/lib';
 import * as LMainContent from '../components/lMainContent/lib';
 import * as AppBar from '../components/appBar/lib';
-import * as router from '../pages/router';
+import * as router from './router';
 import * as Image from '../components/image/lib';
 import * as assets from '../assets/assets';
 

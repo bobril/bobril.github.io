@@ -25,6 +25,7 @@ export const create = b.createComponent<IData>({
         me.children = d.label;
 
         b.style(me, {
+            whiteSpace: 'nowrap',
             display: 'inline',
             textDecoration: 'underline',
             color: m.primary1Color()
