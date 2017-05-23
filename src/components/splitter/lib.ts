@@ -2,6 +2,7 @@ import * as b from 'bobril';
 
 interface IData {
     children: b.IBobrilChildren[];
+    style?: b.IBobrilStyle;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -19,7 +20,8 @@ export const create = b.createComponent<IData>({
 
         b.style(
             me,
-            containerStyle
+            containerStyle,
+            d.style && d.style
         );
     }
 });

@@ -36,37 +36,75 @@ const home = b.createComponent<IData>({
                 bobrilPromoStyle
             ),
             b.styledDiv([
-                    b.styledDiv([
-                        Label.create({
-                            label: 'Component oriented framework...',
-                            size: Label.LabelSize.Title
-                        }),
-                        '...inspired by ReactJs' +
-                        ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
-                        ' Compared to ReactJS Added speeeed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
-                        'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
-                        'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
-                        'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
-                        'be optional or its perceived value to minified size ratio must be high enough.',
-                    ], {
-                        marginTop: 24
+                    Splitter.create({
+                        children: [
+                            b.styledDiv(
+                                [
+                                    Label.create({
+                                        label: 'Component oriented framework',
+                                        size: Label.LabelSize.Title
+                                    }),
+                                    'Inspired by ReactJs' +
+                                    ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
+                                    ' Compared to ReactJS Added speeeed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
+                                    'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
+                                    'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
+                                    'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
+                                    'be optional or its perceived value to minified size ratio must be high enough.',
+                                ],
+                                {
+                                    padding: 16,
+                                    marginTop: 24
+                                }
+                            ),
+                            b.styledDiv(
+                                [
+                                    Label.create({
+                                        label: 'Bobril Build',
+                                        size: Label.LabelSize.Title
+                                    }),
+                                    'Bobril is intend to be used with ',
+                                    Href.create({
+                                        label: 'Bobril Build',
+                                        href: 'https://github.com/Bobris/bobril-build'
+                                    }),
+                                    '. It will ensures continuous build of your application. ' +
+                                    'It supports: copying sprites, building big sprites, i18n.' +
+                                    ' Bobril provide all this during optimal TypeScript compilation.'
+                                ],
+                                {
+                                    padding: 16,
+                                    marginTop: 24
+                                }
+                            ),
+                            b.styledDiv(
+                                [
+                                    Label.create({
+                                        label: 'Material design',
+                                        size: Label.LabelSize.Title
+                                    }),
+                                    'For modern design you can use bobril material design implementation ',
+                                    Href.create({
+                                        label: 'Bobril-m',
+                                        href: 'https://github.com/Bobril/Bobril-m'
+                                    }),
+                                    '. It is heavily inspired by ',
+                                    Href.create({
+                                        label: 'www.material-ui.com',
+                                        href: 'http://www.material-ui.com'
+                                    }),
+                                    '.'
+                                ],
+                                {
+                                    padding: 16,
+                                    marginTop: 24
+                                }
+                            )
+                        ],
+                        style: {
+                            textAlign: 'left'
+                        }
                     }),
-                    b.styledDiv([
-                        Label.create({
-                            label: 'Create Bobril application in few minutes = Bobril Build',
-                            size: Label.LabelSize.Title
-                        }),
-                        'Bobril is intend to be used with ',
-                        Href.create({
-                            label: 'Bobril Build',
-                            href: 'https://github.com/Bobris/bobril-build'
-                        }),
-                        '. It will ensures continuous build of your application. ' +
-                        'It supports: copying sprites, building big sprites, i18n.' +
-                        ' Bobril provide all this during optimal TypeScript compilation.'
-                    ], {
-                        marginTop: 24
-                    })
                 ],
                 {
                     maxWidth: styles.maxPageWidth,
