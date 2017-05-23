@@ -41,7 +41,7 @@ const home = b.createComponent<IData>({
                             b.styledDiv(
                                 [
                                     Label.create({
-                                        label: 'Component oriented framework',
+                                        label: 'Component Oriented Framework',
                                         size: Label.LabelSize.Title
                                     }),
                                     'Inspired by ReactJs' +
@@ -80,7 +80,7 @@ const home = b.createComponent<IData>({
                             b.styledDiv(
                                 [
                                     Label.create({
-                                        label: 'Material design',
+                                        label: 'Material Design',
                                         size: Label.LabelSize.Title
                                     }),
                                     'For modern design you can use bobril material design implementation ',
@@ -220,10 +220,23 @@ function getFurrySection(): b.IBobrilChildren {
             ),
             b.styledDiv(
                 [
-                    b.styledDiv('Bobril build', {marginRight: 8}),
+                    b.styledDiv('Bobril Build', {marginRight: 8}),
                     NpmFury.create({
                         url: 'https://badge.fury.io/js/bobril-build',
                         urlSvg: 'https://badge.fury.io/js/bobril-build.svg'
+                    })
+                ],
+                {
+                    textAlign: 'right',
+                    marginTop: 16
+                }
+            ),
+            b.styledDiv(
+                [
+                    b.styledDiv('Bobril Material UI', {marginRight: 8}),
+                    NpmFury.create({
+                        url: 'https://badge.fury.io/js/bobril-m',
+                        urlSvg: 'https://badge.fury.io/js/bobril-m.svg'
                     })
                 ],
                 {
