@@ -30,11 +30,11 @@ export const containerStyle = b.styleDef({
     textAlign: 'center',
     width: '100%',
     margin: 'auto',
-    display: 'table'
+    overflow: 'auto'
 });
 
 export const itemStyle = b.styleDef({
-    width: '30%',
+    width: '33.3%',
     margin: 'auto',
-    display: 'table-cell'
+    cssFloat: 'left'
 });
