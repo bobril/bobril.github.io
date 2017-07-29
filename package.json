@@ -17,6 +17,9 @@
     "title": "Bobril - Component oriented framework",
     "dir": "."
   },
+  "scripts": {
+    "build": "bb b -v dist"
+  },
   "dependencies": {
     "bobril": "^7.2.0",
     "bobril-m": "^0.9.0",
