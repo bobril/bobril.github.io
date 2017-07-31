@@ -156,7 +156,7 @@ function getMotivationSection() {
         Paragraph.create(
             'We started with by our opinion the best choice at that time – Angular 1. '
             + 'However, we soon reached its performance and logic limits. '
-            + 'After two years, Boris has evaluateed a lot of other frameworks. '
+            + 'After two years, Boris has evaluated a lot of other frameworks. '
             + 'Mainly ReactJs. Unfortunately, it did not meet all our needs.'
         ),
         Label.create({
@@ -206,7 +206,7 @@ function getMotivationSection() {
             'If you need modifications, you can do it on your own product easily without taking care about a lot of other use cases. '
             + 'Complexity is expensive. For example, Input element onChange behavior was broken in React in cases that were critical '
             + 'for us (it took them 3 years to fix these). Multiple virtual dom roots in Bobril simplify popups and modal dialogs. '
-            + 'Unique CSS in JS solution is built in Bobril nearly from the beggining. '
+            + 'Unique CSS in JS solution is built in Bobril nearly from the beginning. '
             + 'Bobx (a Mobx-like library) benefits from deep integration with Bobril.'
         ),
         Paragraph.create(
