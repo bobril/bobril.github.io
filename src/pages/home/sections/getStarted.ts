@@ -5,6 +5,7 @@ import * as Code from '../../../components/code/lib';
 
 // examples
 import * as ExampleCounter from './examples/counter';
+import * as ExampleTodo from './examples/todo';
 
 interface IData {
 }
@@ -20,7 +21,8 @@ export const create = b.createComponent<IData>({
         me.children = [
             gettingStarted(),
             b.styledDiv(firstExample(), exampleContainerStyle),
-            b.styledDiv(firstComponent(), exampleContainerStyle)
+            b.styledDiv(firstComponent(), exampleContainerStyle),
+            b.styledDiv(todoExample(), exampleContainerStyle)
         ];
     }
 });
@@ -86,6 +88,22 @@ function firstComponent(): b.IBobrilChildren {
         Code.create({
             children: ExampleCounter.codeInit,
             preview: ExampleCounter.create()
+        })
+    ]
+}
+
+
+function todoExample(): b.IBobrilChildren {
+    return [
+        Label.create({
+            label: 'Little more real example - TODO list',
+            size: Label.LabelSize.Title
+        }),
+        Paragraph.create('When the component is ready integrate it to the page.'),
+        Code.create({
+            children: ExampleTodo.codeComponent,
+            preview: ExampleTodo.create(),
+            maxCodeHeight: 300
         })
     ]
 }
