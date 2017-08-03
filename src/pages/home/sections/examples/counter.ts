@@ -1,14 +1,10 @@
 import * as b from 'bobril';
 
-interface IData {
-}
-
 interface IContext extends b.IBobrilCtx {
-    data: IData;
     counter: number;
 }
 
-export const create = b.createComponent<IData>({
+export const create = b.createComponent<never>({
     init(ctx: IContext) {
         ctx.counter = 0;
         setInterval(() => {
@@ -18,34 +14,25 @@ export const create = b.createComponent<IData>({
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = b.styledDiv(ctx.counter);
+        me.children = ctx.counter;
 
-        b.style(me, {fontSize: 25});
+        b.style(me, { fontSize: 25 });
     }
 });
 
-export const codeInit = '' +
-    'import * as b from \'bobril\';\n' +
-    'import * as Counter from \'./counter\';\n' +
-    '\n' +
-    'b.init(() => {\n' +
-    '    return [\n' +
-    '        Counter.create({})' +
-    '    ];\n' +
-    '});';
-
+export const codeInit = `import * as b from 'bobril';
+import * as Counter from './counter';
+b.init(() => [
+    Counter.create()
+]);`;
 
 export const codeComponent = `import * as b from 'bobril';
 
-interface IData {
-}
-
 interface IContext extends b.IBobrilCtx {
-    data: IData;
     counter: number;
 }
 
-export const create = b.createComponent<IData>({
+export const create = b.createComponent<never>({
     init(ctx: IContext) {
         ctx.counter = 0;
         setInterval(() => {
@@ -55,7 +42,7 @@ export const create = b.createComponent<IData>({
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = b.styledDiv(ctx.counter);
+        me.children = ctx.counter;
 
         b.style(me, {fontSize: 25});
     }

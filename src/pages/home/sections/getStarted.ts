@@ -62,12 +62,12 @@ function firstExample(): b.IBobrilChildren {
         Paragraph.create('Let\'s create first page in Bobril. Create a file index.ts in project directory and insert ' +
             'the code below.'),
         Code.create({
-            children: 'import * as b from \'bobril\';\n' +
-            '\n' +
-            'b.init(() => {\n' +
-            '    return { tag: \'h1\', children: \'Hello World!\' };\n' +
-            '});',
-            preview: {tag: 'h1', children: 'Hello World!'}
+            children: `import * as b from 'bobril';
+
+b.init(() => {
+    return { tag: \'h1\', children: \'Hello World!\' };
+});`,
+            preview: { tag: 'h1', children: 'Hello World!' }
         }),
     ]
         ;
@@ -79,8 +79,9 @@ function firstComponent(): b.IBobrilChildren {
             label: 'First component - Counter',
             size: Label.LabelSize.Title
         }),
-        Paragraph.create('Now it will be a little more complex. We create a component called Counter and then we will use it.' +
-            'The maim benefit of component is, that you can use it as many times as you want.'),
+        Paragraph.create(`Now it will be a little more complex. We create a component called Counter and then we will use it.
+            The main benefit of component is, that you can use it as many times as you want.
+            Generic type never to createComponent means that your component does not have any input data (in React world "props").`),
         Code.create({
             children: ExampleCounter.codeComponent,
         }),
@@ -92,11 +93,10 @@ function firstComponent(): b.IBobrilChildren {
     ]
 }
 
-
 function todoExample(): b.IBobrilChildren {
     return [
         Label.create({
-            label: 'Todo List - Little more real example',
+            label: `Todo List - Little more real example`,
             size: Label.LabelSize.Title
         }),
         Paragraph.create('It was already presented, how to create a simple component. But how to process the user input? Let\'s ' +
@@ -121,7 +121,7 @@ function todoExample(): b.IBobrilChildren {
             }
         }),
         Label.create({
-            label: 'You will find them on Documentation tab.',
+            label: 'You will find them on documentation tab.',
             size: Label.LabelSize.Title,
             style: {
                 textAlign: 'center'

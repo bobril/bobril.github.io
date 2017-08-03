@@ -6,11 +6,7 @@ interface ITask {
     isDone: boolean;
 }
 
-interface IData {
-}
-
 interface IContext extends b.IBobrilCtx {
-    data: IData;
     tasks: ITask[];
     newTask: ITask;
 }
@@ -110,11 +106,7 @@ interface ITask {
     isDone: boolean;
 }
 
-interface IData {
-}
-
 interface IContext extends b.IBobrilCtx {
-    data: IData;
     tasks: ITask[];
     newTask: ITask;
 }
