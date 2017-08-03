@@ -6,7 +6,11 @@ interface ITask {
     isDone: boolean;
 }
 
+interface IData {
+}
+
 interface IContext extends b.IBobrilCtx {
+    data: IData;
     tasks: ITask[];
     newTask: ITask;
 }
@@ -14,32 +18,30 @@ interface IContext extends b.IBobrilCtx {
 export const create = b.createComponent<never>({
     init(ctx: IContext) {
         ctx.tasks = [
-            {description: 'Learn Bobril', isDone: false},
-            {description: 'What is Bobflux?', isDone: false},
-            {description: 'Try BobX!', isDone: false}
+            createTask('Learn Bobril', false),
+            createTask('What is Bobflux?', false),
+            createTask('Try BobX!', false),
         ];
 
-        ctx.newTask = {description: '', isDone: false};
+        ctx.newTask = createTask('', false);
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = m.Paper({
-            style: {
-                padding: padding
-            },
             children: [
-                b.styledDiv('Todo List', headerStyle),
+                b.styledDiv('Todo List', labelStyle),
                 b.styledDiv(
-                    ctx.tasks.map((task, i) => b.styledDiv(
-                        m.Checkbox({
-                            children: getTaskView(task),
-                            checked: task.isDone,
-                            action: () => {
-                                task.isDone = !task.isDone;
-                                b.invalidate(ctx);
-                            }
-                        }),
-                        taskStyle
+                    ctx.tasks.map((task, i) =>
+                        b.styledDiv(
+                            m.Checkbox({
+                                children: getTaskView(task),
+                                checked: task.isDone,
+                                action: () => {
+                                    task.isDone = !task.isDone;
+                                    b.invalidate(ctx);
+                                }
+                            }),
+                            taskStyle
                         )
                     ),
                     taskListStyle
@@ -60,22 +62,32 @@ export const create = b.createComponent<never>({
                     action: () => {
                         if (!isActualTaskEmpty(ctx)) {
                             ctx.tasks = [ctx.newTask, ...ctx.tasks];
-                            ctx.newTask = {description: '', isDone: false};
+                            ctx.newTask = createTask('', false);
                             b.invalidate(ctx);
                         }
                     }
                 })
-            ]
+            ],
+            style: {
+                padding: padding
+            }
         });
     }
 });
+
+function createTask(description: string, isDone: boolean) {
+    return {description, isDone};
+}
 
 function isActualTaskEmpty(ctx: IContext): boolean {
     return ctx.newTask.description.trim() === '';
 }
 
 function getTaskView(task: ITask): b.IBobrilChildren {
-    return !task.isDone ? task.description : b.styledDiv(task.description, {textDecoration: 'line-through'});
+    return b.styledDiv(
+        task.description,
+        task.isDone && {textDecoration: 'line-through'}
+    );
 }
 
 const padding = 16;
@@ -86,7 +98,7 @@ const taskListStyle = b.styleDef({
     height: taskListHeight,
     overflow: 'auto'
 });
-const headerStyle = b.styleDef({fontSize: 18, textAlign: 'left'});
+const labelStyle = b.styleDef({fontSize: 18, textAlign: 'left'});
 const taskStyle = b.styleDef({textAlign: 'left'});
 
 export const codeInit = '';
@@ -98,7 +110,11 @@ interface ITask {
     isDone: boolean;
 }
 
+interface IData {
+}
+
 interface IContext extends b.IBobrilCtx {
+    data: IData;
     tasks: ITask[];
     newTask: ITask;
 }
@@ -106,32 +122,30 @@ interface IContext extends b.IBobrilCtx {
 export const create = b.createComponent<never>({
     init(ctx: IContext) {
         ctx.tasks = [
-            {description: 'Learn Bobril', isDone: false},
-            {description: 'What is Bobflux?', isDone: false},
-            {description: 'Try BobX!', isDone: false}
+            createTask('Learn Bobril', false),
+            createTask('What is Bobflux?', false),
+            createTask('Try BobX!', false),
         ];
 
-        ctx.newTask = {description: '', isDone: false};
+        ctx.newTask = createTask('', false);
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = m.Paper({
-            style: {
-                padding: padding
-            },
             children: [
-                b.styledDiv('Todo List', headerStyle),
+                b.styledDiv('Todo List', labelStyle),
                 b.styledDiv(
-                    ctx.tasks.map((task, i) => b.styledDiv(
-                        m.Checkbox({
-                            children: getTaskView(task),
-                            checked: task.isDone,
-                            action: () => {
-                                task.isDone = !task.isDone;
-                                b.invalidate(ctx);
-                            }
-                        }),
-                        taskStyle
+                    ctx.tasks.map((task, i) =>
+                        b.styledDiv(
+                            m.Checkbox({
+                                children: getTaskView(task),
+                                checked: task.isDone,
+                                action: () => {
+                                    task.isDone = !task.isDone;
+                                    b.invalidate(ctx);
+                                }
+                            }),
+                            taskStyle
                         )
                     ),
                     taskListStyle
@@ -152,22 +166,32 @@ export const create = b.createComponent<never>({
                     action: () => {
                         if (!isActualTaskEmpty(ctx)) {
                             ctx.tasks = [ctx.newTask, ...ctx.tasks];
-                            ctx.newTask = {description: '', isDone: false};
+                            ctx.newTask = createTask('', false);
                             b.invalidate(ctx);
                         }
                     }
                 })
-            ]
+            ],
+            style: {
+                padding: padding
+            }
         });
     }
 });
+
+function createTask(description: string, isDone: boolean) {
+    return {description, isDone};
+}
 
 function isActualTaskEmpty(ctx: IContext): boolean {
     return ctx.newTask.description.trim() === '';
 }
 
 function getTaskView(task: ITask): b.IBobrilChildren {
-    return !task.isDone ? task.description : b.styledDiv(task.description, {textDecoration: 'line-through'});
+    return b.styledDiv(
+        task.description,
+        task.isDone && {textDecoration: 'line-through'}
+    );
 }
 
 const padding = 16;
@@ -178,6 +202,6 @@ const taskListStyle = b.styleDef({
     height: taskListHeight,
     overflow: 'auto'
 });
-const headerStyle = b.styleDef({fontSize: 18, textAlign: 'left'});
+const labelStyle = b.styleDef({fontSize: 18, textAlign: 'left'});
 const taskStyle = b.styleDef({textAlign: 'left'});
 `;

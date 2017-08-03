@@ -96,15 +96,37 @@ function firstComponent(): b.IBobrilChildren {
 function todoExample(): b.IBobrilChildren {
     return [
         Label.create({
-            label: 'Little more real example - TODO list',
+            label: 'Todo List - Little more real example',
             size: Label.LabelSize.Title
         }),
-        Paragraph.create('When the component is ready integrate it to the page.'),
+        Paragraph.create('It was already presented, how to create a simple component. But how to process the user input? Let\'s ' +
+            'create simple Todo List. In this example, we will use bobril-m library, that implements Material UI design. Initialization of ' +
+            'the component is the same like in the example above. It will not be presented again.'),
+        Paragraph.create('We have prepared you some interesting tasks in todo list. Will you accomplish them? :-)'),
         Code.create({
             children: ExampleTodo.codeComponent,
             preview: ExampleTodo.create(),
             maxCodeHeight: 300
-        })
+        }),
+        Paragraph.create('As you can see in the code above, we are able to create a pretty application with a few rows of code. ' +
+            'Check the code in more detail. Everything is written in TypeScript (even CSS). ' +
+            'Yes, you are right, if we didn\'t use bobril-m, the code will be much longer. Reusability is the most valuable thing of' +
+            ' component oriented frameworks. If you use existing bobril-m library or create some own components, than you are able to design and implement ' +
+            'pretty application really quickly.'),
+        Label.create({
+            label: 'If you are interestend and want to know more, don\'t hesitate and check our tutorials and examples. ',
+            size: Label.LabelSize.Title,
+            style: {
+                textAlign: 'center'
+            }
+        }),
+        Label.create({
+            label: 'You will find them on Documentation tab.',
+            size: Label.LabelSize.Title,
+            style: {
+                textAlign: 'center'
+            }
+        }),
     ]
 }
 
