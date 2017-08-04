@@ -4,13 +4,14 @@ import * as m from 'bobril-m';
 interface IData {
     children: b.IBobrilChildren;
     preview?: b.IBobrilChildren;
+    maxCodeHeight?: number;
 }
 
 interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-const previewWidth = 200;
+const previewWidth = 217;
 const codePadding = 16;
 
 export const create = b.createComponent<IData>({
@@ -18,9 +19,14 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
 
         me.children = [
-
             b.styledDiv(
-                d.children,
+                b.styledDiv(
+                    d.children,
+                    d.maxCodeHeight && {
+                        maxHeight: d.maxCodeHeight,
+                        overflow: 'auto'
+                    }
+                ),
                 codeStyle,
                 d.preview && {
                     display: 'table-cell',
