@@ -1,21 +1,24 @@
 const md = require('./remarkable').md;
 const fs = require('fs');
 
-const docDirectoryPath = '../doc/';
+
+// TODO insert path to DOC DIRECTORY as a PARAM!!!
+const docDirectoryPath = './doc/';
 
 const readFilesResult = readDirectoryContent(docDirectoryPath);
 readFilesResult
     .then((mdFilesContent) => {
         let htmlFilesContent = convertMd2Html(mdFilesContent);
         let outputFile = generateHtmlPage(htmlFilesContent);
-        console.log(outputFile);
 
-        fs.writeFile("../doc.html", outputFile, (err) => {
-            if(err) {
+        // TODO insert output path as a PARAM!!!
+        fs.writeFile('./doc.html', outputFile, (err) => {
+            if (err) {
                 return console.log(err);
             }
 
-            console.log("Bobril documentation has been generated!");
+
+            console.log('Bobril documentation has been generated!');
         });
 
     })
@@ -56,16 +59,18 @@ function readDirectoryContent(dirname) {
 }
 
 function generateHtmlPage(filesContent) {
+    // TODO insert path to CSS as a PARAM!!!
+    let cssStyles = fs.readFileSync('./srcDocBuilder/style.css', 'utf-8');
     let output = `
                     <html>
                         <head>
+                            <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+                            <style>${cssStyles}</style>
                         </head>
                   `;
     for (let fileName in filesContent) {
         if (filesContent.hasOwnProperty(fileName)) {
-            output += `</br>
-                        ${filesContent[fileName]}
-                      `;
+            output += `${filesContent[fileName]}`;
         }
     }
     output += `

@@ -8,6 +8,7 @@ interface IData {
 
 interface IContext extends b.IBobrilCtx {
     data: IData;
+    contentHeight: number;
 }
 
 export const create = b.createComponent<IData>({
@@ -24,9 +25,18 @@ export const create = b.createComponent<IData>({
         d.style && b.style(me, d.style);
     },
 
-    postUpdateDom(_ctx: IContext, _me: b.IBobrilChildren, element: HTMLIFrameElement) {
+    postInitDom(_ctx: IContext, _me: b.IBobrilChildren, element: HTMLIFrameElement) {
         element.onload = () => {
             element.style.height = element.contentWindow.document.body.scrollHeight + 'px';
+        };
+    },
+
+    postUpdateDom(ctx: IContext, _me: b.IBobrilChildren, element: HTMLIFrameElement) {
+        const currentHeight = element.contentWindow.document.body.scrollHeight;
+        if (ctx.contentHeight !== currentHeight) {
+            ctx.contentHeight = currentHeight;
+            element.style.height = currentHeight + 'px';
+            b.invalidate(ctx);
         }
     }
 });

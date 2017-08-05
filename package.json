@@ -18,7 +18,7 @@
     "dir": "."
   },
   "scripts": {
-    "build": "bb b -v dist"
+    "build": "node srcDocBuilder/compile.js && bb b -v dist"
   },
   "dependencies": {
     "bobril": "^7.2.0",
