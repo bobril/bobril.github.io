@@ -64,6 +64,7 @@ function generateHtmlPage(filesContent) {
     let output = `
                     <html>
                         <head>
+                            <base target="_parent">
                             <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
                             <style>${cssStyles}</style>
                         </head>
