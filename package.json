@@ -18,11 +18,14 @@
     "dir": "."
   },
   "scripts": {
-    "build": "bb b -v dist"
+    "build": "node srcDocBuilder/compile.js && bb b -v dist"
   },
   "dependencies": {
     "bobril": "^7.2.0",
     "bobril-m": "^0.9.0",
-    "bobril-m-icons": "^2.0.0"
+    "bobril-m-icons": "^2.0.0",
+    "fs": "0.0.1-security",
+    "highlight.js": "^9.12.0",
+    "remarkable": "^1.7.1"
   }
 }
