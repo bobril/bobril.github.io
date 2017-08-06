@@ -1,4 +1,4 @@
-[//]: <> (previous:'introduction.md'; next: 'examples.md')
+[//]: <> (menuLabel:'How to start';menuAnchor:'how-to-start';previous:'introduction.md'; next: 'examples.md')
 # How to start
 * [Bobril documentation](https://github.com/Bobris/Bobril/blob/master/src/bobril.md)
 * [Bobril - Getting started](https://www.codeproject.com/Articles/1044425/Bobril-I-Getting-Started)

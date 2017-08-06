@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import {css} from './markdownCss';
+import {css} from './docCss';
 
 b.injectCss(css);
 

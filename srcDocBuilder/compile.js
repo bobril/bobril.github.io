@@ -2,6 +2,7 @@ const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const md = require('./remarkable').md;
 const utils = require('./utils');
+const html = require('./htmlGenerator');
 
 const supportedFileType = '.md';
 
@@ -25,7 +26,7 @@ readDirectory(commandLineArguments.srcDirectory)
             .map(convertContentMd2HTML);
 
         const sortedHtmlFragments = sortByMetadata(htmlFragments);
-        const outputFile = generateHtmlPage(sortedHtmlFragments);
+        const outputFile = html.generateHtmlPage(sortedHtmlFragments);
         console.log(`HTML fragments successfully generated.`);
 
         fs.writeFile(commandLineArguments.outputFile, outputFile, (error) => {
@@ -65,20 +66,22 @@ function parseMetaTagLine(fileName, line) {
         throw new Error(`Meta tag line cannot be parsed. Line is not defined. Filename: ${fileName}`);
     }
 
-    const metaTagRegex = /\[\/\/\]\:.*\<\>.*\(.*previous:(.*?);.*next:(.*\').*?/g;
+    const metaTagRegex = /\[\/\/\]\:.*\<\>.*\(menuLabel:(.*?);.*menuAnchor:(.*?);.*previous:(.*?);.*next:(.*\').*?/g;
     const match = metaTagRegex.exec(line);
 
     if (match === null) {
         throw Error(`Meta tag line cannot be parsed: ${fileName}`);
     }
 
-    if (match.length !== 3) {
+    if (match.length !== 5) {
         throw Error(`Previous or next statement is not properly defined in file: ${fileName}`);
     }
 
     return {
-        previous: match[1].trim().slice(1, -1), // remove ''
-        next: match[2].trim().slice(1, -1) // remove ''
+        label: match[1].trim().slice(1, -1), // remove ''
+        menuAnchor: match[2].trim().slice(1, -1), // remove ''
+        previous: match[3].trim().slice(1, -1), // remove ''
+        next: match[4].trim().slice(1, -1) // remove ''
     }
 }
 
@@ -134,11 +137,3 @@ function sortByMetadata(linkedList) {
     return sortedList;
 }
 
-function generateHtmlPage(sortedHtmlFragments) {
-    let output = `export const html =\``;
-    for (let i = 0; i < sortedHtmlFragments.length; i++) {
-        output += `${sortedHtmlFragments[i].content}`;
-    }
-    output += `\``;
-    return output;
-}

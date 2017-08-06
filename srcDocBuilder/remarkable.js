@@ -1,6 +1,6 @@
 const Remarkable = require('remarkable');
 const hljs = require('highlight.js'); // https://highlightjs.org/
-
+const toc = require('markdown-toc');
 // https://jonschlinkert.github.io/remarkable/demo/
 const md = new Remarkable('full', {
     html: false,
@@ -27,6 +27,10 @@ const md = new Remarkable('full', {
 
         return '';
     }
+}).use((remarkable) => {
+    remarkable.renderer.rules.heading_open = (tokens, idx) => {
+        return '<h' + tokens[idx].hLevel + ' id=' + toc.slugify(tokens[idx + 1].content) + '>';
+    };
 });
 
 module.exports.md = md;

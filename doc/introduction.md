@@ -1,4 +1,4 @@
-[//]: <> (previous:'';next: 'howToStart.md')
+[//]: <> (menuLabel:'Introduction';menuAnchor:'why-own-framework';previous:'';next: 'howToStart.md')
 # Why own framework
 For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.
 

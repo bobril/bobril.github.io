@@ -36,4 +36,12 @@ export const css = `
 .markdown li {
     list-style: none;
 }
+
+.markdown doc-menu {
+
+}
+
+.markdown doc-content {
+
+}
 `;
