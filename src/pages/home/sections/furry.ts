@@ -45,7 +45,7 @@ export const create = b.createComponent<IData>({
                     ],
                     {
                         textAlign: 'right',
-                        marginTop: 16
+                        marginTop: 12
                     }
                 ),
                 b.styledDiv(
@@ -58,7 +58,21 @@ export const create = b.createComponent<IData>({
                     ],
                     {
                         textAlign: 'right',
-                        marginTop: 16
+                        marginTop: 12
+                    }
+                ),
+
+                b.styledDiv(
+                    [
+                        b.styledDiv('BobX', {marginRight: 8}),
+                        NpmFury.create({
+                            url: 'https://badge.fury.io/js/bobx',
+                            urlSvg: 'https://badge.fury.io/js/bobx.svg'
+                        })
+                    ],
+                    {
+                        textAlign: 'right',
+                        marginTop: 12
                     }
                 )
             ]
