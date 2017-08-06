@@ -2,7 +2,7 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as LCenter from '../../components/lCenter/lib';
 import * as styles from '../styles';
-import * as MarkdownHtml from '../../components/markdownHtml/lib'
+import * as MarkdownHtml from '../../components/documentationHtml/lib'
 import {html as docHtml} from '../../generatedDoc';
 
 interface IData {
