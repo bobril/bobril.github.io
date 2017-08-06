@@ -1,0 +1,10 @@
+[//]: <> (previous:'introduction.md'; next: 'examples.md')
+# How to start
+* [Bobril documentation](https://github.com/Bobris/Bobril/blob/master/src/bobril.md)
+* [Bobril - Getting started](https://www.codeproject.com/Articles/1044425/Bobril-I-Getting-Started)
+* [Bobril - I - Getting started](https://www.codeproject.com/Articles/1044425/Bobril-I-Getting-Started)
+* [Bobril - II - Bobflux Application Architecture](https://www.codeproject.com/Articles/1055921/Bobril-II-Bobflux-application-architecture)
+* [Bobril - III - Localizations and Formatting](https://www.codeproject.com/Articles/1058132/Bobril-III-Localizations-and-formatting)
+* [Bobril - IV - Routing](https://www.codeproject.com/Articles/1058609/Bobril-IV-Routing)
+* [Bobril - V - Bobril-build](https://www.codeproject.com/Articles/1167901/bobril-build)
+* [Bobril - Integration to Another Web Application](https://www.codeproject.com/Articles/1184937/Bobril-Integration-to-Another-Web-Application)
