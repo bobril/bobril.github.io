@@ -1,6 +1,7 @@
 const md = require('./remarkable').md;
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
+const utils = require('./utils');
 
 const argumentsDefinitions = [
     {name: 'srcDirectory', type: String},
@@ -9,16 +10,23 @@ const argumentsDefinitions = [
 const arguments = commandLineArgs(argumentsDefinitions);
 
 console.log(`Generation of documentation has been started.`);
-const readFilesResult = readDirectoryContent(arguments.srcDirectory);
+const readFilesResult = readFiles(arguments.srcDirectory);
 readFilesResult
     .then((mdFilesContent) => {
-        console.log(`Documentation files (*.md) loaded.`);
+        let filesList = utils.mapToList(mdFilesContent)
+            .map((item) => {
+                return {
+                    name: item.key,
+                    content: item.value
+                }
+            });
 
-        let htmlFilesContent = convertMd2Html(mdFilesContent);
-        console.log(`Files *.md has been converted to *.html in memory.`);
+        let htmlParts = filesList
+            .map(createMetaData)
+            .map(convertContentMd2HTML);
 
-        let outputFile = generateHtmlPage(htmlFilesContent);
-        console.log(`Final HTML has been created from html parts.`);
+        let sortedHtmlParts = sortByMetadata(htmlParts);
+        let outputFile = generateHtmlPage(sortedHtmlParts);
 
         fs.writeFile(arguments.outputFile, outputFile, (err) => {
             if (err) {
@@ -33,17 +41,34 @@ readFilesResult
         console.log('Error occurred during the documentation build', error);
     });
 
-function convertMd2Html(filesContent) {
-    let htmlFileContent = {};
-    for (let fileName in filesContent) {
-        if (filesContent.hasOwnProperty(fileName)) {
-            htmlFileContent[fileName] = md.render(filesContent[fileName]);
-        }
-    }
-    return htmlFileContent;
+function createMetaData(file) {
+    const metaTagLineRaw = file.content.split('\n')[0];
+    const metadata = parseMetaTagLine(file.name, metaTagLineRaw);
+    return {
+        metadata: Object.assign(metadata, {current: file.name}),
+        content: file.content
+    };
 }
 
-function readDirectoryContent(dirname) {
+function parseMetaTagLine(fileName, line) {
+    const metaTagRegex = /\[\/\/\]\:.*\<\>.*\(.*previous:(.*?);.*next:(.*\').*?/g;
+    const match = metaTagRegex.exec(line);
+
+    if (match === null) {
+        throw Error(`Meta tag line cannot be parsed: ${fileName}`);
+    }
+
+    return {
+        previous: match[1].trim().slice(1, -1),
+        next: match[2].trim().slice(1, -1)
+    }
+}
+
+function convertContentMd2HTML(file) {
+    return Object.assign(file, {content: md.render(file.content)});
+}
+
+function readFiles(dirname) {
     let directoryContent = {};
 
     return new Promise((resolve, reject) => {
@@ -65,12 +90,34 @@ function readDirectoryContent(dirname) {
     );
 }
 
-function generateHtmlPage(filesContent) {
-    let output = `export const html =\``;
-    for (let fileName in filesContent) {
-        if (filesContent.hasOwnProperty(fileName)) {
-            output += `${filesContent[fileName]}`;
+function sortByMetadata(linkedList) {
+    let sortedList = [];
+    let map = new Map();
+    let currentId = null;
+
+    for (let i = 0; i < linkedList.length; i++) {
+        let item = linkedList[i];
+        if (item.metadata.previous === '') {
+            currentId = item.metadata.current;
+            sortedList.push(item);
+        } else {
+            map.set(item.metadata.previous, i);
         }
+    }
+
+    while (sortedList.length < linkedList.length) {
+        let nextItem = linkedList[map.get(currentId)];
+        sortedList.push(nextItem);
+        currentId = nextItem.metadata.current;
+    }
+
+    return sortedList;
+}
+
+function generateHtmlPage(sortedHtmlParts) {
+    let output = `export const html =\``;
+    for (let i = 0; i < sortedHtmlParts.length; i++) {
+        output += `${sortedHtmlParts[i].content}`;
     }
     output += `\``;
     return output;
