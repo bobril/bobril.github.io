@@ -1,24 +1,31 @@
 const md = require('./remarkable').md;
 const fs = require('fs');
+const commandLineArgs = require('command-line-args');
 
+const argumentsDefinitions = [
+    {name: 'srcDirectory', type: String},
+    {name: 'outputFile', type: String}
+];
+const arguments = commandLineArgs(argumentsDefinitions);
 
-// TODO insert path to DOC DIRECTORY as a PARAM!!!
-const docDirectoryPath = './doc/';
-
-const readFilesResult = readDirectoryContent(docDirectoryPath);
+console.log(`Generation of documentation has been started.`);
+const readFilesResult = readDirectoryContent(arguments.srcDirectory);
 readFilesResult
     .then((mdFilesContent) => {
-        let htmlFilesContent = convertMd2Html(mdFilesContent);
-        let outputFile = generateHtmlPage(htmlFilesContent);
+        console.log(`Documentation files (*.md) loaded.`);
 
-        // TODO insert output path as a PARAM!!!
-        fs.writeFile('./doc.html', outputFile, (err) => {
+        let htmlFilesContent = convertMd2Html(mdFilesContent);
+        console.log(`Files *.md has been converted to *.html in memory.`);
+
+        let outputFile = generateHtmlPage(htmlFilesContent);
+        console.log(`Final HTML has been created from html parts.`);
+
+        fs.writeFile(arguments.outputFile, outputFile, (err) => {
             if (err) {
-                return console.log(err);
+                return console.log('Error occurred during documentation generation: ', err);
             }
 
-
-            console.log('Bobril documentation has been generated!');
+            console.log(`Bobril documentation has been generated. It's available here: ${arguments.outputFile}`);
         });
 
     })
@@ -59,24 +66,12 @@ function readDirectoryContent(dirname) {
 }
 
 function generateHtmlPage(filesContent) {
-    // TODO insert path to CSS as a PARAM!!!
-    let cssStyles = fs.readFileSync('./srcDocBuilder/style.css', 'utf-8');
-    let output = `
-                    <html>
-                        <head>
-                            <base target="_parent">
-                            <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-                            <style>${cssStyles}</style>
-                        </head>
-                  `;
+    let output = `export const html =\``;
     for (let fileName in filesContent) {
         if (filesContent.hasOwnProperty(fileName)) {
             output += `${filesContent[fileName]}`;
         }
     }
-    output += `
-                    </body>
-                </html>
-                `;
+    output += `\``;
     return output;
 }

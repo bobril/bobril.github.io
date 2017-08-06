@@ -2,9 +2,8 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as LCenter from '../../components/lCenter/lib';
 import * as styles from '../styles';
-import * as IFrame from '../../components/iframe/lib';
-
-const docHtml = b.asset('../../../doc.html');
+import * as MarkdownHtml from '../../components/markdownHtml/lib'
+import {html as docHtml} from '../../generatedDoc';
 
 interface IData {
 }
@@ -33,9 +32,8 @@ const documentation = b.createComponent<IData>({
                                 marginBottom: 24
                             }
                         ),
-                        IFrame.create({
-                            url: docHtml,
-                            width: styles.maxPageWidth
+                        MarkdownHtml.create({
+                            html: docHtml
                         })
                     ],
                     maxWidth: styles.maxPageWidth,
