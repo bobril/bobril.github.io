@@ -3,14 +3,17 @@ function mapToList(input) {
 
     for (let key in input) {
         if (input.hasOwnProperty(key)) {
-            let item = {key: '', value: ''};
-            item.key = key;
-            item.value = input[key];
-            list.push(item);
+            list.push({key: key, value: input[key]});
         }
     }
 
     return list;
 }
 
+function isExtension(fileName, extension) {
+    return fileName.slice(-extension.length) === extension;
+}
+
+
 module.exports.mapToList = mapToList;
+module.exports.isExtension = isExtension;

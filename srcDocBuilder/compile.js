@@ -1,39 +1,40 @@
-const md = require('./remarkable').md;
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
+const md = require('./remarkable').md;
 const utils = require('./utils');
 
-const argumentsDefinitions = [
-    {name: 'srcDirectory', type: String},
-    {name: 'outputFile', type: String}
-];
-const arguments = commandLineArgs(argumentsDefinitions);
+const supportedFileType = '.md';
 
-console.log(`Generation of documentation has been started.`);
-const readFilesResult = readFiles(arguments.srcDirectory);
-readFilesResult
+// Commandline arguments
+const commandLineArguments = getArguments();
+
+// Load all files from directory
+console.log(`------- Generation of Bobril documentation ------`);
+readDirectory(commandLineArguments.srcDirectory)
     .then((mdFilesContent) => {
-        let filesList = utils.mapToList(mdFilesContent)
+        const htmlFragments = utils
+            .mapToList(mdFilesContent)
             .map((item) => {
                 return {
                     name: item.key,
                     content: item.value
                 }
-            });
-
-        let htmlParts = filesList
-            .map(createMetaData)
+            })
+            .filter((item) => utils.isExtension(item.name, supportedFileType))
+            .map(addMetaData)
             .map(convertContentMd2HTML);
 
-        let sortedHtmlParts = sortByMetadata(htmlParts);
-        let outputFile = generateHtmlPage(sortedHtmlParts);
+        const sortedHtmlFragments = sortByMetadata(htmlFragments);
+        const outputFile = generateHtmlPage(sortedHtmlFragments);
+        console.log(`HTML fragments successfully generated.`);
 
-        fs.writeFile(arguments.outputFile, outputFile, (err) => {
-            if (err) {
-                return console.log('Error occurred during documentation generation: ', err);
+        fs.writeFile(commandLineArguments.outputFile, outputFile, (error) => {
+            if (error) {
+                throw new Error('Cannot write generated file due', error);
             }
 
-            console.log(`Bobril documentation has been generated. It's available here: ${arguments.outputFile}`);
+            console.log(`SUCCESS: Documentation generated to '${commandLineArguments.outputFile}'`);
+            console.log(`------- Generation of Bobril documentation succeed ------`);
         });
 
     })
@@ -41,9 +42,18 @@ readFilesResult
         console.log('Error occurred during the documentation build', error);
     });
 
-function createMetaData(file) {
+function getArguments() {
+    const argumentsDefinitions = [
+        {name: 'srcDirectory', type: String},
+        {name: 'outputFile', type: String}
+    ];
+    return commandLineArgs(argumentsDefinitions);
+}
+
+function addMetaData(file) {
     const metaTagLineRaw = file.content.split('\n')[0];
     const metadata = parseMetaTagLine(file.name, metaTagLineRaw);
+
     return {
         metadata: Object.assign(metadata, {current: file.name}),
         content: file.content
@@ -51,6 +61,10 @@ function createMetaData(file) {
 }
 
 function parseMetaTagLine(fileName, line) {
+    if (line === undefined) {
+        throw new Error(`Meta tag line cannot be parsed. Line is not defined. Filename: ${fileName}`);
+    }
+
     const metaTagRegex = /\[\/\/\]\:.*\<\>.*\(.*previous:(.*?);.*next:(.*\').*?/g;
     const match = metaTagRegex.exec(line);
 
@@ -58,9 +72,13 @@ function parseMetaTagLine(fileName, line) {
         throw Error(`Meta tag line cannot be parsed: ${fileName}`);
     }
 
+    if (match.length !== 3) {
+        throw Error(`Previous or next statement is not properly defined in file: ${fileName}`);
+    }
+
     return {
-        previous: match[1].trim().slice(1, -1),
-        next: match[2].trim().slice(1, -1)
+        previous: match[1].trim().slice(1, -1), // remove ''
+        next: match[2].trim().slice(1, -1) // remove ''
     }
 }
 
@@ -68,22 +86,24 @@ function convertContentMd2HTML(file) {
     return Object.assign(file, {content: md.render(file.content)});
 }
 
-function readFiles(dirname) {
+function readDirectory(dirName) {
     let directoryContent = {};
 
     return new Promise((resolve, reject) => {
-            fs.readdir(dirname, (err, filenames) => {
+            fs.readdir(dirName, (err, fileNames) => {
                 if (err) {
                     reject(err);
                 }
 
-                filenames.forEach((filename) => {
-                    const fileContent = fs.readFileSync(dirname + filename, 'utf-8');
+                fileNames.forEach((fileName) => {
+                    const fileContent = fs.readFileSync(dirName + fileName, 'utf-8');
                     if (fileContent) {
-                        directoryContent[filename] = fileContent;
+                        directoryContent[fileName] = fileContent;
                     }
                 });
 
+                console.log(`Files red successfully.`);
+                console.log(`Number of files: ${fileNames.length}`);
                 resolve(directoryContent);
             });
         }
@@ -92,7 +112,7 @@ function readFiles(dirname) {
 
 function sortByMetadata(linkedList) {
     let sortedList = [];
-    let map = new Map();
+    let map = {};
     let currentId = null;
 
     for (let i = 0; i < linkedList.length; i++) {
@@ -101,12 +121,12 @@ function sortByMetadata(linkedList) {
             currentId = item.metadata.current;
             sortedList.push(item);
         } else {
-            map.set(item.metadata.previous, i);
+            map[item.metadata.previous] = i;
         }
     }
 
     while (sortedList.length < linkedList.length) {
-        let nextItem = linkedList[map.get(currentId)];
+        let nextItem = linkedList[map[currentId]];
         sortedList.push(nextItem);
         currentId = nextItem.metadata.current;
     }
@@ -114,10 +134,10 @@ function sortByMetadata(linkedList) {
     return sortedList;
 }
 
-function generateHtmlPage(sortedHtmlParts) {
+function generateHtmlPage(sortedHtmlFragments) {
     let output = `export const html =\``;
-    for (let i = 0; i < sortedHtmlParts.length; i++) {
-        output += `${sortedHtmlParts[i].content}`;
+    for (let i = 0; i < sortedHtmlFragments.length; i++) {
+        output += `${sortedHtmlFragments[i].content}`;
     }
     output += `\``;
     return output;
