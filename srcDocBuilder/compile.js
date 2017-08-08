@@ -3,45 +3,60 @@ const commandLineArgs = require('command-line-args');
 const md = require('./remarkable').md;
 const utils = require('./utils');
 const html = require('./htmlGenerator');
+const metadataTagParser = require('./metadataTagLineParser');
+const fileUtils = require('./fileUtils');
+const treeUtils = require('./treeUtils');
 
 const supportedFileType = '.md';
 
 // Commandline arguments
 const commandLineArguments = getArguments();
 
-// Load all files from directory
-console.log(`------- Generation of Bobril documentation ------`);
-readDirectory(commandLineArguments.srcDirectory)
-    .then((mdFilesContent) => {
-        const htmlFragments = utils
-            .mapToList(mdFilesContent)
-            .map((item) => {
-                return {
-                    name: item.key,
-                    content: item.value
-                }
-            })
-            .filter((item) => utils.isExtension(item.name, supportedFileType))
-            .map(addMetaData)
-            .map(convertContentMd2HTML);
+const directoryMirror = fileUtils.directoryTree(commandLineArguments.srcDirectory);
 
-        const sortedHtmlFragments = sortByMetadata(htmlFragments);
-        const outputFile = html.generateHtmlPage(sortedHtmlFragments);
-        console.log(`HTML fragments successfully generated.`);
-
-        fs.writeFile(commandLineArguments.outputFile, outputFile, (error) => {
-            if (error) {
-                throw new Error('Cannot write generated file due', error);
-            }
-
-            console.log(`SUCCESS: Documentation generated to '${commandLineArguments.outputFile}'`);
-            console.log(`------- Generation of Bobril documentation succeed ------`);
-        });
-
+const menuOrderConfRaw = treeUtils.searchTree(
+    directoryMirror,
+    'order.conf',
+    (value) => {
+        return value.name
     })
-    .catch((error) => {
-        console.log('Error occurred during the documentation build', error);
-    });
+    .content.split('\n');
+const menuOrderCon = menuOrderConfRaw.map((row) => {
+    return row.trim()
+});
+
+const directoryFiltered = treeUtils.filterTree(directoryMirror, (node) => {
+    return utils.isExtension(node.path, supportedFileType);
+});
+
+const directoriesWithMetadata = treeUtils.mapTree(directoryFiltered, (node) => {
+    if (node.type === fileUtils.TYPE_FILE) {
+        return Object.assign(node, {metadata: readMetadata(node)});
+    }
+    return node;
+});
+
+const directoriesHtmlFragments = treeUtils.mapTree(directoriesWithMetadata, (node) => {
+    if (node.type === fileUtils.TYPE_FILE) {
+        return convertContentMd2HTML(node);
+    }
+    return node;
+});
+
+const sortedHtmlFragmentsByMetadata = sortTreeLevelsByMetadata(directoriesHtmlFragments);
+// TODO Multi level menu ordering
+const sortedHtmlFragmentsByMenuConfig = sortTreeLevelsByMenuConfig(sortedHtmlFragmentsByMetadata, menuOrderCon);
+
+const flattedTreeToList = treeUtils.flatTree(sortedHtmlFragmentsByMenuConfig);
+
+flattedTreeToList.slice(1, flattedTreeToList.length); // remove root (/docs)
+const generatedHtml = html.generateHtmlPage(
+    sortedHtmlFragmentsByMenuConfig.children,
+    flattedTreeToList.filter((node) => node.type === fileUtils.TYPE_FILE)
+);
+
+fs.writeFileSync(commandLineArguments.outputFile, generatedHtml, 'utf-8');
+
 
 function getArguments() {
     const argumentsDefinitions = [
@@ -51,66 +66,46 @@ function getArguments() {
     return commandLineArgs(argumentsDefinitions);
 }
 
-function addMetaData(file) {
-    const metaTagLineRaw = file.content.split('\n')[0];
-    const metadata = parseMetaTagLine(file.name, metaTagLineRaw);
-
-    return {
-        metadata: Object.assign(metadata, {current: file.name}),
-        content: file.content
-    };
-}
-
-function parseMetaTagLine(fileName, line) {
-    if (line === undefined) {
-        throw new Error(`Meta tag line cannot be parsed. Line is not defined. Filename: ${fileName}`);
-    }
-
-    const metaTagRegex = /\[\/\/\]\:.*\<\>.*\(menuLabel:(.*?);.*menuAnchor:(.*?);.*previous:(.*?);.*next:(.*\').*?/g;
-    const match = metaTagRegex.exec(line);
-
-    if (match === null) {
-        throw Error(`Meta tag line cannot be parsed: ${fileName}`);
-    }
-
-    if (match.length !== 5) {
-        throw Error(`Previous or next statement is not properly defined in file: ${fileName}`);
-    }
-
-    return {
-        label: match[1].trim().slice(1, -1), // remove ''
-        menuAnchor: match[2].trim().slice(1, -1), // remove ''
-        previous: match[3].trim().slice(1, -1), // remove ''
-        next: match[4].trim().slice(1, -1) // remove ''
-    }
+function readMetadata(file) {
+    return metadataTagParser.parseMetadataTagLine(file.name, file.content);
 }
 
 function convertContentMd2HTML(file) {
     return Object.assign(file, {content: md.render(file.content)});
 }
 
-function readDirectory(dirName) {
-    let directoryContent = {};
-
-    return new Promise((resolve, reject) => {
-            fs.readdir(dirName, (err, fileNames) => {
-                if (err) {
-                    reject(err);
-                }
-
-                fileNames.forEach((fileName) => {
-                    const fileContent = fs.readFileSync(dirName + fileName, 'utf-8');
-                    if (fileContent) {
-                        directoryContent[fileName] = fileContent;
-                    }
-                });
-
-                console.log(`Files red successfully.`);
-                console.log(`Number of files: ${fileNames.length}`);
-                resolve(directoryContent);
-            });
+function sortTreeLevelsByMenuConfig(node, menuConfig) {
+    let sortedChildren = [];
+    let unsortedChildren = [...node.children];
+    let i = 0;
+    while (sortedChildren.length < unsortedChildren.length) {
+        let sorter = menuConfig[i];
+        for (let j = 0; j < unsortedChildren.length; j++) {
+            if (sorter === unsortedChildren[j].name) {
+                sortedChildren.push(unsortedChildren[j]);
+                break;
+            }
         }
-    );
+        i++
+    }
+
+    return Object.assign(node, {children: sortedChildren});
+}
+
+function sortTreeLevelsByMetadata(node) {
+    if (node.children !== undefined && node.children.length !== 0) {
+        let nodesToInvestigate = [...node.children].filter((node) => node.type === fileUtils.TYPE_FOLDER);
+        let investigatedNodes = [];
+        nodesToInvestigate.forEach((nn) => {
+            investigatedNodes.push(sortTreeLevelsByMetadata(nn));
+        });
+
+        let nodesToSort = sortByMetadata([...node.children].filter((node) => node.type === fileUtils.TYPE_FILE));
+
+        return Object.assign(node, {children: [...investigatedNodes, ...nodesToSort]});
+    }
+
+    return node;
 }
 
 function sortByMetadata(linkedList) {

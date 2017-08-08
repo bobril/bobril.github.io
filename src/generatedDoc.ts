@@ -1,42 +1,83 @@
 
 export const html =`
     <div class='doc-menu' style='float: left; width: 170px'>
+        <ul style="padding-left: 10px">
+            <li>
+                <a 
+                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
+                   onMouseOut="this.style.color='#000'" 
+                   href='#introduction'>
+                        Introduction
+                </a>
+            </li>
+            <ul style="padding-left: 10px">
         
-        <ul style='margin: 0; padding: 0'>
-            
-                    <li>
-                        <a 
-                           style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-                           onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                           onMouseOut="this.style.color='#000'" 
-                           href='#why-own-framework'>
-                                Introduction
-                        </a>
-                    </li>
-                    <li>
-                        <a 
-                           style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-                           onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                           onMouseOut="this.style.color='#000'" 
-                           href='#how-to-start'>
-                                How to start
-                        </a>
-                    </li>
-                    <li>
-                        <a 
-                           style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-                           onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                           onMouseOut="this.style.color='#000'" 
-                           href='#examples'>
-                                Examples
-                        </a>
-                    </li>
-        </ul>
-    
+        <li>
+            <a 
+               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+               onMouseOver="this.style.color='rgb(0, 188, 212)'"
+               onMouseOut="this.style.color='#000'" 
+               href='#why-own-framework'>
+                    Why own framework
+            </a>
+        </li>
+        <li>
+            <a 
+               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+               onMouseOver="this.style.color='rgb(0, 188, 212)'"
+               onMouseOut="this.style.color='#000'" 
+               href='#how-to-start'>
+                    How to start
+            </a>
+        </li></ul></ul><ul style="padding-left: 10px">
+            <li>
+                <a 
+                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
+                   onMouseOut="this.style.color='#000'" 
+                   href='#guides'>
+                        Guides
+                </a>
+            </li>
+            <ul style="padding-left: 10px">
+        </ul></ul><ul style="padding-left: 10px">
+            <li>
+                <a 
+                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
+                   onMouseOut="this.style.color='#000'" 
+                   href='#docs'>
+                        Docs
+                </a>
+            </li>
+            <ul style="padding-left: 10px">
+        </ul></ul><ul style="padding-left: 10px">
+            <li>
+                <a 
+                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
+                   onMouseOut="this.style.color='#000'" 
+                   href='#community'>
+                        Community
+                </a>
+            </li>
+            <ul style="padding-left: 10px">
+        
+        <li>
+            <a 
+               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+               onMouseOver="this.style.color='rgb(0, 188, 212)'"
+               onMouseOut="this.style.color='#000'" 
+               href='#examples'>
+                    Examples
+            </a>
+        </li></ul></ul>
     </div>
     <div class='doc-content'
          style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: 186px'>
-        <h1 id=why-own-framework>Why own framework</h1>
+        <h1 id=introduction>Introduction</h1>
+<h1 id=why-own-framework>Why own framework</h1>
 <p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
 <h2 id=mobile-focus>Mobile focus</h2>
@@ -61,6 +102,9 @@ export const html =`
 <li><a href="https://www.codeproject.com/Articles/1167901/bobril-build">Bobril - V - Bobril-build</a></li>
 <li><a href="https://www.codeproject.com/Articles/1184937/Bobril-Integration-to-Another-Web-Application">Bobril - Integration to Another Web Application</a></li>
 </ul>
+<h1 id=guides>Guides</h1>
+<h1 id=docs>Docs</h1>
+<h1 id=community>Community</h1>
 <h1 id=examples>Examples</h1>
 <ul>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/bbExamples">Bobril-build examples here.</a></li>

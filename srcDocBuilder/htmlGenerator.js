@@ -1,9 +1,10 @@
 const menuWidth = 170;
-function generateHtmlPage(sortedHtmlFragments) {
+
+function generateHtmlPage(menuNodes, sortedHtmlFragments) {
     return `
 export const html =\`
     <div class='doc-menu' style='float: left; width: ${menuWidth}px'>
-        ${generateMenu(sortedHtmlFragments)}
+        ${generateMenu(menuNodes)}
     </div>
     <div class='doc-content'
          style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: ${menuWidth + 16}px'>
@@ -13,24 +14,45 @@ export const html =\`
 `;
 }
 
+function generateMenu(nodes) {
+    let output = '';
+    nodes.forEach((node) => {
+        output += generateMenuFromNode(node);
+    });
+    return output;
+}
 
-function generateMenu(sortedHtmlFragments) {
+function generateMenuFromNode(node) {
+    if (node.children !== undefined && node.children.length > 0) {
+        let output = `<ul style="padding-left: 10px">
+            <li>
+                <a 
+                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
+                   onMouseOut="this.style.color='#000'" 
+                   href='#${node.children[0].metadata.menuAnchor}'>
+                        ${node.children[0].metadata.label}
+                </a>
+            </li>
+            <ul style="padding-left: 10px">
+        `;
+        for (let i = 1; i < node.children.length; i++) {
+            output += `${generateMenuFromNode(node.children[i])}`;
+        }
+        output += `</ul></ul>`;
+        return output;
+    }
+
     return `
-        <ul style='margin: 0; padding: 0'>
-            ${sortedHtmlFragments.reduce((output, item) => {
-        return output + `
-                    <li>
-                        <a 
-                           style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-                           onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                           onMouseOut="this.style.color='#000'" 
-                           href='#${item.metadata.menuAnchor}'>
-                                ${item.metadata.label}
-                        </a>
-                    </li>`
-    }, '')}
-        </ul>
-    `;
+        <li>
+            <a 
+               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+               onMouseOver="this.style.color='rgb(0, 188, 212)'"
+               onMouseOut="this.style.color='#000'" 
+               href='#${node.metadata.menuAnchor}'>
+                    ${node.metadata.label}
+            </a>
+        </li>`;
 }
 
 function generateContent(sortedHtmlFragments) {

@@ -1,4 +1,7 @@
-[//]: <> (menuLabel:'Introduction';menuAnchor:'why-own-framework';previous:'';next: 'howToStart.md')
+[//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
+[//]: <> (menuLabel:'Why own framework')
+[//]: <> (menuAnchor:'why-own-framework')
+[//]: <> (previous:'root.md';next: 'howToStart.md')
 # Why own framework
 For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.
 
