@@ -1,4 +1,4 @@
-const menuWidth = 170;
+const menuWidth = 190;
 
 function generateHtmlPage(menuNodes, sortedHtmlFragments) {
     return `
@@ -24,17 +24,17 @@ function generateMenu(nodes) {
 
 function generateMenuFromNode(node) {
     if (node.children !== undefined && node.children.length > 0) {
-        let output = `<ul style="padding-left: 10px">
+        let output = `<ul style="padding-left: 10px; margin-top: 0">
             <li>
                 <a 
-                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   style='text-decoration: none; color: #0097a7; font-size:18px'  
                    onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#000'" 
+                   onMouseOut="this.style.color='#0097a7'" 
                    href='#${node.children[0].metadata.menuAnchor}'>
                         ${node.children[0].metadata.label}
                 </a>
             </li>
-            <ul style="padding-left: 10px">
+            <ul style="padding-left: 16px">
         `;
         for (let i = 1; i < node.children.length; i++) {
             output += `${generateMenuFromNode(node.children[i])}`;

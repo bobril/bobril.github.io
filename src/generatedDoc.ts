@@ -1,17 +1,17 @@
 
 export const html =`
-    <div class='doc-menu' style='float: left; width: 170px'>
-        <ul style="padding-left: 10px">
+    <div class='doc-menu' style='float: left; width: 190px'>
+        <ul style="padding-left: 10px; margin-top: 0">
             <li>
                 <a 
-                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   style='text-decoration: none; color: #0097a7; font-size:18px'  
                    onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#000'" 
+                   onMouseOut="this.style.color='#0097a7'" 
                    href='#introduction'>
                         Introduction
                 </a>
             </li>
-            <ul style="padding-left: 10px">
+            <ul style="padding-left: 16px">
         
         <li>
             <a 
@@ -21,7 +21,18 @@ export const html =`
                href='#why-own-framework'>
                     Why own framework
             </a>
-        </li>
+        </li></ul></ul><ul style="padding-left: 10px; margin-top: 0">
+            <li>
+                <a 
+                   style='text-decoration: none; color: #0097a7; font-size:18px'  
+                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
+                   onMouseOut="this.style.color='#0097a7'" 
+                   href='#guides'>
+                        Guides
+                </a>
+            </li>
+            <ul style="padding-left: 16px">
+        
         <li>
             <a 
                style='text-decoration: none; color: rgba(0,0,0,0.870)'  
@@ -30,39 +41,28 @@ export const html =`
                href='#how-to-start'>
                     How to start
             </a>
-        </li></ul></ul><ul style="padding-left: 10px">
+        </li></ul></ul><ul style="padding-left: 10px; margin-top: 0">
             <li>
                 <a 
-                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   style='text-decoration: none; color: #0097a7; font-size:18px'  
                    onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#000'" 
-                   href='#guides'>
-                        Guides
-                </a>
-            </li>
-            <ul style="padding-left: 10px">
-        </ul></ul><ul style="padding-left: 10px">
-            <li>
-                <a 
-                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#000'" 
+                   onMouseOut="this.style.color='#0097a7'" 
                    href='#docs'>
                         Docs
                 </a>
             </li>
-            <ul style="padding-left: 10px">
-        </ul></ul><ul style="padding-left: 10px">
+            <ul style="padding-left: 16px">
+        </ul></ul><ul style="padding-left: 10px; margin-top: 0">
             <li>
                 <a 
-                   style='text-decoration: none; color: rgba(0,0,0,0.870)'  
+                   style='text-decoration: none; color: #0097a7; font-size:18px'  
                    onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#000'" 
+                   onMouseOut="this.style.color='#0097a7'" 
                    href='#community'>
                         Community
                 </a>
             </li>
-            <ul style="padding-left: 10px">
+            <ul style="padding-left: 16px">
         
         <li>
             <a 
@@ -75,9 +75,8 @@ export const html =`
         </li></ul></ul>
     </div>
     <div class='doc-content'
-         style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: 186px'>
-        <h1 id=introduction>Introduction</h1>
-<h1 id=why-own-framework>Why own framework</h1>
+         style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: 206px'>
+        <div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
 <p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
 <h2 id=mobile-focus>Mobile focus</h2>
@@ -91,7 +90,7 @@ export const html =`
 <h2 id=own>Own</h2>
 <p>If you need modifications, you can do it on your own product easily without taking care about a lot of other use cases. Complexity is expensive. For example, Input element onChange behavior was broken in React in cases that were critical for us (it took them 3 years to fix these). Multiple virtual dom roots in Bobril simplify popups and modal dialogs. Unique CSS in JS solution is built in Bobril nearly from the beginning. Bobx (a Mobx-like library) benefits from deep integration with Bobril.</p>
 <p>All this was for Inspire Designer at the beginning. But when we were thinking about the framework for another big product, we found that size, speed and using your own framework are significant advantages and decided to use it on company level. Of course, this decision has a disadvantage in the lack of community.</p>
-<h1 id=how-to-start>How to start</h1>
+<div id='guides' style='font-size: 24px; font-weight:400; color: #0097a7'>Guides</div><h1 id=how-to-start>How to start</h1>
 <ul>
 <li><a href="https://github.com/Bobris/Bobril/blob/master/src/bobril.md">Bobril documentation</a></li>
 <li><a href="https://www.codeproject.com/Articles/1044425/Bobril-I-Getting-Started">Bobril - Getting started</a></li>
@@ -102,10 +101,8 @@ export const html =`
 <li><a href="https://www.codeproject.com/Articles/1167901/bobril-build">Bobril - V - Bobril-build</a></li>
 <li><a href="https://www.codeproject.com/Articles/1184937/Bobril-Integration-to-Another-Web-Application">Bobril - Integration to Another Web Application</a></li>
 </ul>
-<h1 id=guides>Guides</h1>
-<h1 id=docs>Docs</h1>
-<h1 id=community>Community</h1>
-<h1 id=examples>Examples</h1>
+<div id='docs'style='font-size: 24px; font-weight:400; color: #0097a7'>Docs</div>
+<div id ='community' style='font-size: 24px; font-weight:400; color: #0097a7'>Community</div><h1 id=examples>Examples</h1>
 <ul>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/bbExamples">Bobril-build examples here.</a></li>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/examples">Older examples here.</a></li>

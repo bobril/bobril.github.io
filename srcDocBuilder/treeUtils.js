@@ -30,14 +30,14 @@ function filterTree(node, filterCondition) {
                 mappedChildren.push(filteredTree);
             }
         });
-        return Object.assign(node, {children: mappedChildren});
+        return Object.assign({}, node, {children: mappedChildren});
     }
 
     if (node.type === fileUtils.TYPE_FILE && !filterCondition(node)) {
         return undefined;
     }
 
-    return node;
+    return Object.assign({}, node);
 }
 
 function mapTree(node, mapFunction) {

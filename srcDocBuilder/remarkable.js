@@ -3,7 +3,7 @@ const hljs = require('highlight.js'); // https://highlightjs.org/
 const toc = require('markdown-toc');
 // https://jonschlinkert.github.io/remarkable/demo/
 const md = new Remarkable('full', {
-    html: false,
+    html: true,
     xhtmlOut: false,
     breaks: true,
     langPrefix: 'language-',

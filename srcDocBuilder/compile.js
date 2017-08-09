@@ -8,62 +8,61 @@ const fileUtils = require('./fileUtils');
 const treeUtils = require('./treeUtils');
 
 const supportedFileType = '.md';
+const argumentsDefinitions = [
+    {name: 'srcDirectory', type: String},
+    {name: 'outputFile', type: String}
+];
 
 // Commandline arguments
 const commandLineArguments = getArguments();
 
-const directoryMirror = fileUtils.directoryTree(commandLineArguments.srcDirectory);
+const directoriesTreeRaw = fileUtils.directoryTree(commandLineArguments.srcDirectory);
 
-const menuOrderConfRaw = treeUtils.searchTree(
-    directoryMirror,
-    'order.conf',
-    (value) => {
-        return value.name
-    })
-    .content.split('\n');
-const menuOrderCon = menuOrderConfRaw.map((row) => {
-    return row.trim()
-});
-
-const directoryFiltered = treeUtils.filterTree(directoryMirror, (node) => {
+const directoriesTreeFiltered = treeUtils.filterTree(directoriesTreeRaw, (node) => {
     return utils.isExtension(node.path, supportedFileType);
 });
 
-const directoriesWithMetadata = treeUtils.mapTree(directoryFiltered, (node) => {
-    if (node.type === fileUtils.TYPE_FILE) {
-        return Object.assign(node, {metadata: readMetadata(node)});
-    }
-    return node;
+const directoriesTreeWithMetadata = treeUtils.mapTree(directoriesTreeFiltered, (node) => {
+    return isFileTypeNode(node) ? Object.assign(node, {metadata: readMetadata(node)}) : node;
 });
 
-const directoriesHtmlFragments = treeUtils.mapTree(directoriesWithMetadata, (node) => {
-    if (node.type === fileUtils.TYPE_FILE) {
-        return convertContentMd2HTML(node);
-    }
-    return node;
+const directoriesTreeHtmlFragments = treeUtils.mapTree(directoriesTreeWithMetadata, (node) => {
+    return isFileTypeNode(node) ? convertContentMd2HTML(node) : node;
 });
 
-const sortedHtmlFragmentsByMetadata = sortTreeLevelsByMetadata(directoriesHtmlFragments);
+const sortedHtmlFragmentsTreeByMetadata = sortTreeLevelsByMetadata(directoriesTreeHtmlFragments);
+
 // TODO Multi level menu ordering
-const sortedHtmlFragmentsByMenuConfig = sortTreeLevelsByMenuConfig(sortedHtmlFragmentsByMetadata, menuOrderCon);
+// TODO search directoryOrder file on each level, if there are any directories to sort
+const menuOrderConfiguration = getMenuOrderConfiguration();
+const sortedHtmlFragmentsTreeByMenuConfig = sortTreeLevelsByMenuConfig(sortedHtmlFragmentsTreeByMetadata, menuOrderConfiguration);
 
-const flattedTreeToList = treeUtils.flatTree(sortedHtmlFragmentsByMenuConfig);
+const flattedTreeToList = treeUtils.flatTree(sortedHtmlFragmentsTreeByMenuConfig);
 
-flattedTreeToList.slice(1, flattedTreeToList.length); // remove root (/docs)
+// Remove root (/docs)
+flattedTreeToList.slice(1, flattedTreeToList.length);
 const generatedHtml = html.generateHtmlPage(
-    sortedHtmlFragmentsByMenuConfig.children,
-    flattedTreeToList.filter((node) => node.type === fileUtils.TYPE_FILE)
+    sortedHtmlFragmentsTreeByMenuConfig.children,
+    flattedTreeToList.filter((node) => isFileTypeNode(node))
 );
 
 fs.writeFileSync(commandLineArguments.outputFile, generatedHtml, 'utf-8');
 
 
 function getArguments() {
-    const argumentsDefinitions = [
-        {name: 'srcDirectory', type: String},
-        {name: 'outputFile', type: String}
-    ];
     return commandLineArgs(argumentsDefinitions);
+}
+
+function getMenuOrderConfiguration() {
+    return treeUtils.searchTree(
+        directoriesTreeRaw,
+        'directoryOrder',
+        (value) => {
+            return value.name
+        })
+        .content
+        .split('\n')
+        .map((row) => row.trim());
 }
 
 function readMetadata(file) {
@@ -71,7 +70,12 @@ function readMetadata(file) {
 }
 
 function convertContentMd2HTML(file) {
-    return Object.assign(file, {content: md.render(file.content)});
+    return Object.assign(
+        file,
+        {
+            content: md.render(file.content)
+        }
+    );
 }
 
 function sortTreeLevelsByMenuConfig(node, menuConfig) {
@@ -86,7 +90,7 @@ function sortTreeLevelsByMenuConfig(node, menuConfig) {
                 break;
             }
         }
-        i++
+        i++;
     }
 
     return Object.assign(node, {children: sortedChildren});
@@ -94,13 +98,13 @@ function sortTreeLevelsByMenuConfig(node, menuConfig) {
 
 function sortTreeLevelsByMetadata(node) {
     if (node.children !== undefined && node.children.length !== 0) {
-        let nodesToInvestigate = [...node.children].filter((node) => node.type === fileUtils.TYPE_FOLDER);
+        let nodesToInvestigate = [...node.children].filter((node) => isFolderTypeNode(node));
         let investigatedNodes = [];
         nodesToInvestigate.forEach((nn) => {
             investigatedNodes.push(sortTreeLevelsByMetadata(nn));
         });
 
-        let nodesToSort = sortByMetadata([...node.children].filter((node) => node.type === fileUtils.TYPE_FILE));
+        let nodesToSort = sortByMetadata([...node.children].filter((node) => isFileTypeNode(node)));
 
         return Object.assign(node, {children: [...investigatedNodes, ...nodesToSort]});
     }
@@ -132,3 +136,11 @@ function sortByMetadata(linkedList) {
     return sortedList;
 }
 
+function isFileTypeNode(node) {
+    return node.type === fileUtils.TYPE_FILE;
+}
+
+
+function isFolderTypeNode(node) {
+    return node.type === fileUtils.TYPE_FOLDER;
+}

@@ -5,22 +5,20 @@ const TYPE_FILE = 'file';
 const TYPE_FOLDER = 'folder';
 
 function directoryTree(filename) {
-    let stats = fs.lstatSync(filename);
-    let info = {
+    const stats = fs.lstatSync(filename);
+    const info = {
         path: filename,
         name: path.basename(filename)
     };
 
     if (stats.isDirectory()) {
         info.type = TYPE_FOLDER;
-        info.children = fs.readdirSync(filename).map((child) => {
-            return directoryTree(filename + '/' + child);
-        });
+        info.children = fs.readdirSync(filename).map((child) => directoryTree(filename + '/' + child));
     } else {
         info.type = TYPE_FILE;
         info.content = fs.readFileSync(info.path, 'utf-8');
-
     }
+
     return info;
 }
 
