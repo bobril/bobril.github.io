@@ -1,7 +1,53 @@
 
 export const html =`
-    <div class='doc-menu' style='float: left; width: 190px'>
-        <ul style="padding-left: 10px; margin-top: 0">
+    <style>.markdown h1 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.markdown h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.markdown h3 {
+    font-size: 15x;
+    font-weight: 400;
+}
+
+.markdown h4 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.markdown h5 {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.markdown h6 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.markdown a {
+    color: rgb(0, 188, 212)
+}
+
+.markdown li {
+    list-style: none;
+}
+
+.markdown doc-menu {
+
+}
+
+.markdown doc-content {
+
+}</style>
+    <div class="markdown">
+        <div class='doc-menu' style='float: left; width: 190px'>
+            <ul style="padding-left: 10px; margin-top: 0">
             <li>
                 <a 
                    style='text-decoration: none; color: #0097a7; font-size:18px'  
@@ -73,10 +119,10 @@ export const html =`
                     Examples
             </a>
         </li></ul></ul>
-    </div>
-    <div class='doc-content'
-         style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: 206px'>
-        <div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
+        </div>
+        <div class='doc-content'
+             style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: 206px'>
+            <div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
 <p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
 <h2 id=mobile-focus>Mobile focus</h2>
@@ -108,5 +154,6 @@ export const html =`
 <li><a href="https://github.com/Bobris/Bobril/tree/master/examples">Older examples here.</a></li>
 </ul>
 
+        </div>
     </div>
     `

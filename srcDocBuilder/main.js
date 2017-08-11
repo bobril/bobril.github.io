@@ -1,11 +1,11 @@
 const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const md = require('./remarkable').md;
-const utils = require('./utils');
-const html = require('./htmlGenerator');
-const metadataTagParser = require('./metadataTagLineParser');
-const fileUtils = require('./fileUtils');
-const treeUtils = require('./treeUtils');
+const utils = require('./utils/utils');
+const html = require('./html/htmlGenerator');
+const metadataTagParser = require('./metadata/metadataParser');
+const fileUtils = require('./utils/fileUtils');
+const treeUtils = require('./utils/treeUtils');
 
 const supportedFileType = '.md';
 const argumentsDefinitions = [

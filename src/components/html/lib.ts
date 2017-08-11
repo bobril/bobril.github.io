@@ -1,7 +1,4 @@
 import * as b from 'bobril';
-import {css} from './docCss';
-
-b.injectCss(css);
 
 interface IData {
     html: string;
@@ -18,9 +15,5 @@ export const create = b.createComponent<IData>({
             tag: '/',
             children: ctx.data.html
         };
-
-        b.style(me, markdownStyle);
     }
 });
-
-const markdownStyle = b.styleDef({}, {}, 'markdown');
