@@ -1,6 +1,6 @@
 .markdown .doc-menu .menu-block {
     padding-left: 10px;
-    margin-top: 0
+    margin-top: 0;
 }
 
 .markdown .doc-menu .menu-block-header {
@@ -14,12 +14,12 @@
 }
 
 .markdown .doc-menu .menu-sub-block {
-    padding-left: 16px
+    padding-left: 16px;
 }
 
 .markdown .doc-menu .menu-sub-block-item {
     text-decoration: none;
-    color: rgba(0,0,0,0.870)
+    color: rgba(0,0,0,0.870);
 }
 
 .markdown .doc-menu .menu-sub-block-item:hover {

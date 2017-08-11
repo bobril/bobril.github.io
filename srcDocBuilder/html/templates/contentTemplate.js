@@ -1,9 +1,10 @@
 function generateContent(sortedHtmlFragments) {
-    let output = '';
+    let output = [];
     for (let i = 0; i < sortedHtmlFragments.length; i++) {
-        output += `${sortedHtmlFragments[i].content}`;
+        output.push(`${sortedHtmlFragments[i].content}`);
     }
-    return output;
+
+    return output.join('');
 }
 
 module.exports.generateContent = generateContent;
