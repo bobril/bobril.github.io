@@ -11,7 +11,7 @@ export const html =`
 }
 
 .markdown h3 {
-    font-size: 15x;
+    font-size: 15px;
     font-weight: 400;
 }
 
@@ -37,91 +37,104 @@ export const html =`
 .markdown li {
     list-style: none;
 }
-
-.markdown doc-menu {
-
+.markdown .doc-menu {
+    float: left
 }
 
-.markdown doc-content {
+.markdown .doc-content {
+    padding-left: 16px;
+    border-left: 1px solid #bdbdbd;
+}.markdown .doc-menu .menu-block {
+    padding-left: 10px;
+    margin-top: 0
+}
 
+.markdown .doc-menu .menu-block-header {
+    text-decoration: none;
+    color: #0097a7;
+    font-size: 18px
+}
+
+.markdown .doc-menu .menu-block-header:hover {
+    color: rgb(0, 188, 212);
+}
+
+.markdown .doc-menu .menu-sub-block {
+    padding-left: 16px
+}
+
+.markdown .doc-menu .menu-sub-block-item {
+    text-decoration: none;
+    color: rgba(0,0,0,0.870)
+}
+
+.markdown .doc-menu .menu-sub-block-item:hover {
+    color: rgb(0, 188, 212);
 }</style>
     <div class="markdown">
-        <div class='doc-menu' style='float: left; width: 190px'>
-            <ul style="padding-left: 10px; margin-top: 0">
+        <div class='doc-menu' 
+            style='width: 190px'>
+            <ul class="menu-block">
             <li>
                 <a 
-                   style='text-decoration: none; color: #0097a7; font-size:18px'  
-                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#0097a7'" 
+                   class="menu-block-header"
                    href='#introduction'>
                         Introduction
                 </a>
             </li>
-            <ul style="padding-left: 16px">
+            <ul class="menu-sub-block">
         
         <li>
             <a 
-               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-               onMouseOver="this.style.color='rgb(0, 188, 212)'"
-               onMouseOut="this.style.color='#000'" 
+               class="menu-sub-block-item"
                href='#why-own-framework'>
                     Why own framework
             </a>
-        </li></ul></ul><ul style="padding-left: 10px; margin-top: 0">
+        </li></ul></ul><ul class="menu-block">
             <li>
                 <a 
-                   style='text-decoration: none; color: #0097a7; font-size:18px'  
-                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#0097a7'" 
+                   class="menu-block-header"
                    href='#guides'>
                         Guides
                 </a>
             </li>
-            <ul style="padding-left: 16px">
+            <ul class="menu-sub-block">
         
         <li>
             <a 
-               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-               onMouseOver="this.style.color='rgb(0, 188, 212)'"
-               onMouseOut="this.style.color='#000'" 
+               class="menu-sub-block-item"
                href='#how-to-start'>
                     How to start
             </a>
-        </li></ul></ul><ul style="padding-left: 10px; margin-top: 0">
+        </li></ul></ul><ul class="menu-block">
             <li>
                 <a 
-                   style='text-decoration: none; color: #0097a7; font-size:18px'  
-                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#0097a7'" 
+                   class="menu-block-header"
                    href='#docs'>
                         Docs
                 </a>
             </li>
-            <ul style="padding-left: 16px">
-        </ul></ul><ul style="padding-left: 10px; margin-top: 0">
+            <ul class="menu-sub-block">
+        </ul></ul><ul class="menu-block">
             <li>
                 <a 
-                   style='text-decoration: none; color: #0097a7; font-size:18px'  
-                   onMouseOver="this.style.color='rgb(0, 188, 212)'"
-                   onMouseOut="this.style.color='#0097a7'" 
+                   class="menu-block-header"
                    href='#community'>
                         Community
                 </a>
             </li>
-            <ul style="padding-left: 16px">
+            <ul class="menu-sub-block">
         
         <li>
             <a 
-               style='text-decoration: none; color: rgba(0,0,0,0.870)'  
-               onMouseOver="this.style.color='rgb(0, 188, 212)'"
-               onMouseOut="this.style.color='#000'" 
+               class="menu-sub-block-item"
                href='#examples'>
                     Examples
             </a>
         </li></ul></ul>
         </div>
         <div class='doc-content'
-             style='padding-left: 16px; border-left: 1px solid #bdbdbd; margin-left: 206px'>
+             style='margin-left: 206px'>
             <div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
 <p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
