@@ -4,7 +4,8 @@ const menuWidth = 190;
 const cssFiles = [
     'base.css',
     'mainTemplate.css',
-    'menuTemplate.css'
+    'menuTemplate.css',
+    'contentTemplate.css'
 ];
 
 function htmlTemplateTypescript(parts) {

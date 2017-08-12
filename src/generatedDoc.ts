@@ -40,11 +40,7 @@ export const html =`
 .markdown .doc-menu {
     float: left;
 }
-
-.markdown .doc-content {
-    padding-left: 16px;
-    border-left: 1px solid #bdbdbd;
-}.markdown .doc-menu .menu-block {
+.markdown .doc-menu .menu-block {
     padding-left: 10px;
     margin-top: 0;
 }
@@ -70,6 +66,9 @@ export const html =`
 
 .markdown .doc-menu .menu-sub-block-item:hover {
     color: rgb(0, 188, 212);
+}.markdown .doc-content {
+    padding-left: 16px;
+    border-left: 1px solid #bdbdbd;
 }</style>
     <div class="markdown">
         <div class='doc-menu' 
