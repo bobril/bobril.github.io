@@ -16,21 +16,6 @@ const documentation = b.createComponent<IData>({
         me.children = [
             LCenter.create({
                     children: [
-                        Label.create({
-                            label: 'Documentation under construction.',
-                            size: Label.LabelSize.Title,
-                            style: {
-                                textAlign: 'center'
-                            }
-                        }),
-                        b.styledDiv(
-                            'We know, that it is not easy to develop application without any documentation. ' +
-                            'We hope, that these materials will help you to start.',
-                            {
-                                marginTop: 24,
-                                marginBottom: 24
-                            }
-                        ),
                         DocImporter.create()
                     ],
                     maxWidth: styles.maxPageWidth,

@@ -39,6 +39,7 @@ export const html =`
 }
 .markdown .doc-menu {
     float: left;
+    position: fixed;
 }
 
 .markdown .doc-menu a {
@@ -153,7 +154,14 @@ export const html =`
         </div>
         <div class='doc-content'
              style='margin-left: 206px'>
-            <div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
+            <p style="text-align: center;">
+<b>Documentation under construction.</b>
+</p>
+<p style="text-align: center; margin: 24px 0px 24px 0px">
+We know, that it is not easy to develop application without any documentation. We hope, that these materials will help you to start.
+</p>
+<div style="width: 600px; height: 1px; background: #bdbdbd; margin: auto; margin-bottom:24px"></div>
+<div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
 <p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
 <h2 id=mobile-focus>Mobile focus</h2>
