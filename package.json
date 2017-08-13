@@ -18,7 +18,7 @@
     "dir": "."
   },
   "scripts": {
-    "build-doc": "node srcDocBuilder/main.js --srcDirectory=./doc/ --outputFile=./src/generatedDoc.ts",
+    "build-doc": "node tools/docBuilder/main.js --srcDirectory=./doc/ --outputFile=./src/generatedDoc.ts",
     "build-page": "bb b -s 1 -v dist",
     "build": "npm run build-doc && npm run build-page"
   },
