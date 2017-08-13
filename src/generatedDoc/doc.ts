@@ -40,6 +40,10 @@ export const html =`
 .markdown .doc-menu {
     float: left;
 }
+
+.markdown .doc-menu a {
+    cursor: pointer;
+}
 .markdown .doc-menu .menu-block {
     padding-left: 10px;
     margin-top: 0;
@@ -78,7 +82,7 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               href='#introduction'>
+               onclick='$doc.scrollToNodeWithId("introduction")'>
                     Introduction
             </a>
         </li>
@@ -87,7 +91,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               href='#why-own-framework'>
+               onclick='$doc.scrollToNodeWithId("why-own-framework")'>
                     Why own framework
             </a>
         </li>
@@ -98,7 +102,7 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               href='#guides'>
+               onclick='$doc.scrollToNodeWithId("guides")'>
                     Guides
             </a>
         </li>
@@ -107,7 +111,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               href='#how-to-start'>
+               onclick='$doc.scrollToNodeWithId("how-to-start")'>
                     How to start
             </a>
         </li>
@@ -118,7 +122,7 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               href='#docs'>
+               onclick='$doc.scrollToNodeWithId("docs")'>
                     Docs
             </a>
         </li>
@@ -130,7 +134,7 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               href='#community'>
+               onclick='$doc.scrollToNodeWithId("community")'>
                     Community
             </a>
         </li>
@@ -139,7 +143,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               href='#examples'>
+               onclick='$doc.scrollToNodeWithId("examples")'>
                     Examples
             </a>
         </li>

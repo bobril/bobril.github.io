@@ -2,8 +2,7 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as LCenter from '../../components/lCenter/lib';
 import * as styles from '../styles';
-import * as MarkdownHtml from '../../components/html/lib'
-import {html as docHtml} from '../../generatedDoc';
+import * as DocImporter from './docImporter'
 
 interface IData {
 }
@@ -32,9 +31,7 @@ const documentation = b.createComponent<IData>({
                                 marginBottom: 24
                             }
                         ),
-                        MarkdownHtml.create({
-                            html: docHtml
-                        })
+                        DocImporter.create()
                     ],
                     maxWidth: styles.maxPageWidth,
                 }

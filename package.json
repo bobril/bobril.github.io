@@ -18,7 +18,7 @@
     "dir": "."
   },
   "scripts": {
-    "build-doc": "node tools/docBuilder/main.js --srcDirectory=./doc/ --outputFile=./src/generatedDoc.ts",
+    "build-doc": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc/ --outputDirectory=./src/generatedDoc",
     "build-page": "bb b -s 1 -v dist",
     "build": "npm run build-doc && npm run build-page"
   },
@@ -28,6 +28,7 @@
     "bobril-m-icons": "^2.0.0",
     "command-line-args": "^4.0.6",
     "fs": "0.0.1-security",
+    "fs-extra": "^4.0.1",
     "highlight.js": "^9.12.0",
     "markdown-toc": "^1.1.0",
     "remarkable": "^1.7.1"
@@ -35,6 +36,7 @@
   "resolutions": {
     "argparse": "1.0.9",
     "kind-of": "4.0.0",
-    "is-number": "3.0.0"
+    "is-number": "3.0.0",
+    "array-back": "2.0.0"
   }
 }

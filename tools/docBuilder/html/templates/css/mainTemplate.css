@@ -1,3 +1,7 @@
 .markdown .doc-menu {
     float: left;
 }
+
+.markdown .doc-menu a {
+    cursor: pointer;
+}

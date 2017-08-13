@@ -37,17 +37,7 @@ function generateMenuItem(menuItemCfg) {
         <li>
             <a 
                class='${menuItemCfg.tagClass}'
-               onclick='(function (id) { 
-                        var e = document.getElementById(id);
-                        if (e === undefined || e === null) {
-                            console.warn("Cannot find element with id:", id);
-                            return;
-                        }
-            
-                        var offsetTop = e.offsetTop - 60;
-                        console.log(offsetTop);
-                        window.scrollTo(0, offsetTop);
-                    })("${menuItemCfg.menuAnchor}")'>
+               onclick='$doc.scrollToNodeWithId("${menuItemCfg.menuAnchor}")'>
                     ${menuItemCfg.label}
             </a>
         </li>

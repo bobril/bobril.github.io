@@ -1,4 +1,6 @@
 const fs = require('fs');
+const fse = require('fs-extra');
+const path = require('path');
 const commandLineArgs = require('command-line-args');
 const md = require('./remarkable').md;
 const utils = require('./utils/utils');
@@ -10,7 +12,8 @@ const treeUtils = require('./utils/treeUtils');
 const supportedFileType = '.md';
 const argumentsDefinitions = [
     {name: 'srcDirectory', type: String},
-    {name: 'outputFile', type: String}
+    {name: 'outputType', type: String},
+    {name: 'outputDirectory', type: String}
 ];
 
 // Commandline arguments
@@ -46,7 +49,7 @@ const generatedHtml = html.generateHtmlPage(
     flattedTreeToList.filter((node) => isFileTypeNode(node))
 );
 
-fs.writeFileSync(commandLineArguments.outputFile, generatedHtml, 'utf-8');
+writeOutputTypescript(generatedHtml);
 
 
 function getArguments() {
@@ -143,4 +146,19 @@ function isFileTypeNode(node) {
 
 function isFolderTypeNode(node) {
     return node.type === fileUtils.TYPE_FOLDER;
+}
+
+function writeOutputTypescript(output) {
+
+    if (!fs.existsSync(commandLineArguments.outputDirectory)) {
+        fs.mkdirSync(commandLineArguments.outputDirectory)
+    }
+
+    copyJsResources();
+
+    fs.writeFileSync(commandLineArguments.outputDirectory + '/doc.ts', output, 'utf-8');
+}
+
+function copyJsResources() {
+    fse.copySync(path.resolve(__dirname,'./html/jsHelpers/helpers.js'), path.resolve(commandLineArguments.outputDirectory, 'helpers.js'));
 }
