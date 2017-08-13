@@ -11,10 +11,10 @@ function generateMenuFromNode(node) {
         let output = [
             `<ul class='menu-block'>
                 ${generateMenuItem({
-                    tagClass: 'menu-block-header',
-                    menuAnchor: node.children[0].metadata.menuAnchor,
-                    label: node.children[0].metadata.label
-                })}
+                tagClass: 'menu-block-header',
+                menuAnchor: node.children[0].metadata.menuAnchor,
+                label: node.children[0].metadata.label
+            })}
                 <ul class='menu-sub-block'>`];
         for (let i = 1; i < node.children.length; i++) {
             output.push(generateMenuFromNode(node.children[i]));
@@ -37,11 +37,22 @@ function generateMenuItem(menuItemCfg) {
         <li>
             <a 
                class='${menuItemCfg.tagClass}'
-               href='#${menuItemCfg.menuAnchor}'>
+               onclick='(function (id) { 
+                        var e = document.getElementById(id);
+                        if (e === undefined || e === null) {
+                            console.warn("Cannot find element with id:", id);
+                            return;
+                        }
+            
+                        var offsetTop = e.offsetTop - 60;
+                        console.log(offsetTop);
+                        window.scrollTo(0, offsetTop);
+                    })("${menuItemCfg.menuAnchor}")'>
                     ${menuItemCfg.label}
             </a>
         </li>
     `;
 }
+
 
 module.exports.generateMenu = generateMenu;
