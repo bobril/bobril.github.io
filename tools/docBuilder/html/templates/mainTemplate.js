@@ -19,10 +19,10 @@ export const html =\`
         </div>
         <div class='doc-content'
              style='margin-left: ${menuWidth + 16}px'>
-            ${parts.content}
+            ${escapeContent(parts.content)}
         </div>
     </div>
-    \`
+    \`;
 `
 }
 
@@ -35,6 +35,12 @@ function getCssStyles() {
     }
 
     return cssResult.join('');
+}
+
+function escapeContent(content) {
+    return content
+        .split('`').join('\\`')
+        .split('$').join('\\$');
 }
 
 module.exports.htmlTemplateTypescript = htmlTemplateTypescript;

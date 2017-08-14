@@ -25,3 +25,7 @@
 .markdown .doc-menu .menu-sub-block-item:hover {
     color: rgb(0, 188, 212);
 }
+
+.markdown .doc-menu li {
+    list-style: none;
+}

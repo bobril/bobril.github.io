@@ -29,7 +29,20 @@ const directoriesTreeWithMetadata = treeUtils.mapTree(directoriesTreeFiltered, (
     return isFileTypeNode(node) ? Object.assign(node, {metadata: readMetadata(node)}) : node;
 });
 
-const directoriesTreeHtmlFragments = treeUtils.mapTree(directoriesTreeWithMetadata, (node) => {
+const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree(directoriesTreeFiltered, (node) => {
+    if (isFileTypeNode(node)) {
+        if (node.metadata.symlink) {
+            const resolvedSymlinkPath = path.resolve(node.path, node.metadata.symlink);
+            let symlinkFileContent = fs.readFileSync(resolvedSymlinkPath, 'utf-8');
+            symlinkFileContent = removeUnecessaryContent(symlinkFileContent);
+            return Object.assign(node, {content: node.content + '\n' + symlinkFileContent})
+        }
+    }
+
+    return node;
+});
+
+const directoriesTreeHtmlFragments = treeUtils.mapTree(directoriesTreeWithMetadataAndReadedSymlinkContent, (node) => {
     return isFileTypeNode(node) ? convertContentMd2HTML(node) : node;
 });
 
@@ -160,5 +173,30 @@ function writeOutputTypescript(output) {
 }
 
 function copyJsResources() {
-    fse.copySync(path.resolve(__dirname,'./html/jsHelpers/helpers.js'), path.resolve(commandLineArguments.outputDirectory, 'helpers.js'));
+    fse.copySync(path.resolve(__dirname, './html/jsHelpers/helpers.js'), path.resolve(commandLineArguments.outputDirectory, 'helpers.js'));
+}
+
+function removeUnecessaryContent(content) {
+    let rows = content.split('\n');
+    const startPattern = '[//]: <> (bobrilComRemoveStart)';
+    const endPattern = '[//]: <> (bobrilComRemoveEnd)';
+
+    let outputContent = [];
+    let include = true;
+    for (let i = 0; i < rows.length; i++) {
+        if (rows[i].indexOf(startPattern) !== -1) {
+            include = false;
+            continue;
+        }
+
+        if (rows[i].indexOf(endPattern) !== -1) {
+            include = true;
+            continue;
+        }
+
+        if (include) {
+            outputContent.push(rows[i]);
+        }
+    }
+    return outputContent.join('\n');
 }

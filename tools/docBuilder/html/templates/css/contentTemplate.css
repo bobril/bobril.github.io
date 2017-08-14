@@ -2,3 +2,11 @@
     padding-left: 16px;
     border-left: 1px solid #bdbdbd;
 }
+
+.markdown .doc-content code {
+    width: 80%;
+    display: block;
+    background: white;
+    padding: 16px;
+    border: 1px solid black;
+}
