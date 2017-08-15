@@ -178,8 +178,8 @@ function copyJsResources() {
 
 function removeUnecessaryContent(content) {
     let rows = content.split('\n');
-    const startPattern = '[//]: <> (bobrilComRemoveStart)';
-    const endPattern = '[//]: <> (bobrilComRemoveEnd)';
+    const startPattern = '[//]: <> (bobrilComIgnoreStart)';
+    const endPattern = '[//]: <> (bobrilComIgnoreEnd)';
 
     let outputContent = [];
     let include = true;

@@ -73,16 +73,21 @@ export const html =`
     list-style: none;
 }
 .markdown .doc-content {
-    padding-left: 16px;
     border-left: 1px solid #bdbdbd;
+    padding: 16px 16px 16px 32px;
 }
 
 .markdown .doc-content code {
-    width: 80%;
+    width: 100%;
     display: block;
     background: white;
     padding: 16px;
     border: 1px solid black;
+    overflow: auto;
+}
+
+.markdown .doc-content p {
+    text-align: justify;
 }</style>
     <div class="markdown">
         <div class='doc-menu' 
