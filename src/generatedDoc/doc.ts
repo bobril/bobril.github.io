@@ -1,39 +1,6 @@
 
 export const html =`
-    <style>.markdown h1 {
-    font-size: 30px;
-    font-weight: 400;
-}
-
-.markdown h2 {
-    font-size: 25px;
-    font-weight: 500;
-}
-
-.markdown h3 {
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.markdown h4 {
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.markdown h5 {
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.markdown h6 {
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.markdown a {
-    color: rgb(0, 188, 212);
-}
-.markdown .doc-menu {
+    <style>/* Here we can override github markdown css styles */.markdown .doc-menu {
     float: left;
     position: fixed;
 }
@@ -75,15 +42,6 @@ export const html =`
 .markdown .doc-content {
     border-left: 1px solid #bdbdbd;
     padding: 16px 16px 16px 32px;
-}
-
-.markdown .doc-content code {
-    width: 100%;
-    display: block;
-    background: white;
-    padding: 16px;
-    border: 1px solid black;
-    overflow: auto;
 }
 
 .markdown .doc-content p {
@@ -206,7 +164,7 @@ export const html =`
                 </ul>
             </ul>
         </div>
-        <div class='doc-content'
+        <div class='doc-content markdown-body'
              style='margin-left: 206px'>
             <p style="text-align: center;">
 <b>Documentation under construction.</b>
@@ -215,7 +173,7 @@ export const html =`
 We know, that it is not easy to develop application without any documentation. We hope, that these materials will help you to start.
 </p>
 <div style="width: 600px; height: 1px; background: #bdbdbd; margin: auto; margin-bottom:24px"></div>
-<div id='introduction' style='font-size: 24px; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
+<div id='introduction' style='font-size: 2em; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
 <p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
 <h2 id=mobile-focus>Mobile focus</h2>
@@ -229,7 +187,7 @@ We know, that it is not easy to develop application without any documentation. W
 <h2 id=own>Own</h2>
 <p>If you need modifications, you can do it on your own product easily without taking care about a lot of other use cases. Complexity is expensive. For example, Input element onChange behavior was broken in React in cases that were critical for us (it took them 3 years to fix these). Multiple virtual dom roots in Bobril simplify popups and modal dialogs. Unique CSS in JS solution is built in Bobril nearly from the beginning. Bobx (a Mobx-like library) benefits from deep integration with Bobril.</p>
 <p>All this was for Inspire Designer at the beginning. But when we were thinking about the framework for another big product, we found that size, speed and using your own framework are significant advantages and decided to use it on company level. Of course, this decision has a disadvantage in the lack of community.</p>
-<div id='guides' style='font-size: 24px; font-weight:400; color: #0097a7'>Guides</div><h1 id=getting-started>Getting Started</h1>
+<div id='guides' style='font-size: 2em; font-weight:400; color: #0097a7'>Guides</div><h1 id=getting-started>Getting Started</h1>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleBasic">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
 <p>Bobril is a component-oriented framework inspired by React and Mithril. It combines advantages from both of them. It is **fast, low size **framework with rendering based on Virtual DOM. The main focus is on speed and simplicity of code generation. Bobril is about 8x faster than react (see <a href="http://vdom-benchmark.github.io/vdom-benchmark/">vdom-benchmark</a>).</p>
@@ -753,6 +711,7 @@ exportconst mainPage = b.createComponent({
 <p>As you can see, the bobril framework contains really simple routing mechanism able to fulfill all standard requirements.</p>
 <p><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleAppRouting">Download the full sample</a> for the whole application with all the mentioned functions.</p>
 <h1 id=bobril-build>Bobril Build</h1>
+<h3 id=introduction>Introduction</h3>
 <p>Bobril-build is nodejs-based build system created for building single-page applications written in Typescript and with lot of optimalizations for bobril and bobril-g11n. It is designed for bobril applications but it can be used for all typescript applications in general. It is written by Boris Letocha (software architect and developer in GMC Software Technology).</p>
 <p>Bobril-build can be installed globally by command:</p>
 <pre><code class="language-bash">npm i bobril-build -g
@@ -994,8 +953,8 @@ The <em>Context store</em> can be created as the component context for the compo
 <ul>
 <li><a href="https://mobx.js.org/">https://mobx.js.org</a></li>
 </ul>
-<div id='docs'style='font-size: 24px; font-weight:400; color: #0097a7'>Docs</div>
-<div id ='community' style='font-size: 24px; font-weight:400; color: #0097a7'>Community</div><h1 id=examples>Examples</h1>
+<div id='docs'style='font-size: 2em; font-weight:400; color: #0097a7'>Docs</div>
+<div id ='community' style='font-size: 2em; font-weight:400; color: #0097a7'>Community</div><h1 id=examples>Examples</h1>
 <ul>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/bbExamples">Bobril-build examples here.</a></li>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/examples">Older examples here.</a></li>

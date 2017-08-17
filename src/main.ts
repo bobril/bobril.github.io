@@ -3,12 +3,8 @@ import * as router from './pages/router';
 import app from './pages/app';
 import home from './pages/home/page';
 import documentation from './pages/documentation/page';
-import * as m from 'bobril-m';
 
-
-
-b.injectCss('html,body{margin:0; padding:0; height:100%}');
-m.initRobotoFonts();
+loadGithubMarkdownStyles();
 
 b.routes(
     b.route({handler: app}, [
@@ -17,3 +13,16 @@ b.routes(
         b.routeDefault({handler: home})
     ])
 );
+
+function loadGithubMarkdownStyles() {
+    const markdownCss = b.asset('../node_modules/github-markdown-css/github-markdown.css');
+
+    document.addEventListener('DOMContentLoaded', function (event) {
+        const head = document.getElementsByTagName('head')[0];
+        const s = document.createElement('link');
+        s.setAttribute('rel', 'stylesheet');
+        s.setAttribute('href', markdownCss);
+        head.appendChild(s);
+        b.injectCss('html,body{margin:0; padding:0; height:100%; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif !important}');
+    });
+}

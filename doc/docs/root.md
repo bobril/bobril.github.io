@@ -2,4 +2,4 @@
 [//]: <> (menuLabel:'Docs')
 [//]: <> (menuAnchor:'docs')
 [//]: <> (previous:'';next: '')
-<div id='docs'style='font-size: 24px; font-weight:400; color: #0097a7'>Docs</div>
+<div id='docs'style='font-size: 2em; font-weight:400; color: #0097a7'>Docs</div>

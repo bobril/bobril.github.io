@@ -7,7 +7,6 @@ export const basicLayout = b.styleDef({
     minHeight: '100%',
     minWidth: 320,
     position: 'relative',
-    background: m.grey100,
     overflow: 'hidden',
 });
 

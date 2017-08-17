@@ -3,15 +3,6 @@
     padding: 16px 16px 16px 32px;
 }
 
-.markdown .doc-content code {
-    width: 100%;
-    display: block;
-    background: white;
-    padding: 16px;
-    border: 1px solid black;
-    overflow: auto;
-}
-
 .markdown .doc-content p {
     text-align: justify;
 }

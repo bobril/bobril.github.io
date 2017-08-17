@@ -17,7 +17,7 @@ export const html =\`
             style='width: ${menuWidth}px'>
             ${parts.menu}
         </div>
-        <div class='doc-content'
+        <div class='doc-content markdown-body'
              style='margin-left: ${menuWidth + 16}px'>
             ${escapeContent(parts.content)}
         </div>
