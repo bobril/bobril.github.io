@@ -55,7 +55,7 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               onclick='$doc.scrollToNodeWithId("introduction")'>
+               onclick='$doc.scrollToNodeWithId("menu-introduction")'>
                     Introduction
             </a>
         </li>
@@ -64,7 +64,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("why-own-framework")'>
+               onclick='$doc.scrollToNodeWithId("menu-why-own-framework")'>
                     Why own framework
             </a>
         </li>
@@ -75,7 +75,7 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               onclick='$doc.scrollToNodeWithId("guides")'>
+               onclick='$doc.scrollToNodeWithId("menu-guides")'>
                     Guides
             </a>
         </li>
@@ -84,7 +84,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("getting-started")'>
+               onclick='$doc.scrollToNodeWithId("menu-getting-started")'>
                     Getting Started
             </a>
         </li>
@@ -92,7 +92,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("bobflux")'>
+               onclick='$doc.scrollToNodeWithId("menu-bobflux")'>
                     Bobflux
             </a>
         </li>
@@ -100,7 +100,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("localizations")'>
+               onclick='$doc.scrollToNodeWithId("menu-localizations")'>
                     Localizations
             </a>
         </li>
@@ -108,7 +108,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("routing")'>
+               onclick='$doc.scrollToNodeWithId("menu-routing")'>
                     Routing
             </a>
         </li>
@@ -116,7 +116,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("bobril-build")'>
+               onclick='$doc.scrollToNodeWithId("menu-bobril-build")'>
                     Bobril Build
             </a>
         </li>
@@ -124,7 +124,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("bobx")'>
+               onclick='$doc.scrollToNodeWithId("menu-bobx")'>
                     BobX
             </a>
         </li>
@@ -135,19 +135,59 @@ export const html =`
         <li>
             <a 
                class='menu-block-header'
-               onclick='$doc.scrollToNodeWithId("docs")'>
+               onclick='$doc.scrollToNodeWithId("menu-docs")'>
                     Docs
             </a>
         </li>
     
                 <ul class='menu-sub-block'>
+        <li>
+            <a 
+               class='menu-sub-block-item'
+               onclick='$doc.scrollToNodeWithId("menu-basics")'>
+                    Basics
+            </a>
+        </li>
+    
+        <li>
+            <a 
+               class='menu-sub-block-item'
+               onclick='$doc.scrollToNodeWithId("menu-bobril-nodes")'>
+                    Bobril Node
+            </a>
+        </li>
+    
+        <li>
+            <a 
+               class='menu-sub-block-item'
+               onclick='$doc.scrollToNodeWithId("menu-bobril-component")'>
+                    Bobril Component
+            </a>
+        </li>
+    
+        <li>
+            <a 
+               class='menu-sub-block-item'
+               onclick='$doc.scrollToNodeWithId("menu-events")'>
+                    Events
+            </a>
+        </li>
+    
+        <li>
+            <a 
+               class='menu-sub-block-item'
+               onclick='$doc.scrollToNodeWithId("menu-responsive-design")'>
+                    Responsive Design
+            </a>
+        </li>
+    
                 </ul>
             </ul><ul class='menu-block'>
                 
         <li>
             <a 
                class='menu-block-header'
-               onclick='$doc.scrollToNodeWithId("community")'>
+               onclick='$doc.scrollToNodeWithId("menu-community")'>
                     Community
             </a>
         </li>
@@ -156,7 +196,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("examples")'>
+               onclick='$doc.scrollToNodeWithId("menu-examples")'>
                     Examples
             </a>
         </li>
@@ -173,21 +213,21 @@ export const html =`
 We know, that it is not easy to develop application without any documentation. We hope, that these materials will help you to start.
 </p>
 <div style="width: 600px; height: 1px; background: #bdbdbd; margin: auto; margin-bottom:24px"></div>
-<div id='introduction' style='font-size: 2em; font-weight:400; color: #0097a7'>Introduction</div><h1 id=why-own-framework>Why own framework</h1>
-<p>For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
+<div id='menu-introduction' style='font-size: 2em; font-weight:400; color: #0097a7'>Introduction</div><p><h2 id="menu-why-own-framework">Why own framework</h2><br>
+For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.</p>
 <p>We started with by our opinion the best choice at that time ? Angular 1. However, we soon reached its performance and logic limits. After two years, Boris has evaluated a lot of other frameworks. Mainly ReactJs. Unfortunately, it did not meet all our needs.</p>
-<h2 id=mobile-focus>Mobile focus</h2>
+<h3 id=mobile-focus>Mobile focus</h3>
 <p>Touch/multitouch support in ReactJs was and is an afterthought. It was critical for us to simplify user code regardless of device and input type and browser (IE8+ at that time).</p>
-<h2 id=easy-to-generate>Easy to generate</h2>
+<h3 id=easy-to-generate>Easy to generate</h3>
 <p>The core of our use is in Inspire Designer. It is not so easy to generate code in React. JSX is basically required to be used in React. It needs advanced JS optimizations in Babel to remove any JSX from resulting code, and the resulting code is still big.</p>
-<h2 id=size>Size</h2>
+<h3 id=size>Size</h3>
 <p>When you generate millions of embedded websites, size matters. React gziped is 42K, Bobril is 17K. Unzipped size was also interesting for us, as the difference is even bigger. A similar problem is with Router libraries.</p>
-<h2 id=speed>Speed</h2>
+<h3 id=speed>Speed</h3>
 <p>Bobril is faster in most operations. <a href="https://localvoid.github.io/uibench/">You can test it here.</a> And in 2015, React was slow, they keep improving it over time.</p>
-<h2 id=own>Own</h2>
+<h3 id=own>Own</h3>
 <p>If you need modifications, you can do it on your own product easily without taking care about a lot of other use cases. Complexity is expensive. For example, Input element onChange behavior was broken in React in cases that were critical for us (it took them 3 years to fix these). Multiple virtual dom roots in Bobril simplify popups and modal dialogs. Unique CSS in JS solution is built in Bobril nearly from the beginning. Bobx (a Mobx-like library) benefits from deep integration with Bobril.</p>
 <p>All this was for Inspire Designer at the beginning. But when we were thinking about the framework for another big product, we found that size, speed and using your own framework are significant advantages and decided to use it on company level. Of course, this decision has a disadvantage in the lack of community.</p>
-<div id='guides' style='font-size: 2em; font-weight:400; color: #0097a7'>Guides</div><h1 id=getting-started>Getting Started</h1>
+<div id='menu-guides' style='font-size: 2em; font-weight:400; color: #0097a7'>Guides</div><p><h2 id="menu-getting-started">Getting Started</h2></p>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleBasic">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
 <p>Bobril is a component-oriented framework inspired by React and Mithril. It combines advantages from both of them. It is **fast, low size **framework with rendering based on Virtual DOM. The main focus is on speed and simplicity of code generation. Bobril is about 8x faster than react (see <a href="http://vdom-benchmark.github.io/vdom-benchmark/">vdom-benchmark</a>).</p>
@@ -322,7 +362,7 @@ b.init(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</sp
 <li><a href="https://github.com/Bobris/Bobril">https://github.com/Bobris/Bobril</a></li>
 <li><a href="https://github.com/Bobris/bobril-build">https://github.com/Bobris/bobril-build</a></li>
 </ul>
-<h1 id=bobflux>Bobflux</h1>
+<p><h2 id="menu-bobflux">Bobflux</h2></p>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleAppBobflux">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
 <p>Bobflux is a pure functional frontend application architecture based on <em>flux</em> and inspired by <em>reflux</em> and <em>redux</em>. It is written by Karel Steinmetz (software developer in GMC Software Technology). The bobflux lifecycle can be described by the following picture:</p>
@@ -460,7 +500,7 @@ he textbox and button components use the defined actions in their onChange and o
 <p>To debug the state history, you can also try the bobflux-monitor (see the <a href="https://github.com/keeema/bobflux-monitor">project pages</a> or the sample).</p>
 <p>Bobflux also contains few performance helpers like createRouteComponent to optimalize rendering of component or provident the state in context etc.</p>
 <p>To get more information see the project github pages: <a href="https://github.com/karelsteinmetz/bobflux">https://github.com/karelsteinmetz/bobflux</a></p>
-<h1 id=localizations>Localizations</h1>
+<p><h2 id="menu-localizations">Localizations</h2></p>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleAppGlobalization">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
 <p>Bobril globalization library is written by Boris Letocha (software architect and developer in GMC Software Technology).</p>
@@ -585,7 +625,7 @@ t(<span class="hljs-string">'{a, date, custom, format:{{myformat}} }'</span>,
 <h4 id=just-formatting>Just Formatting</h4>
 <p>If you only want to do the formatting of a text without a translation, just replace the t function by the f function.</p>
 <p>It will only take care of culture specific formatting.</p>
-<h1 id=routing>Routing</h1>
+<p><h2 id="menu-routing">Routing</h2></p>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleAppRouting">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
 <p>Bobril is a component-oriented framework written by Boris Letocha (software architect and developer in GMC Software Technology). For more information, <a href="https://github.com/keeema/bobril-samples/blob/master/articles/01_bobril-getting-started.md">see the first article</a>.</p>
@@ -710,7 +750,7 @@ exportconst mainPage = b.createComponent({
 <h3 id=summary>Summary</h3>
 <p>As you can see, the bobril framework contains really simple routing mechanism able to fulfill all standard requirements.</p>
 <p><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleAppRouting">Download the full sample</a> for the whole application with all the mentioned functions.</p>
-<h1 id=bobril-build>Bobril Build</h1>
+<p><h2 id="menu-bobril-build">Bobril Build</h2></p>
 <h3 id=introduction>Introduction</h3>
 <p>Bobril-build is nodejs-based build system created for building single-page applications written in Typescript and with lot of optimalizations for bobril and bobril-g11n. It is designed for bobril applications but it can be used for all typescript applications in general. It is written by Boris Letocha (software architect and developer in GMC Software Technology).</p>
 <p>Bobril-build can be installed globally by command:</p>
@@ -838,7 +878,7 @@ T:Translated message
 <pre><code class="language-javascript">declare <span class="hljs-keyword">let</span> DEBUG: boolean;
 </code></pre>
 <p>and bobril-build will assign such variable with value saying you are in debug mode (bb) or in production code (bb b).</p>
-<h1 id=bobx>BobX</h1>
+<p><h2 id="menu-bobx">BobX</h2></p>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleBobX">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
 <p>BobX is MobX like library for managing application stores created by Boris Letocha (Quadient). It is written in TypeScript and fits the bobril application needs. It uses the observer pattern where stores are observable subjects and bobril components are observers.<br>
@@ -953,8 +993,48 @@ The <em>Context store</em> can be created as the component context for the compo
 <ul>
 <li><a href="https://mobx.js.org/">https://mobx.js.org</a></li>
 </ul>
-<div id='docs'style='font-size: 2em; font-weight:400; color: #0097a7'>Docs</div>
-<div id ='community' style='font-size: 2em; font-weight:400; color: #0097a7'>Community</div><h1 id=examples>Examples</h1>
+<div id='menu-docs'style='font-size: 2em; font-weight:400; color: #0097a7'>Docs</div>
+<p><h2 id='menu-basics'>Basics</h2></p>
+<h3 id=core>Core</h3>
+<h4 id=binit>b.init</h4>
+<h4 id=baddroot>b.addRoot</h4>
+<h4 id=binvalidate>b.invalidate</h4>
+<h4 id=bstyleddiv>b.styledDiv</h4>
+<h3 id=css-injection>CSS Injection</h3>
+<h4 id=binjectcss>b.injectCss</h4>
+<h3 id=loading-assets>Loading Assets</h3>
+<h4 id=basset>b.asset</h4>
+<h4 id=bsprite>b.sprite</h4>
+<p><h2 id='menu-bobril-node'>Bobril Node</h2></p>
+<h4 id=tag>tag</h4>
+<h4 id=attrs>attrs</h4>
+<h4 id=style>style</h4>
+<h4 id=children>children</h4>
+<p><h2 id='menu-bobril-component'>Bobril Component</h2></p>
+<h3 id=life-cycle>Life Cycle</h3>
+<h4 id=init>init</h4>
+<h4 id=render>render</h4>
+<h4 id=postrender>postRender</h4>
+<h4 id=postinitdom>postInitDom</h4>
+<h4 id=postupdatedom>postUpdateDom</h4>
+<h4 id=postupdatedomeverytime>postUpdateDomEverytime</h4>
+<h4 id=shouldchange>shouldChange</h4>
+<h4 id=destroy>destroy</h4>
+<h4 id=canactivate>canActivate</h4>
+<h4 id=candeactivate>canDeactivate</h4>
+<h3 id=component-creation>Component Creation</h3>
+<h4 id=context>Context</h4>
+<h4 id=idata-interface>IData Interface</h4>
+<h4 id=createcomponent>createComponent</h4>
+<h4 id=createderivedcomponent>createDerivedComponent</h4>
+<h4 id=createoverridingcomponent>createOverridingComponent</h4>
+<h4 id=createvirtualcomponent>createVirtualComponent</h4>
+<p><h2 id='menu-events'>Events</h2></p>
+<p><h2 id='menu-responsive-design'>Responsive Design</h2></p>
+<h3 id=media>Media</h3>
+<h4 id=ibobrilmedia>IBobrilMedia</h4>
+<h4 id=getmedia>getMedia</h4>
+<div id ='menu-community' style='font-size: 2em; font-weight:400; color: #0097a7'>Community</div><p><h2 id='menu-examples'>Examples</h2></p>
 <ul>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/bbExamples">Bobril-build examples here.</a></li>
 <li><a href="https://github.com/Bobris/Bobril/tree/master/examples">Older examples here.</a></li>

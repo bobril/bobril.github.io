@@ -1,6 +1,6 @@
 [//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
 [//]: <> (menuLabel:'Localizations')
-[//]: <> (menuAnchor:'localizations')
+[//]: <> (menuAnchor:'menu-localizations')
 [//]: <> (previous:'bobflux.md';next: 'routing.md')
 [//]: <> (symlink:'../../../submodule/bobril-samples/articles/03_bobril-localizations.md')
-# Localizations
+<h2 id="menu-localizations">Localizations</h2>

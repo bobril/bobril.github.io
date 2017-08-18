@@ -1,6 +1,6 @@
 [//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
 [//]: <> (menuLabel:'BobX')
-[//]: <> (menuAnchor:'bobx')
+[//]: <> (menuAnchor:'menu-bobx')
 [//]: <> (previous:'bobrilBuild.md';next: '')
 [//]: <> (symlink:'../../../submodule/bobril-samples/articles/06_bobril-bobx.md')
-# BobX
+<h2 id="menu-bobx">BobX</h2>
