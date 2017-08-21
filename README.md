@@ -18,6 +18,17 @@ Documentation itself is located in **./doc** directory.
 * **Community**
     * There is a place for community examples
     * If you are not able to decided, where you should place your article, this can be correct place
+    
+## Templates
+For a consistent look of documentation and ensure higher quality, please observe templates written below.
+### Docs chapter
+
+< In a few sentences describe the purpose of the method >
+
+< Fragment of highlighted code - ```use code annotation``` -, where the method is presented >
+
+< Warnings, tips, etc. >
+
 
 ## How to contribute
 We really appraise, if you contribute to the documentation. You can contribute through a pull request.
@@ -50,4 +61,3 @@ doesn't have to be handled. The mistakes in this key part of the file (metadata)
     1. ```git submodule update --recursive --remote```
     1. ```npm run build```
 1. Open generated index.html in the root directory
-    
