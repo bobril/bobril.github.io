@@ -38,7 +38,7 @@ If you consider something as important and it is not described enough here, don'
 ### Contribution to existing pages
 1. Create a fork of the repository 
 1. Edit *.md files
-1. Create the a request 
+1. Create a pull request 
 
 ### Create a new page
 1. Create a *.md file in the chapter/section you want to contribute to
