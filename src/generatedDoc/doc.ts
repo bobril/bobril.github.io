@@ -152,7 +152,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("menu-bobril-nodes")'>
+               onclick='$doc.scrollToNodeWithId("menu-bobril-node")'>
                     Bobril Node
             </a>
         </li>
@@ -1030,6 +1030,43 @@ The <em>Context store</em> can be created as the component context for the compo
 <h4 id=createoverridingcomponent>createOverridingComponent</h4>
 <h4 id=createvirtualcomponent>createVirtualComponent</h4>
 <p><h2 id='menu-events'>Events</h2></p>
+<h3 id=event-basics>Event basics</h3>
+<p>Bobril application never work with native browser events directly. First native browser events listened only on body/document, then are processed, normalized by Bobril, and finally they just call methods on your component <code>IBobrilComponent</code> implementation. First simple example how to listen on any click:</p>
+<pre><code>interface IButtonData {
+    children?: <span class="hljs-keyword">b.IBobrilChildren;
+</span><span class="hljs-symbol">    action:</span> () =&gt; void<span class="hljs-comment">;</span>
+}
+
+interface IButtonCtx <span class="hljs-keyword">extends </span><span class="hljs-keyword">b.IBobrilCtx </span>{
+<span class="hljs-symbol">    data:</span> IButtonData<span class="hljs-comment">;</span>
+}
+
+const <span class="hljs-keyword">Button </span>= <span class="hljs-keyword">b.createVirtualComponent&lt;IButtonData&gt;({
+</span>    render(ctx: IButtonCtx, me: <span class="hljs-keyword">b.IBobrilNode) </span>{
+        me.tag = <span class="hljs-string">"button"</span><span class="hljs-comment">;</span>
+        me.children = ctx<span class="hljs-meta">.data</span>.children<span class="hljs-comment">;</span>
+    },
+    onClick(ctx: IButtonCtx): <span class="hljs-keyword">boolean </span>{
+        ctx<span class="hljs-meta">.data</span>.action()<span class="hljs-comment">;</span>
+        return true<span class="hljs-comment">;</span>
+    }
+})<span class="hljs-comment">;</span>
+</code></pre>
+<p>Boolean result means for events which bubble (most of them) if they should stop bubble and also prevent default. There is way to stop bubbling without preventing default, you can do by implementing this IBobrilComponent method</p>
+<pre><code>shouldStopBubble(<span class="hljs-string">ctx:</span> IBobrilCtx, <span class="hljs-string">name:</span> string, <span class="hljs-string">param:</span> Object): <span class="hljs-keyword">boolean</span>;
+</code></pre>
+<p>It could be used in checkbox component where you don't want to prevent default browser handling of mouse click, but also parent components should not know about it, so they cannot prevent default on it them self.</p>
+<pre><code>shouldStopBubble(_ctx: b.IBobrilCtx, <span class="hljs-built_in">name</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">boolean</span> {
+<span class="hljs-built_in">    return</span> <span class="hljs-built_in">name</span> === <span class="hljs-string">"onClick"</span>;
+}
+</code></pre>
+<h3 id=how-to-emit-your-own-bobril-events>How to emit your own Bobril events</h3>
+<p>If you want to emit Bobril bubbling event you can call:</p>
+<pre><code>b.bubble(nodeWhereToStartBubbling, <span class="hljs-string">"onYourEventName"</span>, { someParams: <span class="hljs-number">42</span> });
+
+bubble(<span class="hljs-keyword">node</span><span class="hljs-title">: IBobrilCacheNode</span> | null | undefined, name: <span class="hljs-keyword">string</span>, param: any): IBobrilCtx | undefined
+</code></pre>
+<p>Bubble method will return ctx of component which returned truefy result.</p>
 <p><h2 id='menu-responsive-design'>Responsive Design</h2></p>
 <h3 id=media>Media</h3>
 <h4 id=ibobrilmedia>IBobrilMedia</h4>
