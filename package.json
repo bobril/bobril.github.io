@@ -39,6 +39,7 @@
     "argparse": "1.0.9",
     "kind-of": "4.0.0",
     "is-number": "3.0.0",
-    "array-back": "2.0.0"
+    "array-back": "2.0.0",
+    "isobject": "3.0.1"
   }
 }

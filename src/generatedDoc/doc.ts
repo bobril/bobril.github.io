@@ -152,7 +152,7 @@ export const html =`
         <li>
             <a 
                class='menu-sub-block-item'
-               onclick='$doc.scrollToNodeWithId("menu-bobril-nodes")'>
+               onclick='$doc.scrollToNodeWithId("menu-bobril-node")'>
                     Bobril Node
             </a>
         </li>
