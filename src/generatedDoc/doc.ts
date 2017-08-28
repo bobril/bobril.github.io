@@ -1058,7 +1058,7 @@ me.children = items.map(<span class="hljs-function">(<span class="hljs-params">v
 <li><code>IBobrilNodeWithTag</code></li>
 <li><code>IBobrilNodeWithComponent</code></li>
 <li><code>IBobrilNodeWithChildren</code></li>
-<li><code>IBobrilNode</code> - it is defined like <code>IBobrilNodeWithTag | IBobrilNodeWithComponent | IBobrilNodeWithChildren</code></li>
+<li><code>IBobrilNode</code> - it is defined like <code>IBobrilNodeCommon &amp; object</code></li>
 </ul>
 <p>All of them inherit from <code>IBobrilNodeCommon</code>.</p>
 <p>The definition of <code>IBobrilNodeCommon</code> is:</p>

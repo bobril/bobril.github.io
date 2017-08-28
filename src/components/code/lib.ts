@@ -54,13 +54,13 @@ export const codeStyle = b.styleDef({
     border: `1px solid ${m.grey500}`,
     background: m.grey300,
     borderStyle: 'dashed',
-    padding: codePadding,
     fontSize: 13,
     fontFamily: 'sans-serif'
 });
 
 export const previewStyle = b.styleDef({
-    padding: codePadding,
+    paddingLeft: codePadding,
+    paddingRight: codePadding,
     background: m.blue100,
     border: `1px solid ${m.blue500}`,
     minHeight: '100%',

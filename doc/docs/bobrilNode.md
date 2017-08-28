@@ -8,7 +8,7 @@ More variants of bobril node exist:
 * `IBobrilNodeWithTag`
 * `IBobrilNodeWithComponent`
 * `IBobrilNodeWithChildren`
-* `IBobrilNode` - it is defined like `IBobrilNodeWithTag | IBobrilNodeWithComponent | IBobrilNodeWithChildren`
+* `IBobrilNode` - it is defined like `IBobrilNodeCommon & object`
 
 All of them inherit from `IBobrilNodeCommon`.
 

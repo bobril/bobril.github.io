@@ -2,6 +2,7 @@ import * as b from 'bobril';
 import * as Label from '../../../components/label/lib';
 import * as Paragraph from '../../../components/paragraph/lib';
 import * as Code from '../../../components/code/lib';
+import * as BobrilHighligtJs from 'bobril-highlightjs';
 
 // examples
 import * as ExampleCounter from './examples/counter';
@@ -35,15 +36,40 @@ function gettingStarted(): b.IBobrilChildren {
         }),
         Paragraph.create('1) To install Bobril Build run the command:'),
         Code.create({
-            children: `npm install -g bobril-build`
+            children: BobrilHighligtJs.create({
+                code: `npm i -g bobril-build`,
+                configuration: {
+                    language: BobrilHighligtJs.Language.shell
+                },
+                style: {
+                    margin: 0
+                }
+            })
         }),
         Paragraph.create('2) Init your project by these commands:'),
         Code.create({
-            children: `npm init\nnpm install bobril --save`
+            children: BobrilHighligtJs.create({
+                code: `npm init
+npm i bobril --save`,
+                configuration: {
+                    language: BobrilHighligtJs.Language.shell
+                },
+                style: {
+                    margin: 0
+                }
+            })
         }),
         Paragraph.create('3) Run Bobril Build in the root directory of the project:'),
         Code.create({
-            children: 'bb'
+            children: BobrilHighligtJs.create({
+                code: `bb`,
+                configuration: {
+                    language: BobrilHighligtJs.Language.shell
+                },
+                style: {
+                    margin: 0
+                }
+            })
         }),
         Paragraph.create(
             `Bobril Build runs default on localhost:8080, 
@@ -62,15 +88,22 @@ function firstExample(): b.IBobrilChildren {
         Paragraph.create('Let\'s create first page in Bobril. Create a file index.ts in project directory and insert ' +
             'the code below.'),
         Code.create({
-            children: `import * as b from 'bobril';
+            children: BobrilHighligtJs.create({
+                code: `import * as b from 'bobril';
 
 b.init(() => {
     return { tag: \'h1\', children: \'Hello World!\' };
 });`,
-            preview: { tag: 'h1', children: 'Hello World!' }
+                configuration: {
+                    language: BobrilHighligtJs.Language.typescript
+                },
+                style: {
+                    margin: 0
+                }
+            }),
+            preview: {tag: 'h1', children: 'Hello World!'}
         }),
     ]
-        ;
 }
 
 function firstComponent(): b.IBobrilChildren {
@@ -83,11 +116,27 @@ function firstComponent(): b.IBobrilChildren {
             The main benefit of component is, that you can use it as many times as you want.
             Generic type never to createComponent means that your component does not have any input data (in React world "props").`),
         Code.create({
-            children: ExampleCounter.codeComponent,
+            children: BobrilHighligtJs.create({
+                code: ExampleCounter.codeComponent,
+                configuration: {
+                    language: BobrilHighligtJs.Language.typescript
+                },
+                style: {
+                    margin: 0
+                }
+            })
         }),
         Paragraph.create('When the component is ready integrate it to the page.'),
         Code.create({
-            children: ExampleCounter.codeInit,
+            children: BobrilHighligtJs.create({
+                code: ExampleCounter.codeInit,
+                configuration: {
+                    language: BobrilHighligtJs.Language.typescript
+                },
+                style: {
+                    margin: 0
+                }
+            }),
             preview: ExampleCounter.create()
         })
     ]
@@ -104,7 +153,15 @@ function todoExample(): b.IBobrilChildren {
             'the component is the same like in the example above. It will not be presented again.'),
         Paragraph.create('We have prepared you some interesting tasks in todo list. Will you accomplish them? :-)'),
         Code.create({
-            children: ExampleTodo.codeComponent,
+            children: BobrilHighligtJs.create({
+                code: ExampleTodo.codeComponent,
+                configuration: {
+                    language: BobrilHighligtJs.Language.typescript
+                },
+                style: {
+                    margin: 0
+                }
+            }),
             preview: ExampleTodo.create(),
             maxCodeHeight: 300
         }),
