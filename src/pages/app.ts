@@ -38,7 +38,14 @@ const app = b.createComponent<IData>({
                             }
                         }),
                         AppBar.Button.create({
-                            label: 'DOCUMENTATION',
+                            label: 'GUIDES',
+                            isActive: actualPageId === router.guides,
+                            action: () => {
+                                b.runTransition(b.createRedirectPush(router.guides));
+                            }
+                        }),
+                        AppBar.Button.create({
+                            label: 'DOCS',
                             isActive: actualPageId === router.documentation,
                             action: () => {
                                 b.runTransition(b.createRedirectPush(router.documentation));

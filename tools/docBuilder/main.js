@@ -169,7 +169,7 @@ function writeOutputTypescript(output) {
 
     copyJsResources();
 
-    fs.writeFileSync(commandLineArguments.outputDirectory + '/doc.ts', output, 'utf-8');
+    fs.writeFileSync(commandLineArguments.outputDirectory + '/page.ts', output, 'utf-8');
 }
 
 function copyJsResources() {

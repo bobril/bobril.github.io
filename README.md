@@ -2,15 +2,17 @@
 Webpage for Bobril - [bobril.com](bobril.com)
 
 # Documentation
-Documentation itself is located in **./doc** directory.
+Documentation itself is located in **./doc** and **./guides** directories.
 
-## Structure
-* **Introduction** 
-    * Motivation to create new framework
-    * Basic (non-technical) information
+## Guides Structure
 * **Guides**
     * Tutorials (step by step)
     * Introducing the technologies, that co-work with Bobril like Bobflux, Bobx etc.
+
+## Docs Structure
+* **Introduction** 
+    * Motivation to create new framework
+    * Basic (non-technical) information
 * **Docs**
     * The most technical part of bobril.com
     * Describes the core of Bobril
@@ -21,7 +23,7 @@ Documentation itself is located in **./doc** directory.
     
 ## Templates
 For a consistent look of documentation and ensure higher quality, please observe templates written below.
-### Docs chapter
+### Docs chapter structure
 
 < In a few sentences describe the purpose of the method >
 
@@ -38,6 +40,7 @@ If you consider something as important and it is not described enough here, don'
 ### Contribution to existing pages
 1. Create a fork of the repository 
 1. Edit *.md files
+    1. If there is a line: `[//]: <> (symlink:'...some path...')` written in metadata of the file, you have to edit the file targeted by symlink directly. It can be another github repository too. After contribution and successfull merge, do pull of submodules and push this changes.
 1. Create a pull request 
 
 ### Create a new page
