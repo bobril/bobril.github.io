@@ -117,7 +117,7 @@ export const html =`
             <div id='menu-guides' style='font-size: 2em; font-weight:400; color: #0097a7'>Guides</div><p><h2 id="menu-getting-started">Getting Started</h2></p>
 <p><strong><a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/keeema/bobril-samples/tree/master/sampleBasic">Download sample</a></strong></p>
 <h3 id=background>Background</h3>
-<p>Bobril is a component-oriented framework inspired by React and Mithril. It combines advantages from both of them. It is <strong>fast, low size</strong> framework with rendering based on Virtual DOM. The main focus is on speed and simplicity of code generation. Bobril is about 8x faster than react (see <a href="http://vdom-benchmark.github.io/vdom-benchmark/">vdom-benchmark</a>).</p>
+<p>Bobril is a component-oriented framework inspired by React and Mithril. It combines advantages from both of them. It is **fast, low size **framework with rendering based on Virtual DOM. The main focus is on speed and simplicity of code generation. Bobril is about 8x faster than react (see <a href="http://vdom-benchmark.github.io/vdom-benchmark/">vdom-benchmark</a>).</p>
 <p>Content and behavior of any page can be defined simply by composing JavaScript objects.</p>
 <p>The page content rendering is based on comparison of Virtual DOMs. The application has some state in time and bobril application generates the Virtual DOM according to this state. Virtual DOM is an object representation of the resultant DOM. If some state-changing event occurs and the previous Virtual DOM is different than currently generated Virtual DOM, the real DOM will change according to this change.</p>
 <p>Bobril is written by Boris Letocha (software architect and developer in GMC Software Technology).</p>
@@ -139,7 +139,7 @@ export const html =`
 bb plugins -i bb-tslint-plugin
 </code></pre>
 <p>TSLint checks your TypeScript code for readability, maintainability, and functionality errors.</p>
-<p>Now we can start with creating the project. So create some folder, e.g. <em>sample1</em>, create an empty file <em>index.ts</em> in this folder and pass the following commands in its root:</p>
+<p>Now we can start with creating the project. So create some folder, e.g. <em>sample1</em>, create an empty file, _index.ts _in this folder and pass the following commands in its root:</p>
 <pre><code class="language-bash">npm init
 npm i bobril --save
 bb
@@ -308,7 +308,7 @@ b.routes(
     b.route({ <span class="hljs-attr">handler</span>: mainPage })
 );
 </code></pre>
-<p>Now, we have prepared the application state that can be modified by calling actions. Actions change the state by a handler on a specific sub-state defined by the cursor. In our todo example, we will need to perform two actions:</p>
+<p>Now, we have prepared the application state that can be modified by calling actions. Actions Actions change the state by a handler on a specific sub-state defined by the cursor. In our todo example, we will need to perform two actions:</p>
 <pre><code>1. Change the current name of todo according to a textbox value
 2. Add the written todo to the list of todos
 </code></pre>
@@ -348,7 +348,7 @@ b.routes(
 <li>If not, then we will return the original instance of the state.</li>
 <li>If yes, then we will create a shallow copy of the state and return the modified copy.</li>
 </ul>
-<p>Bobflux follows the principles of <strong>immutability</strong> to keep the best performance. It compares an input state with an output state and if it is different, then it calls b.invalidate to re-render the view. It is necessary to take care about the copied object properties. If there is some referencial object like an array todos in the addTodo action, it has to be copied as well. Composing the Page with bobflux now, we have everything  prepared to be used on the page of the todo application. So let's change the <em>src/mainPage.ts</em> to look like this:</p>
+<p>Bobflux follows the principles of <strong>immutability</strong> to keep the best performance. It compares an input state with an output state and if it is different, then it calls b.invalidate to re-render the view. It is necessary to take care about the copied object properties. If there is some referencial object like an array todos in the addTodo action, it has to be copied as well. Composing the Page with bobflux Now, we have everything prepared to be used on the page of the todo application. So let's change the <em>src/mainPage.ts</em> to look like this:</p>
 <pre><code class="language-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> b <span class="hljs-keyword">from</span> <span class="hljs-string">'bobril'</span>;
 <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> flux <span class="hljs-keyword">from</span> <span class="hljs-string">'bobflux'</span>;
 <span class="hljs-keyword">import</span> { todoAppCursor } <span class="hljs-keyword">from</span> <span class="hljs-string">'./state'</span>;
@@ -380,8 +380,8 @@ b.routes(
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> mainPage;
 </code></pre>
 <p>The components definition is not the subject of this article, so you can use definitions in the attached source code.</p>
-<p>You can see that a page resolves the current application state by the function getState with defined todoAppCursor. It can be done this way because bobflux initiates rendering of the page on every change in the state.<br>
-The textbox and button components use the defined actions in their onChange and onClick callbacks so the user interactions from view initiates the action calls.</p>
+<p>You can see that a page resolves the current application state by the function getState with defined todoAppCursor. It can be done this way because bobflux initiates rendering of the page on every change in the state. T<br>
+he textbox and button components use the defined actions in their onChange and onClick callbacks so the user interactions from view initiates the action calls.</p>
 <p>And finally in the end of the render function is a mapped array of todos to 'p' tags with todo names.</p>
 <p>Now, we are able to open the application in a browser and see how it works. Yes, it is really that simple.</p>
 <p>To debug the state history, you can also try the bobflux-monitor (see the <a href="https://github.com/keeema/bobflux-monitor">project pages</a> or the sample).</p>
