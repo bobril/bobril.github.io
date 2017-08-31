@@ -14,7 +14,7 @@ Touch/multitouch support in ReactJs was and is an afterthought. It was critical 
 The core of our use is in Inspire Designer. It is not so easy to generate code in React. JSX is basically required to be used in React. It needs advanced JS optimizations in Babel to remove any JSX from resulting code, and the resulting code is still big.
 
 ### Size
-When you generate millions of embedded websites, size matters. React gziped is 42K, Bobril is 17K. Unzipped size was also interesting for us, as the difference is even bigger. A similar problem is with Router libraries.
+When you generate millions of embedded websites, size matters. React gzipped is 42K, Bobril is 17K. Unzipped size was also interesting for us, as the difference is even bigger. A similar problem is with Router libraries.
 
 ### Speed
 Bobril is faster in most operations. [You can test it here.](https://localvoid.github.io/uibench/) And in 2015, React was slow, they keep improving it over time.

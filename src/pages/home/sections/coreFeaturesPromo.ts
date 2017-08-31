@@ -25,7 +25,7 @@ export const create = b.createComponent<IData>({
                         }),
                         'Inspired by ReactJs' +
                         ' (Virtual DOM, components with state) and Mithril (small size, more complete framework).' +
-                        ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional livecycle methods, ' +
+                        ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
                         'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
                         'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
                         'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +

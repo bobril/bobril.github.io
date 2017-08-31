@@ -6,7 +6,7 @@
 
 ### Event basics
 
-Bobril application never work with native browser events directly. First native browser events listened only on body/document, then are processed, normalized by Bobril, and finally they just call methods on your component `IBobrilComponent` implementation. First simple example how to listen on any click:
+Bobril application never works with native browser events directly. First native browser events listened only on body/document, then are processed, normalized by Bobril, and finally they just call methods on your component `IBobrilComponent` implementation. First simple example how to listen on any click:
 
 ```
 interface IButtonData {

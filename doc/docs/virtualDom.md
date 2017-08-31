@@ -6,7 +6,7 @@
 
 Very basic examples to explain how the virtual dom is build by pure JS objects. Of course nothing prevents you to create your own helper functions to shorten code to less than original HTML.
 
-Farther in documentation - [Bobril Component](#menu-bobril-component) - it will be explained how to create maintainable Bobril component.
+Creation of maintainable Bobril components is explained further in documentation - [Bobril Component](#menu-bobril-component).
 
 HTML | Bobril
 ---- | ------
