@@ -178,18 +178,20 @@ function copyJsResources() {
 
 function removeUnecessaryContent(content) {
     let rows = content.split('\n');
-    const startPattern = '[//]: <> (bobrilComIgnoreStart)';
-    const endPattern = '[//]: <> (bobrilComIgnoreEnd)';
+    const startPatternA = '[//]: <> (bobrilComIgnoreStart)';
+    const startPatternB = '[//]: # (bobrilComIgnoreStart)';
+    const endPatternA = '[//]: <> (bobrilComIgnoreEnd)';
+    const endPatternB = '[//]: # (bobrilComIgnoreEnd)';
 
     let outputContent = [];
     let include = true;
     for (let i = 0; i < rows.length; i++) {
-        if (rows[i].indexOf(startPattern) !== -1) {
+        if (rows[i].indexOf(startPatternA) !== -1 || rows[i].indexOf(startPatternB) !== -1) {
             include = false;
             continue;
         }
 
-        if (rows[i].indexOf(endPattern) !== -1) {
+        if (rows[i].indexOf(endPatternA) !== -1 || rows[i].indexOf(endPatternB) !== -1) {
             include = true;
             continue;
         }

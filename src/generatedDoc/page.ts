@@ -177,7 +177,7 @@ For one of our products, we needed the ability to generate single-file websites 
 <h3 id=easy-to-generate>Easy to generate</h3>
 <p>The core of our use is in Inspire Designer. It is not so easy to generate code in React. JSX is basically required to be used in React. It needs advanced JS optimizations in Babel to remove any JSX from resulting code, and the resulting code is still big.</p>
 <h3 id=size>Size</h3>
-<p>When you generate millions of embedded websites, size matters. React gziped is 42K, Bobril is 17K. Unzipped size was also interesting for us, as the difference is even bigger. A similar problem is with Router libraries.</p>
+<p>When you generate millions of embedded websites, size matters. React gzipped is 42K, Bobril is 17K. Unzipped size was also interesting for us, as the difference is even bigger. A similar problem is with Router libraries.</p>
 <h3 id=speed>Speed</h3>
 <p>Bobril is faster in most operations. <a href="https://localvoid.github.io/uibench/">You can test it here.</a> And in 2015, React was slow, they keep improving it over time.</p>
 <h3 id=own>Own</h3>
@@ -191,7 +191,7 @@ For one of our products, we needed the ability to generate single-file websites 
 <p>There is used <code>DEBUG</code> variable which could be predefined to false and remove some code by uglify, also remove warnings for developer mistakes, so make sure you are using nonminified version in development.</p>
 <p><h2 id='menu-virtual-dom'>Virtual Dom</h2></p>
 <p>Very basic examples to explain how the virtual dom is build by pure JS objects. Of course nothing prevents you to create your own helper functions to shorten code to less than original HTML.</p>
-<p>Farther in documentation - <a href="#menu-bobril-component">Bobril Component</a> - it will be explained how to create maintainable Bobril component.</p>
+<p>Creation of maintainable Bobril components is explained further in documentation - <a href="#menu-bobril-component">Bobril Component</a>.</p>
 <table>
 <thead>
 <tr><th>HTML</th><th>Bobril</th></tr>
@@ -262,7 +262,7 @@ me.children = items.map(<span class="hljs-function">(<span class="hljs-params">v
 string in children is converted to this inside Bobril, there are not much reasons to use this directly.</li>
 <li><code>&quot;/&quot;</code> - it means that children (must be string) is treated as innerHTML.<br>
 Normally you should not need it, but if you will use it, be very careful about XSS attacks and that string should never come directly from user. Probably only useful if you have Markdown renderer inside app.</li>
-<li><code>&quot;-&quot;</code> - it means to skip update of this component. It could be used for very similar purposes as <code>shouldChange</code> live cycle method.</li>
+<li><code>&quot;-&quot;</code> - it means to skip update of this component. It could be used for very similar purposes as <code>shouldChange</code> lifecycle method.</li>
 </ul>
 <p>When <code>tag</code> is <code>&quot;svg&quot;</code>, Bobril automatically adds all namespace crap, so your code is more readable.</p>
 <h3 id=attrs>Attrs</h3>
@@ -278,16 +278,16 @@ Normally you should not need it, but if you will use it, be very careful about X
 <p>As a children, you can append any virtual dom member.</p>
 <h3 id=component>Component</h3>
 <p><code>component</code></p>
-<p>Every bobril node could have <code>component</code> field defined.  It can contain main life cycle methods.<br>
-It can also contain event handlers. You should not use native HTML events directly though for example attrs field.</p>
+<p>Every bobril node could have <code>component</code> field defined.  It can contain main lifecycle methods.<br>
+It can also contain event handlers. You should not use native HTML events directly, for example through <code>attrs</code> field.</p>
 <p>If you need to use some of events currently not wrapped by Bobril, you can use<br>
-postInitDom function to link event. It will be described in chapter Bobril Component.</p>
+postInitDom function to link event. It will be described in chapter <a href="#menu-bobril-component">Bobril Component</a>.</p>
 <p><h2 id='menu-initialization'>Initialization</h2></p>
 <h4 id=binit>b.init</h4>
 <h4 id=baddroot>b.addRoot</h4>
 <h4 id=binvalidate>b.invalidate</h4>
 <p><h2 id='menu-bobril-component'>Bobril Component</h2></p>
-<h3 id=life-cycle>Life Cycle</h3>
+<h3 id=lifecycle>Lifecycle</h3>
 <h4 id=init>init</h4>
 <h4 id=render>render</h4>
 <h4 id=postrender>postRender</h4>
@@ -307,7 +307,7 @@ postInitDom function to link event. It will be described in chapter Bobril Compo
 <h4 id=createvirtualcomponent>createVirtualComponent</h4>
 <p><h2 id='menu-events'>Events</h2></p>
 <h3 id=event-basics>Event basics</h3>
-<p>Bobril application never work with native browser events directly. First native browser events listened only on body/document, then are processed, normalized by Bobril, and finally they just call methods on your component <code>IBobrilComponent</code> implementation. First simple example how to listen on any click:</p>
+<p>Bobril application never works with native browser events directly. First native browser events listened only on body/document, then are processed, normalized by Bobril, and finally they just call methods on your component <code>IBobrilComponent</code> implementation. First simple example how to listen on any click:</p>
 <pre><code>interface IButtonData {
     children?: <span class="hljs-keyword">b.IBobrilChildren;
 </span><span class="hljs-symbol">    action:</span> () =&gt; void<span class="hljs-comment">;</span>
