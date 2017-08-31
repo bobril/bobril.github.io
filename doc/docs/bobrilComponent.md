@@ -4,7 +4,7 @@
 [//]: <> (previous:'initialization.md';next: 'events.md')
 <h2 id='menu-bobril-component'>Bobril Component</h2>
 
-### Life Cycle
+### Lifecycle
 #### init
 #### render
 #### postRender

@@ -44,7 +44,7 @@ There are 3 special values for `tag`:
 string in children is converted to this inside Bobril, there are not much reasons to use this directly.
   * `"/"` - it means that children (must be string) is treated as innerHTML. 
 Normally you should not need it, but if you will use it, be very careful about XSS attacks and that string should never come directly from user. Probably only useful if you have Markdown renderer inside app.
-  * `"-"` - it means to skip update of this component. It could be used for very similar purposes as `shouldChange` live cycle method.
+  * `"-"` - it means to skip update of this component. It could be used for very similar purposes as `shouldChange` lifecycle method.
 
 When `tag` is `"svg"`, Bobril automatically adds all namespace crap, so your code is more readable.
 
@@ -74,8 +74,8 @@ As a children, you can append any virtual dom member.
 
 `component`
 
-Every bobril node could have `component` field defined.  It can contain main life cycle methods. 
-It can also contain event handlers. You should not use native HTML events directly though for example attrs field. 
+Every bobril node could have `component` field defined.  It can contain main lifecycle methods. 
+It can also contain event handlers. You should not use native HTML events directly, for example through `attrs` field. 
 
 If you need to use some of events currently not wrapped by Bobril, you can use 
-postInitDom function to link event. It will be described in chapter Bobril Component.
+postInitDom function to link event. It will be described in chapter [Bobril Component](#menu-bobril-component).
