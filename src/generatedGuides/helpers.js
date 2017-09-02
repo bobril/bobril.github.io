@@ -1,7 +1,10 @@
-// TODO Use only ES5, no transpilation implemented yet
-// TODO convert to TS and then generate JS -> implement edge cases, error handling
-var $doc = (function () {
+
+    var $doc = (function () {
+    var menuIds = ["menu-guides","menu-getting-started","menu-bobflux","menu-localizations","menu-routing","menu-bobril-build","menu-bobx"];
     return {
+        init() {
+          console.log(menuIds)  
+        },
         scrollToNodeWithId: function (id) {
             var e = document.getElementById(id);
             if (e === undefined || e === null) {
@@ -11,6 +14,16 @@ var $doc = (function () {
 
             var offsetTop = e.offsetTop - 70; // Header compensation + 10px
             window.scrollTo(0, offsetTop);
+        },
+        isElementInViewport: function (el) {
+            var rect = el.getBoundingClientRect();
+
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+            );
         }
     }
 })();

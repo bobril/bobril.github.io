@@ -1,7 +1,11 @@
-[//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
-[//]: <> (menuLabel:'Why own framework')
-[//]: <> (menuAnchor:'menu-why-own-framework')
-[//]: <> (previous:'root.md';next: '')
+---
+metadata:
+  menuLabel: "Why own framework"
+  menuAnchor: "menu-why-own-framework"
+  previous: "root.md"
+  next: ""
+---
+
 <h2 id="menu-why-own-framework">Why own framework</h2>
 For one of our products, we needed the ability to generate single-file websites (all resources embedded). We are using these websites as a new digital channel.
 

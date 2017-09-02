@@ -361,4 +361,5 @@ bubble(<span class="hljs-keyword">node</span><span class="hljs-title">: IBobrilC
 
         </div>
     </div>
-    `;
+    `
+    

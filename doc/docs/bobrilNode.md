@@ -1,7 +1,11 @@
-[//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
-[//]: <> (menuLabel:'Bobril Node')
-[//]: <> (menuAnchor:'menu-bobril-node')
-[//]: <> (previous:'virtualDom.md';next: 'initialization.md')
+---
+metadata:
+  menuLabel: "Bobril Node"
+  menuAnchor: "menu-bobril-node"
+  previous: "virtualDom.md"
+  next: "initialization.md"
+---
+
 <h2 id='menu-bobril-node'>Bobril Node</h2>
 
 More variants of bobril node exist: 

@@ -2,12 +2,15 @@ const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const commandLineArgs = require('command-line-args');
-const md = require('./remarkable').md;
 const utils = require('./utils/utils');
-const html = require('./html/htmlGenerator');
-const metadataTagParser = require('./metadata/metadataParser');
 const fileUtils = require('./utils/fileUtils');
 const treeUtils = require('./utils/treeUtils');
+
+const remark = require('remark');
+const remarkBobril = require('remark-bobril').default;
+
+const jsYaml = require('js-yaml');
+
 
 const supportedFileType = '.md';
 const argumentsDefinitions = [
@@ -26,10 +29,21 @@ const directoriesTreeFiltered = treeUtils.filterTree(directoriesTreeRaw, (node) 
 });
 
 const directoriesTreeWithMetadata = treeUtils.mapTree(directoriesTreeFiltered, (node) => {
-    return isFileTypeNode(node) ? Object.assign(node, {metadata: readMetadata(node)}) : node;
+    return isFileTypeNode(node) ?
+           Object.assign(
+               node,
+               {
+                   metadata: Object.assign(
+                       jsYaml.safeLoad(getYamlSettings(node.content)).metadata,
+                       {current: node.name}
+                   )
+               }
+           )
+        : node;
 });
 
-const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree(directoriesTreeFiltered, (node) => {
+
+const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree(directoriesTreeWithMetadata, (node) => {
     if (isFileTypeNode(node)) {
         if (node.metadata.symlink) {
             const resolvedSymlinkPath = path.resolve(node.path, node.metadata.symlink);
@@ -42,14 +56,15 @@ const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree(dir
     return node;
 });
 
-const directoriesTreeHtmlFragments = treeUtils.mapTree(directoriesTreeWithMetadataAndReadedSymlinkContent, (node) => {
-    return isFileTypeNode(node) ? convertContentMd2HTML(node) : node;
+const directoriesTreeBobrilized = treeUtils.mapTree(directoriesTreeWithMetadataAndReadedSymlinkContent, (node) => {
+    return isFileTypeNode(node) ? convertMdToBobril(node) : node;
 });
 
-const sortedHtmlFragmentsTreeByMetadata = sortTreeLevelsByMetadata(directoriesTreeHtmlFragments);
 
-// TODO Multi level menu ordering
-// TODO search directoryOrder file on each level, if there are any directories to sort
+const sortedHtmlFragmentsTreeByMetadata = sortTreeLevelsByMetadata(directoriesTreeBobrilized);
+
+// // TODO Multi level menu ordering
+// // TODO search directoryOrder file on each level, if there are any directories to sort
 const menuOrderConfiguration = getMenuOrderConfiguration();
 const sortedHtmlFragmentsTreeByMenuConfig = sortTreeLevelsByMenuConfig(sortedHtmlFragmentsTreeByMetadata, menuOrderConfiguration);
 
@@ -57,12 +72,14 @@ const flattedTreeToList = treeUtils.flatTree(sortedHtmlFragmentsTreeByMenuConfig
 
 // Remove root (/docs)
 flattedTreeToList.slice(1, flattedTreeToList.length);
-const generatedHtml = html.generateHtmlPage(
-    sortedHtmlFragmentsTreeByMenuConfig.children,
-    flattedTreeToList.filter((node) => isFileTypeNode(node))
-);
 
-writeOutputTypescript(generatedHtml);
+// TODO generate Bobril wrapper and Bobril menu
+// const generatedPage = html.generateHtmlPage(
+//     sortedHtmlFragmentsTreeByMenuConfig.children,
+//     flattedTreeToList.filter((node) => isFileTypeNode(node))
+// );
+//
+// writeOutputTypescript(generatedPage.html, generatedPage.js);
 
 
 function getArguments() {
@@ -81,15 +98,16 @@ function getMenuOrderConfiguration() {
         .map((row) => row.trim());
 }
 
-function readMetadata(file) {
-    return metadataTagParser.parseMetadataTagLine(file.name, file.content);
-}
+function convertMdToBobril(node) {
+    const content = remark()
+        .use(remarkBobril)
+        .processSync(node.content).contents;
 
-function convertContentMd2HTML(file) {
+
     return Object.assign(
-        file,
+        node,
         {
-            content: md.render(file.content)
+            content: JSON.stringify(content),
         }
     );
 }
@@ -161,19 +179,43 @@ function isFolderTypeNode(node) {
     return node.type === fileUtils.TYPE_FOLDER;
 }
 
-function writeOutputTypescript(output) {
+//
+// function writeOutputTypescript(outputHtml, outputJs) {
+//
+//     if (!fs.existsSync(commandLineArguments.outputDirectory)) {
+//         fs.mkdirSync(commandLineArguments.outputDirectory)
+//     }
+//
+//     fs.writeFileSync(commandLineArguments.outputDirectory + '/helpers.js', outputJs, 'utf-8');
+//     fs.writeFileSync(commandLineArguments.outputDirectory + '/page.ts', outputHtml, 'utf-8');
+// }
+//
 
-    if (!fs.existsSync(commandLineArguments.outputDirectory)) {
-        fs.mkdirSync(commandLineArguments.outputDirectory)
+function getYamlSettings(content) {
+    let rows = content.split('\n');
+    const startPattern = '---';
+    const endPattern = '---';
+
+    let outputContent = [];
+    let include = false;
+    for (let i = 0; i < rows.length; i++) {
+        if (rows[i].indexOf(startPattern) !== -1 && !include) {
+            include = true;
+            continue;
+        }
+
+        if (rows[i].indexOf(endPattern) !== -1 && include) {
+            return outputContent.join('\n');
+        }
+
+        if (include) {
+            outputContent.push(rows[i]);
+        }
     }
 
-    copyJsResources();
-
-    fs.writeFileSync(commandLineArguments.outputDirectory + '/page.ts', output, 'utf-8');
-}
-
-function copyJsResources() {
-    fse.copySync(path.resolve(__dirname, './html/jsHelpers/helpers.js'), path.resolve(commandLineArguments.outputDirectory, 'helpers.js'));
+    if (include) {
+        throw Error('Invalid yaml configuration. No end tag.', content);
+    }
 }
 
 function removeUnecessaryContent(content) {

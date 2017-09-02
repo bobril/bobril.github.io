@@ -1,6 +1,8 @@
 // TODO Use only ES5, no transpilation implemented yet
 // TODO convert to TS and then generate JS -> implement edge cases, error handling
-var $doc = (function () {
+function generateJsHelpers(menuIds) {
+    return `
+    var $doc = (function () {
     return {
         scrollToNodeWithId: function (id) {
             var e = document.getElementById(id);
@@ -14,3 +16,7 @@ var $doc = (function () {
         }
     }
 })();
+`
+}
+
+module.exports.generateJsHelpers = generateJsHelpers;

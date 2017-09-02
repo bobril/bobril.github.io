@@ -1,7 +1,11 @@
-[//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
-[//]: <> (menuLabel:'Bobril Component')
-[//]: <> (menuAnchor:'menu-bobril-component')
-[//]: <> (previous:'initialization.md';next: 'events.md')
+---
+metadata:
+  menuLabel: "Bobril Component"
+  menuAnchor: "menu-bobril-component"
+  previous: "initialization.md"
+  next: "events.md"
+---
+
 <h2 id='menu-bobril-component'>Bobril Component</h2>
 
 ### Lifecycle

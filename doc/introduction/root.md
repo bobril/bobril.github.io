@@ -1,7 +1,11 @@
-[//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
-[//]: <> (menuLabel:'Introduction')
-[//]: <> (menuAnchor:'menu-introduction')
-[//]: <> (previous:'';next: 'whyOwnFramework.md')
+---
+metadata:
+  menuLabel: "Introduction"
+  menuAnchor: "menu-introduction"
+  previous: ""
+  next: "whyOwnFramework.md"
+---
+
 <p style="text-align: center;">
 <b>Documentation under construction.</b>
 </p>

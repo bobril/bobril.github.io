@@ -1,4 +1,5 @@
 const fs = require('fs');
+const generateJsHelpers = require('./js/helpers').generateJsHelpers;
 
 const menuWidth = 190;
 const cssFiles = [
@@ -9,7 +10,8 @@ const cssFiles = [
 ];
 
 function htmlTemplateTypescript(parts) {
-    return `
+    return {
+        html: `
 export const html =\`
     <style>${getCssStyles()}</style>
     <div class="markdown">
@@ -22,8 +24,10 @@ export const html =\`
             ${escapeContent(parts.content)}
         </div>
     </div>
-    \`;
-`
+    \`
+    `,
+        js: `${generateJsHelpers(parts.menuIds)}`
+    };
 }
 
 function getCssStyles() {

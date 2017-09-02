@@ -1,7 +1,11 @@
-[//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
-[//]: <> (menuLabel:'Virtual Dom')
-[//]: <> (menuAnchor:'menu-virtual-dom')
-[//]: <> (previous:'root.md';next: 'bobrilNode.md')
+---
+metadata:
+  menuLabel: "Virtual Dom"
+  menuAnchor: "menu-virtual-dom"
+  previous: "root.md"
+  next: "bobrilNode.md"
+---
+
 <h2 id='menu-virtual-dom'>Virtual Dom</h2>
 
 Very basic examples to explain how the virtual dom is build by pure JS objects. Of course nothing prevents you to create your own helper functions to shorten code to less than original HTML.

@@ -33,9 +33,10 @@
     "fs": "*",
     "fs-extra": "*",
     "github-markdown-css": "*",
-    "highlight.js": "*",
-    "markdown-toc": "*",
-    "remarkable": "*"
+    "js-yaml": "*",
+    "remark": "*",
+    "remark-frontmatter": "*",
+    "remark-highlight.js": "*",
   },
   "resolutions": {
     "array-back": "2.0.0",
