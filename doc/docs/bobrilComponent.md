@@ -27,7 +27,7 @@ Define the `ulList.ts` file:
 ```typescript
 import * as b from 'bobril';
 import * as LiItem from './liItem'
-interface IData {
+export interface IData {
     items: b.IBobrilChildren[];
     header: string;
 }
@@ -51,14 +51,14 @@ export const create = b.createComponent<IData>({
 Create file `liItem.ts` with liItem component:
 ```typescript
 import * as b from 'bobril';
-interface IData {
+export interface IData {
     content: b.IBobrilChildren;
 }
 
 interface IContext extends b.IBobrilCtx {
     data: IData;
 }
-const create = b.createComponent({
+export const create = b.createComponent({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.tag = 'li';
         me.children = ctx.data.content;
