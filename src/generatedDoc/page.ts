@@ -302,6 +302,64 @@ postInitDom function to link event. It will be described in chapter <a href="#me
 <h4 id=context>Context</h4>
 <h4 id=idata-interface>IData Interface</h4>
 <h4 id=createcomponent>createComponent</h4>
+<p><code>createComponent</code> is a base function for construct components. It accepts the <code>IBobrilComponent</code> object, which contains all lifecycle methods (<code>init</code>, <code>render</code>, <code>postInitDom</code>, etc.) and returns a function, which accepts typed data that are passed in <code>IBobrilCtx</code> to the defined lifecycle methods. Invocation of the created function will return <a href="#createcomponent">IBobrilNode</a>.<br>
+Example below illustrates how to create and use a simple ul/li list component.</p>
+<p>Define the <code>ulList.ts</code> file:</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> b <span class="hljs-keyword">from</span> <span class="hljs-string">'bobril'</span>;
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> LiItem <span class="hljs-keyword">from</span> <span class="hljs-string">'./liItem'</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> IData {
+    items: b.IBobrilChildren[];
+    header: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">interface</span> IContext <span class="hljs-keyword">extends</span> b.IBobrilCtx {
+    data: IData;
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> create = b.createComponent&lt;IData&gt;({
+    render(ctx: IContext, me: b.IBobrilNode, oldMe?: b.IBobrilCacheNode) {
+        me.tag = <span class="hljs-string">'ul'</span>;
+        me.children = [
+            ctx.data.header,
+            ctx.data.items.map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> LiItem.create({
+                content: item
+            }))
+        ];
+    }
+})
+</code></pre>
+<p>Create file <code>liItem.ts</code> with liItem component:</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> b <span class="hljs-keyword">from</span> <span class="hljs-string">'bobril'</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> IData {
+    content: b.IBobrilChildren;
+}
+
+<span class="hljs-keyword">interface</span> IContext <span class="hljs-keyword">extends</span> b.IBobrilCtx {
+    data: IData;
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> create = b.createComponent({
+    render(ctx: IContext, me: b.IBobrilNode) {
+        me.tag = <span class="hljs-string">'li'</span>;
+        me.children = ctx.data.content;
+    }
+})
+</code></pre>
+<p>Then you can reuse your component by simply calling it with IData interface:</p>
+<pre><code class="language-typescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> UlList <span class="hljs-keyword">from</span> <span class="hljs-string">'./ulList.ts'</span>
+
+UlList.create({
+    header: <span class="hljs-string">'Animals'</span>,
+    items: [<span class="hljs-string">'dog'</span>, <span class="hljs-string">'cat'</span>, <span class="hljs-string">'cow'</span>, <span class="hljs-string">'bird'</span>]
+});
+</code></pre>
+<p>These lines of code simply results in the following. You can <a href="#style">style</a> the result.</p>
+<p>Animals</p>
+<ul>
+<li>dog</li>
+<li>cat</li>
+<li>cow</li>
+<li>bird</li>
+</ul>
 <h4 id=createderivedcomponent>createDerivedComponent</h4>
 <h4 id=createoverridingcomponent>createOverridingComponent</h4>
 <h4 id=createvirtualcomponent>createVirtualComponent</h4>
