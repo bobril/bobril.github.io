@@ -1,4 +1,4 @@
-function mapToList(input) {
+export function mapToList<T>(input: { [name: string]: T }): T[] {
     let list = [];
 
     for (let key in input) {
@@ -10,12 +10,6 @@ function mapToList(input) {
     return list;
 }
 
-function isExtension(fileName, extension) {
+export function isExtension(fileName: string, extension: string): boolean {
     return fileName.slice(-extension.length) === extension;
 }
-
-
-
-
-module.exports.mapToList = mapToList;
-module.exports.isExtension = isExtension;

@@ -1,26 +1,18 @@
-const fs = require('fs');
-const fse = require('fs-extra');
-const path = require('path');
-const commandLineArgs = require('command-line-args');
-const utils = require('./utils/utils');
-const fileUtils = require('./utils/fileUtils');
-const treeUtils = require('./utils/treeUtils');
-
-const remark = require('remark');
-const remarkBobril = require('remark-bobril').default;
-
-const jsYaml = require('js-yaml');
-
+import * as commandLineUtils from './utils/commandLineUtils';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as utils from './utils/utils';
+import * as fileUtils from './utils/fileUtils';
+import * as treeUtils from './utils/treeUtils';
+import * as remark from 'remark';
+import remarkBobril = require("remark-bobril");
+import * as jsYaml from 'js-yaml';
+import * as bobril from './bobril/bobrilGenerator';
+import {IMarkdownFileNode} from './data';
+import {IFileNode} from './utils/fileUtils';
 
 const supportedFileType = '.md';
-const argumentsDefinitions = [
-    {name: 'srcDirectory', type: String},
-    {name: 'outputType', type: String},
-    {name: 'outputDirectory', type: String}
-];
-
-// Commandline arguments
-const commandLineArguments = getArguments();
+const commandLineArguments = commandLineUtils.getCommandLineArguments();
 
 const directoriesTreeRaw = fileUtils.directoryTree(commandLineArguments.srcDirectory);
 
@@ -28,35 +20,40 @@ const directoriesTreeFiltered = treeUtils.filterTree(directoriesTreeRaw, (node) 
     return utils.isExtension(node.path, supportedFileType);
 });
 
-const directoriesTreeWithMetadata = treeUtils.mapTree(directoriesTreeFiltered, (node) => {
+const directoriesTreeWithMetadata = <IMarkdownFileNode>treeUtils.mapTree<IFileNode>(directoriesTreeFiltered, (node) => {
     return isFileTypeNode(node) ?
-           Object.assign(
-               node,
-               {
-                   metadata: Object.assign(
-                       jsYaml.safeLoad(getYamlSettings(node.content)).metadata,
-                       {current: node.name}
-                   )
-               }
-           )
+        Object.assign(
+            {},
+            node,
+            {
+                metadata: Object.assign(
+                    jsYaml.safeLoad(getYamlSettings(node.content)).metadata,
+                    {current: node.name}
+                ),
+                content: deleteYamlSettings(node.content)
+            }
+        )
         : node;
 });
 
 
-const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree(directoriesTreeWithMetadata, (node) => {
-    if (isFileTypeNode(node)) {
-        if (node.metadata.symlink) {
-            const resolvedSymlinkPath = path.resolve(node.path, node.metadata.symlink);
-            let symlinkFileContent = fs.readFileSync(resolvedSymlinkPath, 'utf-8');
-            symlinkFileContent = removeUnecessaryContent(symlinkFileContent);
-            return Object.assign(node, {content: node.content + '\n' + symlinkFileContent})
+const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree<IMarkdownFileNode>(
+    directoriesTreeWithMetadata,
+    (node) => {
+        if (isFileTypeNode(node)) {
+            if (node.metadata.symlink) {
+                const resolvedSymlinkPath = path.resolve(node.path, node.metadata.symlink);
+                let symlinkFileContent = fs.readFileSync(resolvedSymlinkPath, 'utf-8');
+                symlinkFileContent = removeUnecessaryContent(symlinkFileContent);
+
+                return Object.assign(node, {content: node.content + '\n' + symlinkFileContent})
+            }
         }
-    }
 
-    return node;
-});
+        return node;
+    });
 
-const directoriesTreeBobrilized = treeUtils.mapTree(directoriesTreeWithMetadataAndReadedSymlinkContent, (node) => {
+const directoriesTreeBobrilized = treeUtils.mapTree<IMarkdownFileNode>(directoriesTreeWithMetadataAndReadedSymlinkContent, (node) => {
     return isFileTypeNode(node) ? convertMdToBobril(node) : node;
 });
 
@@ -74,17 +71,12 @@ const flattedTreeToList = treeUtils.flatTree(sortedHtmlFragmentsTreeByMenuConfig
 flattedTreeToList.slice(1, flattedTreeToList.length);
 
 // TODO generate Bobril wrapper and Bobril menu
-// const generatedPage = html.generateHtmlPage(
-//     sortedHtmlFragmentsTreeByMenuConfig.children,
-//     flattedTreeToList.filter((node) => isFileTypeNode(node))
-// );
-//
-// writeOutputTypescript(generatedPage.html, generatedPage.js);
+const generatedPage = bobril.generatePage(
+    sortedHtmlFragmentsTreeByMenuConfig.children,
+    flattedTreeToList.filter((node) => isFileTypeNode(node))
+);
 
-
-function getArguments() {
-    return commandLineArgs(argumentsDefinitions);
-}
+writeOutputTypescript(generatedPage);
 
 function getMenuOrderConfiguration() {
     return treeUtils.searchTree(
@@ -174,24 +166,20 @@ function isFileTypeNode(node) {
     return node.type === fileUtils.TYPE_FILE;
 }
 
-
 function isFolderTypeNode(node) {
     return node.type === fileUtils.TYPE_FOLDER;
 }
 
-//
-// function writeOutputTypescript(outputHtml, outputJs) {
-//
-//     if (!fs.existsSync(commandLineArguments.outputDirectory)) {
-//         fs.mkdirSync(commandLineArguments.outputDirectory)
-//     }
-//
-//     fs.writeFileSync(commandLineArguments.outputDirectory + '/helpers.js', outputJs, 'utf-8');
-//     fs.writeFileSync(commandLineArguments.outputDirectory + '/page.ts', outputHtml, 'utf-8');
-// }
-//
+function writeOutputTypescript(output: string) {
 
-function getYamlSettings(content) {
+    if (!fs.existsSync(commandLineArguments.outputDirectory)) {
+        fs.mkdirSync(commandLineArguments.outputDirectory)
+    }
+
+    fs.writeFileSync(commandLineArguments.outputDirectory + '/page.ts', output, 'utf-8');
+}
+
+function getYamlSettings(content: string): string {
     let rows = content.split('\n');
     const startPattern = '---';
     const endPattern = '---';
@@ -214,9 +202,33 @@ function getYamlSettings(content) {
     }
 
     if (include) {
-        throw Error('Invalid yaml configuration. No end tag.', content);
+        throw Error('Invalid yaml configuration. No end tag.');
     }
 }
+
+function deleteYamlSettings(content: string): string {
+    let rows = content.split('\n');
+    const pattern = '---';
+
+    let numFounded = 0;
+    let paired = false;
+    let i = 0;
+    while (!paired) {
+        if (rows[i].indexOf(pattern) !== -1) {
+            numFounded++;
+            if (numFounded > 1) {
+                paired = true;
+            }
+        }
+
+        i++;
+    }
+
+    content = rows.splice(0, i).join('\n');
+
+    return rows.splice(0, i).join('\n');
+}
+
 
 function removeUnecessaryContent(content) {
     let rows = content.split('\n');

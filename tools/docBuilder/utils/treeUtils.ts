@@ -1,13 +1,14 @@
-const fileUtils = require('./fileUtils');
+import * as fileUtils from './fileUtils';
+import {IFileNode} from './fileUtils';
 
-function searchTree(node, property, propertyGetter) {
-
-
+export function searchTree<T extends IFileNode, P>(node: T,
+                                                   property: P,
+                                                   propertyGetter: (n: T) => P): T | undefined {
     if (node.children !== undefined && node.children.length !== 0) {
         for (let i = 0; i < node.children.length; i++) {
             let potentialFound = searchTree(node.children[i], property, propertyGetter);
             if (potentialFound !== undefined) {
-                return potentialFound;
+                return <T>potentialFound;
             }
         }
     }
@@ -17,10 +18,10 @@ function searchTree(node, property, propertyGetter) {
     }
 
     return undefined;
-
 }
 
-function filterTree(node, filterCondition) {
+export function filterTree<T extends IFileNode>(node: T,
+                                                filterCondition: (n: T) => boolean): T {
     let mappedChildren = [];
 
     if (node.children !== undefined && node.children.length !== 0) {
@@ -40,30 +41,24 @@ function filterTree(node, filterCondition) {
     return Object.assign({}, node);
 }
 
-function mapTree(node, mapFunction) {
+export function mapTree<T extends IFileNode>(node: T,
+                                             mapFunction: (n: T) => T): T {
     let mappedChildren = [];
 
     if (node.children !== undefined && node.children.length !== 0) {
         node.children.forEach((nn) => {
             mappedChildren.push(mapTree(nn, mapFunction));
         });
-        return Object.assign(mapFunction(node), {children: mappedChildren});
+        return Object.assign({}, mapFunction(node), {children: mappedChildren});
     }
-
 
     return mapFunction(node);
 }
 
-function flatTree(node) {
+export function flatTree<T extends IFileNode>(node: T): T[] {
     let mappedChildren = [];
 
-    const resultNode = {
-        path: node.path,
-        name: node.name,
-        type: node.type,
-        metadata: node.metadata,
-        content: node.content
-    };
+    const resultNode = Object.assign({}, node);
 
     if (node.children !== undefined && node.children.length !== 0) {
         node.children.forEach((nn) => {
@@ -72,11 +67,6 @@ function flatTree(node) {
         return [resultNode, ...mappedChildren];
     }
 
-
     return [resultNode];
 }
 
-module.exports.searchTree = searchTree;
-module.exports.filterTree = filterTree;
-module.exports.mapTree = mapTree;
-module.exports.flatTree = flatTree;
