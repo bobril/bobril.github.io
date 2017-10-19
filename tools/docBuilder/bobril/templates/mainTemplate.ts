@@ -9,6 +9,9 @@ export function generateMainPage(data: IMainPageData): string {
     return `export function create() {
         return {
             tag : 'div',
+            attrs: {
+                class: 'markdown-body'
+            },
             children: [
                 {
                     tag: 'div',
