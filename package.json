@@ -23,8 +23,8 @@
     "build-generator:watch": "tsc -w -p tsconfig.generator.json",
     "prebuild-guides": "npm run build-generator",
     "prebuild-doc": "npm run build-generator",
-    "build-guides": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./guides/ --outputDirectory=./src/generatedGuides",
-    "build-doc": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc/ --outputDirectory=./src/generatedDoc",
+    "build-guides": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./guides --outputDirectory=./src/generatedGuides",
+    "build-doc": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc --outputDirectory=./src/generatedDoc",
     "build-page": "bb b -s 1 -v dist",
     "build": "npm run build-guides && npm run build-doc && npm run build-page"
   },
@@ -40,7 +40,7 @@
     "js-yaml": "*",
     "path": "^0.12.7",
     "remark": "*",
-    "remark-bobril": "*",
+    "remark-bobril": "^1.0.1",
     "remark-frontmatter": "*",
     "remark-highlight.js": "^5.0.0",
     "remark-yaml-meta": "^0.1.0"

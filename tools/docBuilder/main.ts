@@ -5,7 +5,7 @@ import * as utils from './utils/utils';
 import * as fileUtils from './utils/fileUtils';
 import * as treeUtils from './utils/treeUtils';
 import * as remark from 'remark';
-import remarkBobril = require("remark-bobril");
+import remarkBobril = require('remark-bobril');
 import * as jsYaml from 'js-yaml';
 import * as bobril from './bobril/bobrilGenerator';
 import {IMarkdownFileNode} from './data';
@@ -14,12 +14,15 @@ import {IFileNode} from './utils/fileUtils';
 const supportedFileType = '.md';
 const commandLineArguments = commandLineUtils.getCommandLineArguments();
 
+// 1. Read files from disk to memory
 const directoriesTreeRaw = fileUtils.directoryTree(commandLineArguments.srcDirectory);
 
+// 2. Filter all not supported files
 const directoriesTreeFiltered = treeUtils.filterTree(directoriesTreeRaw, (node) => {
     return utils.isExtension(node.path, supportedFileType);
 });
 
+// 3. Parse metadata from the beginning of the *.md file
 const directoriesTreeWithMetadata = <IMarkdownFileNode>treeUtils.mapTree<IFileNode>(directoriesTreeFiltered, (node) => {
     return isFileTypeNode(node) ?
         Object.assign(
@@ -36,7 +39,7 @@ const directoriesTreeWithMetadata = <IMarkdownFileNode>treeUtils.mapTree<IFileNo
         : node;
 });
 
-
+// 4. Load all symlinked content
 const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree<IMarkdownFileNode>(
     directoriesTreeWithMetadata,
     (node) => {
@@ -53,11 +56,12 @@ const directoriesTreeWithMetadataAndReadedSymlinkContent = treeUtils.mapTree<IMa
         return node;
     });
 
+// 5. Bobrilize content of the files
 const directoriesTreeBobrilized = treeUtils.mapTree<IMarkdownFileNode>(directoriesTreeWithMetadataAndReadedSymlinkContent, (node) => {
     return isFileTypeNode(node) ? convertMdToBobril(node) : node;
 });
 
-
+// 6. Sort files by metadata order
 const sortedHtmlFragmentsTreeByMetadata = sortTreeLevelsByMetadata(directoriesTreeBobrilized);
 
 // // TODO Multi level menu ordering
@@ -70,13 +74,18 @@ const flattedTreeToList = treeUtils.flatTree(sortedHtmlFragmentsTreeByMenuConfig
 // Remove root (/docs)
 flattedTreeToList.slice(1, flattedTreeToList.length);
 
-// TODO generate Bobril wrapper and Bobril menu
+// 7. Generate Layout with menu and content
 const generatedPage = bobril.generatePage(
     sortedHtmlFragmentsTreeByMenuConfig.children,
     flattedTreeToList.filter((node) => isFileTypeNode(node))
 );
 
+// 8. Write output to file
 writeOutputTypescript(generatedPage);
+
+/////////////////////////////////////////////////////////////////
+/////////////////////// END OF GENERATION ///////////////////////
+/////////////////////////////////////////////////////////////////
 
 function getMenuOrderConfiguration() {
     return treeUtils.searchTree(
@@ -94,7 +103,6 @@ function convertMdToBobril(node) {
     const content = remark()
         .use(remarkBobril)
         .processSync(node.content).contents;
-
 
     return Object.assign(
         node,
@@ -171,7 +179,6 @@ function isFolderTypeNode(node) {
 }
 
 function writeOutputTypescript(output: string) {
-
     if (!fs.existsSync(commandLineArguments.outputDirectory)) {
         fs.mkdirSync(commandLineArguments.outputDirectory)
     }
@@ -224,7 +231,7 @@ function deleteYamlSettings(content: string): string {
         i++;
     }
 
-    let newContent = [...rows];
+    const newContent = [...rows];
     newContent.splice(0, i);
 
     return newContent.join('\n');

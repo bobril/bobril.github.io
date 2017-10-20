@@ -31,11 +31,7 @@ export function generateMainPage(data: IMainPageData): string {
                         padding: '16px 16px 16px 32px'
                     }
                 }
-            ],
-            style : {
-            
-            }
+            ]
         }
     }`
-
 }

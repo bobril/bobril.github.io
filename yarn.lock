@@ -48,8 +48,8 @@ bobril-m@*:
     webfontloader "^1.6.21"
 
 bobril@*:
-  version "7.6.6"
-  resolved "https://registry.yarnpkg.com/bobril/-/bobril-7.6.6.tgz#6089e1aae8a99fe5a01f96d8d7ba13b12cf59b3d"
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/bobril/-/bobril-7.7.0.tgz#873b48a6a0d7f28446477322f81ff36d288d9969"
 
 ccount@^1.0.0:
   version "1.0.2"
@@ -235,9 +235,9 @@ process@^0.11.1:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
 
-remark-bobril@*:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/remark-bobril/-/remark-bobril-1.0.0.tgz#649b3326e58984b06b3513f40d58b794006ef888"
+remark-bobril@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/remark-bobril/-/remark-bobril-1.0.2.tgz#fc8fc8de3ae253fbac361e55ac1f597fb2bbcd59"
   dependencies:
     bobril "*"
 

@@ -9,4 +9,3 @@ export function generatePage(fileNodes: IMarkdownFileNode[], flattedNodes: IMark
         content:  contentTemplate.generateContent(flattedNodes)
     });
 }
-
