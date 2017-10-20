@@ -224,9 +224,10 @@ function deleteYamlSettings(content: string): string {
         i++;
     }
 
-    content = rows.splice(0, i).join('\n');
+    let newContent = [...rows];
+    newContent.splice(0, i);
 
-    return rows.splice(0, i).join('\n');
+    return newContent.join('\n');
 }
 
 

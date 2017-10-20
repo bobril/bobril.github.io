@@ -42,7 +42,7 @@
     "remark": "*",
     "remark-bobril": "*",
     "remark-frontmatter": "*",
-    "remark-highlight.js": "*",
+    "remark-highlight.js": "^5.0.0",
     "remark-yaml-meta": "^0.1.0"
   },
   "resolutions": {
