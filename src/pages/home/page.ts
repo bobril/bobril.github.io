@@ -11,6 +11,7 @@ import * as FeatureListSection from './sections/featureList';
 import * as BobrilLogoSection from './sections/bobrilLogo';
 import * as CoreFeaturesPromo from './sections/coreFeaturesPromo';
 
+import * as Intro from '../homePage/intro';
 interface IData {
 }
 
@@ -21,6 +22,7 @@ interface IContext extends b.IBobrilCtx {
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
+            Intro.create(),
             b.styledDiv(
                 LCenter.create({
                     children: Splitter.create({
@@ -64,5 +66,3 @@ const bobrilPromoStyle = b.styleDef({
 });
 
 export default home;
-
-

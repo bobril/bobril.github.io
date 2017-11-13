@@ -12,7 +12,7 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode){
+    render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
         me.children = [
@@ -22,7 +22,7 @@ export const create = b.createComponent<IData>({
         b.style(
             me,
             buttonStyle,
-            d.isActive && {color: m.white}
+            d.isActive && { color: m.white }
         );
     },
 
