@@ -8,14 +8,17 @@
             "es5",
             "dom",
             "es2015.core",
-            "es2015.promise"
+            "es2015.promise",
+            "es2015.iterable",
+            "es2015.collection"
         ],
         "removeComments": false,
         "noLib": false,
         "preserveConstEnums": false,
         "experimentalDecorators": true,
         "jsx": "react",
-        "reactNamespace": "b"
+        "reactNamespace": "b",
+        "types": []
     },
     "include": [
         "**/*"
