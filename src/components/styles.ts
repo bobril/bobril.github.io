@@ -1,11 +1,5 @@
 import * as b from 'bobril';
 
-export const color01: string = '#c5060';
-export const color02: string = '#5a5f70';
-export const color03: string = '#cacdd4';
-export const color04: string = '#ececed';
-export const color05: string = '#ffffff';
-
 export const menutext01: object = {
     fontFamily: 'Segoe UI',
     letterSpacing: '75pt',
@@ -72,7 +66,7 @@ export const smalltext01: object = {
     lineHeight: '17pt'
 };
 
-// function to concatenate  
+// function to concatenate objects and create style from them 
 export function createBobrilStylefromObjects(...styleObjects: object[]) {
     let styleObject = {};
     for (let i = 0; i < styleObjects.length; i++) {
