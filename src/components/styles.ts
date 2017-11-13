@@ -7,42 +7,42 @@ export const color04: string = 'ececed';
 export const color05: string = 'ffffff';
 
 export const menutext01: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '17pt',
-    fontWeight: 600
+    fontWeight: '600'
 });
 
 export const menutext01s: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '17pt',
-    fontWeight: 600
+    fontWeight: '700'
 });
 
 export const menutext01b: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '0',
     fontSize: '18pt',
-    fontWeight: 600
+    fontWeight: '600'
 });
 
 export const menutext02: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '15pt',
     fontWeight: '700',
 });
 
 export const headertext01: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '34pt',
     fontWeight: '600'
 });
 
 export const headertext02: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '20pt',
     fontWeight: '400',
@@ -50,14 +50,14 @@ export const headertext02: b.IBobrilStyleDef = b.styleDef({
 });
 
 export const buttontext01: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '34pt',
     fontWeight: '700'
 });
 
 export const paragtext01: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '75',
     fontSize: '17pt',
     fontWeight: '400',
@@ -65,9 +65,9 @@ export const paragtext01: b.IBobrilStyleDef = b.styleDef({
 });
 
 export const smalltext01: b.IBobrilStyleDef = b.styleDef({
-    fontFamily: 'Segope UI',
+    fontFamily: 'Segoe UI',
     letterSpacing: '0',
     fontSize: '14pt',
     fontWeight: '300',
-    lineHeight: '17ptt',
+    lineHeight: '17pt',
 });
