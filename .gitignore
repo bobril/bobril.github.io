@@ -4,3 +4,5 @@ submodule/bobril-samples/
 .idea/
 *.js.map
 /tools/docBuilder/**/*.js
+src/generatedDoc/page.ts
+src/generatedGuides/page.ts
