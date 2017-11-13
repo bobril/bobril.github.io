@@ -1,60 +1,69 @@
 {
-  "name": "bobril.github.io",
-  "version": "1.0.0",
-  "description": "Webpage for Bobril",
-  "main": "src/main.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Xrew/bobril.github.io.git"
-  },
-  "author": "Tomas Sychra",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Xrew/bobril.github.io/issues"
-  },
-  "homepage": "https://github.com/Xrew/bobril.github.io#readme",
-  "bobril": {
-    "title": "Bobril - Component oriented framework",
-    "dir": ".",
-    "head": "<link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css\"><script src=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js\"></script>"
-  },
-  "scripts": {
-    "build-generator": "tsc -p tsconfig.generator.json",
-    "build-generator:watch": "tsc -w -p tsconfig.generator.json",
-    "prebuild-guides": "npm run build-generator",
-    "prebuild-doc": "npm run build-generator",
-    "build-guides": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./guides --outputDirectory=./src/generatedGuides",
-    "build-doc": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc --outputDirectory=./src/generatedDoc",
-    "build-page": "bb b -s 1 -v dist",
-    "build": "npm run build-guides && npm run build-doc && npm run build-page"
-  },
-  "dependencies": {
-    "bobril": "*",
-    "bobril-highlightjs": "*",
-    "bobril-m": "*",
-    "bobril-m-icons": "*",
-    "command-line-args": "*",
-    "fs": "*",
-    "fs-extra": "*",
-    "github-markdown-css": "*",
-    "js-yaml": "*",
-    "path": "^0.12.7",
-    "remark": "*",
-    "remark-bobril": "^1.0.1",
-    "remark-frontmatter": "*",
-    "remark-highlight.js": "^5.0.0",
-    "remark-yaml-meta": "^0.1.0"
-  },
-  "resolutions": {
-    "array-back": "2.0.0",
-    "argparse": "1.0.9",
-    "kind-of": "4.0.0",
-    "is-number": "3.0.0",
-    "isobject": "3.0.1",
-    "inherits": "2.0.3",
-    "minimist": "1.2.0"
-  },
-  "devDependencies": {
-    "typescript": "^2.5.2"
-  }
+    "name": "bobril.github.io",
+    "version": "1.0.0",
+    "description": "Webpage for Bobril",
+    "main": "src/main.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Xrew/bobril.github.io.git"
+    },
+    "author": "Tomas Sychra",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Xrew/bobril.github.io/issues"
+    },
+    "homepage": "https://github.com/Xrew/bobril.github.io#readme",
+    "bobril": {
+        "title": "Bobril - Component oriented framework",
+        "dir": ".",
+        "head":
+            "<link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css\"><script src=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js\"></script>"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true
+    },
+    "scripts": {
+        "build-generator": "tsc -p tsconfig.generator.json",
+        "build-generator:watch": "tsc -w -p tsconfig.generator.json",
+        "prebuild-guides": "npm run build-generator",
+        "prebuild-doc": "npm run build-generator",
+        "build-guides":
+            "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./guides --outputDirectory=./src/generatedGuides",
+        "build-doc":
+            "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc --outputDirectory=./src/generatedDoc",
+        "build-page": "bb b -s 1 -v dist",
+        "build":
+            "npm run build-guides && npm run build-doc && npm run build-page"
+    },
+    "dependencies": {
+        "bobril": "*",
+        "bobril-highlightjs": "*",
+        "bobril-m": "*",
+        "bobril-m-icons": "*",
+        "command-line-args": "*",
+        "fs": "*",
+        "fs-extra": "*",
+        "github-markdown-css": "*",
+        "js-yaml": "*",
+        "path": "^0.12.7",
+        "remark": "*",
+        "remark-bobril": "^1.0.1",
+        "remark-frontmatter": "*",
+        "remark-highlight.js": "^5.0.0",
+        "remark-yaml-meta": "^0.1.0"
+    },
+    "resolutions": {
+        "array-back": "2.0.0",
+        "argparse": "1.0.9",
+        "kind-of": "4.0.0",
+        "is-number": "3.0.0",
+        "isobject": "3.0.1",
+        "inherits": "2.0.3",
+        "minimist": "1.2.0",
+        "is-buffer": "1.1.6"
+    },
+    "devDependencies": {
+        "typescript": "^2.5.2"
+    }
 }
