@@ -16,8 +16,7 @@
     "bobril": {
         "title": "Bobril - Component oriented framework",
         "dir": ".",
-        "head":
-            "<link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css\"><script src=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js\"></script>"
+        "head": "<link rel=\"stylesheet\" href=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css\"><script src=\"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js\"></script>"
     },
     "prettier": {
         "tabWidth": 4,
@@ -28,13 +27,10 @@
         "build-generator:watch": "tsc -w -p tsconfig.generator.json",
         "prebuild-guides": "npm run build-generator",
         "prebuild-doc": "npm run build-generator",
-        "build-guides":
-            "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./guides --outputDirectory=./src/generatedGuides",
-        "build-doc":
-            "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc --outputDirectory=./src/generatedDoc",
+        "build-guides": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./guides --outputDirectory=./src/generatedGuides",
+        "build-doc": "node tools/docBuilder/main.js --outputType=ts --srcDirectory=./doc --outputDirectory=./src/generatedDoc",
         "build-page": "bb b -s 1 -v dist",
-        "build":
-            "npm run build-guides && npm run build-doc && npm run build-page"
+        "build": "npm run build-guides && npm run build-doc && npm run build-page"
     },
     "dependencies": {
         "bobril": "*",
