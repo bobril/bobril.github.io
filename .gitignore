@@ -1,2 +1,10 @@
+<<<<<<< HEAD
 
 submodule/bobril-samples/
+=======
+# Created by .ignore support plugin (hsz.mobi)
+/node_modules/
+.idea/
+*.js.map
+/tools/docBuilder/**/*.js
+>>>>>>> parent of 0eda9cc... test commit
