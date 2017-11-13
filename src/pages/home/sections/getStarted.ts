@@ -7,7 +7,7 @@ import * as BobrilHighligtJs from 'bobril-highlightjs';
 // examples
 import * as ExampleCounter from './examples/counter';
 import * as ExampleTodo from './examples/todo';
-import * as Styles from '../../../components/styles';
+import * as styles from '../../../components/styles';
 interface IData {
 }
 
@@ -21,7 +21,7 @@ export const create = b.createComponent<IData>({
 
         me.children = [
             gettingStarted(),
-            b.styledDiv(firstExample(), Styles.headertext02),
+            b.styledDiv(firstExample(), exampleContainerStyle),
             b.styledDiv(firstComponent(), exampleContainerStyle),
             b.styledDiv(todoExample(), exampleContainerStyle)
         ];
