@@ -5,35 +5,22 @@ import * as styles from '../styles';
 import * as Divider from '../../components/divider/lib';
 import * as LCenter from '../../components/lCenter/lib';
 
-import * as FurrySection from './sections/furry';
-import * as GetStartedSection from './sections/getStarted';
-import * as FeatureListSection from './sections/featureList';
-import * as BobrilLogoSection from './sections/bobrilLogo';
-import * as CoreFeaturesPromo from './sections/coreFeaturesPromo';
-
 import * as Intro from '../introPage/sections/intro';
 interface IData {
 }
 
-interface IContext extends b.IBobrilCtx {   
+interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
-            Intro.create(),
             b.styledDiv(
                 LCenter.create({
                     children: Splitter.create({
                         children: [
-                            FeatureListSection.create(),
-                            BobrilLogoSection.create({
-                                onGetStartedClick: () => {
-
-                                }
-                            }),
-                            FurrySection.create(),
+                            Intro.create(),
                         ]
                     }),
                     maxWidth: styles.maxPageWidth
@@ -42,7 +29,7 @@ const home = b.createComponent<IData>({
             ),
             LCenter.create({
                 children: [
-                    CoreFeaturesPromo.create(),
+                    //CoreFeaturesPromo.create(),
                     Divider.create(),
                     GetStartedSection.create()
                 ],
