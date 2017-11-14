@@ -1,12 +1,11 @@
 import * as b from 'bobril';
-import { createBobrilStylefromObjects } from '../styles';
 
 type Function = () => void;
 
 export interface IData {
-    style?: object;
-    hoverStyle?: object;
-    fontStyle?: object;
+    style?: b.IBobrilStyleDef;
+    hoverStyle?: b.IBobrilStyleDef;
+    fontStyle?: b.IBobrilStyleDef;
     color?: string;
     content: string;
     onClick: Function;
@@ -42,14 +41,11 @@ export const create = b.createComponent<IData>({
 
     onMouseEnter(ctx: IContext) {
         ctx.data.hover = true;
-        console.log("enter");
         b.invalidate(ctx);
     },
 
     onMouseLeave(ctx: IContext) {
-
         ctx.data.hover = false;
-        console.log("leave");
         b.invalidate(ctx);
     }
 });
