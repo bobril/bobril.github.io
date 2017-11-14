@@ -15,23 +15,23 @@ interface IContext extends b.IBobrilCtx {
 
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [
-            b.styledDiv(
-                LCenter.create({
-                    children: Splitter.create({
-                        children: [
-                            Intro.create(),
-                        ]
-                    }),
-                    maxWidth: styles.maxPageWidth
-                }),
-                bobrilPromoStyle
-            ),
+        me.children = [ Intro.create(),
+            // b.styledDiv(
+            //     LCenter.create({
+            //         children: Splitter.create({
+            //             children: [
+            //                 Intro.create(),
+            //             ]
+            //         }),
+            //         maxWidth: styles.maxPageWidth
+            //     }),
+            //     bobrilPromoStyle
+            // ),
             LCenter.create({
                 children: [
                     //CoreFeaturesPromo.create(),
                     Divider.create(),
-                    GetStartedSection.create()
+                    //GetStartedSection.create()
                 ],
                 maxWidth: styles.maxPageWidth,
             })

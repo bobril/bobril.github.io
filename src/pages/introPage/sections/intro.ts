@@ -14,8 +14,8 @@ interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-let bobrilStyle = styles.createBobrilStylefromObjects(styles.headertext01, { color: Colors.color04 });
-let isComponentStyle = styles.createBobrilStylefromObjects(styles.headertext02, { color: Colors.color04 });
+let bobrilStyle =  { color: Colors.color04 };
+let isComponentStyle = { color: Colors.color04 };
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
@@ -28,11 +28,11 @@ export const create = b.createComponent<IData>({
             }),
 
             // b.styledDiv() 60 px??
-            b.styledDiv(['BOBRIL'], bobrilStyle),
+            b.styledDiv(['BOBRIL'], bobrilStyle,styles.headertext01),
 
             b.styledDiv(['is a component-oriented framework for creating web applications inspired by'
                 + ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'],
-                isComponentStyle),
+                isComponentStyle,styles.headertext02),
 
         ];
 
