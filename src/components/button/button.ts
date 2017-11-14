@@ -6,8 +6,7 @@ type Function = () => void;
 export interface IData {
     style: object;
     fontStyle: object;
-    colorStyle: object;
-    content: string;
+    content: object;
     onClick: Function;
 }
 
@@ -19,7 +18,6 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         let buttonStyle = createBobrilStylefromObjects(
             ctx.data.fontStyle,
-            ctx.data.colorStyle,
             ctx.data.style
         );
         me.children = [b.styledDiv([ctx.data.content])];
