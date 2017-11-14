@@ -6,8 +6,7 @@ import * as Divider from '../../components/divider/lib';
 import * as LCenter from '../../components/lCenter/lib';
 
 import * as Intro from '../introPage/sections/intro';
-interface IData {
-}
+interface IData {}
 
 interface IContext extends b.IBobrilCtx {
     data: IData;
@@ -15,27 +14,17 @@ interface IContext extends b.IBobrilCtx {
 
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [ Intro.create(),
-            // b.styledDiv(
-            //     LCenter.create({
-            //         children: Splitter.create({
-            //             children: [
-            //                 Intro.create(),
-            //             ]
-            //         }),
-            //         maxWidth: styles.maxPageWidth
-            //     }),
-            //     bobrilPromoStyle
-            // ),
+        me.children = [
+            Intro.create(),
             LCenter.create({
                 children: [
                     //CoreFeaturesPromo.create(),
-                    Divider.create(),
+                    Divider.create()
                     //GetStartedSection.create()
                 ],
-                maxWidth: styles.maxPageWidth,
+                maxWidth: styles.maxPageWidth
             })
-        ]
+        ];
     }
 });
 
@@ -49,7 +38,7 @@ const bobrilPromoStyle = b.styleDef({
     paddingTop: imageContainerPadding,
     paddingLeft: imageContainerPadding,
     paddingRight: imageContainerPadding,
-    boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)',
+    boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)'
 });
 
 export default home;

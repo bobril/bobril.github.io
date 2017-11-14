@@ -17,26 +17,13 @@ export const create = b.createComponent<IData>({
         me.children = b.styledDiv(
             [
                 Image.create({
-                    asset: assets.bobrilLogoWhiteIntro,
+                    asset: assets.bobrilLogo,
                     width: 300,
                     height: 284,
                     style: {
                         margin: 'auto'
                     }
                 }),
-                // TODO
-                // b.styledDiv(
-                //     m.Button({
-                //         children: 'GET STARTED',
-                //         type: m.ButtonType.Raised,
-                //         action: () => {
-                //             d.onGetStartedClick();
-                //         }
-                //     }),
-                //     {
-                //         marginBottom: 8
-                //     }
-                // )
             ],
             {
                 marginTop: -24
