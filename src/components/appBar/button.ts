@@ -23,6 +23,7 @@ export const create = b.createComponent<IData>({
             me,
             buttonStyle,
             d.isActive && { color: m.white }
+            
         );
     },
 

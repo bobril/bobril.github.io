@@ -4,10 +4,13 @@ import { createBobrilStylefromObjects } from '../styles';
 type Function = () => void;
 
 export interface IData {
-    style: object;
-    fontStyle: object;
-    content: object;
+    style?: object;
+    hoverStyle?: object;
+    fontStyle?: object;
+    color?: string;
+    content: string;
     onClick: Function;
+    hover: boolean;
 }
 
 export interface IContext extends b.IBobrilCtx {
@@ -16,13 +19,17 @@ export interface IContext extends b.IBobrilCtx {
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        let buttonStyle = createBobrilStylefromObjects(
-            ctx.data.fontStyle,
-            ctx.data.style
-        );
-        me.children = [b.styledDiv([ctx.data.content])];
+        me.children = [ctx.data.content];
 
-        b.style(me, buttonStyle);
+        b.style(
+            me,
+            ctx.data.style,
+            {
+                background: ctx.data.color,
+                cursor: 'pointer'
+            },
+            ctx.data.hover && { background: 'green' }
+        );
     },
 
     onClick(ctx: IContext): boolean {
@@ -31,5 +38,18 @@ export const create = b.createComponent<IData>({
             return true;
         }
         return false;
+    },
+
+    onMouseEnter(ctx: IContext) {
+        ctx.data.hover = true;
+        console.log("enter");
+        b.invalidate(ctx);
+    },
+
+    onMouseLeave(ctx: IContext) {
+
+        ctx.data.hover = false;
+        console.log("leave");
+        b.invalidate(ctx);
     }
 });
