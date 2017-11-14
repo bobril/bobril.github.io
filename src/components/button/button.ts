@@ -1,14 +1,10 @@
 import * as b from 'bobril';
-
-type Function = () => void;
+import * as Buttons from './buttons';
 
 export interface IData {
-    style?: b.IBobrilStyleDef;
-    hoverStyle?: b.IBobrilStyleDef;
-    fontStyle?: b.IBobrilStyleDef;
-    color?: string;
+    variant: Buttons.ButtonVariants;
     content: string;
-    onClick: Function;
+    onClick: () => void;
     hover: boolean;
 }
 
@@ -18,16 +14,17 @@ export interface IContext extends b.IBobrilCtx {
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [ctx.data.content];
+        let styles = Buttons.ButtonsStyleMap.get(ctx.data.variant);
 
+        let hoverStyle =
+            styles.hoverStyle !== undefined ? styles.hoverStyle : styles.style;
+
+        me.children = [ctx.data.content];
         b.style(
             me,
-            ctx.data.style,
-            {
-                background: ctx.data.color,
-                cursor: 'pointer'
-            },
-            ctx.data.hover && { background: 'green' }
+            { cursor: 'pointer' },
+            styles.style,
+            ctx.data.hover && hoverStyle
         );
     },
 
