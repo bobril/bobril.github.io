@@ -7,14 +7,13 @@ import * as assets from '../../../assets/assets';
 
 import * as BobrilLogoSection from './bobrilLogo';
 
-interface IData {
-}
+interface IData {}
 
 interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-let bobrilStyle =  { color: Colors.color04 };
+let bobrilStyle = { color: Colors.color04 };
 let isComponentStyle = { color: Colors.color04 };
 
 export const create = b.createComponent<IData>({
@@ -23,25 +22,24 @@ export const create = b.createComponent<IData>({
 
         me.children = [
             BobrilLogoSection.create({
-                onGetStartedClick: () => {
-                }
+                onGetStartedClick: () => {}
             }),
 
             // b.styledDiv() 60 px??
-            b.styledDiv(['BOBRIL'], bobrilStyle,styles.headertext01),
+            b.styledDiv(['BOBRIL'], bobrilStyle, styles.headertext01),
 
-            b.styledDiv(['is a component-oriented framework for creating web applications inspired by'
-                + ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'],
-                isComponentStyle,styles.headertext02),
-
+            b.styledDiv(
+                [
+                    'is a component-oriented framework for creating web applications inspired by' +
+                        ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'
+                ],
+                isComponentStyle,
+                styles.headertext02
+            )
         ];
 
-        b.style(
-            me,
-            {
-                //height: '200px',
-                background: Colors.color02,
-            }
-        );
+        b.style(me, {
+            background: Colors.color02
+        });
     }
 });
