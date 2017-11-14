@@ -21,18 +21,11 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
 
         me.children = [
-            b.styledDiv(
-                [
-                    
-                ],
-                {
-                    minWidth: 1200,
-                    maxWidth: d.contentWidth,
-                    margin: 'auto'
-                }
-            )
+            b.styledDiv([], {
+                minWidth: 1200,
+                maxWidth: d.contentWidth,
+                margin: 'auto'
+            })
         ];
-
-       
     }
 });
