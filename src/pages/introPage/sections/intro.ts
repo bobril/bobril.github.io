@@ -25,6 +25,7 @@ export const create = b.createComponent<IData>({
                 onGetStartedClick: () => {}
             }),
 
+            b.styledDiv([], {height: '60px', width: '60px', position: 'center'}),
             b.styledDiv(['BOBRIL'], bobrilStyle, styles.headertext01),
 
             b.styledDiv(
