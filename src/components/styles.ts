@@ -69,12 +69,12 @@ export const smalltext01: object = {
     lineHeight: '17pt'
 };
 
-// function to concatenate objects and create style from them 
-export function createBobrilStylefromObjects(...styleObjects: object[]) {
-    let styleObject = {};
-    for (let i = 0; i < styleObjects.length; i++) {
-        Object.assign(styleObject, styleObjects[i]);
-    }
-    console.log(styleObject);
-    return b.styleDef(styleObject);
-}
+export const normalButton = b.styleDef({
+    width: '50px',
+    height: '50px',
+    background: 'red'
+});
+
+export const normalButtonHover = b.styleDef({
+    background: 'green'
+});
