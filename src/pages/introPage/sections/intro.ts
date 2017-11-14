@@ -4,6 +4,8 @@ import * as AppButton from '../../../components/appBar/button';
 import * as Colors from '../../../components/colors';
 import * as Image from '../../../components/image/lib';
 import * as assets from '../../../assets/assets';
+import * as Button from '../../../components/button/button';
+import { ButtonVariants } from '../../../components/button/buttons';
 
 import * as BobrilLogoSection from './bobrilLogo';
 
@@ -25,6 +27,7 @@ export const create = b.createComponent<IData>({
                 onGetStartedClick: () => {}
             }),
 
+            b.styledDiv([], { height: '60px' }),
             b.styledDiv(['BOBRIL'], bobrilStyle, styles.headertext01),
 
             b.styledDiv(
@@ -34,7 +37,14 @@ export const create = b.createComponent<IData>({
                 ],
                 isComponentStyle,
                 styles.headertext02
-            )
+            ),
+
+            Button.create({
+                content: 'GET STARTED',
+                hover: false,
+                onClick: () => alert('ahojda pratele'),
+                variant: ButtonVariants.white
+            })
         ];
 
         b.style(me, {
