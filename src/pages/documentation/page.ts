@@ -15,17 +15,7 @@ interface IContext extends b.IBobrilCtx {
 const documentation = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
-            Button.create({
-                content: 'sdasd',
-                style: { width: '20px', height: '20px' },
-                color: 'red',
-                hover: false,
-                hoverStyle: { background: 'green' },
-                fontStyle: styless.buttontext01,
-                onClick: () => {
-                    alert('bb');
-                }
-            }),
+            
             LCenter.create({
                 children: [DocImporter.create()],
                 maxWidth: styles.maxPageWidth
