@@ -11,23 +11,21 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode){
+    render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
-        me.children = b.styledDiv(
-            [
-                Image.create({
-                    asset: assets.bobrilLogo,
-                    width: '26vw',
-                    height: '100vh',
-                    style: {
-                        margin: 'auto'
-                    }
-                }),
-            ],
-            {
-                marginTop: -24
-            }
-        )
+        me.children = b.styledDiv([
+            Image.create({
+                asset: assets.bobrilLogo,
+                width: 555,
+                height: 549,
+                style: {
+                     position: 'absolute',
+                     marginLeft: '35%',
+                     marginTop: '0%'
+                }
+            }),
+        
+        ]);
     }
 });

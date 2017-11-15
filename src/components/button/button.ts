@@ -33,6 +33,7 @@ export const create = b.createComponent<IData>({
                 styles.buttontext01,
             ctx.data.variant === Buttons.ButtonVariants.gitButton &&
                 styles.gitButton,
+
             ctx.data.variant === Buttons.ButtonVariants.gitButton &&
                 styles.menutext01s,
             ctx.data.variant === Buttons.ButtonVariants.menuButton &&
