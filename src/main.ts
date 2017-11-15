@@ -10,12 +10,7 @@ loadGithubMarkdownStyles();
 
 b.routes(
     b.route({ handler: app }, [
-        b.route({ url: `/${router.home}`, name: router.home, handler: home }),
-        b.route({
-            url: `/${router.introPage}`,
-            name: router.introPage,
-            handler: intro
-        }),
+        b.route({ url: `/${router.home}`, name: router.home, handler: intro }),
         b.route({
             url: `/${router.guides}`,
             name: router.guides,
@@ -26,7 +21,7 @@ b.routes(
             name: router.documentation,
             handler: documentation
         }),
-        b.routeDefault({ handler: home })
+        b.routeDefault({ handler: intro })
     ])
 );
 

@@ -69,7 +69,7 @@ const app = b.createComponent<IData>({
         b.style(me, ctx.appHeight && { height: ctx.appHeight });
     },
     postUpdateDom(ctx: IContext) {
-        // Update correct height of the application
+        
         const currHeight = Math.max(
             document.documentElement.clientHeight,
             window.innerHeight || 0
