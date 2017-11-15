@@ -16,7 +16,10 @@ export interface IContext extends b.IBobrilCtx {
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
-            b.styledDiv(ctx.data.content, { display: 'table-cell' ,verticalAlign: 'middle'})
+            b.styledDiv(ctx.data.content, {
+                display: 'table-cell',
+                verticalAlign: 'middle'
+            })
         ];
         b.style(
             me,
@@ -26,6 +29,7 @@ export const create = b.createComponent<IData>({
             ctx.data.variant === Buttons.ButtonVariants.normal &&
                 ctx.data.hover &&
                 styles.normalButtonHover,
+
             ctx.data.variant === Buttons.ButtonVariants.white &&
                 styles.whiteButton,
             ctx.data.variant === Buttons.ButtonVariants.white &&
@@ -33,11 +37,20 @@ export const create = b.createComponent<IData>({
                 styles.whiteButtonHover,
             ctx.data.variant === Buttons.ButtonVariants.white &&
                 styles.buttontext01,
-            ctx.data.variant === Buttons.ButtonVariants.gitButton &&
-                styles.gitButton,
+
+            ctx.data.variant === Buttons.ButtonVariants.black &&
+                styles.blackButton,
+            ctx.data.variant === Buttons.ButtonVariants.black &&
+                ctx.data.hover &&
+                styles.blackButtonHover,
+            ctx.data.variant === Buttons.ButtonVariants.black &&
+                styles.buttontext01,
 
             ctx.data.variant === Buttons.ButtonVariants.gitButton &&
+                styles.gitButton,
+            ctx.data.variant === Buttons.ButtonVariants.gitButton &&
                 styles.menutext01s,
+
             ctx.data.variant === Buttons.ButtonVariants.menuButton &&
                 styles.menutext01,
             ctx.data.variant === Buttons.ButtonVariants.menuButton &&
