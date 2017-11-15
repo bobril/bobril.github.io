@@ -18,8 +18,8 @@ export const create = b.createComponent<IData>({
             [
                 Image.create({
                     asset: assets.bobrilLogo,
-                    width: 300,
-                    height: 284,
+                    width: '300px',
+                    height: '284px',
                     style: {
                         margin: 'auto'
                     }

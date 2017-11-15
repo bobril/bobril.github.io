@@ -50,7 +50,7 @@ export const headertext02: b.IBobrilStyleDef = b.styleDef({
 export const buttontext01: b.IBobrilStyleDef = b.styleDef({
     fontFamily: 'Segoe UI',
     letterSpacing: `${size75}pt`,
-    fontSize: '34pt',
+    fontSize: '17pt',
     fontWeight: '700'
 });
 
@@ -91,4 +91,22 @@ export const menuButton = b.styleDef({
 
 export const gitButton = b.styleDef({
     background: colors.color04,
+});
+export const whiteButton = b.styleDef({
+    height: '45px',
+    background: Colors.color04,
+    color: Colors.color01,
+    shadow: '#16181a',
+    opacity: 0.15,
+    distance: '2px',
+    spread: 0,
+    size: '4px',
+
+});
+
+export const whiteButtonHover = b.styleDef({
+    background: '#ffffff',
+    opacity: 0.3,
+    spread: '0',
+    size: '8px'
 });
