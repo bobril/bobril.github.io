@@ -104,17 +104,18 @@ export const gitButton = b.styleDef({
 
 export const whiteButton = b.styleDef({
     height: '45px',
+   
+    paddingTop: '17px',
+    paddingBottom: '16px',
+    borderRadius: '2px',
     background: colors.color04,
     color: colors.color01,
-    opacity: 0.15,
-    size: '4px',
-    boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)',
-
+    boxShadow: '0 1px 6px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.9)',
+    // [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]
 });
 
 export const whiteButtonHover = b.styleDef({
     background: '#ffffff',
     opacity: 0.3,
-    spread: '0',
     size: '8px'
 });
