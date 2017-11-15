@@ -51,10 +51,17 @@ export const create = b.createComponent<IData>({
             ),
 
             Button.create({
-                content: 'GET STARTED',
+                content: b.styledDiv(['GET STARTED'], {paddingLeft: '42px', paddingRight: '42px'}),
                 hover: false,
                 onClick: () => alert('ahojda pratele'),
-                variant: ButtonVariants.white
+                variant: ButtonVariants.white,
+            }),
+
+            Button.create({
+                content: b.styledDiv(['DOWNLOAD'], {paddingLeft: '42px', paddingRight: '42px'}),
+                hover: false,
+                onClick: () => alert('ahojda pratele'),
+                variant: ButtonVariants.black,
             })
         ];
 

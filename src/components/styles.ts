@@ -87,18 +87,47 @@ export const buttonStyle = b.styleDef({
 
 export const whiteButton = b.styleDef({
     height: '45px',
-   
+    lineHeight: '45px',
     paddingTop: '17px',
     paddingBottom: '16px',
     borderRadius: '2px',
     background: colors.color04,
     color: colors.color01,
-    boxShadow: '0 1px 6px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.9)',
+    boxShadow:
+        '0 1px 6px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+    position: 'absolute',
+    left: '40%',
+    marginRight: '-50%',
+    transform: 'translate(-50%)',
+    marginTop: '560px',
     // [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]
 });
 
 export const whiteButtonHover = b.styleDef({
     background: '#ffffff',
     opacity: 0.3,
+    size: '8px'
+});
+
+export const blackButton = b.styleDef({
+    height: '45px',
+    lineHeight: '45px',
+    paddingTop: '17px',
+    paddingBottom: '16px',
+    borderRadius: '2px',
+    background: colors.color01,
+    color: colors.color04,
+    boxShadow:
+        '0 1px 6px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+    position: 'absolute',
+    left: '60%',
+    marginRight: '-50%',
+    transform: 'translate(-50%)',
+    marginTop: '560px',
+});
+
+export const blackButtonHover = b.styleDef({
+    background: colors.color01,
+    opacity: 0.95,
     size: '8px'
 });
