@@ -4,6 +4,8 @@ import * as Colors from '../../../components/colors';
 import * as Button from '../../../components/button/button';
 import { ButtonVariants } from '../../../components/button/buttons';
 
+import * as router from '../../../pages/router';
+
 import * as BobrilLogoSection from './bobrilLogo';
 
 interface IData {}
@@ -60,7 +62,7 @@ export const create = b.createComponent<IData>({
             Button.create({
                 content: b.styledDiv(['DOWNLOAD'], {paddingLeft: '42px', paddingRight: '42px'}),
                 hover: false,
-                onClick: () => alert('ahojda pratele'),
+                onClick: () => b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat download 
                 variant: ButtonVariants.black,
             })
         ];

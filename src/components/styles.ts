@@ -92,9 +92,10 @@ export const whiteButton = b.styleDef({
     paddingBottom: '16px',
     borderRadius: '2px',
     background: colors.color04,
+    opacity: 0.7,
     color: colors.color01,
     boxShadow:
-        '0 1px 6px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+        '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
     position: 'absolute',
     left: '40%',
     marginRight: '-50%',
@@ -105,7 +106,7 @@ export const whiteButton = b.styleDef({
 
 export const whiteButtonHover = b.styleDef({
     background: '#ffffff',
-    opacity: 0.3,
+    opacity: 1,
     size: '8px'
 });
 
@@ -116,9 +117,10 @@ export const blackButton = b.styleDef({
     paddingBottom: '16px',
     borderRadius: '2px',
     background: colors.color01,
+    opacity: 0.95,
     color: colors.color04,
     boxShadow:
-        '0 1px 6px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+        '4px 4px 2px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
     position: 'absolute',
     left: '60%',
     marginRight: '-50%',
@@ -128,6 +130,6 @@ export const blackButton = b.styleDef({
 
 export const blackButtonHover = b.styleDef({
     background: colors.color01,
-    opacity: 0.95,
+    opacity: 1,
     size: '8px'
 });
