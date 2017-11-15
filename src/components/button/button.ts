@@ -4,7 +4,7 @@ import * as styles from '../styles';
 
 export interface IData {
     variant: Buttons.ButtonVariants;
-    content: b.IBobrilNode;
+    content: b.IBobrilChildren;
     onClick: () => void;
     hover: boolean;
 }
