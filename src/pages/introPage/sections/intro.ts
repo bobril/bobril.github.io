@@ -40,7 +40,7 @@ export const create = b.createComponent<IData>({
             ),
 
             Button.create({
-                content: 'GET STARTED',
+                content: b.styledDiv(['GET STARTED']),
                 hover: false,
                 onClick: () => alert('ahojda pratele'),
                 variant: ButtonVariants.white

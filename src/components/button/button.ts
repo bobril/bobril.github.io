@@ -23,7 +23,10 @@ export const create = b.createComponent<IData>({
             styles.buttonStyle,
             ctx.data.variant === Buttons.ButtonVariants.normal && styles.normalButton,
             ctx.data.variant === Buttons.ButtonVariants.normal && ctx.data.hover && styles.normalButtonHover,
-           
+
+            ctx.data.variant === Buttons.ButtonVariants.white && styles.whiteButton,
+            ctx.data.variant === Buttons.ButtonVariants.white && ctx.data.hover && styles.whiteButtonHover,
+            ctx.data.variant === Buttons.ButtonVariants.white && styles.buttontext01,
         );
     },
 

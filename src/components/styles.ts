@@ -1,4 +1,5 @@
 import * as b from 'bobril';
+import * as Colors from './colors';
 
 let size75 = 0.75;
 let size0 = 0;
@@ -81,5 +82,24 @@ export const normalButtonHover = b.styleDef({
 
 export const buttonStyle = b.styleDef({
     display: 'inline-block',
-    textAlign: 'center',
-})
+    textAlign: 'center'
+});
+
+export const whiteButton = b.styleDef({
+    height: '45px',
+    background: Colors.color04,
+    color: Colors.color01,
+    shadow: '#16181a',
+    opacity: 0.15,
+    distance: '2px',
+    spread: 0,
+    size: '4px',
+
+});
+
+export const whiteButtonHover = b.styleDef({
+    background: '#ffffff',
+    opacity: 0.3,
+    spread: '0',
+    size: '8px'
+});
