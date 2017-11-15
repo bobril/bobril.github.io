@@ -48,14 +48,14 @@ export const create = b.createComponent<IData>({
                     transform: 'translate(-50%)'
                 },
                 styles.headertext02
-            )
+            ),
 
-            /*Button.create({
+            Button.create({
                 content: 'GET STARTED',
                 hover: false,
                 onClick: () => alert('ahojda pratele'),
                 variant: ButtonVariants.white
-            })*/
+            })
         ];
 
         b.style(me, {
