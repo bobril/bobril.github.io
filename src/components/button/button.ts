@@ -15,7 +15,9 @@ export interface IContext extends b.IBobrilCtx {
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [ctx.data.content];
+        me.children = [
+            b.styledDiv(ctx.data.content, { display: 'table-cell' ,verticalAlign: 'middle'})
+        ];
         b.style(
             me,
             styles.buttonStyle,
@@ -41,7 +43,7 @@ export const create = b.createComponent<IData>({
             ctx.data.variant === Buttons.ButtonVariants.menuButton &&
                 styles.menuButton,
             ctx.data.variant === Buttons.ButtonVariants.menuIconButton &&
-                styles.menuIconButton,
+                styles.menuIconButton
         );
     },
 
