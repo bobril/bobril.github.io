@@ -15,7 +15,7 @@ interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-let bobrilStyle = { color: Colors.color04, textAlign: 'center' };
+let bobrilStyle = { color: Colors.color04, position: 'absolute', bottom: '20vh', left: '25vw' };
 let isComponentStyle = { color: Colors.color04, textAlign: 'center' };
 
 export const create = b.createComponent<IData>({
@@ -27,7 +27,6 @@ export const create = b.createComponent<IData>({
                 onGetStartedClick: () => {}
             }),
 
-            b.styledDiv([], { height: '60px' }),
             b.styledDiv(['BOBRIL'], bobrilStyle, styles.headertext01),
 
             b.styledDiv(
@@ -48,7 +47,8 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, {
-            background: Colors.color02
+            background: Colors.color02,
+            position: 'relative',
         });
     }
 });

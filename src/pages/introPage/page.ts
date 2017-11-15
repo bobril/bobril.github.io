@@ -14,18 +14,16 @@ interface IContext extends b.IBobrilCtx {
 
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [
-            
+        (me.children = [
+            Intro.create(),
             LCenter.create({
                 children: [
-                    Intro.create(),
-                    //CoreFeaturesPromo.create(),
-                    Divider.create()
                     //GetStartedSection.create()
                 ],
                 maxWidth: styles.maxPageWidth
             })
-        ];
+        ]),
+            { position: 'relative' };
     }
 });
 

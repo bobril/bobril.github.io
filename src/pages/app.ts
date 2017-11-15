@@ -24,8 +24,8 @@ const app = b.createComponent<IData>({
           leftChildren: [
             Image.create({
               asset: assets.bobrilLogoInverse,
-              width: 64,
-              height: 64
+              width: '64px',
+              height: '64px'
             }),
             AppBar.Button.create({
               label: 'BOBRIL',

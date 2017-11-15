@@ -2,8 +2,8 @@ import * as b from 'bobril';
 
 interface IData {
     asset: string;
-    width: number;
-    height: number;
+    width: string;
+    height: string;
     style?: b.IBobrilStyle;
 }
 

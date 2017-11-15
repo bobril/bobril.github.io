@@ -50,7 +50,7 @@ export const headertext02: b.IBobrilStyleDef = b.styleDef({
 export const buttontext01: b.IBobrilStyleDef = b.styleDef({
     fontFamily: 'Segoe UI',
     letterSpacing: `${size75}pt`,
-    fontSize: '34pt',
+    fontSize: '17pt',
     fontWeight: '700'
 });
 
