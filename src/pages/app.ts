@@ -28,8 +28,8 @@ const app = b.createComponent<IData>({
                         Button.create({
                             content: Image.create({
                                 asset: assets.menuIcon,
-                                height: '14px',
-                                width: '24px'
+                                height: 14,
+                                width: 24
                             }),
                             onClick: () => {
                                 alert('ss');
