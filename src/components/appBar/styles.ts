@@ -5,11 +5,13 @@ export const height = 60;
 export const minWidth = 1200;
 
 export const rightContainer = b.styleDef({
-    cssFloat: 'right'
+    cssFloat: 'right',
+    // lineHeight: `${height}px`
 });
 
 export const leftContainer = b.styleDef({
-    cssFloat: 'left'
+    cssFloat: 'left',
+    // lineHeight: `${height}px`
 });
 
 export const appBarStyle = b.styleDef({

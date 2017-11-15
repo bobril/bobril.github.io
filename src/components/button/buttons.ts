@@ -4,5 +4,6 @@ export enum ButtonVariants {
     normal,
     white,
     menuButton,
+    menuIconButton,
     gitButton,
 }

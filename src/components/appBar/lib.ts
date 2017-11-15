@@ -1,8 +1,6 @@
 import * as b from 'bobril';
-import * as styles from '../styles';
 import * as appBarStyles from './styles';
-import * as colors from '../colors';
-
+import * as styles from '../styles';
 import * as AppButton from './button';
 
 export const Button = AppButton;
@@ -24,9 +22,26 @@ export const create = b.createComponent<IData>({
         me.children = [
             b.styledDiv(
                 [
-                    b.styledDiv([],appBarStyles.leftContainer)
+                    d.leftChildren &&
+                        b.styledDiv(
+                            d.leftChildren.map(button => {
+                                return b.styledDiv(button, {
+                                    display: 'inline-block'
+                                });
+                            }),
+                            appBarStyles.leftContainer
+                        ),
+                    d.rightChildren &&
+                        b.styledDiv(
+                            d.rightChildren.map(button => {
+                                return b.styledDiv(button, {
+                                    display: 'inline-block'
+                                });
+                            }),
+                            appBarStyles.rightContainer
+                        )
                 ],
-                
+                { maxWidth: '1200px', margin: 'auto',width: '1200px'}
             )
         ];
 

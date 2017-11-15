@@ -14,7 +14,7 @@ export const menutext01: b.IBobrilStyleDef = b.styleDef({
 export const menutext01s: b.IBobrilStyleDef = b.styleDef({
     fontFamily: 'Segoe UI',
     letterSpacing: `${size75}pt`,
-    fontSize: '17pt',
+    fontSize: '16pt',
     fontWeight: '600'
 });
 
@@ -82,20 +82,30 @@ export const normalButtonHover = b.styleDef({
 
 export const buttonStyle = b.styleDef({
     display: 'inline-block',
-    textAlign: 'center'
+    textAlign: 'center',
+    cursor: 'pointer'
 });
 
 export const menuButton = b.styleDef({
-    background: colors.color04,
+    lineHeight: '60px',
+    marginLeft: '24px',
+    color: colors.color04,
+});
+
+export const menuIconButton = b.styleDef({
+    lineHeight: '60px',
+    color: colors.color04,
 });
 
 export const gitButton = b.styleDef({
-    background: colors.color04,
+    lineHeight: '60px',
+    color: colors.color04,
 });
+
 export const whiteButton = b.styleDef({
     height: '45px',
-    background: Colors.color04,
-    color: Colors.color01,
+    background: colors.color04,
+    color: colors.color01,
     shadow: '#16181a',
     opacity: 0.15,
     distance: '2px',
