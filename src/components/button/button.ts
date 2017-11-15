@@ -24,11 +24,16 @@ export const create = b.createComponent<IData>({
             ctx.data.variant === Buttons.ButtonVariants.normal &&
                 ctx.data.hover &&
                 styles.normalButtonHover,
+            ctx.data.variant === Buttons.ButtonVariants.white &&
+                styles.whiteButton,
+            ctx.data.variant === Buttons.ButtonVariants.white &&
+                ctx.data.hover &&
+                styles.whiteButtonHover,
+            ctx.data.variant === Buttons.ButtonVariants.white &&
+                styles.buttontext01,
             ctx.data.variant === Buttons.ButtonVariants.gitButton &&
-            ctx.data.variant === Buttons.ButtonVariants.white && styles.whiteButton,
-            ctx.data.variant === Buttons.ButtonVariants.white && ctx.data.hover && styles.whiteButtonHover,
-            ctx.data.variant === Buttons.ButtonVariants.white && styles.buttontext01,
                 styles.gitButton,
+
             ctx.data.variant === Buttons.ButtonVariants.gitButton &&
                 styles.menutext01s,
             ctx.data.variant === Buttons.ButtonVariants.menuButton &&

@@ -94,8 +94,8 @@ export const gitButton = b.styleDef({
 });
 export const whiteButton = b.styleDef({
     height: '45px',
-    background: Colors.color04,
-    color: Colors.color01,
+    background: colors.color04,
+    color: colors.color01,
     opacity: 0.15,
     size: '4px',
     boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)',

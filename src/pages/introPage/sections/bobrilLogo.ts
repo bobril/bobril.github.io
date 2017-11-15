@@ -20,9 +20,12 @@ export const create = b.createComponent<IData>({
                 width: 555,
                 height: 549,
                 style: {
-                     margin: 'auto',
+                     position: 'absolute',
+                     marginLeft: '35%',
+                     marginTop: '0%'
                 }
-            })
+            }),
+        
         ]);
     }
 });
