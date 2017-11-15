@@ -1,11 +1,8 @@
 import * as b from 'bobril';
 import * as styles from '../../../components/styles';
-import * as AppButton from '../../../components/appBar/button';
 import * as Colors from '../../../components/colors';
-import * as Image from '../../../components/image/lib';
-import * as assets from '../../../assets/assets';
 import * as Button from '../../../components/button/button';
-import { ButtonVariants } from '../../../components/button/buttons';
+import { ButtonVariants } from '../../../components/button/buttons'; 
 
 import * as BobrilLogoSection from './bobrilLogo';
 
@@ -15,8 +12,7 @@ interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-let bobrilStyle = { color: Colors.color04, position: 'absolute', bottom: '20vh', left: '25vw' };
-let isComponentStyle = { color: Colors.color04, textAlign: 'center' };
+let isComponentStyle = { color: Colors.color04};
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
@@ -27,7 +23,7 @@ export const create = b.createComponent<IData>({
                 onGetStartedClick: () => {}
             }),
 
-            b.styledDiv(['BOBRIL'], bobrilStyle, styles.headertext01),
+            b.styledDiv(['BOBRIL'], {color: Colors.color04}, styles.headertext01),
 
             b.styledDiv(
                 [
@@ -47,8 +43,8 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, {
-            background: Colors.color02,
             position: 'relative',
+            height: 'calc(100vh - 60px)'
         });
     }
 });
