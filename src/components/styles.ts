@@ -85,22 +85,6 @@ export const buttonStyle = b.styleDef({
     cursor: 'pointer',
 });
 
-export const menuButton = b.styleDef({
-    lineHeight: '60px',
-    marginLeft: '24px',
-    color: colors.color04
-});
-
-export const menuIconButton = b.styleDef({
-    lineHeight: '60px',
-    color: colors.color04
-});
-
-export const gitButton = b.styleDef({
-    lineHeight: '60px',
-    color: colors.color04
-});
-
 export const whiteButton = b.styleDef({
     height: '45px',
    

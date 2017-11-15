@@ -1,44 +1,45 @@
 import * as b from 'bobril';
-import * as m from 'bobril-m';
+import * as appBarStyles from './styles';
+import * as styles from '../styles';
 
 export interface IData {
-    label: string;
-    action: () => void;
-    isActive?: boolean;
+    variant: ButtonVariants;
+    content: b.IBobrilChildren;
+    onClick: () => void;
 }
 
-interface IContext extends b.IBobrilCtx {
+export enum ButtonVariants {
+    menuButton,
+    menuIconButton,
+    gitButton
+}
+
+export interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        const d = ctx.data;
-
-        me.children = [
-            d.label
-        ];
-
+        me.children = [ctx.data.content];
         b.style(
             me,
-            buttonStyle,
-            d.isActive && { color: m.white }
-            
+            appBarStyles.buttonStyle,
+            ctx.data.variant === ButtonVariants.gitButton && styles.menutext01s,
+            ctx.data.variant === ButtonVariants.menuButton && styles.menutext01,
+            ctx.data.variant === ButtonVariants.menuButton &&
+                appBarStyles.menuButton,
+            ctx.data.variant === ButtonVariants.gitButton &&
+                appBarStyles.gitButton,
+            ctx.data.variant === ButtonVariants.menuIconButton &&
+                appBarStyles.menuIconButton
         );
     },
 
-    onPointerDown(ctx: IContext): boolean {
-        ctx.data.action();
-        return true;
+    onClick(ctx: IContext): boolean {
+        if (ctx.data.onClick) {
+            ctx.data.onClick();
+            return true;
+        }
+        return false;
     }
-});
-
-export const buttonStyle = b.styleDef({
-    cursor: 'pointer',
-    height: 64,
-    lineHeight: '64px',
-    paddingLeft: 8,
-    paddingRight: 8,
-    fontWeight: 400,
-    color: m.grey300
 });

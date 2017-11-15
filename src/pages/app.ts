@@ -8,7 +8,6 @@ import * as assets from '../assets/assets';
 import * as Button from '../components/button/button';
 import { ButtonVariants } from '../components/button/buttons';
 
-
 interface IData {}
 
 interface IContext extends b.IBobrilCtx {
@@ -25,7 +24,7 @@ const app = b.createComponent<IData>({
                 header: AppBar.create({
                     contentWidth: 1200,
                     leftChildren: [
-                        Button.create({
+                        AppBar.Button.create({
                             content: Image.create({
                                 asset: assets.menuIcon,
                                 height: 14,
@@ -34,27 +33,27 @@ const app = b.createComponent<IData>({
                             onClick: () => {
                                 alert('ss');
                             },
-                            hover: false,
-                            variant: ButtonVariants.menuIconButton
+
+                            variant: AppBar.Button.ButtonVariants.menuIconButton
                         }),
 
-                        Button.create({
+                        AppBar.Button.create({
                             content: 'MENU',
                             onClick: () => {
                                 alert('ss');
                             },
-                            hover: false,
-                            variant: ButtonVariants.menuButton
-                        }),
+
+                            variant: AppBar.Button.ButtonVariants.menuButton
+                        })
                     ],
                     rightChildren: [
-                        Button.create({
+                        AppBar.Button.create({
                             content: 'GitHub',
                             onClick: () => {
                                 window.open('https://github.com/Bobris/Bobril');
                             },
-                            hover: false,
-                            variant: ButtonVariants.gitButton
+
+                            variant: AppBar.Button.ButtonVariants.gitButton
                         })
                     ]
                 }),
@@ -69,7 +68,6 @@ const app = b.createComponent<IData>({
         b.style(me, ctx.appHeight && { height: ctx.appHeight });
     },
     postUpdateDom(ctx: IContext) {
-        
         const currHeight = Math.max(
             document.documentElement.clientHeight,
             window.innerHeight || 0
