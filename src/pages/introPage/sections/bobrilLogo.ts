@@ -21,10 +21,10 @@ export const create = b.createComponent<IData>({
                 height: 549,
                 style: {
                     position: 'absolute',
-                    top: '40%',
+                    marginBottom: '60px',
                     left: '50%',
                     marginRight: '-50%',
-                    transform: 'translate(-50%, -50%)'
+                    transform: 'translate(-50%)'
                 }
             })
         ]);

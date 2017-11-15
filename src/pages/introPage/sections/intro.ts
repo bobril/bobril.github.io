@@ -12,15 +12,6 @@ interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-let isComponentStyle = {
-    color: Colors.color04,
-    position: 'absolute',
-    top: '75%',
-    left: '50%',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-};
-
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
@@ -34,12 +25,11 @@ export const create = b.createComponent<IData>({
                 ['BOBRIL'],
                 {
                     color: Colors.color04,
-                    marginBottom: '30px',
+                    marginTop: '430px',
                     position: 'absolute',
-                    top: '65%',
                     left: '50%',
                     marginRight: '-50%',
-                    transform: 'translate(-50%, -50%)'
+                    transform: 'translate(-50%)'
                 },
                 styles.headertext01
             ),
@@ -49,9 +39,16 @@ export const create = b.createComponent<IData>({
                     'is a component-oriented framework for creating web applications inspired by' +
                         ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'
                 ],
-                isComponentStyle,
+                {
+                    color: Colors.color04,
+                    position: 'absolute',
+                    marginTop: '490px',
+                    left: '50%',
+                    marginRight: '-50%',
+                    transform: 'translate(-50%)'
+                },
                 styles.headertext02
-            ),
+            )
 
             /*Button.create({
                 content: 'GET STARTED',
