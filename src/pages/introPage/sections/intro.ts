@@ -39,12 +39,12 @@ export const create = b.createComponent<IData>({
                 styles.headertext02
             ),
 
-            Button.create({
-                content: 'GET STARTED',
-                hover: false,
-                onClick: () => alert('ahojda pratele'),
-                variant: ButtonVariants.white
-            })
+            // Button.create({
+            //     content: 'GET STARTED',
+            //     hover: false,
+            //     onClick: () => alert('ahojda pratele'),
+            //     variant: ButtonVariants.white
+            // })
         ];
 
         b.style(me, {

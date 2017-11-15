@@ -1,5 +1,6 @@
 import * as b from 'bobril';
 import * as styles from '../styles';
+import * as appBarStyles from './styles';
 import * as colors from '../colors';
 
 import * as AppButton from './button';
@@ -23,14 +24,12 @@ export const create = b.createComponent<IData>({
         me.children = [
             b.styledDiv(
                 [
-                    // TODO TOP BAR
+                    b.styledDiv([],appBarStyles.leftContainer)
                 ],
-                {
-                    minWidth: 1200,
-                    maxWidth: d.contentWidth,
-                    margin: 'auto'
-                }
+                
             )
         ];
+
+        b.style(me, appBarStyles.appBarStyle);
     }
 });

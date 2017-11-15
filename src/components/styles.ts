@@ -1,9 +1,10 @@
 import * as b from 'bobril';
+import * as colors from './colors';
 
 let size75 = 0.75;
 let size0 = 0;
 
-export const menutext01enutext01: b.IBobrilStyleDef = b.styleDef({
+export const menutext01: b.IBobrilStyleDef = b.styleDef({
     fontFamily: 'Segoe UI',
     letterSpacing: `${size75}pt`,
     fontSize: '17pt',
@@ -81,5 +82,13 @@ export const normalButtonHover = b.styleDef({
 
 export const buttonStyle = b.styleDef({
     display: 'inline-block',
-    textAlign: 'center',
-})
+    textAlign: 'center'
+});
+
+export const menuButton = b.styleDef({
+    background: colors.color04,
+});
+
+export const gitButton = b.styleDef({
+    background: colors.color04,
+});

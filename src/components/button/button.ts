@@ -15,15 +15,23 @@ export interface IContext extends b.IBobrilCtx {
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        
-
         me.children = [ctx.data.content];
         b.style(
             me,
             styles.buttonStyle,
-            ctx.data.variant === Buttons.ButtonVariants.normal && styles.normalButton,
-            ctx.data.variant === Buttons.ButtonVariants.normal && ctx.data.hover && styles.normalButtonHover,
-           
+            ctx.data.variant === Buttons.ButtonVariants.normal &&
+                styles.normalButton,
+            ctx.data.variant === Buttons.ButtonVariants.normal &&
+                ctx.data.hover &&
+                styles.normalButtonHover,
+            ctx.data.variant === Buttons.ButtonVariants.gitButton &&
+                styles.gitButton,
+            ctx.data.variant === Buttons.ButtonVariants.gitButton &&
+                styles.menutext01s,
+            ctx.data.variant === Buttons.ButtonVariants.menuButton &&
+                styles.menutext01,
+            ctx.data.variant === Buttons.ButtonVariants.menuButton &&
+                styles.menuButton
         );
     },
 

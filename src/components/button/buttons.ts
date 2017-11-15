@@ -2,5 +2,7 @@ import * as b from 'bobril';
 
 export enum ButtonVariants {
     normal,
-    white
+    white,
+    menuButton,
+    gitButton,
 }

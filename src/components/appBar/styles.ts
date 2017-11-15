@@ -2,19 +2,19 @@ import * as b from 'bobril';
 import * as colors from '../colors';
 
 export const height = 60;
-export const width = 1200;
+export const minWidth = 1200;
 
-export const appBar = b.styleDef({
-    background: colors.color01,
-    overflow: 'hidden',
-    height: height,
-    width: width,
+export const rightContainer = b.styleDef({
+    cssFloat: 'right'
 });
 
-export const gitButton = b.styleDef({
-    cssFloat: 'right'
-}) 
-
-export const menuButtonContainer = b.styleDef({
+export const leftContainer = b.styleDef({
     cssFloat: 'left'
-})
+});
+
+export const appBarStyle = b.styleDef({
+    background: colors.color01,
+    overflow: 'hidden',
+    height: `${height}px`,
+    minWidth: `${minWidth}px`
+});
