@@ -81,25 +81,24 @@ export const normalButtonHover = b.styleDef({
 });
 
 export const buttonStyle = b.styleDef({
-    display: 'inline-block',
     textAlign: 'center',
-    cursor: 'pointer'
+    cursor: 'pointer',
 });
 
 export const menuButton = b.styleDef({
     lineHeight: '60px',
     marginLeft: '24px',
-    color: colors.color04,
+    color: colors.color04
 });
 
 export const menuIconButton = b.styleDef({
     lineHeight: '60px',
-    color: colors.color04,
+    color: colors.color04
 });
 
 export const gitButton = b.styleDef({
     lineHeight: '60px',
-    color: colors.color04,
+    color: colors.color04
 });
 
 export const whiteButton = b.styleDef({
@@ -108,8 +107,7 @@ export const whiteButton = b.styleDef({
     color: colors.color01,
     opacity: 0.15,
     size: '4px',
-    boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)',
-
+    boxShadow: '0 1px 6px #16181a, 0 1px 4px rgba(0,0,0,0.120)'
 });
 
 export const whiteButtonHover = b.styleDef({
