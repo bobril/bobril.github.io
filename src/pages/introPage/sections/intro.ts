@@ -15,10 +15,10 @@ interface IContext extends b.IBobrilCtx {
 let isComponentStyle = {
     color: Colors.color04,
     position: 'absolute',
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginTop: '24%',
-    textAlign: 'center'
+    top: '75%',
+    left: '50%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
 };
 
 export const create = b.createComponent<IData>({
@@ -36,8 +36,10 @@ export const create = b.createComponent<IData>({
                     color: Colors.color04,
                     marginBottom: '30px',
                     position: 'absolute',
-                    marginLeft: '50%',
-                    marginTop: '21%'
+                    top: '65%',
+                    left: '50%',
+                    marginRight: '-50%',
+                    transform: 'translate(-50%, -50%)'
                 },
                 styles.headertext01
             ),
@@ -51,12 +53,12 @@ export const create = b.createComponent<IData>({
                 styles.headertext02
             ),
 
-            Button.create({
+            /*Button.create({
                 content: 'GET STARTED',
                 hover: false,
                 onClick: () => alert('ahojda pratele'),
                 variant: ButtonVariants.white
-            })
+            })*/
         ];
 
         b.style(me, {
