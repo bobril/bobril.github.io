@@ -1,12 +1,13 @@
 import * as b from 'bobril';
 import * as styles from './styles';
-import * as m from 'bobril-m';
+import { width as menuWidth } from '../menu/styles';
 
 const zDepthHeader = 2;
 
 interface IData {
     header?: b.IBobrilChildren;
     content: b.IBobrilChildren;
+    menu?: b.IBobrilChildren;
     footer?: b.IBobrilChildren;
     backgroundColor?: string;
 }
@@ -20,21 +21,23 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
 
         me.children = [
-            d.header && m.Paper({
-                zDepth: zDepthHeader,
-                children: b.styledDiv(d.header, styles.header)
-            }),
-            d.content && b.styledDiv(
-                d.content,
-                styles.content,
-            ),
-            d.footer && b.styledDiv(d.footer, styles.footer)
+            d.header &&
+                b.styledDiv(d.header, styles.header, d.menu && styles.withMenu),
+            d.menu && b.styledDiv(d.menu, styles.menu),
+            d.content &&
+                b.styledDiv(
+                    d.content,
+                    styles.content,
+                    d.menu && styles.withMenu
+                ),
+            d.footer &&
+                b.styledDiv(d.footer, styles.footer, d.menu && styles.withMenu)
         ];
 
         b.style(
             me,
             styles.basicLayout,
-            d.backgroundColor && {background: d.backgroundColor}
+            d.backgroundColor && { background: d.backgroundColor }
         );
     }
 });

@@ -2,10 +2,12 @@ import * as b from 'bobril';
 import * as appBarStyles from './styles';
 import * as styles from '../styles';
 
+
 export interface IData {
     variant: ButtonVariants;
     content: b.IBobrilChildren;
-    onClick: () => void;
+    onClick: (ctx) => void;
+    hover?: boolean;
 }
 
 export enum ButtonVariants {
@@ -33,11 +35,15 @@ export const create = b.createComponent<IData>({
         );
     },
 
-    onClick(ctx: IContext): boolean {
+    onClick(ctx): boolean {
         if (ctx.data.onClick) {
-            ctx.data.onClick();
+            ctx.data.onClick(ctx);
             return true;
         }
         return false;
+    },
+
+    onMouseEnter(ctx){
+
     }
 });

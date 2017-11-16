@@ -6,8 +6,7 @@ import * as router from './router';
 import * as Image from '../components/image/lib';
 import * as assets from '../assets/assets';
 import * as Button from '../components/button/lib';
-
-
+import * as Menu from '../components/menu/lib';
 interface IData {}
 
 interface IContext extends b.IBobrilCtx {
@@ -15,10 +14,12 @@ interface IContext extends b.IBobrilCtx {
     appHeight: number;
 }
 
+let menuVisible = false;
 const app = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         const actualPageId = getActualPageId();
-
+        let isIntro = actualPageId === router.home || actualPageId === 'root';
+        console.log(actualPageId);
         me.children = [
             BasicLayout.create({
                 header: AppBar.create({
@@ -30,8 +31,9 @@ const app = b.createComponent<IData>({
                                 height: 14,
                                 width: 24
                             }),
-                            onClick: () => {
-                                alert('ss');
+                            onClick: ctx => {
+                                menuVisible = !menuVisible;
+                                b.invalidate(ctx);
                             },
 
                             variant: AppBar.Button.ButtonVariants.menuIconButton
@@ -39,8 +41,9 @@ const app = b.createComponent<IData>({
 
                         AppBar.Button.create({
                             content: 'MENU',
-                            onClick: () => {
-                                alert('ss');
+                            onClick: ctx => {
+                                menuVisible = !menuVisible;
+                                b.invalidate(ctx);
                             },
 
                             variant: AppBar.Button.ButtonVariants.menuButton
@@ -49,7 +52,7 @@ const app = b.createComponent<IData>({
                     rightChildren: [
                         AppBar.Button.create({
                             content: 'GitHub',
-                            onClick: () => {
+                            onClick: ctx => {
                                 window.open('https://github.com/Bobris/Bobril');
                             },
 
@@ -57,6 +60,68 @@ const app = b.createComponent<IData>({
                         })
                     ]
                 }),
+                menu:
+                    (menuVisible || isIntro) &&
+                    Menu.create({
+                        childern: [
+                            Menu.Button.create({
+                                isActive:
+                                    actualPageId === router.introPage ||
+                                    actualPageId === 'root',
+                                onClick: () => alert('ss'),
+                                hover: false,
+                                content: 'HOME'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.getStarted,
+                                onClick: () =>
+                                    b.runTransition(
+                                        b.createRedirectPush(router.getStarted)
+                                    ),
+                                hover: false,
+                                content: 'GET STARTED'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.download,
+                                onClick: () =>
+                                    b.runTransition(
+                                        b.createRedirectPush(router.download)
+                                    ),
+                                hover: false,
+                                content: 'DOWNLOAD'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.guides,
+                                onClick: () =>
+                                    b.runTransition(
+                                        b.createRedirectPush(router.guides)
+                                    ),
+                                hover: false,
+                                content: 'GUIDES'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.documentation,
+                                onClick: () =>
+                                    b.runTransition(
+                                        b.createRedirectPush(
+                                            router.documentation
+                                        )
+                                    ),
+                                hover: false,
+                                content: 'DOC'
+                            }),
+                            Menu.Button.create({
+                                isActive: false,
+                                onClick: () =>
+                                    window.open(
+                                        'https://github.com/Bobris/Bobril'
+                                    ),
+                                hover: false,
+                                content: 'GITHUB'
+                            })
+                        ]
+                    }),
+
                 content: [
                     LMainContent.create({
                         content: [me.data.activeRouteHandler()]

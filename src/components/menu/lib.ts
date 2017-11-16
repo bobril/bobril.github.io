@@ -1,0 +1,47 @@
+import * as b from 'bobril';
+import * as menuStyles from './styles';
+import { height as appBarHeight } from '../appBar/styles';
+import * as Image from '../image/lib';
+import * as MenuButton from './button';
+import * as Assets from '../../assets/assets';
+import * as colors from '../colors';
+import * as Divider from './divider';
+
+export const Button = MenuButton;
+
+export interface IData {
+    childern: b.IBobrilChildren[];
+}
+
+export interface IContext extends b.IBobrilCtx {
+    data: IData;
+}
+
+const foregroundColor = colors.color04;
+export const create = b.createComponent<IData>({
+    render(ctx: IContext, me: b.IBobrilNode) {
+        me.children = [
+            b.styledDiv(
+                Image.create({
+                    asset: Assets.bobrilLogoGrey,
+                    height: 113,
+                    width: 130
+                }),
+                menuStyles.imgStyle
+            ),
+            Divider.create(),
+            b.styledDiv(
+                ctx.data.childern.map((button, index) => {
+                    return b.styledDiv(button, {
+                        background: menuStyles.foregroundColor,
+                        height: `${index + 1 === ctx.data.childern.length
+                            ? 75
+                            : 34}px`,
+                        width: `${menuStyles.width}px`,
+                    });
+                })
+            )
+        ];
+        b.style(me, menuStyles.menuStyle);
+    }
+});

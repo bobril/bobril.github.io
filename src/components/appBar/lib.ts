@@ -5,13 +5,13 @@ import * as AppButton from './button';
 
 export const Button = AppButton;
 
-interface IData {
+export interface IData {
     leftChildren: b.IBobrilChildren[];
     rightChildren?: b.IBobrilChildren[];
     contentWidth?: number;
 }
 
-interface IContext extends b.IBobrilCtx {
+export interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
@@ -41,12 +41,10 @@ export const create = b.createComponent<IData>({
                             appBarStyles.rightContainer
                         )
                 ],
-                { maxWidth: '1200px', margin: 'auto',width: '1200px'}
+                { minWidth: '1200px', margin: 'auto'}
             )
         ];
 
         b.style(me, appBarStyles.appBarStyle);
     }
 });
-
-
