@@ -1,6 +1,14 @@
 import * as b from 'bobril';
-import * as NpmFury from '../../components/npmFury/lib';
+import * as downloadTable from '../../components/downloadTable/lib';
+import {
+    downloadTableStyle,
+    bottomTextStyle,
+    downloadLabelStyle
+} from './styles';
 
+import { paragtext01 } from '../../components/styles';
+
+import { color04 } from '../../components/colors';
 interface IData {}
 
 interface IContext extends b.IBobrilCtx {
@@ -12,34 +20,27 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
 
         me.children = [
+            b.styledDiv(['DOWNLOAD'], downloadLabelStyle),
+
+            downloadTable.create(),
+
             b.styledDiv(
                 [
-                    b.styledDiv(
-                        [
-                            b.styledDiv('Bobril', { marginRight: 8, display: 'table-cell' }),
-                            NpmFury.create({
-                                url: 'https://badge.fury.io/js/bobril',
-                                urlSvg: 'https://badge.fury.io/js/bobril.svg',
-                            })
-                        ],
-                        {
-                            textAlign: 'left',
-                            marginTop: 8,
-                            display: 'table-row'
-                        }
-                    )
+                    'bottom text here'
                 ],
-                {
-                    width: '720px',
-                    height: '40px',
-                    background: 'green'
-                }
+                bottomTextStyle
             )
         ];
 
-        b.style(me, {
-            position: 'relative',
-            height: 'calc(100vh - 60px)'
-        });
+        b.style(
+            me,
+            {
+                position: 'relative',
+                height: 'calc(100vh - 60px)',
+                color: color04,
+                textAlign: 'left',
+            },
+            paragtext01
+        );
     }
 });
