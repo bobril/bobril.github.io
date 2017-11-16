@@ -5,7 +5,7 @@ export const footerHeight = 30;
 
 export const basicLayout = b.styleDef({
     minHeight: '100%',
-    minWidth: 320,
+    minWidth: '1200px',
     position: 'relative',
     overflow: 'hidden'
 });
