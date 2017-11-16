@@ -21,7 +21,7 @@ export enum ButtonVariants {
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [ctx.data.content];        
+        me.children = [ctx.data.content];
         b.style(
             me,
             styles.buttonStyle,
@@ -36,19 +36,12 @@ export const create = b.createComponent<IData>({
             ctx.data.variant === ButtonVariants.white &&
                 ctx.data.hover &&
                 styles.whiteButtonHover,
-            ctx.data.variant === ButtonVariants.white &&
-                styles.buttontext01,
 
             ctx.data.variant === ButtonVariants.black &&
                 styles.blackButton,
             ctx.data.variant === ButtonVariants.black &&
                 ctx.data.hover &&
                 styles.blackButtonHover,
-            ctx.data.variant === ButtonVariants.black &&
-                styles.buttontext01,
-
-
-
         );
     },
 
