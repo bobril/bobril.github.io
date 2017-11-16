@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import * as styles from '../../../components/styles';
+import { introPageBobrilText, introPageIsAComponentText } from '../styles';
 import * as Colors from '../../../components/colors';
 import * as Button from '../../../components/button/lib';
 
@@ -22,31 +22,36 @@ export const create = b.createComponent<IData>({
                 onGetStartedClick: () => {}
             }),
 
-            b.styledDiv(
-                ['BOBRIL'],
-                styles.introPageBobrilText
-            ),
+            b.styledDiv(['BOBRIL'], introPageBobrilText),
 
             b.styledDiv(
                 [
                     'is a component-oriented framework for creating web applications inspired by' +
                         ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'
                 ],
-                styles.introPageIsAComponentText
+                introPageIsAComponentText
             ),
 
             Button.create({
-                content: b.styledDiv(['GET STARTED'], {paddingLeft: '42px', paddingRight: '42px'}),
+                content: b.styledDiv(['GET STARTED'], {
+                    paddingLeft: '42px',
+                    paddingRight: '42px'
+                }),
                 hover: false,
-                onClick: () => b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat get started
-                variant: Button.ButtonVariants.white,
+                onClick: () =>
+                    b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat get started
+                variant: Button.ButtonVariants.white
             }),
 
             Button.create({
-                content: b.styledDiv(['DOWNLOAD'], {paddingLeft: '42px', paddingRight: '42px'}),
+                content: b.styledDiv(['DOWNLOAD'], {
+                    paddingLeft: '42px',
+                    paddingRight: '42px'
+                }),
                 hover: false,
-                onClick: () => b.runTransition(b.createRedirectPush(router.download)),
-                variant: Button.ButtonVariants.black,
+                onClick: () =>
+                    b.runTransition(b.createRedirectPush(router.download)),
+                variant: Button.ButtonVariants.black
             })
         ];
 

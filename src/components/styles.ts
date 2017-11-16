@@ -69,31 +69,3 @@ export const smalltext01: b.IBobrilStyleDef = b.styleDef({
     fontWeight: '300',
     lineHeight: '17px'
 });
-
-export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
-});
-
-
-export const introPageIsAComponentText: b.IBobrilStyleDef = b.styleDef([
-    {
-        color: colors.color04,
-        marginTop: '235px'
-    },
-    headertext02,
-    centeredPosition
-]);
-
-export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
-    {
-        color: colors.color04,
-        marginTop: '172px'
-    },
-    headertext01,
-    centeredPosition
-]);
-
-
