@@ -5,6 +5,7 @@ import home from './pages/home/page';
 import documentation from './pages/documentation/page';
 import guides from './pages/guides/page';
 import intro from './pages/introPage/page';
+import download from './pages/download/page';
 
 loadGithubMarkdownStyles();
 
@@ -20,6 +21,11 @@ b.routes(
             url: `/${router.documentation}`,
             name: router.documentation,
             handler: documentation
+        }),
+        b.route({
+            url: `/${router.download}`,
+            name: router.download,
+            handler: download
         }),
         b.routeDefault({ handler: intro })
     ])

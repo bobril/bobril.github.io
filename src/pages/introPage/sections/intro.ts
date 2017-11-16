@@ -45,7 +45,7 @@ export const create = b.createComponent<IData>({
             Button.create({
                 content: b.styledDiv(['DOWNLOAD'], {paddingLeft: '42px', paddingRight: '42px'}),
                 hover: false,
-                onClick: () => b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat download 
+                onClick: () => b.runTransition(b.createRedirectPush(router.download)),
                 variant: Button.ButtonVariants.black,
             })
         ];
