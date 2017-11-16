@@ -34,8 +34,6 @@ export const create = b.createComponent<IData>({
 
             Button.create({
                 content: b.styledDiv(['GET STARTED'], {
-                    paddingLeft: '42px',
-                    paddingRight: '42px'
                 }),
                 hover: false,
                 onClick: () =>
@@ -45,8 +43,6 @@ export const create = b.createComponent<IData>({
 
             Button.create({
                 content: b.styledDiv(['DOWNLOAD'], {
-                    paddingLeft: '42px',
-                    paddingRight: '42px'
                 }),
                 hover: false,
                 onClick: () =>
@@ -57,7 +53,11 @@ export const create = b.createComponent<IData>({
 
         b.style(me, {
             position: 'relative',
-            height: 'calc(100vh - 60px)'
+            height: 'calc(100vh - 60px)',
+            width: 'calc(100vw - 60px)',
+            minHeight: '800px',
+            minWidth: '1000px'
+
         });
     }
 });
