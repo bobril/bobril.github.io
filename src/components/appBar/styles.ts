@@ -17,7 +17,8 @@ export const appBarStyle = b.styleDef({
     background: colors.color01,
     overflow: 'hidden',
     height: `${height}px`,
-    minWidth: `${minWidth}px`
+    minWidth: `${minWidth}px`,
+
 });
 
 export const menuButton = b.styleDef([

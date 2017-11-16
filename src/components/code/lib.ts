@@ -63,7 +63,6 @@ export const previewStyle = b.styleDef({
     paddingRight: codePadding,
     background: m.blue100,
     border: `1px solid ${m.blue500}`,
-    minHeight: '100%',
     width: previewWidth,
     display: 'table-cell',
     verticalAlign: 'middle',
