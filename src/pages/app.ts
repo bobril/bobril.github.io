@@ -5,8 +5,8 @@ import * as AppBar from '../components/appBar/lib';
 import * as router from './router';
 import * as Image from '../components/image/lib';
 import * as assets from '../assets/assets';
-import * as Button from '../components/button/button';
-import { ButtonVariants } from '../components/button/buttons';
+import * as Button from '../components/button/lib';
+
 
 interface IData {}
 

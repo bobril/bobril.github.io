@@ -1,6 +1,5 @@
 import * as b from 'bobril';
-
-import * as styles from '../styles';
+import * as styles from './styles';
 
 export interface IData {
     variant: ButtonVariants;

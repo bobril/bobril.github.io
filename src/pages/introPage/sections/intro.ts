@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import * as styles from '../../../components/styles';
 import * as Colors from '../../../components/colors';
-import * as Button from '../../../components/button/button';
+import * as Button from '../../../components/button/lib';
 
 import * as router from '../../../pages/router';
 
