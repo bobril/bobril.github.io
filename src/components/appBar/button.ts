@@ -24,8 +24,6 @@ export const create = b.createComponent<IData>({
         b.style(
             me,
             appBarStyles.buttonStyle,
-            ctx.data.variant === ButtonVariants.gitButton && styles.menutext01s,
-            ctx.data.variant === ButtonVariants.menuButton && styles.menutext01,
             ctx.data.variant === ButtonVariants.menuButton &&
                 appBarStyles.menuButton,
             ctx.data.variant === ButtonVariants.gitButton &&

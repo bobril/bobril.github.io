@@ -2,7 +2,6 @@ import * as b from 'bobril';
 import * as styles from '../../../components/styles';
 import * as Colors from '../../../components/colors';
 import * as Button from '../../../components/button/button';
-import { ButtonVariants } from '../../../components/button/buttons';
 
 import * as router from '../../../pages/router';
 
@@ -56,14 +55,14 @@ export const create = b.createComponent<IData>({
                 content: b.styledDiv(['GET STARTED'], {paddingLeft: '42px', paddingRight: '42px'}),
                 hover: false,
                 onClick: () => alert('ahojda pratele'),
-                variant: ButtonVariants.white,
+                variant: Button.ButtonVariants.white,
             }),
 
             Button.create({
                 content: b.styledDiv(['DOWNLOAD'], {paddingLeft: '42px', paddingRight: '42px'}),
                 hover: false,
                 onClick: () => b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat download 
-                variant: ButtonVariants.black,
+                variant: Button.ButtonVariants.black,
             })
         ];
 
