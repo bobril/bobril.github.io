@@ -39,6 +39,7 @@ export const create = b.createComponent<IData>({
                 height: 'calc(100vh - 60px)',
                 color: color04,
                 textAlign: 'left',
+                marginTop: '60px'
             },
             paragtext01
         );

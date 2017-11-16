@@ -30,6 +30,7 @@ const bobrilPromoStyle = b.styleDef({
     paddingTop: imageContainerPadding,
     paddingLeft: imageContainerPadding,
     paddingRight: imageContainerPadding,
+    overflow: 'auto'
 });
 
 export default home;

@@ -13,7 +13,7 @@ export const rowLabel: b.IBobrilStyleDef = b.styleDef([
     {
         textAlign: 'left',
         marginLeft: '80px',
-        paddingTop: '7.5px',
+        paddingTop: '7.5px'
     },
     paragtext01
 ]);
@@ -25,8 +25,11 @@ export const rowStyle: b.IBobrilStyleDef = b.styleDef({
     background: 'gray'
 });
 
-export const downloadTablePosition: b.IBobrilStyleDef = b.styleDef([{
-    marginLeft: '-250px',
-    marginTop: '-150px',
-    background: 'gray'
-}, centeredPosition]);
+export const downloadTablePosition: b.IBobrilStyleDef = b.styleDef([
+    {
+        marginLeft: '-250px',
+        marginTop: '-150px',
+        background: 'gray'
+    },
+    centeredPosition
+]);

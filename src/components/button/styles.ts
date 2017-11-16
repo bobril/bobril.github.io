@@ -28,8 +28,8 @@ export const whiteButton: b.IBobrilStyleDef = b.styleDef([
     {
         height: '45px',
         lineHeight: '45px',
-        paddingTop: '17px',
-        paddingBottom: '16px',
+        paddingLeft: '17px',
+        paddingRight: '16px',
         borderRadius: '2px',
         background: colors.color04,
         opacity: 0.7,
@@ -37,7 +37,7 @@ export const whiteButton: b.IBobrilStyleDef = b.styleDef([
         boxShadow:
             '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
         marginTop: '357px',
-        marginLeft: '-115px'
+        marginLeft: '-133px'
     },
     styles.buttontext01,
     centeredPosition
@@ -53,8 +53,8 @@ export const blackButton: b.IBobrilStyleDef = b.styleDef([
     {
         height: '45px',
         lineHeight: '45px',
-        paddingTop: '17px',
-        paddingBottom: '16px',
+        paddingLeft: '17px',
+        paddingRight: '16px',
         borderRadius: '2px',
         background: colors.color01,
         opacity: 0.95,
@@ -62,7 +62,7 @@ export const blackButton: b.IBobrilStyleDef = b.styleDef([
         boxShadow:
             '4px 4px 2px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
         marginTop: '357px',
-        marginLeft: '115px'
+        marginLeft: '133px'
     },
     styles.buttontext01,
     centeredPosition
