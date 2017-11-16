@@ -25,15 +25,7 @@ export const create = b.createComponent<IData>({
 
             b.styledDiv(
                 ['BOBRIL'],
-                {
-                    color: Colors.color04,
-                    marginTop: '430px',
-                    position: 'absolute',
-                    left: '50%',
-                    marginRight: '-50%',
-                    transform: 'translate(-50%)'
-                },
-                styles.headertext01
+                styles.introPageBobrilText
             ),
 
             b.styledDiv(
@@ -41,21 +33,13 @@ export const create = b.createComponent<IData>({
                     'is a component-oriented framework for creating web applications inspired by' +
                         ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'
                 ],
-                {
-                    color: Colors.color04,
-                    position: 'absolute',
-                    marginTop: '490px',
-                    left: '50%',
-                    marginRight: '-50%',
-                    transform: 'translate(-50%)'
-                },
-                styles.headertext02
+                styles.introPageIsAComponentText
             ),
 
             Button.create({
                 content: b.styledDiv(['GET STARTED'], {paddingLeft: '42px', paddingRight: '42px'}),
                 hover: false,
-                onClick: () => alert('ahojda pratele'),
+                onClick: () => b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat get started
                 variant: ButtonVariants.white,
             }),
 

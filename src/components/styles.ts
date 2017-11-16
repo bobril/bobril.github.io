@@ -70,66 +70,92 @@ export const smalltext01: b.IBobrilStyleDef = b.styleDef({
     lineHeight: '17px'
 });
 
-export const normalButton = b.styleDef({
+export const normalButton: b.IBobrilStyleDef = b.styleDef({
     width: '50px',
     height: '50px',
     background: 'red'
 });
 
-export const normalButtonHover = b.styleDef({
+export const normalButtonHover: b.IBobrilStyleDef = b.styleDef({
     background: 'green'
 });
 
-export const buttonStyle = b.styleDef({
+export const buttonStyle: b.IBobrilStyleDef = b.styleDef({
     textAlign: 'center',
-    cursor: 'pointer',
+    cursor: 'pointer'
 });
 
-export const whiteButton = b.styleDef({
-    height: '45px',
-    lineHeight: '45px',
-    paddingTop: '17px',
-    paddingBottom: '16px',
-    borderRadius: '2px',
-    background: colors.color04,
-    opacity: 0.7,
-    color: colors.color01,
-    boxShadow:
-        '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
     position: 'absolute',
-    left: '40%',
-    marginRight: '-50%',
-    transform: 'translate(-50%)',
-    marginTop: '560px',
-    // [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
 });
 
-export const whiteButtonHover = b.styleDef({
+export const whiteButton: b.IBobrilStyleDef = b.styleDef([
+    {
+        height: '45px',
+        lineHeight: '45px',
+        paddingTop: '17px',
+        paddingBottom: '16px',
+        borderRadius: '2px',
+        background: colors.color04,
+        opacity: 0.7,
+        color: colors.color01,
+        boxShadow:
+            '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+        marginTop: '357px',
+        marginLeft: '-115px'
+    },
+    buttontext01,
+    centeredPosition
+]);
+
+export const whiteButtonHover: b.IBobrilStyleDef = b.styleDef({
     background: '#ffffff',
     opacity: 1,
     size: '8px'
 });
 
-export const blackButton = b.styleDef({
-    height: '45px',
-    lineHeight: '45px',
-    paddingTop: '17px',
-    paddingBottom: '16px',
-    borderRadius: '2px',
-    background: colors.color01,
-    opacity: 0.95,
-    color: colors.color04,
-    boxShadow:
-        '4px 4px 2px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
-    position: 'absolute',
-    left: '60%',
-    marginRight: '-50%',
-    transform: 'translate(-50%)',
-    marginTop: '560px',
-});
+export const blackButton: b.IBobrilStyleDef = b.styleDef([
+    {
+        height: '45px',
+        lineHeight: '45px',
+        paddingTop: '17px',
+        paddingBottom: '16px',
+        borderRadius: '2px',
+        background: colors.color01,
+        opacity: 0.95,
+        color: colors.color04,
+        boxShadow:
+            '4px 4px 2px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+        marginTop: '357px',
+        marginLeft: '115px'
+    },
+    buttontext01,
+    centeredPosition
+]);
 
-export const blackButtonHover = b.styleDef({
+export const blackButtonHover: b.IBobrilStyleDef = b.styleDef({
     background: colors.color01,
     opacity: 1,
     size: '8px'
 });
+
+export const introPageIsAComponentText: b.IBobrilStyleDef = b.styleDef([
+    {
+        color: colors.color04,
+        marginTop: '235px'
+    },
+    headertext02,
+    centeredPosition
+]);
+
+export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
+    {
+        color: colors.color04,
+        marginTop: '172px'
+    },
+    headertext01,
+    centeredPosition
+]);

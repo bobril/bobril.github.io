@@ -1,6 +1,7 @@
 import * as b from 'bobril';
 import * as Image from '../../../components/image/lib';
 import * as assets from '../../../assets/assets';
+import * as styles from '../../../components/styles';
 
 interface IData {
     onGetStartedClick: () => void;
@@ -19,13 +20,7 @@ export const create = b.createComponent<IData>({
                 asset: assets.bobrilLogo,
                 width: 555,
                 height: 549,
-                style: {
-                    position: 'absolute',
-                    marginBottom: '60px',
-                    left: '50%',
-                    marginRight: '-50%',
-                    transform: 'translate(-50%)'
-                }
+                style: styles.centeredPosition
             })
         ]);
     }
