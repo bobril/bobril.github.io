@@ -34,7 +34,7 @@ export const withMenu = b.styleDef({
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     paddingTop: 64,
-    background: color02
+    background: color02,
 });
 
 export const footer = b.styleDef({

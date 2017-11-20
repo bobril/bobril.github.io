@@ -43,7 +43,5 @@ export const create = b.createComponent<IData>({
         return false;
     },
 
-    onMouseEnter(ctx){
 
-    }
 });

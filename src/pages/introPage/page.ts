@@ -15,15 +15,21 @@ const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
             b.styledDiv(Intro.create(), bobrilPromoStyle),
-           LCenter.create({
-               children: [About.create()],
-               maxWidth: styles.maxPageWidth,
-           })
+            b.styledDiv(
+                [
+                    LCenter.create({
+                        children: [About.create()],
+                        maxWidth: styles.maxPageWidth
+                    })
+                ],
+                { background: Colors.color01 },
+                bobrilPromoStyle
+            )
         ];
     }
 });
 
-const imageContainerPadding = 42;
+const imageContainerPadding = 24;
 const bobrilPromoStyle = b.styleDef({
     textAlign: 'center',
     height: 'calc(100vh - 60px)',
@@ -31,9 +37,11 @@ const bobrilPromoStyle = b.styleDef({
     marginTop: -imageContainerPadding,
     marginLeft: -imageContainerPadding,
     marginRight: -imageContainerPadding,
+    marginBottom: -imageContainerPadding,
     paddingTop: imageContainerPadding,
     paddingLeft: imageContainerPadding,
-    paddingRight: imageContainerPadding
+    paddingRight: imageContainerPadding,
+    paddingBottom: imageContainerPadding
 });
 
 export default home;

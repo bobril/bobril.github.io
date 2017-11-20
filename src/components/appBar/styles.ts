@@ -15,7 +15,7 @@ export const leftContainer = b.styleDef({
 
 export const appBarStyle = b.styleDef({
     background: colors.color01,
-    overflow: 'hidden',
+    overflow: 'auto',
     height: `${height}px`,
     minWidth: `${minWidth}px`,
     zIndex: 500

@@ -15,7 +15,7 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         let d = ctx.data;
         me.children = [
-            b.styledDiv(d.icon, panelStyles.iconStyle),
+            b.styledDiv(d.icon, panelStyles.iconStyle,panelStyles.leftContainer),
             b.styledDiv(
                 [
                     b.styledDiv(d.label, panelStyles.labelStyle),
@@ -24,6 +24,6 @@ export const create = b.createComponent<IData>({
                 panelStyles.rightContainer
             )
         ];
-        b.style(me,panelStyles.panelStyle)
+        b.style(me, panelStyles.panelStyle);
     }
 });
