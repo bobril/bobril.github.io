@@ -27,8 +27,8 @@ export const rowStyle: b.IBobrilStyleDef = b.styleDef({
 
 export const downloadTablePosition: b.IBobrilStyleDef = b.styleDef([
     {
-        marginLeft: '-250px',
-        marginTop: '-150px',
+        marginLeft: '-50px',
+        marginTop: '-10px',
         background: 'gray'
     },
     centeredPosition

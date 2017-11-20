@@ -35,10 +35,8 @@ export const create = b.createComponent<IData>({
         b.style(
             me,
             {
-                position: 'relative',
                 color: color04,
                 textAlign: 'left',
-                marginTop: '360px'
             },
             paragtext01
         );

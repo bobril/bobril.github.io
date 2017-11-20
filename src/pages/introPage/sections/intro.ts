@@ -52,8 +52,7 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, {
-            position: 'relative',
-            marginTop: '160px'            
+                
         });
     }
 });
