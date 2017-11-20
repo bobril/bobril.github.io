@@ -37,5 +37,4 @@ export const imgStyle = b.styleDef({
     width: width,
     height: imgHeight,
     background: foregroundColor,
-    margin: `${appBarHeight}px 0 0 0`
 });

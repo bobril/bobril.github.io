@@ -21,11 +21,17 @@ const foregroundColor = colors.color04;
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
+            b.styledDiv([], {
+                height: '60px',
+                width: '240px',
+                background: colors.color04
+            }),
             b.styledDiv(
                 Image.create({
                     asset: Assets.bobrilLogoGrey,
                     height: 113,
-                    width: 130
+                    width: 130,
+                    
                 }),
                 menuStyles.imgStyle
             ),
@@ -37,7 +43,7 @@ export const create = b.createComponent<IData>({
                         height: `${index + 1 === ctx.data.childern.length
                             ? 75
                             : 34}px`,
-                        width: `${menuStyles.width}px`,
+                        width: `${menuStyles.width}px`
                     });
                 })
             )

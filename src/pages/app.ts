@@ -12,14 +12,19 @@ interface IData {}
 interface IContext extends b.IBobrilCtx {
     data: IData;
     appHeight: number;
+    menuVisible: boolean;
 }
 
 let menuVisible = false;
 const app = b.createComponent<IData>({
+    init(ctx: IContext) {
+        const actualPageId = getActualPageId();
+        console.log(actualPageId);
+        ctx.menuVisible =
+            actualPageId === router.home || actualPageId === 'root';
+    },
     render(ctx: IContext, me: b.IBobrilNode) {
         const actualPageId = getActualPageId();
-        let isIntro = actualPageId === router.home || actualPageId === 'root';
-        console.log(actualPageId);
         me.children = [
             BasicLayout.create({
                 header: AppBar.create({
@@ -31,8 +36,8 @@ const app = b.createComponent<IData>({
                                 height: 14,
                                 width: 24
                             }),
-                            onClick: ctx => {
-                                menuVisible = !menuVisible;
+                            onClick: () => {
+                                ctx.menuVisible = !ctx.menuVisible;
                                 b.invalidate(ctx);
                             },
 
@@ -41,8 +46,8 @@ const app = b.createComponent<IData>({
 
                         AppBar.Button.create({
                             content: 'MENU',
-                            onClick: ctx => {
-                                menuVisible = !menuVisible;
+                            onClick: () => {
+                                ctx.menuVisible = !ctx.menuVisible;
                                 b.invalidate(ctx);
                             },
 
@@ -61,14 +66,17 @@ const app = b.createComponent<IData>({
                     ]
                 }),
                 menu:
-                    (menuVisible || isIntro) &&
+                    ctx.menuVisible &&
                     Menu.create({
                         childern: [
                             Menu.Button.create({
                                 isActive:
                                     actualPageId === router.introPage ||
                                     actualPageId === 'root',
-                                onClick: () => alert('ss'),
+                                onClick: () =>
+                                    b.runTransition(
+                                        b.createRedirectPush(router.home)
+                                    ),
                                 hover: false,
                                 content: 'HOME'
                             }),

@@ -41,7 +41,7 @@ export const create = b.createComponent<IData>({
                             appBarStyles.rightContainer
                         )
                 ],
-                { margin: 'auto' }
+                { maxWidth: '1200px', margin: 'auto' }
             )
         ];
 
