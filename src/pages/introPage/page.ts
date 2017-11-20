@@ -1,6 +1,8 @@
 import * as b from 'bobril';
 import * as styles from '../styles';
 import * as Colors from '../../components/colors';
+import * as About from './sections/about';
+import * as LCenter from '../../components/lCenter/lib';
 
 import * as Intro from '../introPage/sections/intro';
 interface IData {}
@@ -12,10 +14,11 @@ interface IContext extends b.IBobrilCtx {
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
-            b.styledDiv(
-                Intro.create(), bobrilPromoStyle)
-
-            // About section
+            b.styledDiv(Intro.create(), bobrilPromoStyle),
+           LCenter.create({
+               children: [About.create()],
+               maxWidth: styles.maxPageWidth,
+           })
         ];
     }
 });
@@ -31,7 +34,7 @@ const bobrilPromoStyle = b.styleDef({
     marginRight: -imageContainerPadding,
     paddingTop: imageContainerPadding,
     paddingLeft: imageContainerPadding,
-    paddingRight: imageContainerPadding,
+    paddingRight: imageContainerPadding
 });
 
 export default home;

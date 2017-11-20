@@ -12,10 +12,9 @@ import * as BobrilLogoSection from './sections/bobrilLogo';
 import * as CoreFeaturesPromo from './sections/coreFeaturesPromo';
 
 import * as Intro from '../introPage/sections/intro';
-interface IData {
-}
+interface IData {}
 
-interface IContext extends b.IBobrilCtx {   
+interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
@@ -28,11 +27,9 @@ const home = b.createComponent<IData>({
                         children: [
                             FeatureListSection.create(),
                             BobrilLogoSection.create({
-                                onGetStartedClick: () => {
-
-                                }
+                                onGetStartedClick: () => {}
                             }),
-                            FurrySection.create(),
+                            FurrySection.create()
                         ]
                     }),
                     maxWidth: styles.maxPageWidth
@@ -45,9 +42,9 @@ const home = b.createComponent<IData>({
                     Divider.create(),
                     GetStartedSection.create()
                 ],
-                maxWidth: styles.maxPageWidth,
+                maxWidth: styles.maxPageWidth
             })
-        ]
+        ];
     }
 });
 
@@ -61,7 +58,7 @@ const bobrilPromoStyle = b.styleDef({
     paddingTop: imageContainerPadding,
     paddingLeft: imageContainerPadding,
     paddingRight: imageContainerPadding,
-    boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)',
+    boxShadow: '0 1px 6px rgba(0,0,0,0.120), 0 1px 4px rgba(0,0,0,0.120)'
 });
 
 export default home;

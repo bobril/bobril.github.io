@@ -1,5 +1,9 @@
 import * as b from 'bobril';
-import { headertext01, headertext02 } from '../../components/styles';
+import {
+    headertext01,
+    headertext02,
+    paragtext01
+} from '../../components/styles';
 import { color04 } from '../../components/colors';
 
 export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
@@ -26,4 +30,11 @@ export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
     },
     headertext01,
     centeredPosition
+]);
+
+export const aboutPageTextStyles = b.styleDef([
+    {
+        color: color04
+    },
+    paragtext01
 ]);
