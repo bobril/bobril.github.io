@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import { width as menuWidth } from '../menu/styles';
 
-export const footerHeight = 30;
+export const footerHeight = 0;
 
 export const basicLayout = b.styleDef({
     minHeight: '750px',
@@ -14,13 +14,15 @@ export const header = b.styleDef({
     position: 'fixed',
     left: 0,
     right: 0,
-    top: 0
+    top: 0,
+    zIndex: 100
 });
 
 export const menu = b.styleDef({
     position: 'fixed',
     left: 0,
-    top: 0
+    top: 0,
+    zIndex: 100
 });
 
 export const withMenu = b.styleDef({

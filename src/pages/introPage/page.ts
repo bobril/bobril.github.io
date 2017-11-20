@@ -22,9 +22,11 @@ const home = b.createComponent<IData>({
 
 const imageContainerPadding = 100;
 const bobrilPromoStyle = b.styleDef({
+    position: 'relative',
     textAlign: 'center',
     background: Colors.color02,
     height: 'calc(100vh - 60px)',
+    minHeight: '700px',
     marginTop: -imageContainerPadding,
     marginLeft: -imageContainerPadding,
     marginRight: -imageContainerPadding,

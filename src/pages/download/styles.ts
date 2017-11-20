@@ -18,8 +18,8 @@ export const downloadTableStyle: b.IBobrilStyleDef = b.styleDef([
 
 export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
     {
-        marginLeft: '-250px',
-        marginTop: '-350px',
+        marginLeft: '-50px',
+        marginTop: '-210px',
         width: 720
     },
     centeredPosition
@@ -28,8 +28,8 @@ export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
 export const bottomTextStyle: b.IBobrilStyleDef = b.styleDef([
     {
         width: 720,
-        marginLeft: '-250px',
-        marginTop: '0px'
+        marginLeft: '-50px',
+        marginTop: '130px'
     },
     centeredPosition,
     paragtext01
