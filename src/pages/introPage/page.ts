@@ -24,13 +24,13 @@ const imageContainerPadding = 100;
 const bobrilPromoStyle = b.styleDef({
     textAlign: 'center',
     background: Colors.color02,
+    height: 'calc(100vh - 60px)',
     marginTop: -imageContainerPadding,
     marginLeft: -imageContainerPadding,
     marginRight: -imageContainerPadding,
     paddingTop: imageContainerPadding,
     paddingLeft: imageContainerPadding,
     paddingRight: imageContainerPadding,
-    overflow: 'auto'
 });
 
 export default home;
