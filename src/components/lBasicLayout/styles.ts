@@ -24,7 +24,7 @@ export const menu = b.styleDef({
 });
 
 export const withMenu = b.styleDef({
-    width: `calc(100% - ${menuWidth})px`,
+    width: `calc(100% - ${menuWidth}px)`,
     marginLeft: menuWidth,
 });
 

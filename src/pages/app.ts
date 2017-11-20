@@ -18,11 +18,9 @@ interface IContext extends b.IBobrilCtx {
 let menuVisible = false;
 const app = b.createComponent<IData>({
     init(ctx: IContext) {
-        const actualPageId = getActualPageId();
-        console.log(actualPageId);
-        ctx.menuVisible =
-            actualPageId === router.home || actualPageId === 'root';
+        setMenuVisible(ctx);
     },
+
     render(ctx: IContext, me: b.IBobrilNode) {
         const actualPageId = getActualPageId();
         me.children = [
@@ -57,7 +55,7 @@ const app = b.createComponent<IData>({
                     rightChildren: [
                         AppBar.Button.create({
                             content: 'GitHub',
-                            onClick: ctx => {
+                            onClick: () => {
                                 window.open('https://github.com/Bobris/Bobril');
                             },
 
@@ -73,48 +71,46 @@ const app = b.createComponent<IData>({
                                 isActive:
                                     actualPageId === router.introPage ||
                                     actualPageId === 'root',
-                                onClick: () =>
-                                    b.runTransition(
-                                        b.createRedirectPush(router.home)
-                                    ),
+                                onClick: () => {
+                                    redirect(router.introPage);
+                                   
+                                },
                                 hover: false,
                                 content: 'HOME'
                             }),
                             Menu.Button.create({
                                 isActive: actualPageId === router.getStarted,
-                                onClick: () =>
-                                    b.runTransition(
-                                        b.createRedirectPush(router.getStarted)
-                                    ),
+                                onClick: () => {
+                                    redirect(router.getStarted);
+                                    
+                                },
                                 hover: false,
                                 content: 'GET STARTED'
                             }),
                             Menu.Button.create({
                                 isActive: actualPageId === router.download,
-                                onClick: () =>
-                                    b.runTransition(
-                                        b.createRedirectPush(router.download)
-                                    ),
+                                onClick: () => {
+                                    redirect(router.download);
+                                    
+                                },
                                 hover: false,
                                 content: 'DOWNLOAD'
                             }),
                             Menu.Button.create({
                                 isActive: actualPageId === router.guides,
-                                onClick: () =>
-                                    b.runTransition(
-                                        b.createRedirectPush(router.guides)
-                                    ),
+                                onClick: () => {
+                                    redirect(router.guides);
+                                   
+                                },
                                 hover: false,
                                 content: 'GUIDES'
                             }),
                             Menu.Button.create({
                                 isActive: actualPageId === router.documentation,
-                                onClick: () =>
-                                    b.runTransition(
-                                        b.createRedirectPush(
-                                            router.documentation
-                                        )
-                                    ),
+                                onClick: () => {
+                                    redirect(router.documentation);
+                                    
+                                },
                                 hover: false,
                                 content: 'DOC'
                             }),
@@ -154,6 +150,18 @@ const app = b.createComponent<IData>({
 
 function getActualPageId(): string {
     return b.getActiveRoutes()[0].name || router.home;
+}
+
+function setMenuVisible(ctx: IContext) {
+    const actualPageId = getActualPageId();
+    console.log(actualPageId);
+    ctx.menuVisible = actualPageId === router.home || actualPageId === 'root';
+    b.invalidate(ctx);
+}
+
+function redirect(route: string): void {
+    //console.log(route);
+    b.runTransition(b.createRedirectPush(route));
 }
 
 export default app;

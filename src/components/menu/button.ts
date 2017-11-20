@@ -2,10 +2,12 @@ import * as b from 'bobril';
 import * as menuStyles from './styles';
 import * as styles from '../styles';
 
+type asyncFunction = () => Promise<void>;
+
 export interface IData {
     hover: boolean;
     content: b.IBobrilChildren;
-    onClick: () => void;
+    onClick:  () => void;
     isActive?: boolean;
 }
 
