@@ -29,17 +29,16 @@ export const create = b.createComponent<IData>({
                     'bottom text here'
                 ],
                 bottomTextStyle
-            )
+            )   
         ];
 
         b.style(
             me,
             {
                 position: 'relative',
-                height: 'calc(100vh - 60px)',
                 color: color04,
                 textAlign: 'left',
-                marginTop: '60px'
+                marginTop: '360px'
             },
             paragtext01
         );

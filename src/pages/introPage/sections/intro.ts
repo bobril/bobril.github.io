@@ -53,7 +53,7 @@ export const create = b.createComponent<IData>({
 
         b.style(me, {
             position: 'relative',
-            height: 'calc(100vh - 60px)',
+            marginTop: '160px'            
         });
     }
 });

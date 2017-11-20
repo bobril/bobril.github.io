@@ -4,7 +4,7 @@ import { width as menuWidth } from '../menu/styles';
 export const footerHeight = 30;
 
 export const basicLayout = b.styleDef({
-    minHeight: '100%',
+    minHeight: '750px',
     minWidth: '1200px',
     position: 'relative',
     overflow: 'hidden'
