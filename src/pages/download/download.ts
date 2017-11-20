@@ -9,6 +9,7 @@ import {
 import { paragtext01 } from '../../components/styles';
 
 import { color04 } from '../../components/colors';
+import { centeredPosition } from '../../components/button/styles';
 interface IData {}
 
 interface IContext extends b.IBobrilCtx {
@@ -20,25 +21,27 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
 
         me.children = [
-            b.styledDiv(['DOWNLOAD'], downloadLabelStyle),
-
-            downloadTable.create(),
-
             b.styledDiv(
                 [
-                    'bottom text here'
+                    b.styledDiv(['DOWNLOAD'], downloadLabelStyle),
+
+                    downloadTable.create(),
+
+                    b.styledDiv(['bottom text here'], bottomTextStyle)
                 ],
-                bottomTextStyle
-            )   
+                {
+                    position: 'absolute',
+                    marginLeft: ' -50px',
+                    color: color04,
+                    textAlign: 'left'
+                },
+                centeredPosition,
+                paragtext01
+            )
         ];
 
         b.style(
-            me,
-            {
-                color: color04,
-                textAlign: 'left',
-            },
-            paragtext01
+            me           
         );
     }
 });

@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import { paragtext01 } from '../../components/styles';
+import { paragtext01, headertext01 } from '../../components/styles';
 
 export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
     position: 'absolute',
@@ -9,27 +9,23 @@ export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
 });
 
 export const downloadTableStyle: b.IBobrilStyleDef = b.styleDef([
-    {
-        marginLeft: '-250px',
-        marginTop: '150px'
-    },
-    centeredPosition
+    centeredPosition,
+    paragtext01
 ]);
 
 export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
     {
-        marginLeft: '-50px',
         marginTop: '-210px',
-        width: 720
+        width: 720,
     },
-    centeredPosition
+    centeredPosition,
+    headertext01
 ]);
 
 export const bottomTextStyle: b.IBobrilStyleDef = b.styleDef([
     {
         width: 720,
-        marginLeft: '-50px',
-        marginTop: '130px'
+        marginTop: '156px'
     },
     centeredPosition,
     paragtext01

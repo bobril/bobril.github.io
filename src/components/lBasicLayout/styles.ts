@@ -1,5 +1,6 @@
 import * as b from 'bobril';
 import { width as menuWidth } from '../menu/styles';
+import { color02 } from '../colors';
 
 export const footerHeight = 0;
 
@@ -7,7 +8,8 @@ export const basicLayout = b.styleDef({
     minHeight: '750px',
     minWidth: '1200px',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    background: color02
 });
 
 export const header = b.styleDef({

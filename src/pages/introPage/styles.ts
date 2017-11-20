@@ -12,7 +12,8 @@ export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
 export const introPageIsAComponentText: b.IBobrilStyleDef = b.styleDef([
     {
         color: color04,
-        marginTop: '235px'
+        marginTop: '235px',
+        minWidth: '912px'
     },
     headertext02,
     centeredPosition
