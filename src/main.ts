@@ -6,6 +6,7 @@ import documentation from './pages/documentation/page';
 import guides from './pages/guides/page';
 import intro from './pages/introPage/page';
 import download from './pages/download/page';
+import getStarted from './pages/getStarted/page';
 
 loadGithubMarkdownStyles();
 
@@ -21,6 +22,11 @@ b.routes(
             url: `/${router.documentation}`,
             name: router.documentation,
             handler: documentation
+        }),
+        b.route({
+            url: `/${router.getStarted}`,
+            name: router.getStarted,
+            handler: getStarted
         }),
         b.route({
             url: `/${router.download}`,

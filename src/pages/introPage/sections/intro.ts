@@ -33,8 +33,7 @@ export const create = b.createComponent<IData>({
             ),
 
             Button.create({
-                content: b.styledDiv(['GET STARTED'], {
-                }),
+                content: b.styledDiv(['GET STARTED'], {}),
                 hover: false,
                 onClick: () =>
                     b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat get started
@@ -42,8 +41,7 @@ export const create = b.createComponent<IData>({
             }),
 
             Button.create({
-                content: b.styledDiv(['DOWNLOAD'], {
-                }),
+                content: b.styledDiv(['DOWNLOAD'], {}),
                 hover: false,
                 onClick: () =>
                     b.runTransition(b.createRedirectPush(router.download)),
@@ -52,7 +50,8 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, {
-                
+            position: 'relative',
+            marginTop: 245
         });
     }
 });

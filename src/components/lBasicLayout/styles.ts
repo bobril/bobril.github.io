@@ -9,7 +9,6 @@ export const basicLayout = b.styleDef({
     minWidth: '1200px',
     position: 'relative',
     overflow: 'hidden',
-    background: color02
 });
 
 export const header = b.styleDef({
@@ -34,7 +33,8 @@ export const withMenu = b.styleDef({
 
 export const content = b.styleDef({
     paddingBottom: footerHeight,
-    paddingTop: 64
+    paddingTop: 64,
+    background: color02
 });
 
 export const footer = b.styleDef({

@@ -1,5 +1,4 @@
 import * as b from 'bobril';
-import * as m from 'bobril-m';
 
 interface IData {
     children: b.IBobrilChildren;
@@ -31,12 +30,9 @@ export const create = b.createComponent<IData>({
                 d.preview && {
                     display: 'table-cell',
                     verticalAlign: 'top'
-                }),
-            d.preview && b.styledDiv(
-                d.preview,
-                previewStyle
+                }
             ),
-
+            d.preview && b.styledDiv(d.preview, previewStyle)
         ];
 
         b.style(me, codeWrapper);
@@ -46,14 +42,11 @@ export const create = b.createComponent<IData>({
 export const codeWrapper = b.styleDef({
     display: 'table',
     width: '100%',
-    margin: codePadding
+    margin: codePadding,
 });
 
 export const codeStyle = b.styleDef({
     whiteSpace: 'pre',
-    border: `1px solid ${m.grey500}`,
-    background: m.grey300,
-    borderStyle: 'dashed',
     fontSize: 13,
     fontFamily: 'sans-serif'
 });
@@ -61,8 +54,6 @@ export const codeStyle = b.styleDef({
 export const previewStyle = b.styleDef({
     paddingLeft: codePadding,
     paddingRight: codePadding,
-    background: m.blue100,
-    border: `1px solid ${m.blue500}`,
     width: previewWidth,
     display: 'table-cell',
     verticalAlign: 'middle',

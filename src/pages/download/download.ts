@@ -40,8 +40,6 @@ export const create = b.createComponent<IData>({
             )
         ];
 
-        b.style(
-            me           
-        );
+        b.style(me);
     }
 });
