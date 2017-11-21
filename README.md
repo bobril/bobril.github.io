@@ -60,7 +60,8 @@ doesn't have to be handled. The mistakes in this key part of the file (metadata)
 
 ### Build the page locally
 1. If you haven't created the fork of the repository, please do it now.
-1. In root directory run commands: 
+1. In root directory run commands:
+    1. ```git submodule init```
     1. ```git submodule update --recursive --remote```
     1. ```npm run build```
 1. Open generated index.html in the root directory
