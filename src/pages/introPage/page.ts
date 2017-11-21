@@ -23,7 +23,7 @@ const home = b.createComponent<IData>({
                     })
                 ],
                 { background: Colors.color01 },
-                bobrilPromoStyle
+                bobrilAboutStyle, {}
             )
         ];
     }
@@ -34,6 +34,20 @@ const bobrilPromoStyle = b.styleDef({
     textAlign: 'center',
     height: 'calc(100vh - 60px)',
     minHeight: '700px',
+    marginTop: -imageContainerPadding,
+    marginLeft: -imageContainerPadding,
+    marginRight: -imageContainerPadding,
+    marginBottom: -imageContainerPadding,
+    paddingTop: imageContainerPadding,
+    paddingLeft: imageContainerPadding,
+    paddingRight: imageContainerPadding,
+    paddingBottom: imageContainerPadding
+});
+
+const bobrilAboutStyle = b.styleDef({
+    textAlign: 'center',
+    height: 'calc(100vh - 60px)',
+    minHeight: '1400px',
     marginTop: -imageContainerPadding,
     marginLeft: -imageContainerPadding,
     marginRight: -imageContainerPadding,

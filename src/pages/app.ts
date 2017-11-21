@@ -160,7 +160,7 @@ function setMenuVisible(ctx: IContext) {
 }
 
 function redirect(route: string): void {
-    //console.log(route);
+    
     b.runTransition(b.createRedirectPush(route));
 }
 

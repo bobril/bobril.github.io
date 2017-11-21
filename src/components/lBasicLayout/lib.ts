@@ -1,6 +1,5 @@
 import * as b from 'bobril';
 import * as styles from './styles';
-import { width as menuWidth } from '../menu/styles';
 
 const zDepthHeader = 2;
 

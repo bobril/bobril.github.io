@@ -1,3 +1,5 @@
+import * as colors from '../../../../src/components/colors';
+
 export function generateMenu(nodes): string {
     const output = [];
     nodes.forEach((node) => {
@@ -27,9 +29,11 @@ function generateMenuFromNode(node): string {
                     ${generateMenuItem(
                     {
                                 tagClass: '\'menu-block-header\'',
+                                listStyle: 'none',
                                 menuAnchor: firstChildrenMetadata.menuAnchor,
                                 label: firstChildrenMetadata.menuLabel,
-                                color: '#0097a7',
+                                color: colors.color04,
+                                moveLeftUnit: 2,
                                 fontSize: 18,
                                 lineHeight: 18
                             }
@@ -54,8 +58,10 @@ function generateMenuFromNode(node): string {
     return generateMenuItem({
         tagClass: '\'menu-sub-block-item\'',
         menuAnchor: metadata.menuAnchor,
+        listStyle: 'disc',
+        moveLeftUnit: 0,
         label: metadata.menuLabel,
-        color: 'rgba(0,0,0,0.870)',
+        color: colors.color03,
         fontSize: 15,
         lineHeight: 15
     });
@@ -69,7 +75,7 @@ function generateMenuItem(menuItemCfg) {
                 tag: 'a',
                 className: ${menuItemCfg.tagClass},
                 children: '${menuItemCfg.label}',
-                style : {
+                style: {
                     textDecoration: 'none',
                     color: '${menuItemCfg.color}',
                     fontSize: '${menuItemCfg.fontSize}px',
@@ -82,17 +88,17 @@ function generateMenuItem(menuItemCfg) {
                             console.warn('Cannot find element with id:', '${menuItemCfg.menuAnchor}');
                             return;
                         }
-            
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                listStyle: 'none',
+                width: '150px',
+                margin: 'auto',
+                listStyle:  '${menuItemCfg.listStyle}',
                 lineHeight: '${menuItemCfg.lineHeight}px'
             }
         }
     `;
 }
-

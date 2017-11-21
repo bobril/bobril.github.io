@@ -141,7 +141,7 @@ function bobrilText() {
                 }),
                 '.'
             ],
-            { marginTop: 100, paddingBottom: 120 },
+            { marginTop: 80, paddingBottom: 120 },
             styles.aboutPageTextStyles
         )
     ];

@@ -1,11 +1,21 @@
+import * as colors from '../../../../src/components/colors';
+//import {height as appBarHeight} from '../../../../src/components/appBar/styles';
+
+let appBarHeight = 60;
+
 interface IMainPageData {
     menu: string;
     content: string;
+    
 }
 
-const menuWidth = 190;
+const menuWidth = 240;
+const topMarginMenu = 30;
+const bottomMarginMenu = 30;
+const contetntPaddingRight = 30;
 
 export function generateMainPage(data: IMainPageData): string {
+    
     return `export function create() {
         return {
             tag : 'div',
@@ -15,23 +25,34 @@ export function generateMainPage(data: IMainPageData): string {
             children: [
                 {
                     tag: 'div',
-                    children: [${data.menu}],
+                    children: [{
+                        tag: 'div',
+                        children: ['CONTENT'],
+                        style: {
+                            textAlign: 'center',
+                            fontSize: '20px',
+                            marginBottom: 20,
+                            marginTop: 20
+                        }
+                    },${data.menu}],
                     style: {
                         width: ${menuWidth},
-                        cssFloat: 'left',
-                        position: 'fixed'
+                        right: 30,
+                        bottom: ${bottomMarginMenu},
+                        height: 'calc(100vh - ${appBarHeight + topMarginMenu + bottomMarginMenu}px)',
+                        background: '${colors.color01}',
+                        position: 'fixed',
                     }
                 },
                 {
                     tag: 'div',
                     children: [${data.content}],
                     style: {
-                        marginLeft: ${menuWidth + 16},
-                        borderLeft: '1px solid #bdbdbd',
-                        padding: '16px 16px 16px 32px'
+                        
+                        padding: '16px ${menuWidth + contetntPaddingRight}px 16px 32px'
                     }
                 }
             ]
         }
-    }`
+    }`;
 }

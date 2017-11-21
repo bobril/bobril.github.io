@@ -17,7 +17,7 @@ export const appBarStyle = b.styleDef({
     background: colors.color01,
     overflow: 'auto',
     height: `${height}px`,
-    minWidth: `${minWidth}px`,
+    
     zIndex: 500
 });
 

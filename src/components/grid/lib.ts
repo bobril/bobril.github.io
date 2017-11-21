@@ -13,28 +13,16 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         let d = ctx.data;
         let children: b.IBobrilChildren[] = [];
-        let row: b.IBobrilChildren[] = [];
-        let rows = Math.floor(d.items.length / d.columns);
+
         d.items.forEach((item, index) => {
-            let isEnoughtItemsOnLine = (index + 1) % d.columns === 0;
-            row.push(
+            children.push(
                 b.styledDiv(
                     item,
                     styles.itemStyle,
-                    !isEnoughtItemsOnLine && { marginRight: 40 }
+                    { marginRight: 40 },
+                    !(index + 1 === d.items.length) && { marginBottom: 40 }
                 )
             );
-            if (isEnoughtItemsOnLine) {
-                rows--;
-                children.push(
-                    b.styledDiv(
-                        row,
-                        styles.rowStyle,
-                        rows !== 0 && { marginBottom: 40 }
-                    )
-                );
-                row = [];
-            }
         });
 
         me.children = children;
