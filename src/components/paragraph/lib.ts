@@ -15,9 +15,6 @@ export const create = b.createComponent<IData>({
 
         me.children = d.label;
 
-        b.style(
-            me,
-            d.style && d.style
-        );
+        b.style(me, d.style && d.style);
     }
 });

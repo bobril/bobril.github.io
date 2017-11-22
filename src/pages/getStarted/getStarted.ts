@@ -8,6 +8,7 @@ import * as styles from './styles';
 import * as ExampleCounter from './examples/counter';
 import * as ExampleTodo from './examples/todo';
 import { LabelSize } from '../../components/label/lib';
+import { rightContentPosition } from './styles';
 
 interface IData {}
 
@@ -30,7 +31,7 @@ export const create = b.createComponent<IData>({
                     todoExample(),
                     bottomTexts()
                 ],
-                styles.leftContentPaddings
+                styles.leftContentPosition
             )
         ];
     }
@@ -41,13 +42,15 @@ function gettingStarted(): b.IBobrilChildren {
         Label.create({
             label: 'GET STARTED',
             size: LabelSize.HeaderText01,
-            style: styles.headerText01
+            style: styles.headerText01,
+            id: 'getStartedId'
         }),
 
         Label.create({
             label: 'Install in 3 steps',
             size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            style: styles.headerText02,
+            id: 'installIn3Steps'
         }),
 
         Paragraph.create({
@@ -95,7 +98,8 @@ function firstExample(): b.IBobrilChildren {
         Label.create({
             label: 'Hello world!',
             size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            style: styles.headerText02,
+            id: 'helloWorld'
         }),
 
         Paragraph.create({
@@ -121,7 +125,8 @@ function firstComponent(): b.IBobrilChildren {
         Label.create({
             label: 'First component - Counter',
             size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            style: styles.headerText02,
+            id: 'firstComponent'
         }),
 
         Paragraph.create({
@@ -150,10 +155,12 @@ function firstComponent(): b.IBobrilChildren {
 
 function todoExample(): b.IBobrilChildren {
     return [
+        
         Label.create({
             label: 'Todo List - Little more real example.',
             size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            style: styles.headerText02,
+            id: 'toDoListId'
         }),
 
         Paragraph.create({
@@ -202,9 +209,10 @@ function bottomTexts(): b.IBobrilChildren {
 
 function content(): b.IBobrilChildren {
     return [
-        b.styledDiv(
-            [b.styledDiv(['CONTENT'], { textAlign: 'center' })],
-            styles.rightContentPosition
-        )
+        Label.create({
+            label: 'CONTENT',
+            size: Label.LabelSize.HeaderText02,
+            style: rightContentPosition
+        })
     ];
 }

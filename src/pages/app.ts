@@ -25,6 +25,10 @@ const app = b.createComponent<IData>({
         const actualPageId = getActualPageId();
         me.children = [
             BasicLayout.create({
+                variant:
+                    actualPageId === router.home || actualPageId === router.root
+                        ? BasicLayout.BasicLayoutVariant.noTopPadding
+                        : BasicLayout.BasicLayoutVariant.default,
                 header: AppBar.create({
                     contentWidth: 1200,
                     leftChildren: [
@@ -73,7 +77,6 @@ const app = b.createComponent<IData>({
                                     actualPageId === 'root',
                                 onClick: () => {
                                     redirect(router.introPage);
-                                   
                                 },
                                 hover: false,
                                 content: 'HOME'
@@ -82,7 +85,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.getStarted,
                                 onClick: () => {
                                     redirect(router.getStarted);
-                                    
                                 },
                                 hover: false,
                                 content: 'GET STARTED'
@@ -91,7 +93,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.download,
                                 onClick: () => {
                                     redirect(router.download);
-                                    
                                 },
                                 hover: false,
                                 content: 'DOWNLOAD'
@@ -100,7 +101,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.guides,
                                 onClick: () => {
                                     redirect(router.guides);
-                                   
                                 },
                                 hover: false,
                                 content: 'GUIDES'
@@ -109,7 +109,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.documentation,
                                 onClick: () => {
                                     redirect(router.documentation);
-                                    
                                 },
                                 hover: false,
                                 content: 'DOC'
@@ -160,7 +159,6 @@ function setMenuVisible(ctx: IContext) {
 }
 
 function redirect(route: string): void {
-    
     b.runTransition(b.createRedirectPush(route));
 }
 

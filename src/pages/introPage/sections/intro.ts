@@ -5,6 +5,7 @@ import * as Button from '../../../components/button/lib';
 import * as Paragraph from '../../../components/paragraph/lib';
 import * as Label from '../../../components/label/lib';
 
+
 import * as router from '../../../pages/router';
 
 import * as BobrilLogoSection from './bobrilLogo';
@@ -23,7 +24,7 @@ export const create = b.createComponent<IData>({
             BobrilLogoSection.create({
                 onGetStartedClick: () => {}
             }),
-
+            
             Label.create({
                 label: 'BOBRIL',
                 size: Label.LabelSize.HeaderText01,
