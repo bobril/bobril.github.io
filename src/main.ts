@@ -58,8 +58,6 @@ function injectAllCss() {
     b.injectCss(
         `.markdown-body blockquote {border-left: .25em solid ${colors.color03}; background:${colors.color01};color:${colors.color03}}`
     );
-    b.injectCss('.menu-block-header{margin-left:-1px}')
-    b.injectCss('.menu-block{margin: auto}')
 }
 
 function loadGithubMarkdownStyles() {

@@ -5,6 +5,7 @@ export function generateMenu(nodes): string {
     nodes.forEach((node) => {
         output.push(generateMenuFromNode(node));
     });
+    console.log(output.join(','))
     return output.join(',');
 }
 
@@ -33,7 +34,8 @@ function generateMenuFromNode(node): string {
                                 menuAnchor: firstChildrenMetadata.menuAnchor,
                                 label: firstChildrenMetadata.menuLabel,
                                 color: colors.color04,
-                                moveLeftUnit: 2,
+                                moveLeftUnit: 28,
+                                shouldMoveLeft: true,
                                 fontSize: 18,
                                 lineHeight: 18
                             }
@@ -60,6 +62,7 @@ function generateMenuFromNode(node): string {
         menuAnchor: metadata.menuAnchor,
         listStyle: 'disc',
         moveLeftUnit: 0,
+        shouldMoveLeft: false,
         label: metadata.menuLabel,
         color: colors.color03,
         fontSize: 15,
@@ -96,6 +99,7 @@ function generateMenuItem(menuItemCfg) {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: ${menuItemCfg.shouldMoveLeft && menuItemCfg.moveLeftUnit},
                 listStyle:  '${menuItemCfg.listStyle}',
                 lineHeight: '${menuItemCfg.lineHeight}px'
             }

@@ -7,16 +7,18 @@ export function create() {
             children: [
                 {
                     tag: 'div',
-                    children: [{
-                        tag: 'div',
-                        children: ['CONTENT'],
-                        style: {
-                            textAlign: 'center',
-                            fontSize: '20px',
-                            marginBottom: 20,
-                            marginTop: 20
-                        }
-                    },
+                    children: [
+                        {
+                            tag: 'div',
+                            children: ['CONTENT'],
+                            style: {
+                                textAlign: 'center',
+                                fontSize: '20px',
+                                marginBottom: 20,
+                                marginTop: 20
+                            }
+                        },
+                        
             {
                 tag: 'ul',
                 className: 'menu-block',
@@ -52,6 +54,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: 28,
                 listStyle:  'none',
                 lineHeight: '18px'
             }
@@ -92,6 +95,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: false,
                 listStyle:  'disc',
                 lineHeight: '15px'
             }
@@ -124,6 +128,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: false,
                 listStyle:  'disc',
                 lineHeight: '15px'
             }
@@ -156,6 +161,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: false,
                 listStyle:  'disc',
                 lineHeight: '15px'
             }
@@ -188,6 +194,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: false,
                 listStyle:  'disc',
                 lineHeight: '15px'
             }
@@ -220,6 +227,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: false,
                 listStyle:  'disc',
                 lineHeight: '15px'
             }
@@ -252,6 +260,7 @@ export function create() {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginLeft: false,
                 listStyle:  'disc',
                 lineHeight: '15px'
             }
@@ -260,7 +269,8 @@ export function create() {
                         ]
                     }
                 ] 
-            }],
+            }
+                    ],
                     style: {
                         width: 240,
                         right: 30,

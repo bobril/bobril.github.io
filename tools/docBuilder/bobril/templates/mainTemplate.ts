@@ -13,6 +13,7 @@ const menuWidth = 240;
 const topMarginMenu = 30;
 const bottomMarginMenu = 30;
 const contetntPaddingRight = 30;
+const rightMarginMenu = 30;
 
 export function generateMainPage(data: IMainPageData): string {
     
@@ -25,19 +26,22 @@ export function generateMainPage(data: IMainPageData): string {
             children: [
                 {
                     tag: 'div',
-                    children: [{
-                        tag: 'div',
-                        children: ['CONTENT'],
-                        style: {
-                            textAlign: 'center',
-                            fontSize: '20px',
-                            marginBottom: 20,
-                            marginTop: 20
-                        }
-                    },${data.menu}],
+                    children: [
+                        {
+                            tag: 'div',
+                            children: ['CONTENT'],
+                            style: {
+                                textAlign: 'center',
+                                fontSize: '20px',
+                                marginBottom: 20,
+                                marginTop: 20
+                            }
+                        },
+                        ${data.menu}
+                    ],
                     style: {
                         width: ${menuWidth},
-                        right: 30,
+                        right: ${rightMarginMenu},
                         bottom: ${bottomMarginMenu},
                         height: 'calc(100vh - ${appBarHeight + topMarginMenu + bottomMarginMenu}px)',
                         background: '${colors.color01}',
