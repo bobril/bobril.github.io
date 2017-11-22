@@ -30,6 +30,21 @@ export const title = b.styleDef({
     fontWeight: 500
 });
 
+export const headerText01 = b.styleDef({
+    fontSize: '34px',
+    fontWeight: 600
+});
+
+export const headerText02 = b.styleDef({
+    fontSize: '20px',
+    fontWeight: 400,
+});
+
+export const downloadPacksLabel = b.styleDef({
+    fontSize: '16px',
+    fontWeight: 400,
+});
+
 export const subheading = b.styleDef({
     fontSize: '15px',
     fontWeight: 400

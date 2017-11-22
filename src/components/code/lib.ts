@@ -1,4 +1,6 @@
 import * as b from 'bobril';
+import { color01, color03, color04, color05 } from '../colors';
+import { smalltext01 } from '../styles';
 
 interface IData {
     children: b.IBobrilChildren;
@@ -42,20 +44,29 @@ export const create = b.createComponent<IData>({
 export const codeWrapper = b.styleDef({
     display: 'table',
     width: '100%',
-    margin: codePadding,
+    marginTop: codePadding,
+    marginBottom: codePadding,
 });
 
-export const codeStyle = b.styleDef({
-    whiteSpace: 'pre',
-    fontSize: 13,
-    fontFamily: 'sans-serif'
-});
+export const codeStyle: b.IBobrilStyleDef = b.styleDef([
+    {
+        whiteSpace: 'pre',
+        color: color03,
+        background: color01,
+        paddingBottom: 7.5,
+        paddingTop: 7.5,
+        paddingLeft: 7.5,
+    },
+    smalltext01
+]);
 
 export const previewStyle = b.styleDef({
     paddingLeft: codePadding,
     paddingRight: codePadding,
-    width: previewWidth,
+    width: previewWidth,        
     display: 'table-cell',
     verticalAlign: 'middle',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: color01,
+    background: color05
 });

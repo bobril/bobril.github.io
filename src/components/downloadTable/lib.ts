@@ -1,7 +1,6 @@
 import * as b from 'bobril';
 import * as row from './row';
 import * as npmFury from '../npmFury/lib';
-import { centeredPosition, downloadTablePosition } from './styles';
 
 export interface IData {}
 
@@ -42,7 +41,5 @@ export const create = b.createComponent<IData>({
             }),
             row.create()
         ];
-
-        b.style(me, downloadTablePosition);
     }
 });

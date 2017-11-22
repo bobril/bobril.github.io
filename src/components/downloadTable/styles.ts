@@ -1,33 +1,21 @@
 import * as b from 'bobril';
 import { paragtext01 } from '../styles';
-import { color04, color02 } from '../colors';
 
-export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
+export const rowLabel: b.IBobrilStyleDef = b.styleDef({
+    cssFloat: 'left',
+    width: '240px',
+    paddingLeft: 80,
+    paddingTop: 7.5
 });
 
-export const rowLabel: b.IBobrilStyleDef = b.styleDef([
-    {
-        textAlign: 'left',
-        marginLeft: '80px',
-        paddingTop: '7.5px'
-    },
-    paragtext01
-]);
+export const rowContent: b.IBobrilStyleDef = b.styleDef({
+    paddingTop: 8,
+    fontFamily: 'Segoe UI',
+    letterSpacing: '0px',
+});
 
 export const rowStyle: b.IBobrilStyleDef = b.styleDef({
     width: '720px',
     height: '40px',
-    position: 'relative',
-    background: 'gray'
+    background: '#65697A',
 });
-
-export const downloadTablePosition: b.IBobrilStyleDef = b.styleDef([
-    {
-        marginTop: '-10px',
-    },
-    centeredPosition
-]);

@@ -2,14 +2,13 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as Paragraph from '../../components/paragraph/lib';
 import * as Code from '../../components/code/lib';
-import * as BobrilHighligtJs from 'bobril-highlightjs';
+import * as styles from './styles';
 
 // examples
 import * as ExampleCounter from './examples/counter';
 import * as ExampleTodo from './examples/todo';
-import * as styles from './styles';
-import * as colors from '../../components/colors';
-import { styledDiv } from 'bobril';
+import { LabelSize } from '../../components/label/lib';
+
 interface IData {}
 
 interface IContext extends b.IBobrilCtx {
@@ -21,84 +20,98 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
 
         me.children = [
-            gettingStarted(),
-            b.styledDiv(firstExample(), exampleContainerStyle),
-            b.styledDiv(firstComponent(), exampleContainerStyle),
-            b.styledDiv(todoExample(), exampleContainerStyle)
+            content(),
+
+            b.styledDiv(
+                [
+                    gettingStarted(),
+                    firstExample(),
+                    firstComponent(),
+                    todoExample(),
+                    bottomTexts()
+                ],
+                styles.leftContentPaddings
+            )
         ];
-        b.style(me, { width: 720, position: 'relative' });
     }
 });
 
 function gettingStarted(): b.IBobrilChildren {
     return [
-        b.styledDiv(['GET STARTED'], styles.headerText),
+        Label.create({
+            label: 'GET STARTED',
+            size: LabelSize.HeaderText01,
+            style: styles.headerText01
+        }),
 
-        b.styledDiv(['Install in 3 steps'], styles.menuHeaderText),
+        Label.create({
+            label: 'Install in 3 steps',
+            size: LabelSize.HeaderText02,
+            style: styles.headerText02
+        }),
 
-        b.styledDiv(
-            ['1) To install Bobril Build run the command:'],
-            styles.paragText
-        ),
+        Paragraph.create({
+            label: '1) To install Bobril Build run the command:',
+            style: styles.paragText
+        }),
 
-        styledDiv(['npm i -g bobril-build'], styles.codeStyle),
+        Code.create({
+            children: ['npm i -g bobril-build']
+        }),
 
-        b.styledDiv(
-            ['2) Init your project by these commands:'],
-            styles.paragText
-        ),
+        Paragraph.create({
+            label: '2) Init your project by these commands:',
+            style: styles.paragText
+        }),
 
         Code.create({
             children: [
-                styledDiv(['npm init'], styles.codeStyle),
-                styledDiv(['npm i bobril --save'], styles.codeStyle)
+                `npm init 
+npm i bobril --save`
             ]
         }),
 
-        b.styledDiv(
-            ['3) Run Bobril Build in the root directory of the project:'],
-            styles.paragText
-        ),
-
-        Code.create({
-            children: styledDiv(['bb'], styles.codeStyle)
+        Paragraph.create({
+            label: '3) Run Bobril Build in the root directory of the project:',
+            style: styles.paragText
         }),
 
-        b.styledDiv(
-            [
+        Code.create({
+            children: ['bb']
+        }),
+
+        Paragraph.create({
+            label:
                 'Bobril Build runs default on localhost:8080,' +
-                    'but if the port is already used,' +
-                    'then Bobril Build will choose another one.'
-            ],
-            styles.paragText
-        )
+                'but if the port is already used,' +
+                'then Bobril Build will choose another one.',
+            style: styles.paragText
+        })
     ];
 }
 
 function firstExample(): b.IBobrilChildren {
     return [
-        b.styledDiv(['Hello world!'], styles.headerText),
-        b.styledDiv(
-            ["Let's create first page in Bobril," + 'the code below.'],
-            styles.paragText
-        ),
+        Label.create({
+            label: 'Hello world!',
+            size: LabelSize.HeaderText02,
+            style: styles.headerText02
+        }),
+
+        Paragraph.create({
+            label: `Let's create first page in Bobril, the code below.`,
+            style: styles.paragText
+        }),
 
         Code.create({
-            children: styledDiv(['bb'], styles.codeStyle)
-        }),
-        Code.create({
-            children: BobrilHighligtJs.create({
-                //styledDiv(['import * as b from \'bobril']),
-                code: `import * as b from 'bobril';
+            children: [
+                `import * as b from 'bobril;
 
 b.init(() => {
-    return { tag: \'h1\', children: \'Hello World!\' };
-});`,
-                configuration: {
-                    language: BobrilHighligtJs.Language.typescript
-                },
-                style: styles.codeStyle
-            })
+    return { tag: 'h1', children: 'Hello World! };
+});`
+            ],
+            preview: 'Hello World!'
         })
     ];
 }
@@ -107,35 +120,29 @@ function firstComponent(): b.IBobrilChildren {
     return [
         Label.create({
             label: 'First component - Counter',
-            size: Label.LabelSize.Title
+            size: LabelSize.HeaderText02,
+            style: styles.headerText02
         }),
-        Paragraph.create(`Now it will be a little more complex. We create a component called Counter and then we will use it.
-            The main benefit of component is, that you can use it as many times as you want.
-            Generic type never to createComponent means that your component does not have any input data (in React world "props").`),
-        Code.create({
-            children: BobrilHighligtJs.create({
-                code: ExampleCounter.codeComponent,
-                configuration: {
-                    language: BobrilHighligtJs.Language.typescript
-                },
-                style: {
-                    margin: 0
-                }
-            })
+
+        Paragraph.create({
+            label:
+                'Now it will be a little more complex. We create a component called Counter and then we will use it.' +
+                'The main benefit of component is, that you can use it as many times as you want.' +
+                'Generic type never to createComponent means that your component does not have any input data (in React world "props").',
+            style: styles.paragText
         }),
-        Paragraph.create(
-            'When the component is ready integrate it to the page.'
-        ),
+
         Code.create({
-            children: BobrilHighligtJs.create({
-                code: ExampleCounter.codeInit,
-                configuration: {
-                    language: BobrilHighligtJs.Language.typescript
-                },
-                style: {
-                    margin: 0
-                }
-            }),
+            children: ExampleCounter.codeComponent
+        }),
+
+        Paragraph.create({
+            label: 'When the component is ready integrate it to the page.',
+            style: styles.paragText
+        }),
+
+        Code.create({
+            children: ExampleCounter.codeInit,
             preview: ExampleCounter.create()
         })
     ];
@@ -144,55 +151,60 @@ function firstComponent(): b.IBobrilChildren {
 function todoExample(): b.IBobrilChildren {
     return [
         Label.create({
-            label: `Todo List - Little more real example`,
-            size: Label.LabelSize.Title
+            label: 'Todo List - Little more real example.',
+            size: LabelSize.HeaderText02,
+            style: styles.headerText02
         }),
-        Paragraph.create(
-            "It was already presented, how to create a simple component. But how to process the user input? Let's " +
-                'create simple Todo List. In this example, we will use bobril-m library, that implements Material UI design. Initialization of ' +
-                'the component is the same like in the example above. It will not be presented again.'
-        ),
-        Paragraph.create(
-            'We have prepared you some interesting tasks in todo list. Will you accomplish them? :-)'
-        ),
+
+        Paragraph.create({
+            label: `It was already presented, how to create a simple component. But how to process the user input? Let's
+                create simple Todo List. In this example, we will use bobril-m library, that implements Material UI design.
+                Initialization of the component is the same like in the example above. It will not be presented again.`,
+            style: styles.paragText
+        }),
+
+        Paragraph.create({
+            label:
+                'We have prepared you some interesting tasks in todo list. Will you accomplish them? :-',
+            style: styles.paragText
+        }),
+
         Code.create({
-            children: BobrilHighligtJs.create({
-                code: ExampleTodo.codeComponent,
-                configuration: {
-                    language: BobrilHighligtJs.Language.typescript
-                },
-                style: {
-                    margin: 0
-                }
-            }),
+            children: ExampleTodo.codeComponent,
             preview: ExampleTodo.create(),
             maxCodeHeight: 300
-        }),
-        Paragraph.create(
-            'As you can see in the code above, we are able to create a pretty application with a few rows of code. ' +
-                'Check the code in more detail. Everything is written in TypeScript (even CSS). ' +
-                "Yes, you are right, if we didn't use bobril-m, the code will be much longer. Reusability is the most valuable thing of" +
-                ' component oriented frameworks. If you use existing bobril-m library or create some own components, than you are able to design and implement ' +
-                'pretty application really quickly.'
-        ),
-        Label.create({
-            label:
-                "If you are interestend and want to know more, don't hesitate and check our tutorials and examples. ",
-            size: Label.LabelSize.Title,
-            style: {
-                textAlign: 'center'
-            }
-        }),
-        Label.create({
-            label: 'You will find them on documentation tab.',
-            size: Label.LabelSize.Title,
-            style: {
-                textAlign: 'center'
-            }
         })
     ];
 }
 
-export const exampleContainerStyle = b.styleDef({
-    paddingTop: 16
-});
+function bottomTexts(): b.IBobrilChildren {
+    return [
+        Paragraph.create({
+            label:
+                'As you can see in the code above, we are able to create a pretty application with a few rows of code. ' +
+                'Check the code in more detail. Everything is written in TypeScript (even CSS). ' +
+                `Yes, you are right, if we didn't use bobril-m, the code will be much longer. Reusability is the most` +
+                ' valuable thing of component oriented frameworks. If you use existing bobril-m library or create' +
+                ' some own components, than you are able to design and implement ' +
+                'pretty application really quickly.',
+            style: styles.paragText
+        }),
+
+        Paragraph.create({
+            label: `If you are interestend and want to know more, don't hesitate and check our tutorials and examples.
+             You will find them on documentation tab.`,
+            style: styles.bottomText
+        }),
+
+        b.styledDiv([' '], styles.bottomText)
+    ];
+}
+
+function content(): b.IBobrilChildren {
+    return [
+        b.styledDiv(
+            [b.styledDiv(['CONTENT'], { textAlign: 'center' })],
+            styles.rightContentPosition
+        )
+    ];
+}

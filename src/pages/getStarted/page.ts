@@ -23,11 +23,10 @@ const getStarted = b.createComponent<IData>({
 });
 
 const bobrilPromoStyle = b.styleDef({
-    position: 'relative',
     color: Colors.color04,
     height: 'calc(100vh - 60px)',
     textAlign: 'left',
-    minHeight: '2200px'
+    minHeight: '2150px',
 });
 
 export default getStarted;

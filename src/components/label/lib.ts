@@ -11,6 +11,9 @@ export enum LabelSize {
     Display1,
     Headline,
     Title,
+    HeaderText01,
+    HeaderText02,
+    DownloadPacksLabel,
     Subheading, // TODO missing device def
     Body2, // TODO missing device def
     Body1, // TODO missing device def
@@ -29,7 +32,7 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode){
+    render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
         me.children = d.label;
@@ -42,6 +45,9 @@ export const create = b.createComponent<IData>({
             LabelSize.Display1 === d.size && styles.display1,
             LabelSize.Headline === d.size && styles.headline,
             LabelSize.Title === d.size && styles.title,
+            LabelSize.HeaderText01 === d.size && styles.headerText01,
+            LabelSize.HeaderText02 === d.size && styles.headerText02,
+            LabelSize.DownloadPacksLabel === d.size && styles.downloadPacksLabel,
             LabelSize.Subheading === d.size && styles.subheading,
             LabelSize.Body2 === d.size && styles.body2,
             LabelSize.Body1 === d.size && styles.body1,

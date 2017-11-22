@@ -2,6 +2,8 @@ import * as b from 'bobril';
 import { introPageBobrilText, introPageIsAComponentText } from '../styles';
 import * as Colors from '../../../components/colors';
 import * as Button from '../../../components/button/lib';
+import * as Paragraph from '../../../components/paragraph/lib';
+import * as Label from '../../../components/label/lib';
 
 import * as router from '../../../pages/router';
 
@@ -22,15 +24,19 @@ export const create = b.createComponent<IData>({
                 onGetStartedClick: () => {}
             }),
 
-            b.styledDiv(['BOBRIL'], introPageBobrilText),
+            Label.create({
+                label: 'BOBRIL',
+                size: Label.LabelSize.HeaderText01,
+                style: introPageBobrilText
+            }),
 
-            b.styledDiv(
-                [
+            Label.create({
+                label:
                     'is a component-oriented framework for creating web applications inspired by' +
-                        ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)'
-                ],
-                introPageIsAComponentText
-            ),
+                    ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)',
+                size: Label.LabelSize.HeaderText02,
+                style: introPageIsAComponentText
+            }),
 
             Button.create({
                 content: b.styledDiv(['GET STARTED'], {}),

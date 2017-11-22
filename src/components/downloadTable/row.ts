@@ -1,5 +1,7 @@
 import * as b from 'bobril';
-import { centeredPosition, rowLabel, rowStyle } from './styles';
+import { rowLabel, rowStyle, rowContent } from './styles';
+import * as Label from '../label/lib';
+import { LabelSize } from '../label/lib';
 
 export interface IData {
     label: string;
@@ -14,15 +16,12 @@ export const create = b.createComponent<IData>({
         me.children = [
             b.styledDiv(
                 [
-                    b.styledDiv([ctx.data.label], rowLabel),
-                    b.styledDiv([ctx.data.content], centeredPosition)
+                    Label.create({label: ctx.data.label, size: LabelSize.DownloadPacksLabel, style: rowLabel}),
+                    // b.styledDiv([ctx.data.label], rowLabel),
+                    b.styledDiv([ctx.data.content], rowContent)
                 ],
-                centeredPosition,
                 rowStyle
             )
         ];
-        b.style(me, {
-            
-        });
     }
 });

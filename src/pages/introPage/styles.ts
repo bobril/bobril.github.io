@@ -2,7 +2,7 @@ import * as b from 'bobril';
 import {
     headertext01,
     headertext02,
-    paragtext01
+    paragtext01,
 } from '../../components/styles';
 import { color04 } from '../../components/colors';
 

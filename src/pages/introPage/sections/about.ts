@@ -9,7 +9,8 @@ import * as Panel from '../../../components/panel/lib';
 import * as Image from '../../../components/image/lib';
 import * as assets from '../../../assets/assets';
 import { iconDim } from '../../../components/panel/styles';
-
+import * as Paragraph from '../../../components/paragraph/lib';
+import { style } from 'bobril';
 export interface IData {}
 
 export interface IContext extends b.IBobrilCtx {
@@ -30,15 +31,16 @@ export const create = b.createComponent<IData>({
 
 function comparedTextArea() {
     return b.styledDiv(
-        [
-            ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
+        Paragraph.create({
+            label:
+                ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
                 'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
                 'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
                 'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
-                'be optional or its perceived value to minified size ratio must be high enough.'
-        ],
-        { paddingTop: 120 },
-        styles.aboutPageTextStyles
+                'be optional or its perceived value to minified size ratio must be high enough.',
+            style: styles.aboutPageTextStyles
+        }),
+        { paddingTop: 120 }
     );
 }
 
@@ -112,37 +114,44 @@ function bobrilText() {
     return [
         b.styledDiv(
             [
-                'For modern design you can use bobril material design implementation ',
-                Href.create({
-                    href: 'https://github.com/Bobris/bobril-build',
-                    newWindow: true,
-                    label: 'Bobril Build'
-                }),
-                '. It will ensure continuous build of your application. ' +
-                    'It supports: copying sprites, building big sprites, i18n.' +
-                    ' Bobril provide all this during optimal TypeScript compilation.'
+                Paragraph.create({
+                    label: [
+                        'For modern design you can use bobril material design implementation ',
+                        Href.create({
+                            href: 'https://github.com/Bobris/bobril-build',
+                            newWindow: true,
+                            label: 'Bobril Build'
+                        }),
+                        '. It will ensure continuous build of your application. ' +
+                            'It supports: copying sprites, building big sprites, i18n.' +
+                            ' Bobril provide all this during optimal TypeScript compilation.'
+                    ],
+                    style: styles.aboutPageTextStyles
+                })
             ],
-            { marginTop: 120 },
-            styles.aboutPageTextStyles
+            { marginTop: 120 }
         ),
         b.styledDiv(
             [
-                'For modern design you can use bobril material design implementation ',
-                Href.create({
-                    label: 'Bobril-m',
-                    href: 'https://github.com/Bobril/Bobril-m',
-                    newWindow: true
-                }),
-                '. It is heavily inspired by ',
-                Href.create({
-                    label: 'www.material-ui.com',
-                    href: 'http://www.material-ui.com',
-                    newWindow: true
-                }),
-                '.'
+                Paragraph.create({
+                    label: [
+                        'For modern design you can use bobril material design implementation ',
+                        Href.create({
+                            label: 'Bobril-m',
+                            href: 'https://github.com/Bobril/Bobril-m',
+                            newWindow: true
+                        }),
+                        '. It is heavily inspired by ',
+                        Href.create({
+                            label: 'www.material-ui.com',
+                            href: 'http://www.material-ui.com',
+                            newWindow: true
+                        }),
+                        '.'
+                    ],
+                    style: styles.aboutPageTextStyles
+                })
             ],
-            { marginTop: 80, paddingBottom: 120 },
-            styles.aboutPageTextStyles
         )
     ];
 }
