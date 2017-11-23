@@ -34,7 +34,7 @@ function gettingStarted(): b.IBobrilChildren {
             size: Label.LabelSize.Title
         }),
         Paragraph.create({
-            label: '1) To install Bobril Build run the command:'
+            content: '1) To install Bobril Build run the command:'
         }),
         Code.create({
             children: BobrilHighligtJs.create({
@@ -47,7 +47,7 @@ function gettingStarted(): b.IBobrilChildren {
                 }
             })
         }),
-        Paragraph.create({ label: '2) Init your project by these commands:' }),
+        Paragraph.create({ content: '2) Init your project by these commands:' }),
         Code.create({
             children: BobrilHighligtJs.create({
                 code: `npm init
@@ -61,7 +61,7 @@ npm i bobril --save`,
             })
         }),
         Paragraph.create({
-            label: '3) Run Bobril Build in the root directory of the project:'
+            content: '3) Run Bobril Build in the root directory of the project:'
         }),
         Code.create({
             children: BobrilHighligtJs.create({
@@ -75,7 +75,7 @@ npm i bobril --save`,
             })
         }),
         Paragraph.create({
-            label: `Bobril Build runs default on localhost:8080, but if the port is already used,
+            content: `Bobril Build runs default on localhost:8080, but if the port is already used,
                       then Bobril Build will choose another one.`
         })
     ];
@@ -88,7 +88,7 @@ function firstExample(): b.IBobrilChildren {
             size: Label.LabelSize.Title
         }),
         Paragraph.create({
-            label:
+            content:
                 "Let's create first page in Bobril. Create a file index.ts in project directory and insert " +
                 'the code below.'
         }),
@@ -118,7 +118,7 @@ function firstComponent(): b.IBobrilChildren {
             size: Label.LabelSize.Title
         }),
         Paragraph.create({
-            label: `Now it will be a little more complex. We create a component called Counter and then we will use it.
+            content: `Now it will be a little more complex. We create a component called Counter and then we will use it.
             The main benefit of component is, that you can use it as many times as you want. 
              Generic type never to createComponent means that your component does not have any input data (in React world "props").`
         }),
@@ -134,7 +134,7 @@ function firstComponent(): b.IBobrilChildren {
             })
         }),
         Paragraph.create({
-            label: 'When the component is ready integrate it to the page.'
+            content: 'When the component is ready integrate it to the page.'
         }),
         Code.create({
             children: BobrilHighligtJs.create({
@@ -158,13 +158,13 @@ function todoExample(): b.IBobrilChildren {
             size: Label.LabelSize.Title
         }),
         Paragraph.create({
-            label:
+            content:
                 "It was already presented, how to create a simple component. But how to process the user input? Let's " +
                 'create simple Todo List. In this example, we will use bobril-m library, that implements Material UI design. Initialization of ' +
                 'the component is the same like in the example above. It will not be presented again.'
         }),
         Paragraph.create({
-            label:
+            content:
                 'We have prepared you some interesting tasks in todo list. Will you accomplish them? :-)'
         }),
         Code.create({
@@ -181,7 +181,7 @@ function todoExample(): b.IBobrilChildren {
             maxCodeHeight: 300
         }),
         Paragraph.create({
-            label: `As you can see in the code above, we are able to create a pretty application with a few rows of code.
+            content: `As you can see in the code above, we are able to create a pretty application with a few rows of code.
                 Check the code in more detail. Everything is written in TypeScript (even CSS). Yes, you are right,
                 if we didn't use bobril-m, the code will be much longer. Reusability is the most valuable thing of
                 component oriented frameworks. If you use existing bobril-m library or create some own components,

@@ -2,25 +2,35 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as Paragraph from '../../components/paragraph/lib';
 import * as Code from '../../components/code/lib';
+import * as ContentMenu from './ContentMenu/ContentMenu';
 import * as styles from './styles';
 
 // examples
 import * as ExampleCounter from './examples/counter';
 import * as ExampleTodo from './examples/todo';
-import { LabelSize } from '../../components/label/lib';
 
 interface IData {}
 
 interface IContext extends b.IBobrilCtx {
     data: IData;
+    top: number;
 }
 
 export const create = b.createComponent<IData>({
+    init(ctx: IContext) {
+        ctx.top = 90 + b.getWindowScroll()[1];
+        b.invalidate(ctx);
+        window.addEventListener('scroll', () => {
+            ctx.top = 90 + b.getWindowScroll()[1];
+            b.invalidate(ctx);
+         });
+    },
+
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
         me.children = [
-            content(),
+            b.styledDiv(ContentMenu.create(), styles.rightContentPosition, {top: ctx.top}),
 
             b.styledDiv(
                 [
@@ -30,7 +40,7 @@ export const create = b.createComponent<IData>({
                     todoExample(),
                     bottomTexts()
                 ],
-                styles.leftContentPaddings
+                styles.leftContentPosition
             )
         ];
     }
@@ -40,18 +50,20 @@ function gettingStarted(): b.IBobrilChildren {
     return [
         Label.create({
             label: 'GET STARTED',
-            size: LabelSize.HeaderText01,
-            style: styles.headerText01
+            size: Label.LabelSize.HeaderText01,
+            style: styles.headerText01,
+            id: 'getStartedId'
         }),
 
         Label.create({
             label: 'Install in 3 steps',
-            size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            size: Label.LabelSize.HeaderText02,
+            style: styles.headerText02,
+            id: 'installIn3Steps'
         }),
 
         Paragraph.create({
-            label: '1) To install Bobril Build run the command:',
+            content: '1) To install Bobril Build run the command:',
             style: styles.paragText
         }),
 
@@ -60,7 +72,7 @@ function gettingStarted(): b.IBobrilChildren {
         }),
 
         Paragraph.create({
-            label: '2) Init your project by these commands:',
+            content: '2) Init your project by these commands:',
             style: styles.paragText
         }),
 
@@ -72,7 +84,8 @@ npm i bobril --save`
         }),
 
         Paragraph.create({
-            label: '3) Run Bobril Build in the root directory of the project:',
+            content:
+                '3) Run Bobril Build in the root directory of the project:',
             style: styles.paragText
         }),
 
@@ -81,7 +94,7 @@ npm i bobril --save`
         }),
 
         Paragraph.create({
-            label:
+            content:
                 'Bobril Build runs default on localhost:8080,' +
                 'but if the port is already used,' +
                 'then Bobril Build will choose another one.',
@@ -94,12 +107,13 @@ function firstExample(): b.IBobrilChildren {
     return [
         Label.create({
             label: 'Hello world!',
-            size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            size: Label.LabelSize.HeaderText02,
+            style: styles.headerText02,
+            id: 'helloWorld'
         }),
 
         Paragraph.create({
-            label: `Let's create first page in Bobril, the code below.`,
+            content: `Let's create first page in Bobril, the code below.`,
             style: styles.paragText
         }),
 
@@ -120,12 +134,13 @@ function firstComponent(): b.IBobrilChildren {
     return [
         Label.create({
             label: 'First component - Counter',
-            size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            size: Label.LabelSize.HeaderText02,
+            style: styles.headerText02,
+            id: 'firstComponent'
         }),
 
         Paragraph.create({
-            label:
+            content:
                 'Now it will be a little more complex. We create a component called Counter and then we will use it.' +
                 'The main benefit of component is, that you can use it as many times as you want.' +
                 'Generic type never to createComponent means that your component does not have any input data (in React world "props").',
@@ -137,7 +152,7 @@ function firstComponent(): b.IBobrilChildren {
         }),
 
         Paragraph.create({
-            label: 'When the component is ready integrate it to the page.',
+            content: 'When the component is ready integrate it to the page.',
             style: styles.paragText
         }),
 
@@ -151,20 +166,21 @@ function firstComponent(): b.IBobrilChildren {
 function todoExample(): b.IBobrilChildren {
     return [
         Label.create({
-            label: 'Todo List - Little more real example.',
-            size: LabelSize.HeaderText02,
-            style: styles.headerText02
+            label: 'Todo List - Little more real example',
+            size: Label.LabelSize.HeaderText02,
+            style: styles.headerText02,
+            id: 'toDoList'
         }),
 
         Paragraph.create({
-            label: `It was already presented, how to create a simple component. But how to process the user input? Let's
+            content: `It was already presented, how to create a simple component. But how to process the user input? Let's
                 create simple Todo List. In this example, we will use bobril-m library, that implements Material UI design.
                 Initialization of the component is the same like in the example above. It will not be presented again.`,
             style: styles.paragText
         }),
 
         Paragraph.create({
-            label:
+            content:
                 'We have prepared you some interesting tasks in todo list. Will you accomplish them? :-',
             style: styles.paragText
         }),
@@ -180,7 +196,7 @@ function todoExample(): b.IBobrilChildren {
 function bottomTexts(): b.IBobrilChildren {
     return [
         Paragraph.create({
-            label:
+            content:
                 'As you can see in the code above, we are able to create a pretty application with a few rows of code. ' +
                 'Check the code in more detail. Everything is written in TypeScript (even CSS). ' +
                 `Yes, you are right, if we didn't use bobril-m, the code will be much longer. Reusability is the most` +
@@ -191,20 +207,11 @@ function bottomTexts(): b.IBobrilChildren {
         }),
 
         Paragraph.create({
-            label: `If you are interestend and want to know more, don't hesitate and check our tutorials and examples.
+            content: `If you are interestend and want to know more, don't hesitate and check our tutorials and examples.
              You will find them on documentation tab.`,
             style: styles.bottomText
         }),
 
         b.styledDiv([' '], styles.bottomText)
-    ];
-}
-
-function content(): b.IBobrilChildren {
-    return [
-        b.styledDiv(
-            [b.styledDiv(['CONTENT'], { textAlign: 'center' })],
-            styles.rightContentPosition
-        )
     ];
 }

@@ -29,6 +29,10 @@ const app = b.createComponent<IData>({
         const actualPageId = getActualPageId();
         me.children = [
             BasicLayout.create({
+                variant:
+                    actualPageId === router.home || actualPageId === router.root
+                        ? BasicLayout.BasicLayoutVariant.noTopPadding
+                        : BasicLayout.BasicLayoutVariant.default,
                 header: AppBar.create({
                     contentWidth: 1200,
                     leftChildren: [

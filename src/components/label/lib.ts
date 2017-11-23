@@ -18,13 +18,15 @@ export enum LabelSize {
     Body2, // TODO missing device def
     Body1, // TODO missing device def
     Caption,
-    Button,
+    Button
 }
 
 interface IData {
     label: b.IBobrilChildren;
     size: LabelSize;
     style?: b.IBobrilStyle;
+    id?: string;
+    action?: () => boolean;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -32,8 +34,13 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
+    init(ctx: IContext, me: b.IBobrilNode) {
+        me.attrs = { id: ctx.data.id };
+    },
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
+
+        if (ctx.data.id) me.attrs = { id: ctx.data.id };
 
         me.children = d.label;
 
@@ -47,7 +54,8 @@ export const create = b.createComponent<IData>({
             LabelSize.Title === d.size && styles.title,
             LabelSize.HeaderText01 === d.size && styles.headerText01,
             LabelSize.HeaderText02 === d.size && styles.headerText02,
-            LabelSize.DownloadPacksLabel === d.size && styles.downloadPacksLabel,
+            LabelSize.DownloadPacksLabel === d.size &&
+                styles.downloadPacksLabel,
             LabelSize.Subheading === d.size && styles.subheading,
             LabelSize.Body2 === d.size && styles.body2,
             LabelSize.Body1 === d.size && styles.body1,
@@ -55,5 +63,11 @@ export const create = b.createComponent<IData>({
             LabelSize.Button === d.size && styles.button,
             d.style && d.style
         );
+    },
+
+    onClick(ctx: IContext, me: b.IBobrilNode): boolean {
+        const d = ctx.data;
+        
+        return d.action && d.action();
     }
 });

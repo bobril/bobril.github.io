@@ -1,28 +1,20 @@
 import * as b from 'bobril';
-import { paragtext01, headertext01 } from '../../components/styles';
-
-export const downloadTableStyle: b.IBobrilStyleDef = b.styleDef([paragtext01]);
+import * as styles from '../../components/styles';
+import * as colors from '../../components/colors';
 
 export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
     {
         marginBottom: '50px',
         width: 720
     },
-    headertext01
+    styles.headertext01
 ]);
 
 export const bottomTextStyle: b.IBobrilStyleDef = b.styleDef([
     {
         width: 720,
-        marginTop: '50px'
+        marginTop: '50px',
+        color: colors.color03,
     },
-    paragtext01
-]);
-
-export const pagePaddings: b.IBobrilStyleDef = b.styleDef([
-    {
-        marginLeft: ' 120px',
-        marginTop: ' 90px',
-        marginRight: ' 360px',
-    }
+    styles.paragtext01
 ]);

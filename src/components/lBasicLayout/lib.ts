@@ -1,12 +1,18 @@
 import * as b from 'bobril';
 import * as styles from './styles';
 
+export enum BasicLayoutVariant {
+    default,
+    noTopPadding
+}
+
 interface IData {
     header?: b.IBobrilChildren;
     content: b.IBobrilChildren;
     menu?: b.IBobrilChildren;
     footer?: b.IBobrilChildren;
     backgroundColor?: string;
+    variant?: BasicLayoutVariant;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -37,6 +43,9 @@ export const create = b.createComponent<IData>({
                 b.styledDiv(
                     d.content,
                     styles.content,
+                    (d.variant === undefined || d.variant === BasicLayoutVariant.default) && styles.defaultContentPadding,
+                    d.variant === BasicLayoutVariant.noTopPadding &&  
+                    styles.noTopContentPadding,
                     d.menu && styles.withMenu
                 ),
             d.footer &&

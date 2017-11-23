@@ -1,9 +1,10 @@
 import * as b from 'bobril';
-import { introPageBobrilText, introPageIsAComponentText } from '../styles';
+import * as styles from '../styles';
 import * as Colors from '../../../components/colors';
 import * as Button from '../../../components/button/lib';
 import * as Paragraph from '../../../components/paragraph/lib';
 import * as Label from '../../../components/label/lib';
+
 
 import * as router from '../../../pages/router';
 
@@ -24,11 +25,11 @@ export const create = b.createComponent<IData>({
             BobrilLogoSection.create({
                 onGetStartedClick: () => {}
             }),
-
+            
             Label.create({
                 label: 'BOBRIL',
                 size: Label.LabelSize.HeaderText01,
-                style: introPageBobrilText
+                style: styles.introPageBobrilText
             }),
 
             Label.create({
@@ -36,7 +37,7 @@ export const create = b.createComponent<IData>({
                     'is a component-oriented framework for creating web applications inspired by' +
                     ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)',
                 size: Label.LabelSize.HeaderText02,
-                style: introPageIsAComponentText
+                style: styles.introPageIsAComponentText
             }),
 
             Button.create({
