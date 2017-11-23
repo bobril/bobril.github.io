@@ -24,7 +24,13 @@ const getStarted = b.createComponent<IData>({
 
 const bobrilPromoStyle = b.styleDef({
     color: Colors.color04,
+    height: 'calc(100vh - 60px)',
     textAlign: 'left',
+<<<<<<< HEAD
+    
+=======
+    minHeight: '2450px',
+>>>>>>> clearing code
 });
 
 export default getStarted;

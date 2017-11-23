@@ -41,12 +41,15 @@ export const create = b.createComponent<IData>({
     }
 });
 
-export const codeWrapper = b.styleDef({
-    display: 'table',
-    width: '100%',
-    marginTop: codePadding,
-    marginBottom: codePadding,
-});
+export const codeWrapper = b.styleDef([
+    {
+        display: 'table',
+        width: '100%',
+        marginTop: codePadding,
+        marginBottom: codePadding
+    },
+    styles.smalltext01
+]);
 
 export const codeStyle: b.IBobrilStyleDef = b.styleDef([
     {
@@ -55,7 +58,7 @@ export const codeStyle: b.IBobrilStyleDef = b.styleDef([
         background: colors.color01,
         paddingBottom: 7.5,
         paddingTop: 7.5,
-        paddingLeft: 7.5,
+        paddingLeft: 7.5
     },
     styles.smalltext01
 ]);
@@ -63,7 +66,7 @@ export const codeStyle: b.IBobrilStyleDef = b.styleDef([
 export const previewStyle = b.styleDef({
     paddingLeft: codePadding,
     paddingRight: codePadding,
-    width: previewWidth,        
+    width: previewWidth,
     display: 'table-cell',
     verticalAlign: 'middle',
     textAlign: 'center',

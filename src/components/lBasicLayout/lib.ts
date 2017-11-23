@@ -43,9 +43,11 @@ export const create = b.createComponent<IData>({
                 b.styledDiv(
                     d.content,
                     styles.content,
-                    (d.variant === undefined || d.variant === BasicLayoutVariant.default) && styles.defaultContentPadding,
-                    d.variant === BasicLayoutVariant.noTopPadding &&  
-                    styles.noTopContentPadding,
+                    (d.variant === undefined ||
+                        d.variant === BasicLayoutVariant.default) &&
+                        styles.defaultContentPadding,
+                    d.variant === BasicLayoutVariant.noTopPadding &&
+                        styles.noTopContentPadding,
                     d.menu && styles.withMenu
                 ),
             d.footer &&

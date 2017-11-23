@@ -67,7 +67,7 @@ export const create = b.createComponent<IData>({
 
     onClick(ctx: IContext, me: b.IBobrilNode): boolean {
         const d = ctx.data;
-        
+
         return d.action && d.action();
     }
 });

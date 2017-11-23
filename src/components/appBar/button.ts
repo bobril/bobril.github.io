@@ -2,7 +2,6 @@ import * as b from 'bobril';
 import * as appBarStyles from './styles';
 import * as styles from '../styles';
 
-
 export interface IData {
     variant: ButtonVariants;
     content: b.IBobrilChildren;
@@ -42,7 +41,5 @@ export const create = b.createComponent<IData>({
             return true;
         }
         return false;
-    },
-
-
+    }
 });

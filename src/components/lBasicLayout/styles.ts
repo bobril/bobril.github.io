@@ -1,6 +1,6 @@
 import * as b from 'bobril';
 import { width as menuWidth } from '../menu/styles';
-import { color02 } from '../colors';
+import * as colors from '../colors';
 
 export const footerHeight = 0;
 
@@ -34,8 +34,8 @@ export const withMenu = b.styleDef({
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     paddingRight: 360,
-    //background: color02,
-    background: 'linear-gradient(-45deg, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)',
+    background: colors.color02,
+    backgroundImage: `-webkit-linear-gradient(159deg, #5a5f70 71%, 	#5D6273 71%)`,
     
 });
 

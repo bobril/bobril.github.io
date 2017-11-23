@@ -1,10 +1,10 @@
 import * as b from 'bobril';
 import * as styles from './styles';
-import * as colors from '../../../components/colors';
-import * as Label from '../../../components/label/lib';
-import { color02 } from '../../../components/colors';
+import * as Label from './../../components/label/lib';
+
 export interface IData {
-    children: b.IBobrilChildren;
+    names: string[];
+    ids: string[];
 }
 
 export interface IContext extends b.IBobrilCtx {
@@ -13,23 +13,35 @@ export interface IContext extends b.IBobrilCtx {
 
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        me.children = [
+        let children: b.IBobrilChildren[] = [
             Label.create({
                 label: 'CONTENT',
                 size: Label.LabelSize.Headline,
                 style: styles.contentHeader01
             }),
+
             Label.create({
                 label: 'GET STARTED',
                 size: Label.LabelSize.Subheading,
-                style: styles.contentHeader02
-            }),
-            addRecordToMenu('Install in 3 steps', 'installIn3Steps'),
-            addRecordToMenu('Hello World!', 'helloWorld'),
-            addRecordToMenu('First component - Counter', 'firstComponent'),
-            addRecordToMenu('Todo list - more real example', 'toDoList')
+                action: (): boolean => {
+                    let e = document.getElementById('getStarted');
+                    if (e === undefined || e === null) {
+                        console.warn('Cannot find element with id:');
+                        return;
+                    }
+                    let offsetTop = e.offsetTop - 70; // Header compensation + 10px
+                    window.scrollTo(0, offsetTop);
+                },
+                style: styles.contentHeader02,
+                id: 'getStartedRecord'
+            })
         ];
 
+        for (let i = 0; i < ctx.data.names.length; i++) {
+            children.push(addRecordToMenu(ctx.data.names[i], ctx.data.ids[i]));
+        }
+
+        me.children = children;
         b.style(me, styles.contentTexts);
     }
 });
@@ -40,7 +52,6 @@ function addRecordToMenu(label: string, id: string): b.IBobrilChildren {
             label: label,
             action: (): boolean => {
                 let e = document.getElementById(id);
-                let f = document.getElementById(id + 'Record');
                 if (e === undefined || e === null) {
                     console.warn(
                         'Cannot find element with id:',
@@ -49,8 +60,6 @@ function addRecordToMenu(label: string, id: string): b.IBobrilChildren {
                     return;
                 }
                 let offsetTop = e.offsetTop - 70; // Header compensation + 10px
-                console.log(f);
-                f.style.color = 'red';
                 window.scrollTo(0, offsetTop);
             },
             size: Label.LabelSize.DownloadPacksLabel,
