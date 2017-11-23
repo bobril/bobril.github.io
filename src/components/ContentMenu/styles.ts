@@ -1,6 +1,6 @@
 import * as b from 'bobril';
-import * as styles from '../../../components/styles';
-import * as colors from '../../../components/colors';
+import * as styles from './../../components/styles';
+import * as colors from './../../components/colors';
 
 export const s: b.IBobrilStyleDef = b.styleDef([
     {

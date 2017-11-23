@@ -12,7 +12,6 @@ export const headerText01: b.IBobrilStyleDef = b.styleDef([
 
 export const headerText02: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color03,
         textDecoration: 'underline',
         marginBottom: 16
     },
@@ -21,7 +20,6 @@ export const headerText02: b.IBobrilStyleDef = b.styleDef([
 
 export const paragText: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color03,
         marginBottom: 16
     },
     styles.paragtext01,
@@ -29,7 +27,6 @@ export const paragText: b.IBobrilStyleDef = b.styleDef([
 
 export const bottomText: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color03,
         textAlign: 'center'
     },
     styles.headertext02,

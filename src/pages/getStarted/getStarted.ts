@@ -2,7 +2,7 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as Paragraph from '../../components/paragraph/lib';
 import * as Code from '../../components/code/lib';
-import * as ContentMenu from './ContentMenu/ContentMenu';
+import * as ContentMenu from '../../components/ContentMenu/lib';
 import * as styles from './styles';
 
 // examples
@@ -23,14 +23,31 @@ export const create = b.createComponent<IData>({
         window.addEventListener('scroll', () => {
             ctx.top = 90 + b.getWindowScroll()[1];
             b.invalidate(ctx);
-         });
+        });
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
         me.children = [
-            b.styledDiv(ContentMenu.create(), styles.rightContentPosition, {top: ctx.top}),
+            b.styledDiv(
+                ContentMenu.create({
+                    names: [
+                        'Install in 3 steps',
+                        'Hello World!',
+                        'First component - Counter',
+                        'Todo list - more real example'
+                    ],
+                    ids: [
+                        'installIn3Steps',
+                        'helloWorld',
+                        'firstComponent',
+                        'toDoList'
+                    ]
+                }),
+                styles.rightContentPosition,
+                { top: ctx.top }
+            ),
 
             b.styledDiv(
                 [
@@ -52,7 +69,7 @@ function gettingStarted(): b.IBobrilChildren {
             label: 'GET STARTED',
             size: Label.LabelSize.HeaderText01,
             style: styles.headerText01,
-            id: 'getStartedId'
+            id: 'getStarted'
         }),
 
         Label.create({
