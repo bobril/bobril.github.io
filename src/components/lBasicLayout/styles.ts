@@ -34,8 +34,9 @@ export const withMenu = b.styleDef({
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     paddingRight: 360,
-    // background: color02,
-    background: 'webkit-linear-gradient(-45deg, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)',
+    //background: color02,
+    background: 'linear-gradient(-45deg, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)',
+    
 });
 
 export const defaultContentPadding = b.styleDef({
