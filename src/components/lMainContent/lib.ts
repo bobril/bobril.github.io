@@ -1,5 +1,6 @@
 import * as b from 'bobril';
 import * as styles from './styles';
+import * as LCenter from '../lCenter/lib';
 
 interface IData {
     content: b.IBobrilChildren;

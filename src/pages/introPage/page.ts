@@ -16,6 +16,7 @@ const contentAboutMinHeight = 1180;
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
+            LCenter.create({children:b.styledDiv([
             b.styledDiv(Intro.create(), bobrilPromoStyle),
             b.styledDiv(
                 [
@@ -26,7 +27,7 @@ const home = b.createComponent<IData>({
                 ],
                 { background: Colors.color01 },
                 bobrilAboutStyle, {}
-            )
+            )]),maxWidth:1200})
         ];
     }
 });

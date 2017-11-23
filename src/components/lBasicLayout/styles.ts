@@ -32,11 +32,11 @@ export const withMenu = b.styleDef({
 });
 
 export const content = b.styleDef({
+    margin: 'auto',
     paddingBottom: footerHeight,
-    paddingRight: 360,
-    background: colors.color02,
-    backgroundImage: `-webkit-linear-gradient(159deg, #5a5f70 71%, 	#5D6273 71%)`,
     
+    background: colors.color02,
+    backgroundImage: `-webkit-linear-gradient(159deg, #5a5f70 71%, 	#5D6273 71%)`
 });
 
 export const defaultContentPadding = b.styleDef({
