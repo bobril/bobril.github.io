@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
 import * as styles from '../styles';
-import { height as appBarHeight } from '../appBar/styles';
+import {appBarHeight } from '../appBar/appBarHeight';
 
 export const width = 240;
 export const imgHeight = 113;

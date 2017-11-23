@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import * as m from 'bobril-m';
+import * as colors from '../colors';
 
 interface IData {
     label: string;
@@ -28,7 +28,7 @@ export const create = b.createComponent<IData>({
             whiteSpace: 'nowrap',
             display: 'inline',
             textDecoration: 'underline',
-            color: m.primary1Color()
+            color: colors.color04,
         });
     },
 

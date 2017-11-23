@@ -15,10 +15,14 @@ interface IContext extends b.IBobrilCtx {
     menuVisible: boolean;
 }
 
-let menuVisible = false;
 const app = b.createComponent<IData>({
     init(ctx: IContext) {
-        setMenuVisible(ctx);
+        
+        const actualPageId = getActualPageId();
+        ctx.menuVisible = !(
+            actualPageId === 'root' || actualPageId === router.home
+        );
+        
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
@@ -73,7 +77,6 @@ const app = b.createComponent<IData>({
                                     actualPageId === 'root',
                                 onClick: () => {
                                     redirect(router.introPage);
-                                   
                                 },
                                 hover: false,
                                 content: 'HOME'
@@ -82,7 +85,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.getStarted,
                                 onClick: () => {
                                     redirect(router.getStarted);
-                                    
                                 },
                                 hover: false,
                                 content: 'GET STARTED'
@@ -91,7 +93,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.download,
                                 onClick: () => {
                                     redirect(router.download);
-                                    
                                 },
                                 hover: false,
                                 content: 'DOWNLOAD'
@@ -100,7 +101,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.guides,
                                 onClick: () => {
                                     redirect(router.guides);
-                                   
                                 },
                                 hover: false,
                                 content: 'GUIDES'
@@ -109,7 +109,6 @@ const app = b.createComponent<IData>({
                                 isActive: actualPageId === router.documentation,
                                 onClick: () => {
                                     redirect(router.documentation);
-                                    
                                 },
                                 hover: false,
                                 content: 'DOC'
@@ -152,15 +151,7 @@ function getActualPageId(): string {
     return b.getActiveRoutes()[0].name || router.home;
 }
 
-function setMenuVisible(ctx: IContext) {
-    const actualPageId = getActualPageId();
-    console.log(actualPageId);
-    ctx.menuVisible = actualPageId === router.home || actualPageId === 'root';
-    b.invalidate(ctx);
-}
-
 function redirect(route: string): void {
-    
     b.runTransition(b.createRedirectPush(route));
 }
 

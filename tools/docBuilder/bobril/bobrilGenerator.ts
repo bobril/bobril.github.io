@@ -7,6 +7,5 @@ export function generatePage(fileNodes: IMarkdownFileNode[], flattedNodes: IMark
     return mainTemplate.generateMainPage({
         menu: menuTemplate.generateMenu(fileNodes),
         content:  contentTemplate.generateContent(flattedNodes)
-        
     });
 }

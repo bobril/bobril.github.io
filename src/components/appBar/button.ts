@@ -33,6 +33,7 @@ export const create = b.createComponent<IData>({
             ctx.data.variant === ButtonVariants.menuIconButton &&
                 appBarStyles.menuIconButton
         );
+        
     },
 
     onClick(ctx): boolean {

@@ -129,7 +129,7 @@ function bobrilText() {
                     style: styles.aboutPageTextStyles
                 })
             ],
-            { marginTop: 120 }
+            { marginTop: 80 }
         ),
         b.styledDiv(
             [
@@ -152,6 +152,7 @@ function bobrilText() {
                     style: styles.aboutPageTextStyles
                 })
             ],
+            {marginTop: 24, paddingBottom: 120}
         )
     ];
 }

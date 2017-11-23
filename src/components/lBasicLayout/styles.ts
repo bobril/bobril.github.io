@@ -12,7 +12,7 @@ export const basicLayout = b.styleDef({
 });
 
 export const header = b.styleDef({
-    position: 'fixed',
+    position: 'absolute',
     left: 0,
     right: 0,
     top: 0,

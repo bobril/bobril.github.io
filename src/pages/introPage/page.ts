@@ -11,6 +11,8 @@ interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
+const contentAboutMinHeight = 1180;
+
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
@@ -46,8 +48,6 @@ const bobrilPromoStyle = b.styleDef({
 
 const bobrilAboutStyle = b.styleDef({
     textAlign: 'center',
-    height: 'calc(100vh - 60px)',
-    minHeight: '1400px',
     marginTop: -imageContainerPadding,
     marginLeft: -imageContainerPadding,
     marginRight: -imageContainerPadding,

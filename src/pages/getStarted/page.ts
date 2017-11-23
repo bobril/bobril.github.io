@@ -26,7 +26,7 @@ const bobrilPromoStyle = b.styleDef({
     color: Colors.color04,
     height: 'calc(100vh - 60px)',
     textAlign: 'left',
-    minHeight: '2150px',
+    
 });
 
 export default getStarted;

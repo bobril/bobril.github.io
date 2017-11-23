@@ -34,7 +34,7 @@ function generateMenuFromNode(node): string {
                                 menuAnchor: firstChildrenMetadata.menuAnchor,
                                 label: firstChildrenMetadata.menuLabel,
                                 color: colors.color04,
-                                moveLeftUnit: 28,
+                                moveLeftUnit: 20,
                                 shouldMoveLeft: true,
                                 fontSize: 18,
                                 lineHeight: 18
@@ -64,7 +64,7 @@ function generateMenuFromNode(node): string {
         moveLeftUnit: 0,
         shouldMoveLeft: false,
         label: metadata.menuLabel,
-        color: colors.color03,
+        color: '#949aa9',
         fontSize: 15,
         lineHeight: 15
     });
@@ -91,7 +91,8 @@ function generateMenuItem(menuItemCfg) {
                             console.warn('Cannot find element with id:', '${menuItemCfg.menuAnchor}');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px
+                        console.log(this);
+                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
@@ -99,6 +100,7 @@ function generateMenuItem(menuItemCfg) {
             style: {
                 width: '150px',
                 margin: 'auto',
+                marginBottom: 13,
                 marginLeft: ${menuItemCfg.shouldMoveLeft && menuItemCfg.moveLeftUnit},
                 listStyle:  '${menuItemCfg.listStyle}',
                 lineHeight: '${menuItemCfg.lineHeight}px'

@@ -1,9 +1,7 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
 import * as styles from '../styles';
-
-export const height = 60;
-export const minWidth = 1200;
+import {appBarHeight} from './appBarHeight';
 
 export const rightContainer = b.styleDef({
     cssFloat: 'right'   
@@ -16,14 +14,13 @@ export const leftContainer = b.styleDef({
 export const appBarStyle = b.styleDef({
     background: colors.color01,
     overflow: 'auto',
-    height: `${height}px`,
-    
+    height: `${appBarHeight}px`,
     zIndex: 500
 });
 
 export const menuButton = b.styleDef([
     {
-        lineHeight: `${height}px`,
+        lineHeight: `${appBarHeight}px`,
         marginLeft: '24px',
         color: colors.color04
     },
@@ -31,13 +28,13 @@ export const menuButton = b.styleDef([
 ]);
 
 export const menuIconButton = b.styleDef({
-    lineHeight: `${height}px`,
+    lineHeight: `${appBarHeight}px`,
     color: colors.color04
 });
 
 export const gitButton = b.styleDef([
     {
-        lineHeight: `${height}px`,
+        lineHeight: `${appBarHeight}px`,
         color: colors.color04
     },
     styles.menutext01s

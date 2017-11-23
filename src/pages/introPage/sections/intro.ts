@@ -19,6 +19,7 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
+        
         me.children = [
             BobrilLogoSection.create({
                 onGetStartedClick: () => {}

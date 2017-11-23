@@ -20,6 +20,7 @@ interface IContext extends b.IBobrilCtx {
 
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
+        
         me.children = [
             b.styledDiv(
                 LCenter.create({

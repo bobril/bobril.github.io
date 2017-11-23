@@ -1,7 +1,5 @@
 import * as colors from '../../../../src/components/colors';
-//import {height as appBarHeight} from '../../../../src/components/appBar/styles';
-
-let appBarHeight = 60;
+import {appBarHeight} from '../../../../src/components/appBar/appBarHeight';
 
 interface IMainPageData {
     menu: string;
@@ -16,8 +14,12 @@ const contetntPaddingRight = 30;
 const rightMarginMenu = 30;
 
 export function generateMainPage(data: IMainPageData): string {
-    
-    return `export function create() {
+    let elem: HTMLElement ;
+    return `
+    import * as b from 'bobril';
+   
+
+    export function create() {
         return {
             tag : 'div',
             attrs: {
@@ -26,15 +28,17 @@ export function generateMainPage(data: IMainPageData): string {
             children: [
                 {
                     tag: 'div',
+                    attrs: {id:'menu'},
                     children: [
                         {
                             tag: 'div',
                             children: ['CONTENT'],
                             style: {
                                 textAlign: 'center',
-                                fontSize: '20px',
-                                marginBottom: 20,
-                                marginTop: 20
+                                fontSize: '16px',
+                                marginBottom: 40,
+                                marginTop: 40,
+                                fontWeight: 'bold',
                             }
                         },
                         ${data.menu}
@@ -42,17 +46,27 @@ export function generateMainPage(data: IMainPageData): string {
                     style: {
                         width: ${menuWidth},
                         right: ${rightMarginMenu},
-                        bottom: ${bottomMarginMenu},
+                        
                         height: 'calc(100vh - ${appBarHeight + topMarginMenu + bottomMarginMenu}px)',
                         background: '${colors.color01}',
-                        position: 'fixed',
+                        position: 'absolute',
+                        
+                        overflow: 'auto'
+                    },
+                    component: {
+                        postInitDom(ctx: b.IBobrilCtx, me: b.IBobrilCacheNode, element: HTMLElement){
+                            b.addOnScroll(() => {
+                                const top = b.getWindowScroll()[1];
+                                element.style.top = \`\${top+60+30}px\`;
+                                b.invalidate(ctx);
+                            })
+                        }
                     }
                 },
                 {
                     tag: 'div',
                     children: [${data.content}],
                     style: {
-                        
                         padding: '16px ${menuWidth + contetntPaddingRight}px 16px 32px'
                     }
                 }

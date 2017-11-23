@@ -1,6 +1,6 @@
 import * as b from 'bobril';
 import * as menuStyles from './styles';
-import { height as appBarHeight } from '../appBar/styles';
+import { appBarHeight } from '../appBar/appBarHeight';
 import * as Image from '../image/lib';
 import * as MenuButton from './button';
 import * as Assets from '../../assets/assets';
