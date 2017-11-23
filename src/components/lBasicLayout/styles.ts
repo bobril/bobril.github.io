@@ -35,11 +35,13 @@ export const content = b.styleDef({
     margin: 'auto',
     paddingBottom: footerHeight,
     
+    
     background: colors.color02,
     backgroundImage: `-webkit-linear-gradient(159deg, #5a5f70 71%, 	#5D6273 71%)`
 });
 
 export const defaultContentPadding = b.styleDef({
+    paddingRight: 360,
     paddingTop: 150,
     paddingLeft: 120
 });
