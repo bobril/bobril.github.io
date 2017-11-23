@@ -26,6 +26,7 @@ interface IData {
     size: LabelSize;
     style?: b.IBobrilStyle;
     id?: string;
+    action?: () => boolean;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -33,6 +34,9 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
+    init(ctx: IContext, me: b.IBobrilNode) {
+        me.attrs = { id: ctx.data.id };
+    },
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
@@ -60,4 +64,10 @@ export const create = b.createComponent<IData>({
             d.style && d.style
         );
     },
+
+    onClick(ctx: IContext, me: b.IBobrilNode): boolean {
+        const d = ctx.data;
+        
+        return d.action && d.action();
+    }
 });

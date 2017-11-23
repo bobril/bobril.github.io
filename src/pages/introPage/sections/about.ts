@@ -32,7 +32,7 @@ export const create = b.createComponent<IData>({
 function comparedTextArea() {
     return b.styledDiv(
         Paragraph.create({
-            label:
+            content:
                 ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
                 'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
                 'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
@@ -115,7 +115,7 @@ function bobrilText() {
         b.styledDiv(
             [
                 Paragraph.create({
-                    label: [
+                    content: [
                         'For modern design you can use bobril material design implementation ',
                         Href.create({
                             href: 'https://github.com/Bobris/bobril-build',
@@ -134,7 +134,7 @@ function bobrilText() {
         b.styledDiv(
             [
                 Paragraph.create({
-                    label: [
+                    content: [
                         'For modern design you can use bobril material design implementation ',
                         Href.create({
                             label: 'Bobril-m',

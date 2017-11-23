@@ -1,11 +1,10 @@
 import * as b from 'bobril';
-import { paragtext01 } from '../styles';
 
 export const rowLabel: b.IBobrilStyleDef = b.styleDef({
     cssFloat: 'left',
     width: '240px',
     paddingLeft: 80,
-    paddingTop: 7.5
+    paddingTop: 7.5,
 });
 
 export const rowContent: b.IBobrilStyleDef = b.styleDef({

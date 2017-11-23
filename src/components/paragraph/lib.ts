@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 
 interface IData {
-    label: b.IBobrilChildren[] | b.IBobrilChildren;
+    content: b.IBobrilChildren[] | b.IBobrilChildren;
     style?: b.IBobrilStyle;
 }
 
@@ -13,7 +13,7 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
-        me.children = d.label;
+        me.children = d.content;
 
         b.style(me, d.style && d.style);
     }

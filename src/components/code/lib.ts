@@ -1,6 +1,6 @@
 import * as b from 'bobril';
-import { color01, color03, color04, color05 } from '../colors';
-import { smalltext01 } from '../styles';
+import * as colors from '../colors';
+import * as styles from '../styles';
 
 interface IData {
     children: b.IBobrilChildren;
@@ -51,13 +51,13 @@ export const codeWrapper = b.styleDef({
 export const codeStyle: b.IBobrilStyleDef = b.styleDef([
     {
         whiteSpace: 'pre',
-        color: color03,
-        background: color01,
+        color: colors.color03,
+        background: colors.color01,
         paddingBottom: 7.5,
         paddingTop: 7.5,
         paddingLeft: 7.5,
     },
-    smalltext01
+    styles.smalltext01
 ]);
 
 export const previewStyle = b.styleDef({
@@ -67,6 +67,6 @@ export const previewStyle = b.styleDef({
     display: 'table-cell',
     verticalAlign: 'middle',
     textAlign: 'center',
-    color: color01,
-    background: color05
+    color: colors.color01,
+    background: colors.color05
 });

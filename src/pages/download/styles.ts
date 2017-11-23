@@ -1,18 +1,20 @@
 import * as b from 'bobril';
-import { paragtext01, headertext01 } from '../../components/styles';
+import * as styles from '../../components/styles';
+import * as colors from '../../components/colors';
 
 export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
     {
         marginBottom: '50px',
         width: 720
     },
-    headertext01
+    styles.headertext01
 ]);
 
 export const bottomTextStyle: b.IBobrilStyleDef = b.styleDef([
     {
         width: 720,
-        marginTop: '50px'
+        marginTop: '50px',
+        color: colors.color03,
     },
-    paragtext01
+    styles.paragtext01
 ]);
