@@ -12,7 +12,8 @@ export const basicLayout = b.styleDef({
 });
 
 export const header = b.styleDef({
-    position: 'absolute',
+    position: 'fixed',
+    width: '100%',
     left: 0,
     right: 0,
     top: 0,
@@ -27,7 +28,7 @@ export const menu = b.styleDef({
 });
 
 export const withMenu = b.styleDef({
-    width: `calc(100% - ${menuWidth}px)`,
+    //width: `calc(100% - ${menuWidth}px)`,
     marginLeft: menuWidth
 });
 
