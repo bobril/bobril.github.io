@@ -33,12 +33,14 @@ export const create = b.createComponent<IData>({
             b.styledDiv(
                 ContentMenu.create({
                     names: [
+                        'GET STARTED',
                         'Install in 3 steps',
                         'Hello World!',
                         'First component - Counter',
                         'Todo list - more real example'
                     ],
                     ids: [
+                        'getStartedRecord',
                         'installIn3Steps',
                         'helloWorld',
                         'firstComponent',
@@ -57,9 +59,13 @@ export const create = b.createComponent<IData>({
                     todoExample(),
                     bottomTexts()
                 ],
-                styles.leftContentPosition
+                styles.leftContentPosition,
             )
         ];
+        b.style(me, {
+            textAlign: 'left',
+            paddingRight: 210
+        });
     }
 });
 

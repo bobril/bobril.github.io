@@ -4,8 +4,7 @@ import * as colors from '../../components/colors';
 
 export const headerText01: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color04,
-        paddingBottom: '42px',
+        paddingBottom: '60px',
     },
     styles.headertext01,
 ]);
@@ -34,7 +33,7 @@ export const bottomText: b.IBobrilStyleDef = b.styleDef([
 
 export const leftContentPosition: b.IBobrilStyleDef = b.styleDef([
     {
-        maxWidth: '720px'
+        paddingRight: 210,
     }
 ]);
 

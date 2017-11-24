@@ -2,16 +2,6 @@ import * as styles from '../styles';
 import * as b from 'bobril';
 import * as colors from '../colors';
 
-export const normalButton: b.IBobrilStyleDef = b.styleDef({
-    width: '50px',
-    height: '50px',
-    background: 'red'
-});
-
-export const normalButtonHover: b.IBobrilStyleDef = b.styleDef({
-    background: 'green'
-});
-
 export const buttonStyle: b.IBobrilStyleDef = b.styleDef({
     textAlign: 'center',
     cursor: 'pointer'
@@ -32,8 +22,8 @@ export const whiteButton: b.IBobrilStyleDef = b.styleDef([
         paddingLeft: '17px',
         paddingRight: '16px',
         background: colors.color04,
-        opacity: 1,
         color: colors.color01,
+        opacity: 1,
         boxShadow:
             '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 10px 0 rgba(22, 24, 26, 0.15)',
         marginTop: '357px',
@@ -58,8 +48,8 @@ export const blackButton: b.IBobrilStyleDef = b.styleDef([
         paddingLeft: '17px',
         paddingRight: '16px',
         background: colors.color01,
-        opacity: 0.95,
         color: colors.color04,
+        opacity: 0.95,
         boxShadow:
             '2px 2px 2px rgba(22, 24, 26, 0.3), 0 4px 10px 0 rgba(22, 24, 26, 0.3)',
         marginTop: '357px',

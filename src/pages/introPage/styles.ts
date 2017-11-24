@@ -4,7 +4,7 @@ import {
     headertext02,
     paragtext01,
 } from '../../components/styles';
-import { color04 } from '../../components/colors';
+import * as colors from '../../components/colors';
 
 export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
     position: 'absolute',
@@ -15,7 +15,6 @@ export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
 
 export const introPageIsAComponentText: b.IBobrilStyleDef = b.styleDef([
     {
-        color: color04,
         marginTop: '235px',
         minWidth: '912px'
     },
@@ -25,7 +24,6 @@ export const introPageIsAComponentText: b.IBobrilStyleDef = b.styleDef([
 
 export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
     {
-        color: color04,
         marginTop: '172px'
     },
     headertext01,
@@ -33,8 +31,5 @@ export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
 ]);
 
 export const aboutPageTextStyles = b.styleDef([
-    {
-        color: color04
-    },
     paragtext01
 ]);

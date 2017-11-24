@@ -17,7 +17,7 @@ const contentAboutMinHeight = 1180;
 const home = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
-                    b.styledDiv(Intro.create(), bobrilPromoStyle),
+                    b.styledDiv(Intro.create(), bobrilIntroStyle),
                     b.styledDiv(
                         [
                             LCenter.create({
@@ -25,21 +25,21 @@ const home = b.createComponent<IData>({
                                 maxWidth: styles.maxPageWidth
                             })
                         ],
-                        { background: Colors.color01, padding: 120},
                         bobrilAboutStyle,
                     )
         ];
     }
 });
 
-const bobrilPromoStyle = b.styleDef({
+const bobrilIntroStyle = b.styleDef({
     textAlign: 'center',
     height: 'calc(100vh - 60px)',
-    minHeight: '600px',
 });
 
 const bobrilAboutStyle = b.styleDef({
     textAlign: 'center',
+    background: Colors.color01,
+    padding: 120
 });
 
 export default home;

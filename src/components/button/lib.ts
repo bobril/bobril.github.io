@@ -13,9 +13,8 @@ export interface IContext extends b.IBobrilCtx {
 }
 
 export enum ButtonVariants {
-    normal,
     white,
-    black,
+    black
 }
 
 export const create = b.createComponent<IData>({
@@ -24,23 +23,16 @@ export const create = b.createComponent<IData>({
         b.style(
             me,
             styles.buttonStyle,
-            ctx.data.variant === ButtonVariants.normal &&
-                styles.normalButton,
-            ctx.data.variant === ButtonVariants.normal &&
-                ctx.data.hover &&
-                styles.normalButtonHover,
 
-            ctx.data.variant === ButtonVariants.white &&
-                styles.whiteButton,
+            ctx.data.variant === ButtonVariants.white && styles.whiteButton,
             ctx.data.variant === ButtonVariants.white &&
                 ctx.data.hover &&
                 styles.whiteButtonHover,
 
-            ctx.data.variant === ButtonVariants.black &&
-                styles.blackButton,
+            ctx.data.variant === ButtonVariants.black && styles.blackButton,
             ctx.data.variant === ButtonVariants.black &&
                 ctx.data.hover &&
-                styles.blackButtonHover,
+                styles.blackButtonHover
         );
     },
 
