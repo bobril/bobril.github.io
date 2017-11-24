@@ -12,7 +12,7 @@ export const basicLayout = b.styleDef({
 });
 
 export const header = b.styleDef({
-    minWidth:'1200px',
+    minWidth: '1200px',
     position: 'fixed',
     overflow: 'auto',
     left: 0,
@@ -36,16 +36,16 @@ export const withMenu = b.styleDef({
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     background: colors.color02,
-    color: colors.color04,
+    color: colors.color04
 });
 
 export const defaultContentPadding = b.styleDef({
     paddingTop: 150,
-    paddingLeft: 120,
+    paddingLeft: 120
 });
 
 export const noTopContentPadding = b.styleDef({
-    paddingTop: 340,
+    paddingTop: 335
 });
 
 export const footer = b.styleDef({

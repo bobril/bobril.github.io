@@ -56,7 +56,7 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, {
-            position: 'relative'
+            position: 'relative',
         });
     }
 });

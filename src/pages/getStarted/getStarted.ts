@@ -64,7 +64,8 @@ export const create = b.createComponent<IData>({
         ];
         b.style(me, {
             textAlign: 'left',
-            paddingRight: 210
+            paddingRight: 210,
+            paddingBottom: 120
         });
     }
 });
