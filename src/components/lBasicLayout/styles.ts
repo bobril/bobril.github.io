@@ -36,6 +36,7 @@ export const withMenu = b.styleDef({
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     background: colors.color02,
+    backgroundImage: `-webkit-linear-gradient(160deg, #5a5f70 61%, 	#5D6273 61%)`,
     color: colors.color04
 });
 
