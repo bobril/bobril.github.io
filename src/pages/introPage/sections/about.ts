@@ -30,18 +30,15 @@ export const create = b.createComponent<IData>({
 });
 
 function comparedTextArea() {
-    return b.styledDiv(
-        Paragraph.create({
-            content:
-                ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
-                'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
-                'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
-                'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
-                'be optional or its perceived value to minified size ratio must be high enough.',
-            style: styles.aboutPageTextStyles
-        }),
-        { paddingTop: 120 }
-    );
+    return Paragraph.create({
+        content:
+            ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
+            'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
+            'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
+            'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
+            'be optional or its perceived value to minified size ratio must be high enough.',
+        style: styles.aboutPageTextStyles
+    });
 }
 
 function panels() {
@@ -152,7 +149,7 @@ function bobrilText() {
                     style: styles.aboutPageTextStyles
                 })
             ],
-            {marginTop: 24, paddingBottom: 120}
+            { marginTop: 24 }
         )
     ];
 }
