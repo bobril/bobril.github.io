@@ -35,7 +35,7 @@ export const withMenu = b.styleDef({
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     background: colors.color02,
-    backgroundImage: `-webkit-linear-gradient(159deg, #5a5f70 71%, 	#5D6273 71%)`
+    backgroundImage: `-webkit-linear-gradient(160deg, #5a5f70 61%, 	#5D6273 61%)`
 });
 
 export const defaultContentPadding = b.styleDef({
@@ -44,7 +44,7 @@ export const defaultContentPadding = b.styleDef({
 });
 
 export const noTopContentPadding = b.styleDef({
-    paddingTop: 60
+    paddingTop: 60,
 });
 
 export const footer = b.styleDef({

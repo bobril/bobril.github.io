@@ -32,21 +32,22 @@ export const whiteButton: b.IBobrilStyleDef = b.styleDef([
         paddingLeft: '17px',
         paddingRight: '16px',
         background: colors.color04,
-        opacity: 0.7,
+        opacity: 1,
         color: colors.color01,
         boxShadow:
-            '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+            '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 10px 0 rgba(22, 24, 26, 0.15)',
         marginTop: '357px',
-        marginLeft: '-133px'
+        marginLeft: '-103px'
     },
     styles.buttontext01,
     centeredPosition
 ]);
 
 export const whiteButtonHover: b.IBobrilStyleDef = b.styleDef({
-    background: '#ffffff',
-    opacity: 1,
-    size: '8px'
+    background: colors.color05,
+    opacity: 0.94,
+    size: '8px',
+    boxShadow: '0 0 8px rgba(255,255,255, 0.7)'
 });
 
 export const blackButton: b.IBobrilStyleDef = b.styleDef([
@@ -60,16 +61,16 @@ export const blackButton: b.IBobrilStyleDef = b.styleDef([
         opacity: 0.95,
         color: colors.color04,
         boxShadow:
-            '4px 4px 2px rgba(22, 24, 26, 0.3), 0 6px 20px 0 rgba(22, 24, 26, 0.9)',
+            '2px 2px 2px rgba(22, 24, 26, 0.3), 0 4px 10px 0 rgba(22, 24, 26, 0.3)',
         marginTop: '357px',
-        marginLeft: '133px'
+        marginLeft: '103px'
     },
     styles.buttontext01,
     centeredPosition
 ]);
 
 export const blackButtonHover: b.IBobrilStyleDef = b.styleDef({
-    background: colors.color01,
+    background: '#474a59',
     opacity: 1,
     size: '8px'
 });

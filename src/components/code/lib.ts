@@ -58,7 +58,8 @@ export const codeStyle: b.IBobrilStyleDef = b.styleDef([
         background: colors.color01,
         paddingBottom: 7.5,
         paddingTop: 7.5,
-        paddingLeft: 7.5
+        paddingLeft: 7.5,
+        fontFamily: 'Segoe UI'
     },
     styles.smalltext01
 ]);
