@@ -43,7 +43,7 @@ export const create = b.createComponent<IData>({
                 ],
                 d.contentWidth && {
                     maxWidth: d.contentWidth,
-                    margin: 'auto'
+                    margin: '0 auto'
                 }
             )
         ];

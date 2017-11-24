@@ -53,6 +53,7 @@ function loadGithubMarkdownStyles() {
         b.injectCss(
             'html,body{margin:0; padding:0; height:100%; font-family: Segoe UI!important}'
         );
+        
         injectMarkDownCss();
     });
 }
@@ -87,7 +88,7 @@ function injectMarkDownCss() {
         }}`
     );
     b.injectCss(
-        `.markdown-body blockquote {margin-right:90px;border-left: .25em solid ${
+        `.markdown-body blockquote {margin-right:90px;padding-top 20px;padding-bottom 20px;border-left: .25em solid ${
             colors.color03
         }; background:${colors.color01};color:${colors.color03}}`
     );

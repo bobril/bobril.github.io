@@ -25,7 +25,6 @@ export const create = b.createComponent<IData>({
         ctx.appBarTop = 0;
         b.addOnScroll(() => {
             ctx.appBarTop = b.getWindowScroll()[1];
-            b.invalidate(ctx);
         });
     },
     render(ctx: IContext, me: b.IBobrilNode) {
@@ -35,7 +34,6 @@ export const create = b.createComponent<IData>({
                 b.styledDiv(
                     d.header,
                     styles.header,
-                    { top: ctx.appBarTop },
                     d.menu && styles.withMenu
                 ),
             d.menu && b.styledDiv(d.menu, styles.menu),
@@ -59,6 +57,5 @@ export const create = b.createComponent<IData>({
             styles.basicLayout,
             d.backgroundColor && { background: d.backgroundColor }
         );
-    },
-    
+    }
 });

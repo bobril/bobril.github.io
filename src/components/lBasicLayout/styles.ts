@@ -12,8 +12,9 @@ export const basicLayout = b.styleDef({
 });
 
 export const header = b.styleDef({
+    minWidth:'1200px',
     position: 'fixed',
-    width: '100%',
+    overflow: 'auto',
     left: 0,
     right: 0,
     top: 0,
@@ -28,14 +29,14 @@ export const menu = b.styleDef({
 });
 
 export const withMenu = b.styleDef({
-    //width: `calc(100% - ${menuWidth}px)`,
+    width: `calc(100% - ${menuWidth}px)`,
     marginLeft: menuWidth
 });
 
 export const content = b.styleDef({
     paddingBottom: footerHeight,
     background: colors.color02,
-    backgroundImage: `-webkit-linear-gradient(160deg, #5a5f70 61%, 	#5D6273 61%)`
+    backgroundImage: `-webkit-linear-gradient(159deg, #5a5f70 71%, 	#5D6273 71%)`
 });
 
 export const defaultContentPadding = b.styleDef({
@@ -44,7 +45,7 @@ export const defaultContentPadding = b.styleDef({
 });
 
 export const noTopContentPadding = b.styleDef({
-    paddingTop: 60,
+    paddingTop: 60
 });
 
 export const footer = b.styleDef({

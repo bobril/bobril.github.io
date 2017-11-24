@@ -1,23 +1,25 @@
 import * as colors from '../../../../src/components/colors';
-import {appBarHeight} from '../../../../src/components/appBar/appBarHeight';
+import * as appBar from '../../../../src/components/appBar/appBarHeight';
 
 interface IMainPageData {
     menu: string;
     content: string;
-    
 }
 
 const menuWidth = 240;
 const topMarginMenu = 30;
 const bottomMarginMenu = 30;
-const contetntPaddingRight = 30;
+const contetntPaddingRight = 90;
 const rightMarginMenu = 30;
 
 export function generateMainPage(data: IMainPageData): string {
     let elem: HTMLElement ;
     return `
     import * as b from 'bobril';
-   
+    
+    interface ICtx extends b.IBobrilCtx {
+        top: number
+    }
 
     export function create() {
         return {
@@ -47,19 +49,22 @@ export function generateMainPage(data: IMainPageData): string {
                         width: ${menuWidth},
                         right: ${rightMarginMenu},
                         
-                        height: 'calc(100vh - ${appBarHeight + topMarginMenu + bottomMarginMenu}px)',
+                        height: 'calc(100vh - ${appBar.appBarHeight + topMarginMenu + bottomMarginMenu}px)',
                         background: '${colors.color01}',
                         position: 'absolute',
                         
                         overflow: 'auto'
                     },
                     component: {
-                        postInitDom(ctx: b.IBobrilCtx, me: b.IBobrilCacheNode, element: HTMLElement){
+                        postInitDom(ctx: ICtx, me: b.IBobrilCacheNode, element: HTMLElement){
                             b.addOnScroll(() => {
-                                const top = b.getWindowScroll()[1];
-                                element.style.top = \`\${top+60+30}px\`;
-                                b.invalidate(ctx);
+                                ctx.top = b.getWindowScroll()[1];
                             })
+                        },
+                        postUpdateDom(ctx: ICtx, me: b.IBobrilNode,element:HTMLElement){
+                            element.style.top = \`\${ctx.top+ 60 + 30}px\`;
+                            console.log(ctx.top);
+                            b.invalidate();
                         }
                     }
                 },
@@ -67,6 +72,8 @@ export function generateMainPage(data: IMainPageData): string {
                     tag: 'div',
                     children: [${data.content}],
                     style: {
+
+                        
                         padding: '16px ${menuWidth + contetntPaddingRight}px 16px 32px'
                     }
                 }
