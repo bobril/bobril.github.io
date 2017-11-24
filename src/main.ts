@@ -51,7 +51,7 @@ function loadGithubMarkdownStyles() {
         s.setAttribute('href', markdownCss);
         head.appendChild(s);
         b.injectCss(
-            'html,body{margin:0; padding:0; height:100%; font-family: Segoe UI!important}'
+            'html,body{margin:0; padding:0; height:100%; font-family: Segoe UI, Open Sans!important}'
         );
         
         injectMarkDownCss();
@@ -64,11 +64,13 @@ function injectMarkDownCss() {
     //color of text on Guides and DOC pages
     b.injectCss(`.markdown-body {color: ${colors.color04};}  `);
 
-    b.injectCss('.markdown-body p{margin-right:90px}')
+    b.injectCss('.markdown-body p{margin-right:90px}');
 
-    b.injectCss('.markdown-body div p{margin-right:90px}')
+    b.injectCss('.markdown-body div p{margin-right:90px}');
 
-    b.injectCss(`.markdown-body a {text-decoration:underline;color:${colors.color04}}`);
+    b.injectCss(
+        `.markdown-body a {text-decoration:underline;color:${colors.color04}}`
+    );
 
     b.injectCss(`.markdown-body table {border:none;margin-right:90px}`);
     b.injectCss(`.markdown-body table tr{background:${colors.color01}}`);
@@ -78,9 +80,9 @@ function injectMarkDownCss() {
 
     //background-color and color of code and similiar blocks
     b.injectCss(
-        `.markdown-body pre {margin-right:90px;background:${colors.color01};color:${
-            colors.color03
-        }}`
+        `.markdown-body pre {margin-right:90px;background:${
+            colors.color01
+        };color:${colors.color03}}`
     );
     b.injectCss(
         `.markdown-body code {background:${colors.color01};color:${
@@ -92,7 +94,6 @@ function injectMarkDownCss() {
             colors.color03
         }; background:${colors.color01};color:${colors.color03}}`
     );
-
 
     //underline for headers on Guides and Docs
     b.injectCss('#menu-getting-started{text-decoration:underline;border:none}');

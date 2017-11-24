@@ -21,7 +21,7 @@ export const create = b.createComponent<IData>({
             }),
 
             Label.create({
-                label: 'GET STARTED',
+                label: ctx.data.names[0],
                 size: Label.LabelSize.Subheading,
                 action: (): boolean => {
                     let e = document.getElementById('getStarted');
@@ -33,11 +33,11 @@ export const create = b.createComponent<IData>({
                     window.scrollTo(0, offsetTop);
                 },
                 style: styles.contentHeader02,
-                id: 'getStartedRecord'
+                id: ctx.data.ids[0]
             })
         ];
 
-        for (let i = 0; i < ctx.data.names.length; i++) {
+        for (let i = 1; i < ctx.data.names.length; i++) {
             children.push(addRecordToMenu(ctx.data.names[i], ctx.data.ids[i]));
         }
 

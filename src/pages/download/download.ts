@@ -28,8 +28,13 @@ export const create = b.createComponent<IData>({
                             sapien. Sed iaculis mi id ex venenatis tempus. Mauris sit amet egestas orci. Aenean sit amet dignissim mi.
                             Vivamus quis imperdiet purus. Morbi mollis imperdiet velit eu placerat. Cras euismod fermentum libero ac
                              laoreet. Nulla id sodales dui.`,
-                style: styles.bottomTextStyle,
+                style: styles.bottomTextStyle
             })
         ];
+        b.style(me, {
+            height: 'calc(100vh - 60px)',
+            textAlign: 'left',
+            minHeight: '700px'
+        });
     }
 });

@@ -20,17 +20,9 @@ const download = b.createComponent<IData>({
                         maxWidth: styles.maxPageWidth
                     })
                 ],
-                bobrilPromoStyle
             )
         ];
     }
-});
-
-const bobrilPromoStyle = b.styleDef({
-    color: Colors.color04,
-    height: 'calc(100vh - 60px)',
-    textAlign: 'left',
-    minHeight: '700px'
 });
 
 export default download;

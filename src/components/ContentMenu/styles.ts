@@ -12,23 +12,21 @@ export const contentHeader01: b.IBobrilStyleDef = b.styleDef([
     {
         marginTop: 20,
         marginBottom: 20,
-        textAlign: 'center',
-        color: colors.color04,
+        textAlign: 'center'
     },
     styles.menutext01
 ]);
 
 export const contentHeader02: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color03,
+        color: colors.color03
     }
 ]);
 
 export const contentTexts: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color02,
         width: '140px',
-        margin: 'auto',
+        margin: 'auto'
     }
 ]);
 
@@ -40,6 +38,7 @@ export const contentMenuElements: b.IBobrilStyleDef = b.styleDef([
         marginLeft: '5px',
         paddingTop: '5px',
         paddingBottom: '5px',
+        cursor: 'pointer'
     },
     styles.smalltext01
 ]);

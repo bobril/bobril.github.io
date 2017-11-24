@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
 import * as styles from '../styles';
-import {appBarHeight } from '../appBar/appBarHeight';
+import { appBarHeight } from '../appBar/appBarHeight';
 
 export const width = 240;
 export const imgHeight = 113;
@@ -26,7 +26,7 @@ export const buttonStyle = b.styleDef([
 ]);
 
 export const buttonHoverStyle = b.styleDef({
-    opacity: 1,
+    opacity: 1
 });
 
 export const buttonActiveStyle = b.styleDef({
@@ -36,5 +36,5 @@ export const buttonActiveStyle = b.styleDef({
 export const imgStyle = b.styleDef({
     width: width,
     height: imgHeight,
-    background: foregroundColor,
+    background: foregroundColor
 });

@@ -5,7 +5,6 @@ import * as Button from '../../../components/button/lib';
 import * as Paragraph from '../../../components/paragraph/lib';
 import * as Label from '../../../components/label/lib';
 
-
 import * as router from '../../../pages/router';
 
 import * as BobrilLogoSection from './bobrilLogo';
@@ -20,12 +19,11 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
-        
         me.children = [
             BobrilLogoSection.create({
                 onGetStartedClick: () => {}
             }),
-            
+
             Label.create({
                 label: 'BOBRIL',
                 size: Label.LabelSize.HeaderText01,
@@ -44,7 +42,7 @@ export const create = b.createComponent<IData>({
                 content: b.styledDiv(['GET STARTED'], {}),
                 hover: false,
                 onClick: () =>
-                    b.runTransition(b.createRedirectPush(router.documentation)), // misto doc dat get started
+                    b.runTransition(b.createRedirectPush(router.getStarted)),
                 variant: Button.ButtonVariants.white
             }),
 
@@ -58,8 +56,7 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, {
-            position: 'relative',
-            marginTop: 245
+            position: 'relative'
         });
     }
 });

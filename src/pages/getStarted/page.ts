@@ -15,16 +15,10 @@ const getStarted = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
             LCenter.create({
-                children: b.styledDiv(GetStarted.create(), bobrilPromoStyle),
+                children: b.styledDiv(GetStarted.create()),
                 maxWidth: 1200
             })
         ];
     }
 });
-
-const bobrilPromoStyle = b.styleDef({
-    color: Colors.color04,
-    textAlign: 'left',
-});
-
 export default getStarted;

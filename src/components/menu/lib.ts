@@ -17,7 +17,6 @@ export interface IContext extends b.IBobrilCtx {
     data: IData;
 }
 
-const foregroundColor = colors.color04;
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
