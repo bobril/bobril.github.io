@@ -12,9 +12,8 @@ export const basicLayout = b.styleDef({
 });
 
 export const header = b.styleDef({
-    minWidth: '1200px',
-    position: 'fixed',
-    overflow: 'auto',
+    position: 'absolute',
+    
     left: 0,
     right: 0,
     top: 0,

@@ -16,7 +16,7 @@ export function generateMainPage(data: IMainPageData): string {
     let elem: HTMLElement ;
     return `
     import * as b from 'bobril';
-    
+    let top = b.getWindowScroll()[1];
     interface ICtx extends b.IBobrilCtx {
         top: number
     }
@@ -57,12 +57,12 @@ export function generateMainPage(data: IMainPageData): string {
                     },
                     component: {
                         postInitDom(ctx: ICtx, me: b.IBobrilCacheNode, element: HTMLElement){
-                            b.addOnScroll(() => {
-                                ctx.top = b.getWindowScroll()[1];
-                            })
+                            top = b.getWindowScroll()[1];
                         },
                         postUpdateDom(ctx: ICtx, me: b.IBobrilNode,element:HTMLElement){
-                            element.style.top = \`\${ctx.top+ 60 + 30}px\`;
+                            top = b.getWindowScroll()[1];
+                            
+                            element.style.top = \`\${top+ 60 + 30}px\`;
                             console.log(ctx.top);
                             b.invalidate();
                         }

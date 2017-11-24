@@ -9,6 +9,7 @@ import download from './pages/download/page';
 import getStarted from './pages/getStarted/page';
 import * as colors from './components/colors';
 import * as styles from './components/styles';
+import { color05 } from './components/colors';
 
 loadGithubMarkdownStyles();
 
@@ -51,7 +52,7 @@ function loadGithubMarkdownStyles() {
         s.setAttribute('href', markdownCss);
         head.appendChild(s);
         b.injectCss(
-            'html,body{margin:0; padding:0; height:100%; font-family: Segoe UI, Open Sans!important}'
+            'html,body{margin:0; padding:0; height:100%; font-family: Segoe UI!important}'
         );
         
         injectMarkDownCss();
@@ -64,25 +65,22 @@ function injectMarkDownCss() {
     //color of text on Guides and DOC pages
     b.injectCss(`.markdown-body {color: ${colors.color04};}  `);
 
-    b.injectCss('.markdown-body p{margin-right:90px}');
 
-    b.injectCss('.markdown-body div p{margin-right:90px}');
+    b.injectCss('.markdown-body div p{margin-right:90px}')
 
-    b.injectCss(
-        `.markdown-body a {text-decoration:underline;color:${colors.color04}}`
-    );
+    b.injectCss(`.markdown-body a {text-decoration:underline;color:${colors.color04}}`);
 
-    b.injectCss(`.markdown-body table {border:none;margin-right:90px}`);
-    b.injectCss(`.markdown-body table tr{background:${colors.color01}}`);
+    b.injectCss(`.markdown-body table {border: 1px solid ${colors.color01};margin-right:90px}`);
+    b.injectCss(`.markdown-body table tr{border:none;background:${colors.color01}}`);
     b.injectCss(
         `.markdown-body table tr:nth-child(even){background:${colors.color02}}`
     );
-
+    b.injectCss('.markdown-body table th, .markdown-body table td{border:none}');
     //background-color and color of code and similiar blocks
     b.injectCss(
-        `.markdown-body pre {margin-right:90px;background:${
-            colors.color01
-        };color:${colors.color03}}`
+        `.markdown-body pre {margin-right:90px;background:${colors.color01};color:${
+            colors.color03
+        }}`
     );
     b.injectCss(
         `.markdown-body code {background:${colors.color01};color:${
@@ -90,7 +88,7 @@ function injectMarkDownCss() {
         }}`
     );
     b.injectCss(
-        `.markdown-body blockquote {margin-right:90px;padding-top 20px;padding-bottom 20px;border-left: .25em solid ${
+        `.markdown-body blockquote {margin-right:90px;padding-top: 20px;padding-bottom: 20px;border-left: .25em solid ${
             colors.color03
         }; background:${colors.color01};color:${colors.color03}}`
     );
