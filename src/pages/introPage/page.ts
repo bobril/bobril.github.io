@@ -33,7 +33,8 @@ const home = b.createComponent<IData>({
 
 const bobrilIntroStyle = b.styleDef({
     textAlign: 'center',
-    minHeight: '500px',
+    height: 'calc(100vh - 60px)',
+    minHeight: '700px',
 });
 
 const bobrilAboutStyle = b.styleDef({

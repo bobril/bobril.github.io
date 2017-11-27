@@ -1,6 +1,6 @@
 import * as b from 'bobril';
 import * as row from './row';
-import * as npmFury from '../npmFury/lib';
+import * as npmFury from '../../../components/npmFury/lib';
 
 export interface IData {}
 

@@ -46,9 +46,8 @@ export const codeWrapper = b.styleDef([
         display: 'table',
         width: '100%',
         marginTop: codePadding,
-        marginBottom: codePadding
+        marginBottom: codePadding,
     },
-    styles.smalltext01
 ]);
 
 export const codeStyle: b.IBobrilStyleDef = b.styleDef([
@@ -56,17 +55,18 @@ export const codeStyle: b.IBobrilStyleDef = b.styleDef([
         whiteSpace: 'pre',
         color: colors.color03,
         background: colors.color01,
+        fontSize: 13,
         paddingBottom: 7.5,
         paddingTop: 7.5,
-        paddingLeft: 7.5,
-        fontFamily: 'Segoe UI'
-    },
-    styles.smalltext01
+        paddingLeft: 8,
+        fontFamily: '"Segoe UI", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace'
+    }
 ]);
 
 export const previewStyle = b.styleDef({
     paddingLeft: codePadding,
     paddingRight: codePadding,
+    minHeight: '100%',
     width: previewWidth,
     display: 'table-cell',
     verticalAlign: 'middle',

@@ -57,6 +57,7 @@ export const create = b.createComponent<IData>({
 
         b.style(me, {
             position: 'relative',
+            top: '35%'
         });
     }
 });
