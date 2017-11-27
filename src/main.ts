@@ -66,11 +66,10 @@ function injectMarkDownCss() {
     b.injectCss(`.markdown-body {color: ${colors.color04};}  `);
 
 
-    b.injectCss('.markdown-body div p{margin-right:90px}')
 
     b.injectCss(`.markdown-body a {text-decoration:underline;color:${colors.color04}}`);
 
-    b.injectCss(`.markdown-body table {border: 1px solid ${colors.color01};margin-right:90px}`);
+    b.injectCss(`.markdown-body table {border: 1px solid ${colors.color01}}`);
     b.injectCss(`.markdown-body table tr{border:none;background:${colors.color01}}`);
     b.injectCss(
         `.markdown-body table tr:nth-child(even){background:${colors.color02}}`
@@ -78,7 +77,7 @@ function injectMarkDownCss() {
     b.injectCss('.markdown-body table th, .markdown-body table td{border:none}');
     //background-color and color of code and similiar blocks
     b.injectCss(
-        `.markdown-body pre {margin-right:90px;background:${colors.color01};color:${
+        `.markdown-body pre {background:${colors.color01};color:${
             colors.color03
         }}`
     );
@@ -88,7 +87,7 @@ function injectMarkDownCss() {
         }}`
     );
     b.injectCss(
-        `.markdown-body blockquote {margin-right:90px;padding-top: 20px;padding-bottom: 20px;border-left: .25em solid ${
+        `.markdown-body blockquote {padding-top: 20px;padding-bottom: 20px;border-left: .25em solid ${
             colors.color03
         }; background:${colors.color01};color:${colors.color03}}`
     );

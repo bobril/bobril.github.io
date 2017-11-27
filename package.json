@@ -33,6 +33,7 @@
         "build": "npm run build-guides && npm run build-doc && npm run build-page"
     },
     "dependencies": {
+        "bobflux": "^9.0.1",
         "bobril": "*",
         "bobril-highlightjs": "*",
         "bobril-m": "*",

@@ -58,6 +58,9 @@ export function generateMainPage(data: IMainPageData): string {
                     component: {
                         postInitDom(ctx: ICtx, me: b.IBobrilCacheNode, element: HTMLElement){
                             top = b.getWindowScroll()[1];
+                            element.style.top = \`\${top+ 60 + 30}px\`;
+                            console.log(ctx.top);
+                            b.invalidate();
                         },
                         postUpdateDom(ctx: ICtx, me: b.IBobrilNode,element:HTMLElement){
                             top = b.getWindowScroll()[1];
@@ -73,7 +76,7 @@ export function generateMainPage(data: IMainPageData): string {
                     children: [${data.content}],
                     style: {
 
-                        
+                        marginRight: '90px',
                         padding: '16px ${menuWidth + contetntPaddingRight}px 16px 32px'
                     }
                 }

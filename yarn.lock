@@ -22,6 +22,13 @@ bail@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/bail/-/bail-1.0.2.tgz#f7d6c1731630a9f9f0d4d35ed1f962e2074a1764"
 
+bobflux@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/bobflux/-/bobflux-9.0.1.tgz#8835d66735714bbdc3a28dc18ab4fdd36cb09ced"
+  dependencies:
+    bobril "*"
+    fun-model "6.*"
+
 bobril-flex-ie10@*:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/bobril-flex-ie10/-/bobril-flex-ie10-1.1.1.tgz#181b998f942b55036934f0a11e7d85d8689e9690"
@@ -119,6 +126,10 @@ fs-extra@*:
 fs@*:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.2.tgz#e1f244ef3933c1b2a64bd4799136060d0f5914f8"
+
+fun-model@6.*:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/fun-model/-/fun-model-6.3.0.tgz#6c131db6badfc1fdca5a83a98c014c50585e3c15"
 
 github-markdown-css@*:
   version "2.9.0"

@@ -35,8 +35,9 @@ function generateMenuFromNode(node): string {
                                 label: firstChildrenMetadata.menuLabel,
                                 color: colors.color04,
                                 moveLeftUnit: 20,
+                                captialize: true,
                                 shouldMoveLeft: true,
-                                fontSize: 18,
+                                fontSize: 16,
                                 lineHeight: 18
                             }
                         )
@@ -62,6 +63,7 @@ function generateMenuFromNode(node): string {
         menuAnchor: metadata.menuAnchor,
         listStyle: 'disc',
         moveLeftUnit: 0,
+        captialize: false,
         shouldMoveLeft: false,
         label: metadata.menuLabel,
         color: '#949aa9',
@@ -80,7 +82,7 @@ function generateMenuItem(menuItemCfg) {
                 children: '${menuItemCfg.label}',
                 style: {
                     textDecoration: 'none',
-                    color: '${menuItemCfg.color}',
+                    
                     fontSize: '${menuItemCfg.fontSize}px',
                     cursor: 'pointer'
                 }, 
@@ -98,9 +100,11 @@ function generateMenuItem(menuItemCfg) {
                 }
             },
             style: {
+                color: '${menuItemCfg.color}',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
+                textTransform: '${menuItemCfg.captialize && 'uppercase'}',
                 marginLeft: ${menuItemCfg.shouldMoveLeft && menuItemCfg.moveLeftUnit},
                 listStyle:  '${menuItemCfg.listStyle}',
                 lineHeight: '${menuItemCfg.lineHeight}px'
