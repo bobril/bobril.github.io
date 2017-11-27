@@ -1,7 +1,6 @@
 import * as b from 'bobril';
 import * as router from './pages/router';
 import app from './pages/app';
-import home from './pages/home/page';
 import documentation from './pages/documentation/page';
 import guides from './pages/guides/page';
 import intro from './pages/introPage/page';

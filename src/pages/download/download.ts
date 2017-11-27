@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import * as downloadTable from '../../components/downloadTable/lib';
+import * as downloadTable from './downloadTable/lib';
 import * as styles from './styles';
 import * as Label from '../../components/label/lib';
 import * as Paragraph from '../../components/paragraph/lib';
@@ -17,7 +17,8 @@ export const create = b.createComponent<IData>({
         me.children = [
             Label.create({
                 label: 'DOWNLOAD',
-                size: Label.LabelSize.HeaderText01
+                size: Label.LabelSize.HeaderText01,
+                style: styles.downloadLabelStyle
             }),
 
             downloadTable.create(),
@@ -34,7 +35,8 @@ export const create = b.createComponent<IData>({
         b.style(me, {
             height: 'calc(100vh - 60px)',
             textAlign: 'left',
-            minHeight: '700px'
+            minHeight: '700px',
+            width: 720
         });
     }
 });

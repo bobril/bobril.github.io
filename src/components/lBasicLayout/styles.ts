@@ -45,7 +45,7 @@ export const defaultContentPadding = b.styleDef({
 });
 
 export const noTopContentPadding = b.styleDef({
-    paddingTop: 335
+    paddingTop: 60,
 });
 
 export const footer = b.styleDef({

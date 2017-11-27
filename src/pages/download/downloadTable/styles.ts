@@ -9,7 +9,6 @@ export const rowLabel: b.IBobrilStyleDef = b.styleDef({
 
 export const rowContent: b.IBobrilStyleDef = b.styleDef({
     paddingTop: 8,
-    fontFamily: 'Segoe UI',
     letterSpacing: '0px',
 });
 
