@@ -5,8 +5,8 @@ import * as colors from '../colors';
 export const footerHeight = 0;
 
 export const basicLayout = b.styleDef({
-    minHeight: '750px',
-    minWidth: '1200px',
+    minHeight: 750,
+    minWidth: 1200,
     position: 'relative',
     overflow: 'hidden'
 });

@@ -21,8 +21,8 @@ export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = [
             b.styledDiv([], {
-                height: '60px',
-                width: '240px',
+                height: 60,
+                width: 240,
                 background: colors.color04
             }),
             b.styledDiv(
@@ -42,7 +42,7 @@ export const create = b.createComponent<IData>({
                         height: `${index + 1 === ctx.data.childern.length
                             ? 75
                             : 34}px`,
-                        width: `${menuStyles.width}px`
+                        width: menuStyles.width
                     });
                 })
             )

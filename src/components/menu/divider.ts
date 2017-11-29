@@ -10,8 +10,8 @@ export interface IContext extends b.IBobrilCtx {
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode) {
         me.children = b.styledDiv([], {
-            width: '160px',
-            height: '2px',
+            width: 160,
+            height: 2,
             background: colors.color01,
             margin: 'auto',
         });
@@ -24,6 +24,6 @@ export const dividerMargin = 40;
 
 const dividerStyle = b.styleDef({
     background: foregroundColor,
-    height: `${dividerMargin}px`,
+    height: dividerMargin,
     paddingTop: '40px',
 });

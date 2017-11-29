@@ -39,8 +39,8 @@ export const leftContentPosition: b.IBobrilStyleDef = b.styleDef([
 
 export const rightContentPosition: b.IBobrilStyleDef = b.styleDef([
     {
-        width: '240px',
-        maxWidth: '240px',
+        width: 240,
+        maxWidth: 240,
         position: 'absolute',
         right: '30px',
         background: colors.color01,

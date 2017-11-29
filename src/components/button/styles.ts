@@ -16,18 +16,18 @@ export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
 
 export const whiteButton: b.IBobrilStyleDef = b.styleDef([
     {
-        height: '45px',
+        height: 45,
         lineHeight: '45px',
         borderRadius: '2px',
-        paddingLeft: '17px',
-        paddingRight: '16px',
+        paddingLeft: '42px',
+        paddingRight: '42px',
         background: colors.color04,
         color: colors.color01,
         opacity: 1,
         boxShadow:
             '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 10px 0 rgba(22, 24, 26, 0.15)',
-        marginTop: '357px',
-        marginLeft: '-103px'
+        marginTop: '327px',
+        marginLeft: '-129px'
     },
     styles.buttontext01,
     centeredPosition
@@ -42,18 +42,18 @@ export const whiteButtonHover: b.IBobrilStyleDef = b.styleDef({
 
 export const blackButton: b.IBobrilStyleDef = b.styleDef([
     {
-        height: '45px',
+        height: 45,
         lineHeight: '45px',
         borderRadius: '2px',
-        paddingLeft: '17px',
-        paddingRight: '16px',
+        paddingLeft: '42px',
+        paddingRight: '42px',
         background: colors.color01,
         color: colors.color04,
         opacity: 0.95,
         boxShadow:
             '2px 2px 2px rgba(22, 24, 26, 0.3), 0 4px 10px 0 rgba(22, 24, 26, 0.3)',
-        marginTop: '357px',
-        marginLeft: '103px'
+        marginTop: '327px',
+        marginLeft: '129px'
     },
     styles.buttontext01,
     centeredPosition

@@ -14,7 +14,7 @@ export const leftContainer = b.styleDef({
 export const appBarStyle = b.styleDef({
     background: colors.color01,
     overflow: 'auto',
-    height: `${appBarHeight}px`,
+    height: appBarHeight,
     zIndex: 500
 });
 

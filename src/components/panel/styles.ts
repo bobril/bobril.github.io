@@ -8,8 +8,8 @@ export const panelHeight = 160;
 export const iconTextMaring = 22;
 
 export const iconStyle = b.styleDef({
-    width: `${iconDim}px`,
-    height: `${iconDim}px`,
+    width: iconDim,
+    height: iconDim,
 
     marginBottom: 40
 });
@@ -46,8 +46,8 @@ export const rightContainer = b.styleDef({
 });
 
 export const panelStyle = b.styleDef({
-    width: `${panelWidth}px`,
-    height: `${panelHeight}px`,
+    width: panelWidth,
+    height: panelHeight,
     background: colors.color04,
     overflow: 'auto',
     boxShadow: '0px 0px 5px 6px rgba(0, 0, 0, 0.1)'

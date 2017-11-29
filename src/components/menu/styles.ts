@@ -10,7 +10,7 @@ export const foregroundColor = colors.color04;
 
 export const menuStyle = b.styleDef({
     height: 'calc(100vh)',
-    width: `${width}px`,
+    width: width,
     background: colors.color03
 });
 

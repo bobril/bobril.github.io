@@ -4,7 +4,7 @@ import * as colors from './../../components/colors';
 
 export const s: b.IBobrilStyleDef = b.styleDef([
     {
-        maxWidth: '720px'
+        maxWidth: 720
     }
 ]);
 
@@ -26,7 +26,7 @@ export const contentHeader02: b.IBobrilStyleDef = b.styleDef([
 
 export const contentTexts: b.IBobrilStyleDef = b.styleDef([
     {
-        width: '145px',
+        width: 145,
         margin: 'auto'
     }
 ]);
