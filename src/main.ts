@@ -51,7 +51,7 @@ function loadGithubMarkdownStyles() {
         s.setAttribute('href', markdownCss);
         head.appendChild(s);
         b.injectCss(
-            'html,body{margin:0; padding:0; height:100%; font-family: Segoe UI!important}'
+            'html,body{margin:0; padding:0; height:100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important}'
         );
         
         injectMarkDownCss();

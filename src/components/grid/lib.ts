@@ -18,9 +18,7 @@ export const create = b.createComponent<IData>({
             children.push(
                 b.styledDiv(
                     item,
-                    styles.itemStyle,
-                    { marginRight: 40 },
-                    !(index + 1 === d.items.length) && { marginBottom: 40 }
+                    styles.itemStyle
                 )
             );
         });

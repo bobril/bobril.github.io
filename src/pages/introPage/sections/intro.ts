@@ -33,7 +33,7 @@ export const create = b.createComponent<IData>({
             Label.create({
                 label:
                     'is a component-oriented framework for creating web applications inspired by' +
-                    ' ReactJs (Virtual DOM, components with state) and Mithril (small size, ,more commplete framework)',
+                    ' ReactJs (Virtual DOM, components with state) and Mithril (small size, more complete framework)',
                 size: Label.LabelSize.HeaderText02,
                 style: styles.introPageIsAComponentText
             }),

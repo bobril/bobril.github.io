@@ -59,7 +59,7 @@ export const codeStyle: b.IBobrilStyleDef = b.styleDef([
         paddingBottom: 7.5,
         paddingTop: 7.5,
         paddingLeft: 8,
-        fontFamily: '"Segoe UI", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace'
+        fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace'
     }
 ]);
 
