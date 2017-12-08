@@ -16,11 +16,13 @@ export function generateMainPage(data: IMainPageData): string {
     let elem: HTMLElement ;
     return `
     import * as b from 'bobril';
-    let top = b.getWindowScroll()[1];
-    interface ICtx extends b.IBobrilCtx {
-        top: number
-    }
 
+    function setPositionLikeScroll(element) {
+        const top = b.getWindowScroll()[1];
+        element.style.top = \`\${top + 60 + 30}px\`;
+        b.invalidate();
+    }
+    
     export function create() {
         return {
             tag : 'div',
@@ -56,18 +58,11 @@ export function generateMainPage(data: IMainPageData): string {
                         overflow: 'auto'
                     },
                     component: {
-                        postInitDom(ctx: ICtx, me: b.IBobrilCacheNode, element: HTMLElement){
-                            top = b.getWindowScroll()[1];
-                            element.style.top = \`\${top+ 60 + 30}px\`;
-                            console.log(ctx.top);
-                            b.invalidate();
-                        },
-                        postUpdateDom(ctx: ICtx, me: b.IBobrilNode,element:HTMLElement){
-                            top = b.getWindowScroll()[1];
-                            
-                            element.style.top = \`\${top+ 60 + 30}px\`;
-                            console.log(ctx.top);
-                            b.invalidate();
+                        postInitDom(ctx: b.IBobrilCtx, me: b.IBobrilCacheNode, element: HTMLElement){
+                            b.addOnScroll(() => {
+                                setPositionLikeScroll(element);
+                            });
+                            setPositionLikeScroll(element);
                         }
                     }
                 },
