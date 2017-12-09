@@ -2,7 +2,9 @@ import * as b from 'bobril';
 import { width as menuWidth } from '../menu/styles';
 import * as colors from '../colors';
 
+export const headerHeight = 60;
 export const footerHeight = 0;
+const defaultPadding = 30;
 
 export const basicLayout = b.styleDef({
     minHeight: 750,
@@ -16,6 +18,7 @@ export const header = b.styleDef({
     left: 0,
     right: 0,
     top: 0,
+    height: headerHeight,
     zIndex: 100
 });
 
@@ -39,12 +42,13 @@ export const content = b.styleDef({
 });
 
 export const defaultContentPadding = b.styleDef({
-    paddingTop: 150,
-    paddingLeft: 120
+    paddingTop: headerHeight + defaultPadding,
+    paddingRight: defaultPadding,
+    paddingLeft: defaultPadding
 });
 
 export const noTopContentPadding = b.styleDef({
-    paddingTop: 60,
+    paddingTop: headerHeight,
 });
 
 export const footer = b.styleDef({

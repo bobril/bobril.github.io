@@ -1,7 +1,8 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
 import * as styles from '../styles';
-import {appBarHeight} from './appBarHeight';
+
+export const appBarHeight = 60;
 
 export const rightContainer = b.styleDef({
     cssFloat: 'right'   

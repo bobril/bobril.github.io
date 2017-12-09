@@ -16,7 +16,6 @@ export const create = b.createComponent<IData>({
         ctx.media = b.getMedia();
 
         const data = ctx.data;
-        const media = ctx.media;
 
         me.children = data.content;
 

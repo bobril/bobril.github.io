@@ -5,28 +5,24 @@ import * as AppBar from '../components/appBar/lib';
 import * as router from './router';
 import * as Image from '../components/image/lib';
 import * as assets from '../assets/assets';
-import * as Button from '../components/button/lib';
 import * as Menu from '../components/menu/lib';
-interface IData {}
 
 interface IContext extends b.IBobrilCtx {
-    data: IData;
     appHeight: number;
     menuVisible: boolean;
 }
 
-const app = b.createComponent<IData>({
+const app = b.createComponent<never>({
     init(ctx: IContext) {
-        
         const actualPageId = getActualPageId();
         ctx.menuVisible = !(
             actualPageId === 'root' || actualPageId === router.home
         );
-        
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
         const actualPageId = getActualPageId();
+
         me.children = [
             BasicLayout.create({
                 variant:
@@ -74,7 +70,7 @@ const app = b.createComponent<IData>({
                 menu:
                     ctx.menuVisible &&
                     Menu.create({
-                        childern: [
+                        children: [
                             Menu.Button.create({
                                 isActive:
                                     actualPageId === router.introPage ||

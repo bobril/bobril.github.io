@@ -26,7 +26,6 @@ interface IData {
     size: LabelSize;
     style?: b.IBobrilStyle;
     id?: string;
-    action?: () => boolean;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -63,11 +62,5 @@ export const create = b.createComponent<IData>({
             LabelSize.Button === d.size && styles.button,
             d.style && d.style
         );
-    },
-
-    onClick(ctx: IContext, me: b.IBobrilNode): boolean {
-        const d = ctx.data;
-
-        return d.action && d.action();
     }
 });

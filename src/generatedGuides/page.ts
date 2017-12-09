@@ -1,12 +1,4 @@
-
-    import * as b from 'bobril';
-
-    function setPositionLikeScroll(element) {
-        const top = b.getWindowScroll()[1];
-        element.style.top = `${top + 60 + 30}px`;
-        b.invalidate();
-    }
-    
+  
     export function create() {
         return {
             tag : 'div',
@@ -319,14 +311,6 @@
                         position: 'absolute',
                         
                         overflow: 'auto'
-                    },
-                    component: {
-                        postInitDom(ctx: b.IBobrilCtx, me: b.IBobrilCacheNode, element: HTMLElement){
-                            b.addOnScroll(() => {
-                                setPositionLikeScroll(element);
-                            });
-                            setPositionLikeScroll(element);
-                        }
                     }
                 },
                 {

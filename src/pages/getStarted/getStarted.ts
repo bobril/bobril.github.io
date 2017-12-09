@@ -2,50 +2,49 @@ import * as b from 'bobril';
 import * as Label from '../../components/label/lib';
 import * as Paragraph from '../../components/paragraph/lib';
 import * as Code from '../../components/code/lib';
-import * as ContentMenu from '../../components/ContentMenu/lib';
+import * as ContentMenu from '../../components/contentMenu/lib';
 import * as styles from './styles';
 
 // examples
 import * as ExampleCounter from './examples/counter';
 import * as ExampleTodo from './examples/todo';
 
-interface IData {}
-
 interface IContext extends b.IBobrilCtx {
-    data: IData;
     top: number;
 }
 
-export const create = b.createComponent<IData>({
-    init(ctx: IContext) {
-        ctx.top = 90 + b.getWindowScroll()[1];
-        b.invalidate(ctx);
-        window.addEventListener('scroll', () => {
-            ctx.top = 90 + b.getWindowScroll()[1];
-            b.invalidate(ctx);
-        });
+const contentMenuItems = [
+    {
+        id: 'getStartedRecord',
+        name: 'GET STARTED',
+        type: ContentMenu.EItemType.SectionLabel
+
+    },{
+        id: 'installIn3Steps',
+        name: 'Install in 3 steps',
+        type: ContentMenu.EItemType.Label
+    },{
+        id: 'helloWorld',
+        name:'Hello World!',
+        type: ContentMenu.EItemType.Label
+    },{
+        id: 'firstComponent',
+        name: 'First component - Counter',
+        type: ContentMenu.EItemType.Label
+    },{
+        id: 'toDoList',
+        name: 'Todo list - more real example',
+        type: ContentMenu.EItemType.Label
     },
+];
 
+export const create = b.createComponent<never>({
     render(ctx: IContext, me: b.IBobrilNode) {
-        const d = ctx.data;
-
         me.children = [
             b.styledDiv(
                 ContentMenu.create({
-                    names: [
-                        'GET STARTED',
-                        'Install in 3 steps',
-                        'Hello World!',
-                        'First component - Counter',
-                        'Todo list - more real example'
-                    ],
-                    ids: [
-                        'getStartedRecord',
-                        'installIn3Steps',
-                        'helloWorld',
-                        'firstComponent',
-                        'toDoList'
-                    ]
+                    label: 'CONTENT',
+                    items:contentMenuItems
                 }),
                 styles.rightContentPosition,
                 { top: ctx.top }
@@ -64,7 +63,6 @@ export const create = b.createComponent<IData>({
         ];
         b.style(me, {
             textAlign: 'left',
-            paddingRight: 210,
             paddingBottom: 120
         });
     }

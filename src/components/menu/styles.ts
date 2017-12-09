@@ -1,7 +1,6 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
 import * as styles from '../styles';
-import { appBarHeight } from '../appBar/appBarHeight';
 
 export const width = 240;
 export const imgHeight = 113;
@@ -9,7 +8,7 @@ export const imgHeight = 113;
 export const foregroundColor = colors.color04;
 
 export const menuStyle = b.styleDef({
-    height: 'calc(100vh)',
+    height: '100vh',
     width: width,
     background: colors.color03
 });

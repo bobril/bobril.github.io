@@ -14,15 +14,7 @@ const rightMarginMenu = 30;
 
 export function generateMainPage(data: IMainPageData): string {
     let elem: HTMLElement ;
-    return `
-    import * as b from 'bobril';
-
-    function setPositionLikeScroll(element) {
-        const top = b.getWindowScroll()[1];
-        element.style.top = \`\${top + 60 + 30}px\`;
-        b.invalidate();
-    }
-    
+    return `  
     export function create() {
         return {
             tag : 'div',
@@ -56,14 +48,6 @@ export function generateMainPage(data: IMainPageData): string {
                         position: 'absolute',
                         
                         overflow: 'auto'
-                    },
-                    component: {
-                        postInitDom(ctx: b.IBobrilCtx, me: b.IBobrilCacheNode, element: HTMLElement){
-                            b.addOnScroll(() => {
-                                setPositionLikeScroll(element);
-                            });
-                            setPositionLikeScroll(element);
-                        }
                     }
                 },
                 {

@@ -2,12 +2,6 @@ import * as b from 'bobril';
 import * as styles from './../../components/styles';
 import * as colors from './../../components/colors';
 
-export const s: b.IBobrilStyleDef = b.styleDef([
-    {
-        maxWidth: 720
-    }
-]);
-
 export const contentHeader01: b.IBobrilStyleDef = b.styleDef([
     {
         marginTop: 40,
@@ -24,10 +18,12 @@ export const contentHeader02: b.IBobrilStyleDef = b.styleDef([
     }
 ]);
 
-export const contentTexts: b.IBobrilStyleDef = b.styleDef([
+export const contentMenu: b.IBobrilStyleDef = b.styleDef([
     {
         width: 145,
-        margin: 'auto'
+        margin: 'auto',
+        fontSize: '16px',
+        fontWeight: 400
     }
 ]);
 
