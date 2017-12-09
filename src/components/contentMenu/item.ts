@@ -13,8 +13,7 @@ export interface IItem {
     id: string;
 }
 
-export interface IData extends IItem {
-}
+export interface IData extends IItem {}
 
 export interface IContext extends b.IBobrilCtx {
     data: IData;
@@ -27,7 +26,7 @@ export const create = b.createComponent<IData>({
 
     render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
-        me.children =  Label.create({
+        me.children = Label.create({
             label: d.name,
             size: Label.LabelSize.DownloadPacksLabel,
             style: getItemStyle(d.type)
@@ -51,8 +50,8 @@ export const create = b.createComponent<IData>({
     }
 });
 
-function getItemStyle(type: EItemType) : b.IBobrilStyleDef {
-    switch(type) {
+function getItemStyle(type: EItemType): b.IBobrilStyleDef {
+    switch (type) {
         case EItemType.Label:
             return styles.contentMenuElements;
         case EItemType.SectionLabel:

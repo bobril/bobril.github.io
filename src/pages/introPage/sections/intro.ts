@@ -1,35 +1,25 @@
 import * as b from 'bobril';
 import * as styles from '../styles';
-import * as Colors from '../../../components/colors';
 import * as Button from '../../../components/button/lib';
-import * as Paragraph from '../../../components/paragraph/lib';
 import * as Label from '../../../components/label/lib';
-
 import * as router from '../../../pages/router';
+import * as Image from '../../../components/image/lib';
+import * as assets from '../../../assets/assets';
 
-import * as BobrilLogoSection from './bobrilLogo';
-
-interface IData {}
-
-interface IContext extends b.IBobrilCtx {
-    data: IData;
-}
-
-export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode) {
-        const d = ctx.data;
-
+export const create = b.createComponent<never>({
+    render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
         me.children = [
-            BobrilLogoSection.create({
-                onGetStartedClick: () => {}
+            Image.create({
+                asset: assets.bobrilLogo,
+                width: 555,
+                height: 549,
+                style: styles.centeredPosition
             }),
-
             Label.create({
                 label: 'BOBRIL',
                 size: Label.LabelSize.HeaderText01,
                 style: styles.introPageBobrilText
             }),
-
             Label.create({
                 label:
                     'is a component-oriented framework for creating web applications inspired by' +
@@ -37,17 +27,15 @@ export const create = b.createComponent<IData>({
                 size: Label.LabelSize.HeaderText02,
                 style: styles.introPageIsAComponentText
             }),
-
             Button.create({
-                content: b.styledDiv(['GET STARTED'], {}),
+                content: 'GET STARTED',
                 hover: false,
                 onClick: () =>
                     b.runTransition(b.createRedirectPush(router.getStarted)),
                 variant: Button.ButtonVariants.white
             }),
-
             Button.create({
-                content: b.styledDiv(['DOWNLOAD'], {}),
+                content: 'DOWNLOAD',
                 hover: false,
                 onClick: () =>
                     b.runTransition(b.createRedirectPush(router.download)),

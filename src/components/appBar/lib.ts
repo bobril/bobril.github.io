@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import * as appBarStyles from './styles';
 import * as AppButton from './button';
-export {appBarHeight} from './styles';
+export { appBarHeight } from './styles';
 
 export const Button = AppButton;
 
@@ -49,6 +49,5 @@ export const create = b.createComponent<IData>({
         ];
 
         b.style(me, appBarStyles.appBarStyle);
-    },
-    
+    }
 });

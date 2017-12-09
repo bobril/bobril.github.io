@@ -1,8 +1,6 @@
 import * as b from 'bobril';
 import * as colors from '../../../components/colors';
-import * as LCenter from '../../../components/lCenter/lib';
 import * as Grid from '../../../components/grid/lib';
-import * as appStyles from '../../styles';
 import * as styles from '../styles';
 import * as Href from '../../../components/href/lib';
 import * as Panel from '../../../components/panel/lib';
@@ -10,14 +8,9 @@ import * as Image from '../../../components/image/lib';
 import * as assets from '../../../assets/assets';
 import { iconDim } from '../../../components/panel/styles';
 import * as Paragraph from '../../../components/paragraph/lib';
-import { style } from 'bobril';
-export interface IData {}
 
-export interface IContext extends b.IBobrilCtx {
-    data: IData;
-}
-export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode) {
+export const create = b.createComponent<never>({
+    render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
         me.children = [comparedTextArea(), panels(), bobrilText()];
 
         b.style(me, {

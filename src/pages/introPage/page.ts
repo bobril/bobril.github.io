@@ -3,38 +3,32 @@ import * as styles from '../styles';
 import * as Colors from '../../components/colors';
 import * as About from './sections/about';
 import * as LCenter from '../../components/lCenter/lib';
-
 import * as Intro from '../introPage/sections/intro';
-import { maxPageWidth } from '../styles';
-interface IData {}
+import {appBarHeight} from '../../components/appBar/lib';
 
-interface IContext extends b.IBobrilCtx {
-    data: IData;
-}
+const bobrilIntroMinHeight = 700;
 
-const contentAboutMinHeight = 1180;
-
-const home = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode) {
+const home = b.createComponent<never>({
+    render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
         me.children = [
-                    b.styledDiv(Intro.create(), bobrilIntroStyle),
-                    b.styledDiv(
-                        [
-                            LCenter.create({
-                                children: [About.create()],
-                                maxWidth: styles.maxPageWidth
-                            })
-                        ],
-                        bobrilAboutStyle,
-                    )
+            b.styledDiv(Intro.create(), bobrilIntroStyle),
+            b.styledDiv(
+                [
+                    LCenter.create({
+                        children: [About.create()],
+                        maxWidth: styles.maxPageWidth
+                    })
+                ],
+                bobrilAboutStyle
+            )
         ];
     }
 });
 
 const bobrilIntroStyle = b.styleDef({
     textAlign: 'center',
-    height: 'calc(100vh - 60px)',
-    minHeight: '700px',
+    height: `calc(100vh - ${appBarHeight}px)`,
+    minHeight: `${bobrilIntroMinHeight}px`
 });
 
 const bobrilAboutStyle = b.styleDef({

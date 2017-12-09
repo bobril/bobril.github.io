@@ -4,7 +4,6 @@ import {
     headertext02,
     paragtext01,
 } from '../../components/styles';
-import * as colors from '../../components/colors';
 
 export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
     position: 'absolute',

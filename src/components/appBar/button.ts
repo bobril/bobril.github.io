@@ -1,6 +1,5 @@
 import * as b from 'bobril';
 import * as appBarStyles from './styles';
-import * as styles from '../styles';
 
 export interface IData {
     variant: ButtonVariants;
@@ -32,7 +31,6 @@ export const create = b.createComponent<IData>({
             ctx.data.variant === ButtonVariants.menuIconButton &&
                 appBarStyles.menuIconButton
         );
-        
     },
 
     onClick(ctx): boolean {
