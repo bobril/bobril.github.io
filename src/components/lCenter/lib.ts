@@ -2,7 +2,7 @@ import * as b from 'bobril';
 
 interface IData {
     children: b.IBobrilChildren;
-    maxWidth: number;
+    maxWidth?: number;
 }
 
 interface IContext extends b.IBobrilCtx {

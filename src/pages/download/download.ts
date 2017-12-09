@@ -24,11 +24,7 @@ export const create = b.createComponent<IData>({
             downloadTable.create(),
 
             Paragraph.create({
-                content: `Fusce commodo tincidunt volutpat. Cras tempor odio ac felis ultrices euismod. Praesent accumsan id risus eu 
-                            euismod. Phasellus eu facilisis nulla. Praesent turpis neque, posuere eleifend neque quis, condimentum rutrum
-                            sapien. Sed iaculis mi id ex venenatis tempus. Mauris sit amet egestas orci. Aenean sit amet dignissim mi.
-                            Vivamus quis imperdiet purus. Morbi mollis imperdiet velit eu placerat. Cras euismod fermentum libero ac
-                             laoreet. Nulla id sodales dui.`,
+                content: ``,
                 style: styles.bottomTextStyle
             })
         ];
