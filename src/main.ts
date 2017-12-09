@@ -65,68 +65,80 @@ function injectMarkDownCss() {
 
     //color of text on Guides and DOC pages
     b.injectCss(`.markdown-body {
-    color: ${colors.color04};
-    line-height: initial;
+    color: ${colors.color04} !important;
+    line-height: initial !important;
     }  `);
 
     b.injectCss(
-        `.markdown-body a {text-decoration:underline;color:${colors.color04}}`
+        `.markdown-body a {
+                text-decoration:underline !important;
+                color:${colors.color04} !important;
+              }`
     );
 
-    b.injectCss(`.markdown-body table {border: 1px solid ${colors.color01}}`);
+    b.injectCss(`.markdown-body table {
+                            border: 1px solid ${colors.color01} !important;
+                        }`);
     b.injectCss(
-        `.markdown-body table tr{border:none;background:${colors.color01}}`
+        `.markdown-body table tr{
+                    border:none !important;
+                    background:${colors.color01} !important
+                }`
     );
     b.injectCss(
-        `.markdown-body table tr:nth-child(even){background:${colors.color02}}`
+        `.markdown-body table tr:nth-child(even){
+                    background:${colors.color02} !important
+                }`
     );
     b.injectCss(
-        '.markdown-body table th, .markdown-body table td{border:none}'
+        `.markdown-body table th, .markdown-body table td{
+                    border:none !important;
+                }`
     );
     //background-color and color of code and similiar blocks
     b.injectCss(
         `.markdown-body pre {
-                    background:${colors.color01};
-                    color:${colors.color03}
+                    background:${colors.color01} !important;
+                    color:${colors.color03} !important
                }`
     );
     b.injectCss(
         `.markdown-body code {
-                background:${colors.color01};
-                color:${colors.color03}
+                background:${colors.color01} !important;
+                color:${colors.color03} !important;
               }`
     );
     b.injectCss(
         `.markdown-body p {  
-                   margin-bottom: 16px;
-                   letter-spacing: 2px;
-                   font-size: 17px;
-                   font-weight: 250;
-                   line-height: 22px;
+                   margin-bottom: 16px !important;
+                   letter-spacing: 2px !important;
+                   font-size: 17px !important;
+                   font-weight: 200 !important;
+                   line-height: 22px !important;
               }`
     );
     b.injectCss(
         `.markdown-body blockquote {
-                    padding-top: 20px;
-                    padding-bottom: 20px;
-                    border-left: .25em solid ${colors.color03}; 
-                    background:${colors.color01};
-                    color:${colors.color03}
+                    padding-top: 20px !important;
+                    padding-bottom: 20px !important;
+                    border-left: .25em solid ${colors.color03} !important; 
+                    background:${colors.color01} !important;
+                    color:${colors.color03} !important;
               }`
     );
 
     //underline for headers on Guides and Docs
     b.injectCss(
         '.markdown-body h2 {' +
-            'margin: 0' +
-            'padding-top: 30px;' +
-            'text-decoration: underline;' +
-            'margin-bottom: 16px;' +
-            'letter-spacing: 2px;' +
-            'font-size: 20px;' +
-            'font-weight: 250;' +
-            'line-height: 24px;' +
-            'border: none' +
-        '}'
+            'margin: 0 !important' +
+            'padding-top: 30px !important;' +
+            'text-decoration: underline !important;' +
+            'margin-bottom: 16px; !important' +
+            'letter-spacing: 2px !important;' +
+            'font-size: 20px !important;' +
+            'font-weight: 250 !important;' +
+            'line-height: 24px !important;' +
+            'border: none !important' +
+            '}'
     );
 }

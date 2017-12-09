@@ -47,11 +47,13 @@ export const codeWrapper = b.styleDef([
         width: '100%',
         marginTop: codePadding,
         marginBottom: codePadding,
+        tableLayout: 'fixed'
     },
 ]);
 
 export const codeStyle: b.IBobrilStyleDef = b.styleDef([
     {
+        overflow: 'auto',
         whiteSpace: 'pre',
         color: colors.color03,
         background: colors.color01,

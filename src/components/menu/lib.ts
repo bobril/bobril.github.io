@@ -27,7 +27,7 @@ export const create = b.createComponent<IData>({
                     height: 113,
                     width: 130,
                     style: {
-                        opacity: 0.8
+                        opacity: 0.75
                     }
                 }),
                 styles.imgStyle

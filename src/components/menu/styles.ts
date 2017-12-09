@@ -17,7 +17,7 @@ export const buttonStyle = b.styleDef([
     {
         textAlign: 'center',
         cursor: 'pointer',
-        opacity: 0.7,
+        opacity: 1,
         color: colors.color01,
         background: foregroundColor
     },
@@ -25,10 +25,12 @@ export const buttonStyle = b.styleDef([
 ]);
 
 export const buttonHoverStyle = b.styleDef({
-    opacity: 1
+    opacity: 1,
+    color: colors.color03
 });
 
 export const buttonActiveStyle = b.styleDef({
+    opacity: 1,
     color: colors.color03
 });
 
