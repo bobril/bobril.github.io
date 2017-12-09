@@ -46,7 +46,7 @@ function panels() {
                         width: iconDim
                     }),
                     label: 'Component oriented',
-                    content: ''
+                    content: 'Design and create reusable components. Compose them to make complex UI.'
                 }),
                 Panel.create({
                     icon: Image.create({
@@ -55,7 +55,7 @@ function panels() {
                         width: iconDim
                     }),
                     label: 'Small and fast',
-                    content: ''
+                    content: 'Bobril combine the feature of React (fast) and Mithrill (small). It creates an ideal tool to create a complex apps.'
                 }),
                 Panel.create({
                     icon: Image.create({
@@ -73,7 +73,7 @@ function panels() {
                         width: iconDim
                     }),
                     label: 'Media detection',
-                    content: ''
+                    content: 'Mobile devices are owned by Bobril. Since the beginning Bobril has been designed to work properly on mobile devices.'
                 }),
                 Panel.create({
                     icon: Image.create({
@@ -81,8 +81,8 @@ function panels() {
                         height: iconDim,
                         width: iconDim
                     }),
-                    label: 'Events normalization',
-                    content: ''
+                    label: 'Bobril Build',
+                    content: 'Compile the app using Bobril Build (see Downloads). It makes it easy to assemble the application. It has been developed directly for Bobril.'
                 }),
                 Panel.create({
                     icon: Image.create({
@@ -91,7 +91,7 @@ function panels() {
                         width: iconDim
                     }),
                     label: 'Easy to learn',
-                    content: ''
+                    content: 'Very easy to learn. You will be able to develop complex apps in a while! See guides section on this site.'
                 })
             ]
         }),
