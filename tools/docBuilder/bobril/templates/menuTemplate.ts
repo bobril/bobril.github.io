@@ -5,7 +5,7 @@ export function generateMenu(nodes): string {
     nodes.forEach((node) => {
         output.push(generateMenuFromNode(node));
     });
-    console.log(output.join(','))
+    console.log(output.join(','));
     return output.join(',');
 }
 
@@ -56,7 +56,7 @@ function generateMenuFromNode(node): string {
             }`;
     }
 
-    let metadata = node.metadata;
+    const metadata = node.metadata;
 
     return generateMenuItem({
         tagClass: '\'menu-sub-block-item\'',

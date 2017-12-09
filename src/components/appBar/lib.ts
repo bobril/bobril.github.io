@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import * as appBarStyles from './styles';
 import * as AppButton from './button';
-export { appBarHeight } from './styles';
+export { appBarHeight } from './dimensions';
 
 export const Button = AppButton;
 

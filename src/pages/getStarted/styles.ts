@@ -8,13 +8,14 @@ const rightMenuWidth = 240;
 
 export const headerText01: b.IBobrilStyleDef = b.styleDef([
     {
-        paddingBottom: '60px',
+        paddingBottom: 10
     },
     styles.headertext01,
 ]);
 
 export const headerText02: b.IBobrilStyleDef = b.styleDef([
     {
+        paddingTop: 30,
         textDecoration: 'underline',
         marginBottom: 16
     },
@@ -37,7 +38,7 @@ export const bottomText: b.IBobrilStyleDef = b.styleDef([
 
 export const leftContentPosition: b.IBobrilStyleDef = b.styleDef([
     {
-        paddingRight: rightMenuMargin * 3 + rightMenuWidth,
+        paddingRight: rightMenuMargin * 3 + rightMenuWidth + 90,
     }
 ]);
 

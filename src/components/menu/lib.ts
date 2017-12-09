@@ -25,7 +25,10 @@ export const create = b.createComponent<IData>({
                 Image.create({
                     asset: Assets.bobrilLogoGrey,
                     height: 113,
-                    width: 130
+                    width: 130,
+                    style: {
+                        opacity: 0.8
+                    }
                 }),
                 styles.imgStyle
             ),
@@ -34,9 +37,9 @@ export const create = b.createComponent<IData>({
                 ctx.data.children.map((button, index) => {
                     return b.styledDiv(button, {
                         background: styles.foregroundColor,
-                        height: `${index + 1 === ctx.data.children.length
-                            ? 75
-                            : 34}px`,
+                        height: `${
+                            index + 1 === ctx.data.children.length ? 75 : 34
+                        }px`,
                         width: styles.width
                     });
                 })
@@ -46,7 +49,7 @@ export const create = b.createComponent<IData>({
     }
 });
 
-function getTopMenuEmpty() : b.IBobrilChildren {
+function getTopMenuEmpty(): b.IBobrilChildren {
     return b.styledDiv([], {
         height: appBarHeight,
         width: styles.width,

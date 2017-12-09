@@ -4,11 +4,12 @@ import * as colors from './../../components/colors';
 
 export const contentHeader01: b.IBobrilStyleDef = b.styleDef([
     {
-        marginTop: 40,
+        textAlign: 'center',
+        fontSize: '16px',
         marginBottom: 40,
-        textAlign: 'center'
-    },
-    styles.menutext01
+        marginTop: 40,
+        fontWeight: 'bold',
+    }
 ]);
 
 export const contentHeader02: b.IBobrilStyleDef = b.styleDef([

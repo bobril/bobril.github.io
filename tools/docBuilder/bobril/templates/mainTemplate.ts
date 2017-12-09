@@ -1,5 +1,5 @@
 import * as colors from '../../../../src/components/colors';
-import * as appBar from '../../../../src/components/appBar/appBarHeight';
+import {appBarHeight} from "../../../../src/components/appBar/dimensions";
 
 interface IMainPageData {
     menu: string;
@@ -40,15 +40,15 @@ export function generateMainPage(data: IMainPageData): string {
                         ${data.menu}
                     ],
                     style: {
-                        width: ${menuWidth},
+                        position: 'fixed',
+                        top: ${appBarHeight + topMarginMenu},
                         right: ${rightMarginMenu},
-                        
-                        height: 'calc(100vh - ${appBar.appBarHeight + topMarginMenu + bottomMarginMenu}px)',
+                        bottom: ${bottomMarginMenu},
                         background: '${colors.color01}',
-                        position: 'absolute',
-                        
-                        overflow: 'auto'
-                    }
+                        overflow: 'auto',
+                        width: ${menuWidth},
+                        height: 'calc(100vh - ${appBarHeight + topMarginMenu + bottomMarginMenu}px)',
+                     }
                 },
                 {
                     tag: 'div',
@@ -56,7 +56,7 @@ export function generateMainPage(data: IMainPageData): string {
                     style: {
 
                         marginRight: '90px',
-                        padding: '16px ${menuWidth + contetntPaddingRight}px 16px 32px'
+                        padding: '60px ${menuWidth + contetntPaddingRight}px 120px 90px'
                     }
                 }
             ]

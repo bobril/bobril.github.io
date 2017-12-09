@@ -303,15 +303,15 @@
             }
                     ],
                     style: {
-                        width: 240,
+                        position: 'fixed',
+                        top: 90,
                         right: 30,
-                        
-                        height: 'calc(100vh - 120px)',
+                        bottom: 30,
                         background: '#4c5060',
-                        position: 'absolute',
-                        
-                        overflow: 'auto'
-                    }
+                        overflow: 'auto',
+                        width: 240,
+                        height: 'calc(100vh - 120px)',
+                     }
                 },
                 {
                     tag: 'div',
@@ -319,7 +319,7 @@
                     style: {
 
                         marginRight: '90px',
-                        padding: '16px 330px 16px 32px'
+                        padding: '60px 330px 120px 90px'
                     }
                 }
             ]

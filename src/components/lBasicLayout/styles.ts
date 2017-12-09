@@ -26,7 +26,8 @@ export const menu = b.styleDef({
     position: 'fixed',
     left: 0,
     top: 0,
-    zIndex: 100
+    zIndex: 100,
+    overflow: 'auto'
 });
 
 export const withMenu = b.styleDef({
