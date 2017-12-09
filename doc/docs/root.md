@@ -6,7 +6,7 @@ metadata:
   next: "initialization.md"
 ---
 
-<div id='menu-docs'style='font-size: 2em; font-weight:400; color: #ececed'>Docs</div>
+<div id='menu-docs'style='font-size: 34px; font-weight:400; color: #ececed; letter-spacing: 2.5px; padding-bottom: 10px'>DOCS</div>
 
 Bobril is component oriented framework with very lightweight virtual dom. It has no dependencies.
 

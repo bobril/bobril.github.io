@@ -21,10 +21,10 @@ function generateMenuFromNode(node): string {
 
         return `
             {
-                tag: 'ul',
+                tag: 'div',
                 className: 'menu-block',
                 style : {
-                    paddingLeft: 16    
+                    paddingLeft: 24
                 },
                 children: [
                     ${generateMenuItem(
@@ -43,10 +43,10 @@ function generateMenuFromNode(node): string {
                         )
                     },
                     {
-                        tag: 'ul',
+                        tag: 'div',
                         className: 'menu-sub-block',
                         style: {
-                            paddingLeft: 16
+                            paddingLeft: 24
                         },
                         children: [
                             ${childrenContent.join(',')}
@@ -75,14 +75,14 @@ function generateMenuFromNode(node): string {
 function generateMenuItem(menuItemCfg) {
     return `
         {
-            tag: 'li',
+            tag: 'div',
             children:  {
-                tag: 'a',
+                tag: 'div',
                 className: ${menuItemCfg.tagClass},
                 children: '${menuItemCfg.label}',
                 style: {
                     textDecoration: 'none',
-                    
+                    display: 'list-item',
                     fontSize: '${menuItemCfg.fontSize}px',
                     cursor: 'pointer'
                 }, 

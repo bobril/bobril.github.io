@@ -1,14 +1,9 @@
 import * as b from 'bobril';
-import * as LCenter from '../../components/lCenter/lib';
-import * as DocImporter from './docImporter';
+import * as GeneratedDoc from '../../generatedDoc/page';
 
 const documentation = b.createComponent<never>({
     render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
-        me.children = [
-            LCenter.create({
-                children: DocImporter.create()
-            })
-        ];
+        me.children = GeneratedDoc.create();
     }
 });
 

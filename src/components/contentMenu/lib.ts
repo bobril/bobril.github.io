@@ -3,7 +3,7 @@ import * as styles from './styles';
 import * as Label from './../../components/label/lib';
 import * as ContentMenuItem from './item';
 
-export {EItemType} from './item';
+export { EItemType } from './item';
 
 export interface IData {
     label: string;
@@ -25,10 +25,10 @@ export const create = b.createComponent<IData>({
                 style: styles.contentHeader01
             }),
 
-            ...d.items.map((item) =>
-                ContentMenuItem.create(item)
+            b.styledDiv(
+                d.items.map(item => ContentMenuItem.create(item)),
+                styles.contentMenu
             )
         ];
-        b.style(me, styles.contentMenu);
     }
 });

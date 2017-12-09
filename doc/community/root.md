@@ -6,4 +6,4 @@ metadata:
   next: "examples.md"
 ---
 
-<div id ='menu-community' style='font-size: 2em; font-weight:400; color: #ececed'>Community</div>
+<div id ='menu-community' style='font-size: 34px; font-weight:400; color: #ececed; letter-spacing: 2.5px; padding-bottom: 10px'>COMMUNITY</div>

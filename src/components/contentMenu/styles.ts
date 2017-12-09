@@ -8,7 +8,7 @@ export const contentHeader01: b.IBobrilStyleDef = b.styleDef([
         fontSize: '16px',
         marginBottom: 40,
         marginTop: 40,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     }
 ]);
 
@@ -16,13 +16,13 @@ export const contentHeader02: b.IBobrilStyleDef = b.styleDef([
     {
         color: colors.color04,
         fontSize: 17,
+        margin: 'auto auto 13px'
     }
 ]);
 
 export const contentMenu: b.IBobrilStyleDef = b.styleDef([
     {
-        width: 145,
-        margin: 'auto',
+        paddingLeft: 24,
         fontSize: '16px',
         fontWeight: 400
     }
@@ -30,12 +30,12 @@ export const contentMenu: b.IBobrilStyleDef = b.styleDef([
 
 export const contentMenuElements: b.IBobrilStyleDef = b.styleDef([
     {
-        color: '#949AA9',
+        color: 'rgb(148, 154, 169)',
+        width: 150,
+        margin: 'auto auto 13px',
+        listStyle: 'disc',
+        lineHeight: '15px',
         display: 'list-item',
-        listStyle: 'inside',
-        marginLeft: '5px',
-        paddingTop: '7.5px',
-        paddingBottom: '7.5px',
         fontSize: 15,
         cursor: 'pointer'
     }

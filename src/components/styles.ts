@@ -49,7 +49,7 @@ export const buttontext01: b.IBobrilStyleDef = b.styleDef({
 });
 
 export const paragtext01: b.IBobrilStyleDef = b.styleDef({
-    letterSpacing: `${size75}px`,
+    letterSpacing: `${size70}px`,
     fontSize: '17px',
     fontWeight: '250',
     lineHeight: '22px'

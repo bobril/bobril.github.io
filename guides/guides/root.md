@@ -6,4 +6,4 @@ metadata:
   next: "howToStart.md"
 ---
 
-<div id='menu-guides' style='font-size: 2em; font-weight:400; color: #ececed'>Guides</div>
+<div id='menu-guides' style='font-size: 34px; font-weight:400; color: #ececed; letter-spacing: 2.5px; padding-bottom: 10px'>GUIDES</div>

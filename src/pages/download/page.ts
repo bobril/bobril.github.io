@@ -8,7 +8,11 @@ const download = b.createComponent<never>({
             b.styledDiv(
                 LCenter.create({
                     children: Download.create()
-                })
+                }),
+                {
+                    paddingLeft: 90,
+                    paddingTop: 60
+                }
             )
         ];
     }
