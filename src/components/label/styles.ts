@@ -37,12 +37,12 @@ export const headerText01 = b.styleDef({
 
 export const headerText02 = b.styleDef({
     fontSize: '20px',
-    fontWeight: 400,
+    fontWeight: 400
 });
 
 export const downloadPacksLabel = b.styleDef({
     fontSize: '16px',
-    fontWeight: 400,
+    fontWeight: 400
 });
 
 export const subheading = b.styleDef({

@@ -19,9 +19,6 @@ export const create = b.createComponent<IData>({
 
         me.children = data.content;
 
-        b.style(
-            me,
-            styles.contentPc
-        );
-    },
+        b.style(me, styles.contentPc);
+    }
 });

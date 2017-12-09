@@ -2,7 +2,7 @@ import * as b from 'bobril';
 import {
     headertext01,
     headertext02,
-    paragtext01,
+    paragtext01
 } from '../../components/styles';
 
 export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
@@ -29,6 +29,4 @@ export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
     centeredPosition
 ]);
 
-export const aboutPageTextStyles = b.styleDef([
-    paragtext01
-]);
+export const aboutPageTextStyles = b.styleDef([paragtext01]);

@@ -28,11 +28,7 @@ export const create = b.createComponent<IData>({
         const d = ctx.data;
         me.children = [
             d.header &&
-                b.styledDiv(
-                    d.header,
-                    styles.header,
-                    d.menu && styles.withMenu
-                ),
+                b.styledDiv(d.header, styles.header, d.menu && styles.withMenu),
             d.menu && b.styledDiv(d.menu, styles.menu),
             d.content &&
                 b.styledDiv(

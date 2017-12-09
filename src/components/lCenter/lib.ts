@@ -10,17 +10,12 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode){
+    render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
-        me.children = [
-            d.children
-        ];
+        me.children = [d.children];
 
-        b.style(me,
-            lCenterStyle,
-            d.maxWidth && {maxWidth: d.maxWidth}
-        );
+        b.style(me, lCenterStyle, d.maxWidth && { maxWidth: d.maxWidth });
     }
 });
 

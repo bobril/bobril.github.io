@@ -1,7 +1,5 @@
 import * as b from 'bobril';
-import * as commonStyles from '../styles';
 import * as LCenter from '../../components/lCenter/lib';
-
 import * as Label from '../../components/label/lib';
 import * as Paragraph from '../../components/paragraph/lib';
 import * as Code from '../../components/code/lib';
@@ -17,24 +15,27 @@ const contentMenuItems = [
         id: 'getStartedRecord',
         name: 'GET STARTED',
         type: ContentMenu.EItemType.SectionLabel
-
-    }, {
+    },
+    {
         id: 'installIn3Steps',
         name: 'Install in 3 steps',
         type: ContentMenu.EItemType.Label
-    }, {
+    },
+    {
         id: 'helloWorld',
         name: 'Hello World!',
         type: ContentMenu.EItemType.Label
-    }, {
+    },
+    {
         id: 'firstComponent',
         name: 'First component - Counter',
         type: ContentMenu.EItemType.Label
-    }, {
+    },
+    {
         id: 'toDoList',
         name: 'Todo list - more real example',
         type: ContentMenu.EItemType.Label
-    },
+    }
 ];
 
 const getStarted = b.createComponent<never>({
@@ -59,7 +60,7 @@ const getStarted = b.createComponent<never>({
                                 todoExample(),
                                 bottomTexts()
                             ],
-                            styles.leftContentPosition,
+                            styles.leftContentPosition
                         )
                     ],
                     {
@@ -70,18 +71,14 @@ const getStarted = b.createComponent<never>({
             })
         ];
 
-        b.style(
-            me,
-            {
-                paddingLeft: 90,
-                paddingTop: 60
-            }
-        )
+        b.style(me, {
+            paddingLeft: 90,
+            paddingTop: 60
+        });
     }
 });
 
 export default getStarted;
-
 
 function gettingStarted(): b.IBobrilChildren {
     return [
@@ -132,9 +129,9 @@ npm i bobril --save`
 
         Paragraph.create({
             content:
-            'Bobril Build runs default on localhost:8080,' +
-            'but if the port is already used,' +
-            'then Bobril Build will choose another one.',
+                'Bobril Build runs default on localhost:8080,' +
+                'but if the port is already used,' +
+                'then Bobril Build will choose another one.',
             style: styles.paragText
         })
     ];
@@ -178,9 +175,9 @@ function firstComponent(): b.IBobrilChildren {
 
         Paragraph.create({
             content:
-            'Now it will be a little more complex. We create a component called Counter and then we will use it.' +
-            'The main benefit of component is, that you can use it as many times as you want.' +
-            'Generic type never to createComponent means that your component does not have any input data (in React world "props").',
+                'Now it will be a little more complex. We create a component called Counter and then we will use it.' +
+                'The main benefit of component is, that you can use it as many times as you want.' +
+                'Generic type never to createComponent means that your component does not have any input data (in React world "props").',
             style: styles.paragText
         }),
 
@@ -234,12 +231,12 @@ function bottomTexts(): b.IBobrilChildren {
     return [
         Paragraph.create({
             content:
-            'As you can see in the code above, we are able to create a pretty application with a few rows of code. ' +
-            'Check the code in more detail. Everything is written in TypeScript (even CSS). ' +
-            `Yes, you are right, if we didn't use bobril-m, the code will be much longer. Reusability is the most` +
-            ' valuable thing of component oriented frameworks. If you use existing bobril-m library or create' +
-            ' some own components, than you are able to design and implement ' +
-            'pretty application really quickly.',
+                'As you can see in the code above, we are able to create a pretty application with a few rows of code. ' +
+                'Check the code in more detail. Everything is written in TypeScript (even CSS). ' +
+                `Yes, you are right, if we didn't use bobril-m, the code will be much longer. Reusability is the most` +
+                ' valuable thing of component oriented frameworks. If you use existing bobril-m library or create' +
+                ' some own components, than you are able to design and implement ' +
+                'pretty application really quickly.',
             style: styles.paragText
         }),
 

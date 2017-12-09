@@ -4,7 +4,7 @@ import * as colors from '../../components/colors';
 
 export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
     {
-        marginBottom: '50px',
+        marginBottom: '50px'
     },
     styles.headertext01
 ]);
@@ -12,7 +12,7 @@ export const downloadLabelStyle: b.IBobrilStyleDef = b.styleDef([
 export const bottomTextStyle: b.IBobrilStyleDef = b.styleDef([
     {
         marginTop: '50px',
-        color: colors.color03,
+        color: colors.color03
     },
     styles.paragtext01
 ]);

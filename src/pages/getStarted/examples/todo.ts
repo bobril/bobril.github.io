@@ -16,7 +16,7 @@ export const create = b.createComponent<never>({
         ctx.tasks = [
             createTask('Learn Bobril', false),
             createTask('What is Bobflux?', false),
-            createTask('Try BobX!', false),
+            createTask('Try BobX!', false)
         ];
 
         ctx.newTask = createTask('', false);
@@ -72,7 +72,7 @@ export const create = b.createComponent<never>({
 });
 
 function createTask(description: string, isDone: boolean) {
-    return {description, isDone};
+    return { description, isDone };
 }
 
 function isActualTaskEmpty(ctx: IContext): boolean {
@@ -82,7 +82,7 @@ function isActualTaskEmpty(ctx: IContext): boolean {
 function getTaskView(task: ITask): b.IBobrilChildren {
     return b.styledDiv(
         task.description,
-        task.isDone && {textDecoration: 'line-through'}
+        task.isDone && { textDecoration: 'line-through' }
     );
 }
 
@@ -94,8 +94,8 @@ const taskListStyle = b.styleDef({
     height: taskListHeight,
     overflow: 'auto'
 });
-const labelStyle = b.styleDef({fontSize: 18, textAlign: 'left'});
-const taskStyle = b.styleDef({textAlign: 'left'});
+const labelStyle = b.styleDef({ fontSize: 18, textAlign: 'left' });
+const taskStyle = b.styleDef({ textAlign: 'left' });
 
 export const codeInit = '';
 export const codeComponent = `import * as b from 'bobril';

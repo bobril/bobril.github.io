@@ -10,7 +10,7 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode){
+    render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
         me.tag = 'a';
@@ -24,8 +24,8 @@ export const create = b.createComponent<IData>({
                     src: d.urlSvg,
                     alt: 'npm version',
                     height: 18
-                },
+                }
             }
-        ]
+        ];
     }
 });

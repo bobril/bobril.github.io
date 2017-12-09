@@ -5,7 +5,7 @@ interface IData {
     label: string;
     href?: string;
     action?: () => boolean;
-    newWindow? : boolean;
+    newWindow?: boolean;
 }
 
 interface IContext extends b.IBobrilCtx {
@@ -13,7 +13,7 @@ interface IContext extends b.IBobrilCtx {
 }
 
 export const create = b.createComponent<IData>({
-    render(ctx: IContext, me: b.IBobrilNode){
+    render(ctx: IContext, me: b.IBobrilNode) {
         const d = ctx.data;
 
         me.tag = 'a';
@@ -28,7 +28,7 @@ export const create = b.createComponent<IData>({
             whiteSpace: 'nowrap',
             display: 'inline',
             textDecoration: 'underline',
-            color: colors.color04,
+            color: colors.color04
         });
     },
 
@@ -37,7 +37,7 @@ export const create = b.createComponent<IData>({
         return d.action && d.action();
     },
 
-    shouldStopBubble(ctx: IContext): boolean {
+    shouldStopBubble(): boolean {
         return true;
     }
 });

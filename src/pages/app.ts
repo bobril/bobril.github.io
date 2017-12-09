@@ -68,74 +68,72 @@ const app = b.createComponent<never>({
                     ]
                 }),
                 menu:
-                ctx.menuVisible &&
-                Menu.create({
-                    children: [
-                        Menu.Button.create({
-                            isActive:
-                            actualPageId === router.introPage ||
-                            actualPageId === 'root',
-                            onClick: () => {
-                                redirect(router.introPage);
-                            },
-                            hover: false,
-                            content: 'HOME'
-                        }),
-                        Menu.Button.create({
-                            isActive: actualPageId === router.getStarted,
-                            onClick: () => {
-                                redirect(router.getStarted);
-                            },
-                            hover: false,
-                            content: 'GET STARTED'
-                        }),
-                        Menu.Button.create({
-                            isActive: actualPageId === router.download,
-                            onClick: () => {
-                                redirect(router.download);
-                            },
-                            hover: false,
-                            content: 'DOWNLOAD'
-                        }),
-                        Menu.Button.create({
-                            isActive: actualPageId === router.guides,
-                            onClick: () => {
-                                redirect(router.guides);
-                            },
-                            hover: false,
-                            content: 'GUIDES'
-                        }),
-                        Menu.Button.create({
-                            isActive: actualPageId === router.documentation,
-                            onClick: () => {
-                                redirect(router.documentation);
-                            },
-                            hover: false,
-                            content: 'DOC'
-                        }),
-                        Menu.Button.create({
-                            isActive: false,
-                            onClick: () =>
-                                window.open(
-                                    'https://github.com/Bobris/Bobril'
-                                ),
-                            hover: false,
-                            content: 'GITHUB'
-                        })
-                    ]
-                }),
+                    ctx.menuVisible &&
+                    Menu.create({
+                        children: [
+                            Menu.Button.create({
+                                isActive:
+                                    actualPageId === router.introPage ||
+                                    actualPageId === 'root',
+                                onClick: () => {
+                                    redirect(router.introPage);
+                                },
+                                hover: false,
+                                content: 'HOME'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.getStarted,
+                                onClick: () => {
+                                    redirect(router.getStarted);
+                                },
+                                hover: false,
+                                content: 'GET STARTED'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.download,
+                                onClick: () => {
+                                    redirect(router.download);
+                                },
+                                hover: false,
+                                content: 'DOWNLOAD'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.guides,
+                                onClick: () => {
+                                    redirect(router.guides);
+                                },
+                                hover: false,
+                                content: 'GUIDES'
+                            }),
+                            Menu.Button.create({
+                                isActive: actualPageId === router.documentation,
+                                onClick: () => {
+                                    redirect(router.documentation);
+                                },
+                                hover: false,
+                                content: 'DOC'
+                            }),
+                            Menu.Button.create({
+                                isActive: false,
+                                onClick: () =>
+                                    window.open(
+                                        'https://github.com/Bobris/Bobril'
+                                    ),
+                                hover: false,
+                                content: 'GITHUB'
+                            })
+                        ]
+                    }),
 
                 content: [
                     LMainContent.create({
-                        content: [
-                            me.data.activeRouteHandler()
-                        ]
+                        content: [me.data.activeRouteHandler()]
                     })
                 ]
             })
         ];
 
-        b.style(me, ctx.appHeight && {height: ctx.appHeight});
+        b.style(me, ctx.appHeight && { height: ctx.appHeight });
     },
     postUpdateDom(ctx: IContext) {
         const currHeight = Math.max(

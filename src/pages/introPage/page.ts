@@ -4,7 +4,7 @@ import * as Colors from '../../components/colors';
 import * as About from './sections/about';
 import * as LCenter from '../../components/lCenter/lib';
 import * as Intro from '../introPage/sections/intro';
-import {appBarHeight} from '../../components/appBar/lib';
+import { appBarHeight } from '../../components/appBar/lib';
 
 const bobrilIntroMinHeight = 700;
 

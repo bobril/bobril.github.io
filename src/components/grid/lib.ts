@@ -15,12 +15,7 @@ export const create = b.createComponent<IData>({
         let children: b.IBobrilChildren[] = [];
 
         d.items.forEach((item, index) => {
-            children.push(
-                b.styledDiv(
-                    item,
-                    styles.itemStyle
-                )
-            );
+            children.push(b.styledDiv(item, styles.itemStyle));
         });
 
         me.children = children;

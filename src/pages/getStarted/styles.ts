@@ -10,7 +10,7 @@ export const headerText01: b.IBobrilStyleDef = b.styleDef([
     {
         paddingBottom: 10
     },
-    styles.headertext01,
+    styles.headertext01
 ]);
 
 export const headerText02: b.IBobrilStyleDef = b.styleDef([
@@ -19,26 +19,26 @@ export const headerText02: b.IBobrilStyleDef = b.styleDef([
         textDecoration: 'underline',
         marginBottom: 16
     },
-    styles.headertext02,
+    styles.headertext02
 ]);
 
 export const paragText: b.IBobrilStyleDef = b.styleDef([
     {
         marginBottom: 16
     },
-    styles.paragtext01,
+    styles.paragtext01
 ]);
 
 export const bottomText: b.IBobrilStyleDef = b.styleDef([
     {
         textAlign: 'center'
     },
-    styles.headertext02,
+    styles.headertext02
 ]);
 
 export const leftContentPosition: b.IBobrilStyleDef = b.styleDef([
     {
-        paddingRight: rightMenuMargin * 3 + rightMenuWidth + 90,
+        paddingRight: rightMenuMargin * 3 + rightMenuWidth + 90
     }
 ]);
 

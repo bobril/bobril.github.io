@@ -48,7 +48,7 @@ export const codeWrapper = b.styleDef([
         marginTop: codePadding,
         marginBottom: codePadding,
         tableLayout: 'fixed'
-    },
+    }
 ]);
 
 export const codeStyle: b.IBobrilStyleDef = b.styleDef([
@@ -61,7 +61,8 @@ export const codeStyle: b.IBobrilStyleDef = b.styleDef([
         paddingBottom: 7.5,
         paddingTop: 7.5,
         paddingLeft: 8,
-        fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace'
+        fontFamily:
+            '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace'
     }
 ]);
 

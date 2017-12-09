@@ -4,7 +4,7 @@ import * as menuStyles from './styles';
 export interface IData {
     hover: boolean;
     content: b.IBobrilChildren;
-    onClick:  () => void;
+    onClick: () => void;
     isActive?: boolean;
 }
 
@@ -31,12 +31,12 @@ export const create = b.createComponent<IData>({
         return false;
     },
 
-    onMouseEnter(ctx: IContext){
+    onMouseEnter(ctx: IContext) {
         ctx.data.hover = true;
         b.invalidate(ctx);
     },
 
-    onMouseLeave(ctx: IContext){
+    onMouseLeave(ctx: IContext) {
         ctx.data.hover = false;
         b.invalidate(ctx);
     }
