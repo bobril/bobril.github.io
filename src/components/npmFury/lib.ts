@@ -15,7 +15,8 @@ export const create = b.createComponent<IData>({
 
         me.tag = 'a';
         me.attrs = {
-            href: d.url
+            href: d.url,
+            target: '_blank'
         };
         me.children = [
             {

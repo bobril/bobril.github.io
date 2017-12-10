@@ -20,7 +20,7 @@ export const create = b.createComponent<IData>({
                         size: Label.LabelSize.DownloadPacksLabel,
                         style: styles.rowLabel
                     }),
-                    b.styledDiv([ctx.data.content], styles.rowContent)
+                    b.styledDiv(ctx.data.content, styles.rowContent)
                 ],
                 styles.rowStyle
             )
