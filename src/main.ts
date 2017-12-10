@@ -115,7 +115,7 @@ function injectMarkDownCss() {
     b.injectCss(
         `.markdown-body p {  
                    margin-bottom: 16px !important;
-                   letter-spacing: 2px !important;
+                   letter-spacing: 1.5px !important;
                    font-size: 17px !important;
                    font-weight: 200 !important;
                    line-height: 22px !important;

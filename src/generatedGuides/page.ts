@@ -49,7 +49,6 @@
                             console.warn('Cannot find element with id:', 'menu-guides');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -94,7 +93,6 @@
                             console.warn('Cannot find element with id:', 'menu-getting-started');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -131,7 +129,6 @@
                             console.warn('Cannot find element with id:', 'menu-bobflux');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -168,7 +165,6 @@
                             console.warn('Cannot find element with id:', 'menu-localizations');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -205,7 +201,6 @@
                             console.warn('Cannot find element with id:', 'menu-routing');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -242,7 +237,6 @@
                             console.warn('Cannot find element with id:', 'menu-bobril-build');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -279,7 +273,6 @@
                             console.warn('Cannot find element with id:', 'menu-bobx');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }

@@ -13,7 +13,8 @@ export const create = b.createComponent<IData>({
             width: 160,
             height: 2,
             background: colors.color01,
-            margin: 'auto'
+            margin: 'auto',
+            opacity: 0.75
         });
 
         b.style(me, dividerStyle);

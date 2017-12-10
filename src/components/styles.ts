@@ -2,7 +2,7 @@ import * as b from 'bobril';
 import * as colors from './colors';
 
 let size75 = 2.5;
-let size70 = 2;
+let size70 = 1.5;
 let size0 = 0;
 
 export const menutext01: b.IBobrilStyleDef = b.styleDef({
@@ -24,7 +24,7 @@ export const menutext01b: b.IBobrilStyleDef = b.styleDef({
 });
 
 export const menutext02: b.IBobrilStyleDef = b.styleDef({
-    letterSpacing: `${size75}px`,
+    letterSpacing: `${size70}px`,
     fontSize: '15px',
     fontWeight: '700'
 });

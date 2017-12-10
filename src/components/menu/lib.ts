@@ -37,8 +37,9 @@ export const create = b.createComponent<IData>({
                 ctx.data.children.map((button, index) => {
                     return b.styledDiv(button, {
                         background: styles.foregroundColor,
-                        height: `${
-                            index + 1 === ctx.data.children.length ? 75 : 34
+                        paddingTop: index !== 0 ? 14 : 0,
+                        paddingBottom: `${
+                            index + 1 === ctx.data.children.length ? 72 : 14
                         }px`,
                         width: styles.width
                     });

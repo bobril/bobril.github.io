@@ -49,7 +49,6 @@
                             console.warn('Cannot find element with id:', 'menu-introduction');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -94,7 +93,6 @@
                             console.warn('Cannot find element with id:', 'menu-why-own-framework');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -143,7 +141,6 @@
                             console.warn('Cannot find element with id:', 'menu-docs');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -188,7 +185,6 @@
                             console.warn('Cannot find element with id:', 'menu-virtual-dom');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -225,7 +221,6 @@
                             console.warn('Cannot find element with id:', 'menu-bobril-node');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -262,7 +257,6 @@
                             console.warn('Cannot find element with id:', 'menu-initialization');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -299,7 +293,6 @@
                             console.warn('Cannot find element with id:', 'menu-bobril-component');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -336,7 +329,6 @@
                             console.warn('Cannot find element with id:', 'menu-events');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -373,7 +365,6 @@
                             console.warn('Cannot find element with id:', 'menu-assets');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -410,7 +401,6 @@
                             console.warn('Cannot find element with id:', 'menu-responsive-design');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -459,7 +449,6 @@
                             console.warn('Cannot find element with id:', 'menu-community');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
@@ -504,7 +493,6 @@
                             console.warn('Cannot find element with id:', 'menu-examples');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }

@@ -5,7 +5,7 @@ export function generateMenu(nodes): string {
     nodes.forEach((node) => {
         output.push(generateMenuFromNode(node));
     });
-    console.log(output.join(','));
+
     return output.join(',');
 }
 
@@ -93,7 +93,6 @@ function generateMenuItem(menuItemCfg) {
                             console.warn('Cannot find element with id:', '${menuItemCfg.menuAnchor}');
                             return;
                         }
-                        console.log(this);
                         var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
