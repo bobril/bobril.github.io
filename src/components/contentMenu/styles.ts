@@ -1,5 +1,4 @@
 import * as b from 'bobril';
-import * as styles from './../../components/styles';
 import * as colors from './../../components/colors';
 
 export const contentHeader01: b.IBobrilStyleDef = b.styleDef([

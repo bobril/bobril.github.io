@@ -1,6 +1,6 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
-import * as styles from '../styles';
+import * as fonts from '../fonts';
 import { appBarHeight } from './dimensions';
 
 export const rightContainer = b.styleDef({
@@ -26,7 +26,7 @@ export const menuButton = b.styleDef([
         marginLeft: '24px',
         color: colors.color04
     },
-    styles.menutext01
+    fonts.menutext01
 ]);
 
 export const menuIconButton = b.styleDef({
@@ -39,7 +39,7 @@ export const gitButton = b.styleDef([
         lineHeight: `${appBarHeight}px`,
         color: colors.color04
     },
-    styles.menutext01s
+    fonts.menutext01s
 ]);
 
 export const buttonStyle = b.styleDef({

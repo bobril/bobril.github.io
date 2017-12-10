@@ -1,6 +1,6 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
-import * as styles from '../styles';
+import * as fonts from '../fonts';
 
 export const width = 240;
 export const imgHeight = 113;
@@ -21,7 +21,7 @@ export const buttonStyle = b.styleDef([
         color: colors.color01,
         background: foregroundColor
     },
-    styles.menutext02
+    fonts.menutext02
 ]);
 
 export const buttonHoverStyle = b.styleDef({

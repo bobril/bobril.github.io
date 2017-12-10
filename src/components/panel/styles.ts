@@ -1,6 +1,6 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
-import * as styles from '../styles';
+import * as fonts from '../fonts';
 
 export const iconDim = 40;
 export const panelWidth = 320;
@@ -17,7 +17,7 @@ export const labelStyle = b.styleDef([
     {
         color: colors.color02
     },
-    styles.menutext01b
+    fonts.menutext01b
 ]);
 
 export const textStyle = b.styleDef([
@@ -25,7 +25,7 @@ export const textStyle = b.styleDef([
         color: colors.color02,
         marginTop: 12
     },
-    styles.smalltext01
+    fonts.smalltext01
 ]);
 
 export const leftContainer = b.styleDef({

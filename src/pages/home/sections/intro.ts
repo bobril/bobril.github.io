@@ -1,10 +1,10 @@
 import * as b from 'bobril';
+import * as router from '../../../pages/router';
+import * as assets from '../../../assets/assets';
 import * as styles from '../styles';
 import * as Button from '../../../components/button/lib';
 import * as Label from '../../../components/label/lib';
-import * as router from '../../../pages/router';
 import * as Image from '../../../components/image/lib';
-import * as assets from '../../../assets/assets';
 
 export const create = b.createComponent<never>({
     render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
@@ -13,7 +13,7 @@ export const create = b.createComponent<never>({
                 asset: assets.bobrilLogo,
                 width: 555,
                 height: 549,
-                style: styles.centeredPosition
+                style: styles.mixinCenterPosition
             }),
             Label.create({
                 label: 'BOBRIL',

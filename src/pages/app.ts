@@ -6,6 +6,7 @@ import * as router from './router';
 import * as Image from '../components/image/lib';
 import * as assets from '../assets/assets';
 import * as Menu from '../components/menu/lib';
+import * as styles from './styles';
 
 interface IContext extends b.IBobrilCtx {
     appHeight: number;
@@ -30,7 +31,7 @@ const app = b.createComponent<never>({
                         ? BasicLayout.BasicLayoutVariant.noTopPadding
                         : BasicLayout.BasicLayoutVariant.default,
                 header: AppBar.create({
-                    contentWidth: 1200,
+                    contentWidth: styles.maxPageWidth,
                     leftChildren: [
                         AppBar.Button.create({
                             content: Image.create({
@@ -127,7 +128,7 @@ const app = b.createComponent<never>({
 
                 content: [
                     LMainContent.create({
-                        content: [me.data.activeRouteHandler()]
+                        content: me.data.activeRouteHandler()
                     })
                 ]
             })

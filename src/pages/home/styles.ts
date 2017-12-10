@@ -1,11 +1,23 @@
 import * as b from 'bobril';
-import {
-    headertext01,
-    headertext02,
-    paragtext01
-} from '../../components/styles';
+import * as colors from '../../components/colors';
+import  * as fonts from '../../components/fonts';
+import { appBarHeight } from '../../components/appBar/lib';
 
-export const centeredPosition: b.IBobrilStyleDef = b.styleDef({
+const introPartMinHeight = 700;
+
+export const introPartStyle = b.styleDef({
+    textAlign: 'center',
+    height: `calc(100vh - ${appBarHeight}px)`,
+    minHeight: `${introPartMinHeight}px`
+});
+
+export const aboutPartStyle = b.styleDef({
+    textAlign: 'center',
+    background: colors.color01,
+    padding: 120
+});
+
+export const mixinCenterPosition: b.IBobrilStyleDef = b.styleDef({
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -17,16 +29,16 @@ export const introPageIsAComponentText: b.IBobrilStyleDef = b.styleDef([
         marginTop: '235px',
         minWidth: '912px'
     },
-    headertext02,
-    centeredPosition
+    fonts.headertext02,
+    mixinCenterPosition
 ]);
 
 export const introPageBobrilText: b.IBobrilStyleDef = b.styleDef([
     {
         marginTop: '172px'
     },
-    headertext01,
-    centeredPosition
+    fonts.headertext01,
+    mixinCenterPosition
 ]);
 
-export const aboutPageTextStyles = b.styleDef([paragtext01]);
+export const aboutPageTextStyles = b.styleDef([fonts.paragtext01]);

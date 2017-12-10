@@ -1,5 +1,5 @@
 import * as b from 'bobril';
-import * as styles from '../../components/styles';
+import * as fonts from '../../components/fonts';
 import * as colors from '../../components/colors';
 import * as AppBar from '../../components/appBar/lib';
 
@@ -10,7 +10,7 @@ export const headerText01: b.IBobrilStyleDef = b.styleDef([
     {
         paddingBottom: 10
     },
-    styles.headertext01
+    fonts.headertext01
 ]);
 
 export const headerText02: b.IBobrilStyleDef = b.styleDef([
@@ -19,21 +19,21 @@ export const headerText02: b.IBobrilStyleDef = b.styleDef([
         textDecoration: 'underline',
         marginBottom: 16
     },
-    styles.headertext02
+    fonts.headertext02
 ]);
 
 export const paragText: b.IBobrilStyleDef = b.styleDef([
     {
         marginBottom: 16
     },
-    styles.paragtext01
+    fonts.paragtext01
 ]);
 
 export const bottomText: b.IBobrilStyleDef = b.styleDef([
     {
         textAlign: 'center'
     },
-    styles.headertext02
+    fonts.headertext02
 ]);
 
 export const leftContentPosition: b.IBobrilStyleDef = b.styleDef([

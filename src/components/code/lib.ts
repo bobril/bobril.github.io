@@ -1,6 +1,5 @@
 import * as b from 'bobril';
 import * as colors from '../colors';
-import * as styles from '../styles';
 
 interface IData {
     children: b.IBobrilChildren;

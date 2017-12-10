@@ -1,4 +1,4 @@
-import * as styles from '../styles';
+import * as fonts from '../fonts';
 import * as b from 'bobril';
 import * as colors from '../colors';
 
@@ -29,7 +29,7 @@ export const whiteButton: b.IBobrilStyleDef = b.styleDef([
         marginTop: '327px',
         marginLeft: '-129px'
     },
-    styles.buttontext01,
+    fonts.buttontext01,
     centeredPosition
 ]);
 
@@ -55,7 +55,7 @@ export const blackButton: b.IBobrilStyleDef = b.styleDef([
         marginTop: '327px',
         marginLeft: '129px'
     },
-    styles.buttontext01,
+    fonts.buttontext01,
     centeredPosition
 ]);
 
