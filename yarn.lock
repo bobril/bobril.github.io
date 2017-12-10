@@ -22,7 +22,7 @@ bail@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/bail/-/bail-1.0.2.tgz#f7d6c1731630a9f9f0d4d35ed1f962e2074a1764"
 
-bobflux@^9.0.1:
+bobflux@*:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/bobflux/-/bobflux-9.0.1.tgz#8835d66735714bbdc3a28dc18ab4fdd36cb09ced"
   dependencies:
@@ -261,7 +261,7 @@ parse-entities@^1.0.2:
     is-decimal "^1.0.0"
     is-hexadecimal "^1.0.0"
 
-path@^0.12.7:
+path@*:
   version "0.12.7"
   resolved "https://registry.yarnpkg.com/path/-/path-0.12.7.tgz#d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f"
   dependencies:
@@ -272,7 +272,7 @@ process@^0.11.1:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
 
-remark-bobril@^1.0.1:
+remark-bobril@*:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/remark-bobril/-/remark-bobril-1.0.2.tgz#fc8fc8de3ae253fbac361e55ac1f597fb2bbcd59"
   dependencies:
@@ -285,7 +285,7 @@ remark-frontmatter@*:
     fault "^1.0.1"
     xtend "^4.0.1"
 
-remark-highlight.js@^5.0.0:
+remark-highlight.js@*:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/remark-highlight.js/-/remark-highlight.js-5.0.0.tgz#468fb8ac6e1702bd44ee9670e172e26e2fa0f05a"
   dependencies:
@@ -331,7 +331,7 @@ remark-stringify@^4.0.0:
     unherit "^1.0.4"
     xtend "^4.0.1"
 
-remark-yaml-meta@^0.1.0:
+remark-yaml-meta@*:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/remark-yaml-meta/-/remark-yaml-meta-0.1.0.tgz#32fa7975ef475dde2cdee210d752a965bfcbdd77"
   dependencies:

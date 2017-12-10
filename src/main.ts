@@ -12,7 +12,11 @@ loadGithubMarkdownStyles();
 
 b.routes(
     b.route({ handler: app }, [
-        b.route({ url: `/${router.home}`, name: router.home, handler: intro }),
+        b.route({
+            url: `/${router.home}`,
+            name: router.home,
+            handler: intro
+        }),
         b.route({
             url: `/${router.guides}`,
             name: router.guides,
@@ -49,11 +53,11 @@ function loadGithubMarkdownStyles() {
         s.setAttribute('href', markdownCss);
         head.appendChild(s);
         b.injectCss(
-            'html,body{' +
-                'margin:0; padding:0; ' +
-                'height:100%; ' +
-                'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important' +
-                '}'
+            `html,body{
+                     margin:0; padding:0;
+                     height:100%;
+                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+                  }`
         );
 
         injectMarkDownCss();
@@ -65,9 +69,9 @@ function injectMarkDownCss() {
 
     //color of text on Guides and DOC pages
     b.injectCss(`.markdown-body {
-    color: ${colors.color04} !important;
-    line-height: initial !important;
-    }  `);
+                        color: ${colors.color04} !important;
+                        line-height: initial !important;
+                      }  `);
 
     b.injectCss(
         `.markdown-body a {
@@ -129,16 +133,16 @@ function injectMarkDownCss() {
 
     //underline for headers on Guides and Docs
     b.injectCss(
-        '.markdown-body h2 {' +
-            'margin: 0 !important' +
-            'padding-top: 30px !important;' +
-            'text-decoration: underline !important;' +
-            'margin-bottom: 16px; !important' +
-            'letter-spacing: 2px !important;' +
-            'font-size: 20px !important;' +
-            'font-weight: 250 !important;' +
-            'line-height: 24px !important;' +
-            'border: none !important' +
-            '}'
+        `.markdown-body h2 {
+                    margin: 0 !important;
+                    padding-top: 30px !important;
+                    text-decoration: underline !important;
+                    margin-bottom: 16px; !important;
+                    letter-spacing: 2px !important;
+                    font-size: 20px !important;
+                    font-weight: 250 !important;
+                    line-height: 24px !important;
+                    border: none !important';
+              }`
     );
 }

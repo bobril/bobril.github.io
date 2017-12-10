@@ -73,10 +73,10 @@ const app = b.createComponent<never>({
                         children: [
                             Menu.Button.create({
                                 isActive:
-                                    actualPageId === router.introPage ||
+                                    actualPageId === router.home ||
                                     actualPageId === 'root',
                                 onClick: () => {
-                                    redirect(router.introPage);
+                                    redirect(router.home);
                                 },
                                 hover: false,
                                 content: 'HOME'

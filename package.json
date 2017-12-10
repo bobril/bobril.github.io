@@ -33,7 +33,7 @@
         "build": "npm run build-guides && npm run build-doc && npm run build-page"
     },
     "dependencies": {
-        "bobflux": "^9.0.1",
+        "bobflux": "*",
         "bobril": "*",
         "bobril-highlightjs": "*",
         "bobril-m": "*",
@@ -43,12 +43,12 @@
         "fs-extra": "*",
         "github-markdown-css": "*",
         "js-yaml": "*",
-        "path": "^0.12.7",
+        "path": "*",
         "remark": "*",
-        "remark-bobril": "^1.0.1",
+        "remark-bobril": "*",
         "remark-frontmatter": "*",
-        "remark-highlight.js": "^5.0.0",
-        "remark-yaml-meta": "^0.1.0"
+        "remark-highlight.js": "*",
+        "remark-yaml-meta": "*"
     },
     "resolutions": {
         "array-back": "2.0.0",
