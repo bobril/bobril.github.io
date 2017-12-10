@@ -1,7 +1,7 @@
 import * as b from 'bobril';
 import * as row from './row';
 import * as npmFury from '../../../components/npmFury/lib';
-import {color02} from "../../../components/colors";
+import * as styles from './styles';
 
 export const create = b.createComponent<never>({
     render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
@@ -71,12 +71,6 @@ export const create = b.createComponent<never>({
             })
         ];
 
-        b.style(me, {
-            width: 720,
-            paddingTop: 40,
-            paddingBottom: 40,
-            paddingLeft: 80,
-            background: '#65697A'
-        })
+        b.style(me, styles.packagesTableStyle)
     }
 });

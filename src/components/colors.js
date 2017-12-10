@@ -5,4 +5,5 @@ exports.color02 = '#5a5f70';
 exports.color03 = '#cacdd4';
 exports.color04 = '#ececed';
 exports.color05 = '#ffffff';
+exports.downloadTableColor = '#65697A';
 //# sourceMappingURL=colors.js.map

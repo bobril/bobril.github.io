@@ -3,7 +3,7 @@ import * as router from './pages/router';
 import app from './pages/app';
 import documentation from './pages/documentation/page';
 import guides from './pages/guides/page';
-import intro from './pages/introPage/page';
+import intro from './pages/home/page';
 import download from './pages/download/page';
 import getStarted from './pages/getStarted/page';
 import * as colors from './components/colors';
