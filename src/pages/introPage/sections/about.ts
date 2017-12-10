@@ -11,7 +11,11 @@ import * as Paragraph from '../../../components/paragraph/lib';
 
 export const create = b.createComponent<never>({
     render(ctx: b.IBobrilCtx, me: b.IBobrilNode) {
-        me.children = [comparedTextArea(), panels(), bobrilText()];
+        me.children = [
+            getMotivationIntroText(),
+            getFeaturesPanels(),
+            getFooterText()
+        ];
 
         b.style(me, {
             background: colors.color01,
@@ -22,10 +26,10 @@ export const create = b.createComponent<never>({
     }
 });
 
-function comparedTextArea() {
+function getMotivationIntroText() {
     return Paragraph.create({
         content:
-            ' Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
+            'Compared to ReactJS Added speed, autoprefixer, CSS in JS, router, additional lifecycle methods, ' +
             'only rAF based repaint. Bobril ignores Isomorphic JavaScript, because it would increase size and is not ' +
             'needed for SEO anyway (Google bot supports JavaScript). Client applications are expected to be written in ' +
             'TypeScript. Because it is heavily used in production, backward compatibility is king. Any new feature must ' +
@@ -34,7 +38,7 @@ function comparedTextArea() {
     });
 }
 
-function panels() {
+function getFeaturesPanels() {
     return b.styledDiv(
         Grid.create({
             columns: 3,
@@ -104,19 +108,18 @@ function panels() {
     );
 }
 
-function bobrilText() {
+function getFooterText() {
     return [
         b.styledDiv(
             [
                 Paragraph.create({
                     content: [
-                        'For modern design you can use bobril material design implementation ',
                         Href.create({
                             href: 'https://github.com/Bobris/bobril-build',
                             newWindow: true,
                             label: 'Bobril Build'
                         }),
-                        '. It will ensure continuous build of your application. ' +
+                        ' will ensure continuous build of your application. ' +
                             'It supports: copying sprites, building big sprites, i18n.' +
                             ' Bobril provide all this during optimal TypeScript compilation.'
                     ],

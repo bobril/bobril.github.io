@@ -137,12 +137,12 @@ function injectMarkDownCss() {
                     margin: 0 !important;
                     padding-top: 30px !important;
                     text-decoration: underline !important;
-                    margin-bottom: 16px; !important;
+                    margin-bottom: 16px !important;
                     letter-spacing: 2px !important;
                     font-size: 20px !important;
                     font-weight: 250 !important;
                     line-height: 24px !important;
-                    border: none !important';
+                    border: none !important;
               }`
     );
 }
