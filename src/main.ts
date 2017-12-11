@@ -117,7 +117,7 @@ function injectMarkDownCss() {
                    margin-bottom: 16px !important;
                    letter-spacing: 1.5px !important;
                    font-size: 17px !important;
-                   font-weight: 200 !important;
+                   font-weight: 400 !important;
                    line-height: 22px !important;
               }`
     );
@@ -140,7 +140,7 @@ function injectMarkDownCss() {
                     margin-bottom: 16px !important;
                     letter-spacing: 2px !important;
                     font-size: 20px !important;
-                    font-weight: 250 !important;
+                    font-weight: 600 !important;
                     line-height: 24px !important;
                     border: none !important;
               }`
