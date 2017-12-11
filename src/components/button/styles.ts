@@ -25,7 +25,7 @@ export const whiteButton: b.IBobrilStyleDef = b.styleDef([
         color: colors.color01,
         opacity: 1,
         boxShadow:
-            '4px 4px 2px rgba(22, 24, 26, 0.15), 0 6px 10px 0 rgba(22, 24, 26, 0.15)',
+            '2px 2px 1px rgba(22, 24, 26, 0.15), 0 3px 5px 0 rgba(22, 24, 26, 0.15)',
         marginTop: '327px',
         marginLeft: '-129px'
     },
@@ -51,7 +51,7 @@ export const blackButton: b.IBobrilStyleDef = b.styleDef([
         color: colors.color04,
         opacity: 0.95,
         boxShadow:
-            '2px 2px 2px rgba(22, 24, 26, 0.3), 0 4px 10px 0 rgba(22, 24, 26, 0.3)',
+            '1px 1px 1px rgba(22, 24, 26, 0.3), 0 2px 5px 0 rgba(22, 24, 26, 0.3)',
         marginTop: '327px',
         marginLeft: '129px'
     },
