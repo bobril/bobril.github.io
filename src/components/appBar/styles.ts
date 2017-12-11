@@ -16,8 +16,8 @@ export const appBarStyle = b.styleDef({
     overflow: 'auto',
     height: appBarHeight,
     zIndex: 500,
-    paddingLeft: 30,
-    paddingRight: 30
+    paddingLeft: 120,
+    paddingRight: 117
 });
 
 export const menuButton = b.styleDef([

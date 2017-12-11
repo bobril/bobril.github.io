@@ -8,7 +8,6 @@ const defaultPadding = 30;
 
 export const basicLayout = b.styleDef({
     minHeight: 750,
-    minWidth: 1200,
     position: 'relative',
     overflow: 'hidden'
 });

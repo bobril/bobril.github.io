@@ -47,11 +47,14 @@ If you consider something as important and it is not described enough here, don'
 1. Create a *.md file in the chapter/section you want to contribute to
 1. Insert the data below to the top of the file and edit attributes: menuLabel, menuAnchor, previous, next.
 ``` 
-    [//]: <> (!!! ORDER OF ROWS IS REQUIRED !!!)
-    [//]: <> (menuLabel:'Basics')
-    [//]: <> (menuAnchor:'menu-basics')
-    [//]: <> (previous:'root.md';next: 'bobrilComponent.md')
-    <h2 id='menu-basics'>Basics</h2>
+      ---
+      metadata:
+        menuLabel: "Bobril Node"
+        menuAnchor: "menu-bobril-node"
+        previous: "virtualDom.md"
+        next: "initialization.md"
+      ---
+      <h2 id='menu-bobril-node'>Basics</h2>
 ```
 1. The attributes ensure the correct configuration of documentation
 1. Please be very careful! Documentation's generator is under the hard development and some edge cases 
