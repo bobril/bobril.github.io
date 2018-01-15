@@ -6,6 +6,7 @@ export const width = 240;
 export const imgHeight = 113;
 
 export const foregroundColor = colors.color04;
+const buttonHoverActive = '#8990ad';
 
 export const menuStyle = b.styleDef({
     height: '100vh',
@@ -26,12 +27,12 @@ export const buttonStyle = b.styleDef([
 
 export const buttonHoverStyle = b.styleDef({
     opacity: 1,
-    color: colors.color03
+    color: buttonHoverActive
 });
 
 export const buttonActiveStyle = b.styleDef({
     opacity: 1,
-    color: colors.color03
+    color: buttonHoverActive
 });
 
 export const imgStyle = b.styleDef({
