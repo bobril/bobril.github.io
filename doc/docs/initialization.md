@@ -6,8 +6,8 @@ metadata:
   next: "bobrilComponent.md"
 ---
 
-<h2 id='menu-initialization'>Initialization</h2>
+<h3 id='menu-initialization'>Initialization</h3>
 
-#### b.init
-#### b.addRoot
-#### b.invalidate
+##### b.init
+##### b.addRoot
+##### b.invalidate

@@ -6,24 +6,24 @@ metadata:
   next: "events.md"
 ---
 
-<h2 id='menu-bobril-component'>Bobril Component</h2>
+<h3 id='menu-bobril-component'>Bobril Component</h3>
 
-### Lifecycle
-#### init
-#### render
-#### postRender
-#### postInitDom
-#### postUpdateDom
-#### postUpdateDomEverytime
-#### shouldChange
-#### destroy
-#### canActivate
-#### canDeactivate
+#### Lifecycle
+##### init
+##### render
+##### postRender
+##### postInitDom
+##### postUpdateDom
+##### postUpdateDomEverytime
+##### shouldChange
+##### destroy
+##### canActivate
+##### canDeactivate
 
-### Component Creation
-#### Context
-#### IData Interface
-#### createComponent
+#### Component Creation
+##### Context
+##### IData Interface
+##### createComponent
 `createComponent` is a base function for construct components. It accepts the `IBobrilComponent` object, which contains all lifecycle methods (`init`, `render`, `postInitDom`, etc.) and returns a function, which accepts typed data that are passed in `IBobrilCtx` to the defined lifecycle methods. Invocation of the created function will return [IBobrilNode](#createcomponent).
 Example below illustrates how to create and use a simple ul/li list component.  
 
@@ -87,6 +87,6 @@ Animals
 * bird
 
 
-#### createDerivedComponent
-#### createOverridingComponent
-#### createVirtualComponent
+##### createDerivedComponent
+##### createOverridingComponent
+##### createVirtualComponent

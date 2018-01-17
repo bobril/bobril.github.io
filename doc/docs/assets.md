@@ -6,11 +6,11 @@ metadata:
   next: "responsiveDesign.md"
 ---
 
-<h2 id='menu-assets'>Assets</h2>
+<h3 id='menu-assets'>Assets</h3>
 
-### CSS Injection
-#### b.injectCss
+#### CSS Injection
+##### b.injectCss
 
-### Loading Assets
-#### b.asset
-#### b.sprite
+#### Loading Assets
+##### b.asset
+##### b.sprite

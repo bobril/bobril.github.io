@@ -13,7 +13,8 @@ export interface IItem {
     id: string;
 }
 
-export interface IData extends IItem {}
+export interface IData extends IItem {
+}
 
 export interface IContext extends b.IBobrilCtx {
     data: IData;
@@ -21,7 +22,7 @@ export interface IContext extends b.IBobrilCtx {
 
 export const create = b.createComponent<IData>({
     init(ctx: IContext, me: b.IBobrilNode) {
-        me.attrs = { id: `${ctx.data.id}Record` };
+        me.attrs = {id: `${ctx.data.id}Record`};
     },
 
     render(ctx: IContext, me: b.IBobrilNode) {
@@ -29,7 +30,10 @@ export const create = b.createComponent<IData>({
         me.children = Label.create({
             label: d.name,
             size: Label.LabelSize.DownloadPacksLabel,
-            style: getItemStyle(d.type)
+            style: [
+                getItemStyle(d.type),
+                {cursor: 'pointer'}
+            ]
         });
         b.style(me, styles.contentMenu);
     },

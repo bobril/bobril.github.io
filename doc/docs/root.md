@@ -1,12 +1,12 @@
 ---
 metadata:
-  menuLabel: "Docs"
-  menuAnchor: "menu-docs"
+  menuLabel: "DEVELOPER GUIDE"
+  menuAnchor: "menu-developer-guide"
   previous: ""
   next: "initialization.md"
 ---
 
-<div id='menu-docs'style='font-size: 34px; font-weight:400; color: #ececed; letter-spacing: 2.5px; padding-bottom: 10px'>DOCS</div>
+<h2 id='menu-developer-guide'>DEVELOPER GUIDE</h2>
 
 Bobril is component oriented framework with very lightweight virtual dom. It has no dependencies.
 

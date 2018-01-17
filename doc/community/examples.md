@@ -6,6 +6,6 @@ metadata:
   next: ""
 ---
 
-<h2 id='menu-examples'>Examples</h2>
+<h3 id='menu-examples'>Examples</h3>
 * [Bobril-build examples here.](https://github.com/Bobris/Bobril/tree/master/bbExamples)
 * [Older examples here.](https://github.com/Bobris/Bobril/tree/master/examples)

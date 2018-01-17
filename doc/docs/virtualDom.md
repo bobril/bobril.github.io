@@ -6,7 +6,7 @@ metadata:
   next: "bobrilNode.md"
 ---
 
-<h2 id='menu-virtual-dom'>Virtual Dom</h2>
+<h3 id='menu-virtual-dom'>Virtual Dom</h3>
 
 Very basic examples to explain how the virtual dom is build by pure JS objects. Of course nothing prevents you to create your own helper functions to shorten code to less than original HTML.
 
@@ -23,7 +23,7 @@ HTML | Bobril
 `<div><br></div>` | `{ tag:"div", children: { tag:"br" } }`
 `<div><span>A</span>B</div>` | `{ tag:"div", children: [ { tag:"span", children: "A" }, "B" ] }`
 
-#### Children member in virtual dom could be: 
+##### Children member in virtual dom could be: 
 * `undefined`
 * `null`
 * `false`

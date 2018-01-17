@@ -6,7 +6,7 @@ metadata:
   next: "initialization.md"
 ---
 
-<h2 id='menu-bobril-node'>Bobril Node</h2>
+<h3 id='menu-bobril-node'>Bobril Node</h3>
 
 More variants of bobril node exist: 
 * `IBobrilNodeWithTag`
@@ -39,7 +39,7 @@ interface IBobrilNodeCommon {
 
 For a complete description of interfaces see: [Bobril definition file](https://github.com/Bobris/Bobril/blob/master/dist/bobril.d.ts).
 
-### Tag 
+#### Tag 
 
 `tag`
 
@@ -52,7 +52,7 @@ Normally you should not need it, but if you will use it, be very careful about X
 
 When `tag` is `"svg"`, Bobril automatically adds all namespace crap, so your code is more readable.
 
-### Attrs
+#### Attrs
 
 `attrs`
 
@@ -60,7 +60,7 @@ Field `attrs` is just JS object.
 
 **Warning**: Because `for` is reserved word in JS it must be written as `htmlFor`.
 
-### Style
+#### Style
 
 `style`
 
@@ -68,13 +68,13 @@ Attribute `style` is handled specially. It could be string or object. String cas
 
 **Warning**: For `style` key `float` must be written as `cssFloat` because it is also reserved keyword.
 
-### Children
+#### Children
 
 `children`
 
 As a children, you can append any virtual dom member. 
 
-### Component
+#### Component
 
 `component`
 

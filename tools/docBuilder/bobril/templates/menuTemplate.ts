@@ -37,7 +37,7 @@ function generateMenuFromNode(node): string {
                                 moveLeftUnit: 20,
                                 captialize: true,
                                 shouldMoveLeft: true,
-                                fontSize: 16,
+                                fontSize: 15,
                                 lineHeight: 18
                             }
                         )

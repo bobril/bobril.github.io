@@ -58,6 +58,6 @@ export const paragtext01: b.IBobrilStyleDef = b.styleDef({
 export const smalltext01: b.IBobrilStyleDef = b.styleDef({
     letterSpacing: `${size0}px`,
     fontSize: '14px',
-    fontWeight: '300',
+    fontWeight: '400',
     lineHeight: '17px'
 });

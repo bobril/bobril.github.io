@@ -15,7 +15,7 @@ export const headerText01: b.IBobrilStyleDef = b.styleDef([
 
 export const headerText02: b.IBobrilStyleDef = b.styleDef([
     {
-        paddingTop: 30,
+        paddingTop: 60,
         textDecoration: 'underline',
         marginBottom: 16
     },
@@ -31,7 +31,8 @@ export const paragText: b.IBobrilStyleDef = b.styleDef([
 
 export const bottomText: b.IBobrilStyleDef = b.styleDef([
     {
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingTop: 64
     },
     fonts.headertext02
 ]);

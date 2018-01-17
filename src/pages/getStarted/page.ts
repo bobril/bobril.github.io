@@ -12,29 +12,24 @@ import * as ExampleTodo from './examples/todo';
 
 const contentMenuItems = [
     {
-        id: 'getStartedRecord',
-        name: 'GET STARTED',
+        id: 'installIn3Steps',
+        name: 'Install in 3 steps',
         type: ContentMenu.EItemType.SectionLabel
     },
     {
-        id: 'installIn3Steps',
-        name: 'Install in 3 steps',
-        type: ContentMenu.EItemType.Label
-    },
-    {
         id: 'helloWorld',
-        name: 'Hello World!',
-        type: ContentMenu.EItemType.Label
+        name: 'Hello World',
+        type: ContentMenu.EItemType.SectionLabel
     },
     {
         id: 'firstComponent',
-        name: 'First component - Counter',
-        type: ContentMenu.EItemType.Label
+        name: 'First Counter',
+        type: ContentMenu.EItemType.SectionLabel
     },
     {
         id: 'toDoList',
-        name: 'Todo list - more real example',
-        type: ContentMenu.EItemType.Label
+        name: 'Todo list ',
+        type: ContentMenu.EItemType.SectionLabel
     }
 ];
 
@@ -241,7 +236,7 @@ function bottomTexts(): b.IBobrilChildren {
         }),
 
         Paragraph.create({
-            content: `If you are interestend and want to know more, don't hesitate and check our tutorials and examples.
+            content: `If you are interested in and want to know more, don't hesitate and check our tutorials and examples.
              You will find them on documentation tab.`,
             style: styles.bottomText
         }),

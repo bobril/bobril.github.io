@@ -110,7 +110,7 @@ const app = b.createComponent<never>({
                                     redirect(router.documentation);
                                 },
                                 hover: false,
-                                content: 'DOC'
+                                content: 'DOCS'
                             }),
                             Menu.Button.create({
                                 isActive: false,

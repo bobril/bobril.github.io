@@ -6,8 +6,8 @@ metadata:
   next: ""
 ---
 
-<h2 id='menu-responsive-design'>Responsive Design</h2>
+<h3 id='menu-responsive-design'>Responsive Design</h3>
 
-### Media
-#### IBobrilMedia
-#### getMedia
+#### Media
+##### IBobrilMedia
+##### getMedia

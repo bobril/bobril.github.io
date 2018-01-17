@@ -135,7 +135,7 @@ function injectMarkDownCss() {
     b.injectCss(
         `.markdown-body h2 {
                     margin: 0 !important;
-                    padding-top: 30px !important;
+                    padding-top: 60px !important;
                     text-decoration: underline !important;
                     margin-bottom: 16px !important;
                     letter-spacing: 2px !important;
@@ -143,6 +143,16 @@ function injectMarkDownCss() {
                     font-weight: 600 !important;
                     line-height: 24px !important;
                     border: none !important;
+              }`
+    );
+    b.injectCss(
+        `.markdown-body h3 {
+                    padding-top: 48px !important;
+              }`
+    );
+    b.injectCss(
+        `.markdown-body h4 {
+                    padding-top: 36px !important;
               }`
     );
 }

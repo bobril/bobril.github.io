@@ -6,9 +6,9 @@ metadata:
   next: "assets.md"
 ---
 
-<h2 id='menu-events'>Events</h2>
+<h3 id='menu-events'>Events</h3>
 
-### Event basics
+#### Event basics
 
 Bobril application never works with native browser events directly. First native browser events listened only on body/document, then are processed, normalized by Bobril, and finally they just call methods on your component `IBobrilComponent` implementation. First simple example how to listen on any click:
 
@@ -48,7 +48,7 @@ shouldStopBubble(_ctx: b.IBobrilCtx, name: string): boolean {
 }
 ```
 
-### How to emit your own Bobril events
+#### How to emit your own Bobril events
 
 If you want to emit Bobril bubbling event you can call:
 
