@@ -13,8 +13,10 @@ const contetntPaddingRight = 90;
 const rightMarginMenu = 30;
 
 export function generateMainPage(data: IMainPageData): string {
-    let elem: HTMLElement ;
     return `  
+    import * as b from 'bobril';
+    import * as viewportUtils from '../utils/viewport';
+    
     export function create() {
         return {
             tag : 'div',

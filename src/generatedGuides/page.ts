@@ -1,4 +1,7 @@
   
+    import * as b from 'bobril';
+    import * as viewportUtils from '../utils/viewport';
+    
     export function create() {
         return {
             tag : 'div',
@@ -28,13 +31,39 @@
                 style : {
                     paddingLeft: 24
                 },
-                children: [
+                component: {
+                    init: (ctx) => {
+                        ctx.activeMenuAnchor =  "menu-guides";
+                    },
                     
+                    postInitDom(ctx) {
+                        const menuAnchors = ["menu-guides","menu-getting-started","menu-bobflux","menu-localizations","menu-routing","menu-bobril-build","menu-bobx"];
+                        const menuAnchorsBoundary = viewportUtils.getBoundariesForHtmlElements(menuAnchors);
+                
+                        function findActiveAnchor() {
+                            ctx.activeMenuAnchor = menuAnchors[menuAnchorsBoundary.findIndex((boundary) =>
+                                 viewportUtils.isInBoundaries(b.getWindowScroll()[1] + 75, boundary)
+                            )];
+                            b.invalidate(ctx);
+                        }
+                            
+                        b.addOnScroll(() => {
+                            findActiveAnchor();
+                        });
+                        
+                        findActiveAnchor();
+                    },
+                    
+                    render(ctx, me) {
+                       const activeAnchor = ctx.activeMenuAnchor;
+                       
+                       me.children = [
+                            
         {
             tag: 'div',
             children:  {
                 tag: 'div',
-                className: 'menu-block-header',
+                className: "menu-block-header",
                 children: 'Guides',
                 style: {
                     textDecoration: 'none',
@@ -44,18 +73,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-guides');
+                        let e = document.getElementById('menu-guides');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-guides');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#ececed',
+                color: activeAnchor === "menu-guides" ? '#ffffff' : '#ececed',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -66,14 +97,14 @@
             }
         }
     ,
-                    {
-                        tag: 'div',
-                        className: 'menu-sub-block',
-                        style: {
-                            paddingLeft: 24
-                        },
-                        children: [
-                            
+                            {
+                                tag: 'div',
+                                className: 'menu-sub-block',
+                                style: {
+                                    paddingLeft: 24
+                                },
+                                children: [
+                                    
         {
             tag: 'div',
             children:  {
@@ -88,18 +119,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-getting-started');
+                        let e = document.getElementById('menu-getting-started');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-getting-started');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-getting-started" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -124,18 +157,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-bobflux');
+                        let e = document.getElementById('menu-bobflux');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-bobflux');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-bobflux" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -160,18 +195,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-localizations');
+                        let e = document.getElementById('menu-localizations');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-localizations');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-localizations" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -196,18 +233,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-routing');
+                        let e = document.getElementById('menu-routing');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-routing');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-routing" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -232,18 +271,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-bobril-build');
+                        let e = document.getElementById('menu-bobril-build');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-bobril-build');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-bobril-build" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -268,18 +309,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-bobx');
+                        let e = document.getElementById('menu-bobx');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-bobx');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-bobx" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -290,9 +333,11 @@
             }
         }
     
-                        ]
-                    }
-                ] 
+                                ]
+                            }
+                        ] 
+                    }                   
+                }
             }
                     ],
                     style: {

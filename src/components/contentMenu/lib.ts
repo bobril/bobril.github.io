@@ -3,11 +3,12 @@ import * as styles from './styles';
 import * as Label from './../../components/label/lib';
 import * as ContentMenuItem from './item';
 
-export { EItemType } from './item';
+export {EItemType} from './item';
 
 export interface IData {
     label: string;
     items: ContentMenuItem.IItem[];
+    activeIndex?: number;
 }
 
 export interface IContext extends b.IBobrilCtx {
@@ -26,7 +27,7 @@ export const create = b.createComponent<IData>({
             }),
 
             b.styledDiv(
-                d.items.map(item => ContentMenuItem.create(item)),
+                d.items.map((item, i) => ContentMenuItem.create(b.assign(item, {active: d.activeIndex === i}))),
                 styles.contentMenu
             )
         ];

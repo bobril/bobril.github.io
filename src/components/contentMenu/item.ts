@@ -11,6 +11,7 @@ export interface IItem {
     type: EItemType;
     name: string;
     id: string;
+    active?: boolean;
 }
 
 export interface IData extends IItem {
@@ -32,7 +33,8 @@ export const create = b.createComponent<IData>({
             size: Label.LabelSize.DownloadPacksLabel,
             style: [
                 getItemStyle(d.type),
-                {cursor: 'pointer'}
+                {cursor: 'pointer'},
+                d.active && {color: '#ffffff'}
             ]
         });
         b.style(me, styles.contentMenu);

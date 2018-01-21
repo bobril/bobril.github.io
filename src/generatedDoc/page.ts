@@ -1,4 +1,7 @@
   
+    import * as b from 'bobril';
+    import * as viewportUtils from '../utils/viewport';
+    
     export function create() {
         return {
             tag : 'div',
@@ -28,13 +31,39 @@
                 style : {
                     paddingLeft: 24
                 },
-                children: [
+                component: {
+                    init: (ctx) => {
+                        ctx.activeMenuAnchor =  "menu-introduction";
+                    },
                     
+                    postInitDom(ctx) {
+                        const menuAnchors = ["menu-introduction","menu-why-own-framework","menu-developer-guide","menu-virtual-dom","menu-bobril-node","menu-initialization","menu-bobril-component","menu-events","menu-assets","menu-responsive-design","menu-community","menu-examples"];
+                        const menuAnchorsBoundary = viewportUtils.getBoundariesForHtmlElements(menuAnchors);
+                
+                        function findActiveAnchor() {
+                            ctx.activeMenuAnchor = menuAnchors[menuAnchorsBoundary.findIndex((boundary) =>
+                                 viewportUtils.isInBoundaries(b.getWindowScroll()[1] + 75, boundary)
+                            )];
+                            b.invalidate(ctx);
+                        }
+                            
+                        b.addOnScroll(() => {
+                            findActiveAnchor();
+                        });
+                        
+                        findActiveAnchor();
+                    },
+                    
+                    render(ctx, me) {
+                       const activeAnchor = ctx.activeMenuAnchor;
+                       
+                       me.children = [
+                            
         {
             tag: 'div',
             children:  {
                 tag: 'div',
-                className: 'menu-block-header',
+                className: "menu-block-header",
                 children: 'Introduction',
                 style: {
                     textDecoration: 'none',
@@ -44,18 +73,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-introduction');
+                        let e = document.getElementById('menu-introduction');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-introduction');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#ececed',
+                color: activeAnchor === "menu-introduction" ? '#ffffff' : '#ececed',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -66,14 +97,14 @@
             }
         }
     ,
-                    {
-                        tag: 'div',
-                        className: 'menu-sub-block',
-                        style: {
-                            paddingLeft: 24
-                        },
-                        children: [
-                            
+                            {
+                                tag: 'div',
+                                className: 'menu-sub-block',
+                                style: {
+                                    paddingLeft: 24
+                                },
+                                children: [
+                                    
         {
             tag: 'div',
             children:  {
@@ -88,18 +119,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-why-own-framework');
+                        let e = document.getElementById('menu-why-own-framework');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-why-own-framework');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-why-own-framework" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -110,9 +143,11 @@
             }
         }
     
-                        ]
-                    }
-                ] 
+                                ]
+                            }
+                        ] 
+                    }                   
+                }
             },
             {
                 tag: 'div',
@@ -120,13 +155,39 @@
                 style : {
                     paddingLeft: 24
                 },
-                children: [
+                component: {
+                    init: (ctx) => {
+                        ctx.activeMenuAnchor =  "menu-introduction";
+                    },
                     
+                    postInitDom(ctx) {
+                        const menuAnchors = ["menu-introduction","menu-why-own-framework","menu-developer-guide","menu-virtual-dom","menu-bobril-node","menu-initialization","menu-bobril-component","menu-events","menu-assets","menu-responsive-design","menu-community","menu-examples"];
+                        const menuAnchorsBoundary = viewportUtils.getBoundariesForHtmlElements(menuAnchors);
+                
+                        function findActiveAnchor() {
+                            ctx.activeMenuAnchor = menuAnchors[menuAnchorsBoundary.findIndex((boundary) =>
+                                 viewportUtils.isInBoundaries(b.getWindowScroll()[1] + 75, boundary)
+                            )];
+                            b.invalidate(ctx);
+                        }
+                            
+                        b.addOnScroll(() => {
+                            findActiveAnchor();
+                        });
+                        
+                        findActiveAnchor();
+                    },
+                    
+                    render(ctx, me) {
+                       const activeAnchor = ctx.activeMenuAnchor;
+                       
+                       me.children = [
+                            
         {
             tag: 'div',
             children:  {
                 tag: 'div',
-                className: 'menu-block-header',
+                className: "menu-block-header",
                 children: 'DEVELOPER GUIDE',
                 style: {
                     textDecoration: 'none',
@@ -136,18 +197,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-developer-guide');
+                        let e = document.getElementById('menu-developer-guide');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-developer-guide');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#ececed',
+                color: activeAnchor === "menu-developer-guide" ? '#ffffff' : '#ececed',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -158,14 +221,14 @@
             }
         }
     ,
-                    {
-                        tag: 'div',
-                        className: 'menu-sub-block',
-                        style: {
-                            paddingLeft: 24
-                        },
-                        children: [
-                            
+                            {
+                                tag: 'div',
+                                className: 'menu-sub-block',
+                                style: {
+                                    paddingLeft: 24
+                                },
+                                children: [
+                                    
         {
             tag: 'div',
             children:  {
@@ -180,18 +243,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-virtual-dom');
+                        let e = document.getElementById('menu-virtual-dom');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-virtual-dom');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-virtual-dom" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -216,18 +281,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-bobril-node');
+                        let e = document.getElementById('menu-bobril-node');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-bobril-node');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-bobril-node" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -252,18 +319,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-initialization');
+                        let e = document.getElementById('menu-initialization');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-initialization');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-initialization" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -288,18 +357,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-bobril-component');
+                        let e = document.getElementById('menu-bobril-component');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-bobril-component');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-bobril-component" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -324,18 +395,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-events');
+                        let e = document.getElementById('menu-events');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-events');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-events" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -360,18 +433,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-assets');
+                        let e = document.getElementById('menu-assets');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-assets');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-assets" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -396,18 +471,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-responsive-design');
+                        let e = document.getElementById('menu-responsive-design');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-responsive-design');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-responsive-design" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -418,9 +495,11 @@
             }
         }
     
-                        ]
-                    }
-                ] 
+                                ]
+                            }
+                        ] 
+                    }                   
+                }
             },
             {
                 tag: 'div',
@@ -428,13 +507,39 @@
                 style : {
                     paddingLeft: 24
                 },
-                children: [
+                component: {
+                    init: (ctx) => {
+                        ctx.activeMenuAnchor =  "menu-introduction";
+                    },
                     
+                    postInitDom(ctx) {
+                        const menuAnchors = ["menu-introduction","menu-why-own-framework","menu-developer-guide","menu-virtual-dom","menu-bobril-node","menu-initialization","menu-bobril-component","menu-events","menu-assets","menu-responsive-design","menu-community","menu-examples"];
+                        const menuAnchorsBoundary = viewportUtils.getBoundariesForHtmlElements(menuAnchors);
+                
+                        function findActiveAnchor() {
+                            ctx.activeMenuAnchor = menuAnchors[menuAnchorsBoundary.findIndex((boundary) =>
+                                 viewportUtils.isInBoundaries(b.getWindowScroll()[1] + 75, boundary)
+                            )];
+                            b.invalidate(ctx);
+                        }
+                            
+                        b.addOnScroll(() => {
+                            findActiveAnchor();
+                        });
+                        
+                        findActiveAnchor();
+                    },
+                    
+                    render(ctx, me) {
+                       const activeAnchor = ctx.activeMenuAnchor;
+                       
+                       me.children = [
+                            
         {
             tag: 'div',
             children:  {
                 tag: 'div',
-                className: 'menu-block-header',
+                className: "menu-block-header",
                 children: 'Community',
                 style: {
                     textDecoration: 'none',
@@ -444,18 +549,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-community');
+                        let e = document.getElementById('menu-community');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-community');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#ececed',
+                color: activeAnchor === "menu-community" ? '#ffffff' : '#ececed',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -466,14 +573,14 @@
             }
         }
     ,
-                    {
-                        tag: 'div',
-                        className: 'menu-sub-block',
-                        style: {
-                            paddingLeft: 24
-                        },
-                        children: [
-                            
+                            {
+                                tag: 'div',
+                                className: 'menu-sub-block',
+                                style: {
+                                    paddingLeft: 24
+                                },
+                                children: [
+                                    
         {
             tag: 'div',
             children:  {
@@ -488,18 +595,20 @@
                 }, 
                 component: {
                     onClick: () => {
-                        var e = document.getElementById('menu-examples');
+                        let e = document.getElementById('menu-examples');
+                        
                         if (e === undefined || e === null) {
                             console.warn('Cannot find element with id:', 'menu-examples');
                             return;
                         }
-                        var offsetTop = e.offsetTop - 70; // Header compensation + 10px;
+                        
+                        let offsetTop = e.offsetTop - 70; // Header compensation + 10px;
                         window.scrollTo(0, offsetTop);
                     }
                 }
             },
             style: {
-                color: '#949aa9',
+                color: activeAnchor === "menu-examples" ? '#ffffff' : '#949aa9',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -510,9 +619,11 @@
             }
         }
     
-                        ]
-                    }
-                ] 
+                                ]
+                            }
+                        ] 
+                    }                   
+                }
             }
                     ],
                     style: {
