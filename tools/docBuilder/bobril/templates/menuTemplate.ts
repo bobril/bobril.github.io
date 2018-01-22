@@ -62,7 +62,7 @@ function generateMenuFromNode(node, menuAnchors: string[]): string {
                                 listStyle: 'none',
                                 menuAnchor: firstChildrenMetadata.menuAnchor,
                                 label: firstChildrenMetadata.menuLabel,
-                                color: colors.color04,
+                                color: 'rgb(148, 154, 169)',
                                 moveLeftUnit: 20,
                                 captialize: true,
                                 shouldMoveLeft: true,

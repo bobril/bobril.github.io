@@ -86,7 +86,7 @@
                 }
             },
             style: {
-                color: activeAnchor === "menu-introduction" ? '#ffffff' : '#ececed',
+                color: activeAnchor === "menu-introduction" ? '#ffffff' : 'rgb(148, 154, 169)',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -210,7 +210,7 @@
                 }
             },
             style: {
-                color: activeAnchor === "menu-developer-guide" ? '#ffffff' : '#ececed',
+                color: activeAnchor === "menu-developer-guide" ? '#ffffff' : 'rgb(148, 154, 169)',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,
@@ -562,7 +562,7 @@
                 }
             },
             style: {
-                color: activeAnchor === "menu-community" ? '#ffffff' : '#ececed',
+                color: activeAnchor === "menu-community" ? '#ffffff' : 'rgb(148, 154, 169)',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,

@@ -86,7 +86,7 @@
                 }
             },
             style: {
-                color: activeAnchor === "menu-guides" ? '#ffffff' : '#ececed',
+                color: activeAnchor === "menu-guides" ? '#ffffff' : 'rgb(148, 154, 169)',
                 width: '150px',
                 margin: 'auto',
                 marginBottom: 13,

@@ -13,7 +13,7 @@ export const contentHeader01: b.IBobrilStyleDef = b.styleDef([
 
 export const contentHeader02: b.IBobrilStyleDef = b.styleDef([
     {
-        color: colors.color04,
+        color: 'rgb(148, 154, 169)',
         fontSize: 15,
         margin: 'auto auto 13px',
         textTransform: 'uppercase'

@@ -9,7 +9,7 @@ function getOffsetTop(elId: string): number {
 
 export function getBoundariesForHtmlElements(elementsId: string[]): IBoundary[] {
     const elementsBoundaries = [];
-    
+
     for (let i = 0; i < elementsId.length; i++) {
 
         const elBoundary = {
