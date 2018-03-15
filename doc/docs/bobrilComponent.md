@@ -10,13 +10,21 @@ metadata:
 
 #### Lifecycle
 ##### init
+Called before new node in virtual dom should be created, me members (tag, attrs, children, ...) could be modified, ctx is initialized.
 ##### render
+In case of init this is called after init method. In case of update after shouldChange returns true, you can do any update/init tasks, ctx.data is updated before calling this method.
 ##### postRender
+This is useful for kind of layout in JS features. Called after all children are rendered, but before updating own attrs.
 ##### postInitDom
+Called from children to parents order for new nodes.
 ##### postUpdateDom
+Called from children to parents order for updated nodes.
 ##### postUpdateDomEverytime
+Called from children to parents order for updated nodes but in every frame even when render was not run.
 ##### shouldChange
+Return false when whole subtree should not be changed from last time, you can still update any me members except key, default implementation always return true.
 ##### destroy
+Called just before removing node from DOM.
 ##### canActivate
 ##### canDeactivate
 
