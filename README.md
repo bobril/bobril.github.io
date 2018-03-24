@@ -1,5 +1,5 @@
 # bobril.github.io
-Webpage for Bobril - [bobril.com](bobril.com)
+Webpage for Bobril - [bobril.com](http://bobril.com)
 
 # Documentation
 Documentation itself is located in **./doc** and **./guides** directories.
@@ -19,7 +19,7 @@ Documentation itself is located in **./doc** and **./guides** directories.
     * Describes lifecycle/creation of component
 * **Community**
     * There is a place for community examples
-    * If you are not able to decided, where you should place your article, this can be correct place
+    * If you are not able to decide, where you should place your article, this can be correct place
     
 ## Templates
 For a consistent look of documentation and ensure higher quality, please observe templates written below.
@@ -40,7 +40,7 @@ If you consider something as important and it is not described enough here, don'
 ### Contribution to existing pages
 1. Create a fork of the repository 
 1. Edit *.md files
-    1. If there is a line: `[//]: <> (symlink:'...some path...')` written in metadata of the file, you have to edit the file targeted by symlink directly. It can be another github repository too. After contribution and successfull merge, do pull of submodules and push this changes.
+    1. If there is a line: `[//]: <> (symlink:'...some path...')` written in metadata of the file, you have to edit the file targeted by symlink directly. It can be another github repository too. After contribution and successful merge, do pull of submodules and push these changes.
 1. Create a pull request 
 
 ### Create a new page
