@@ -168,10 +168,10 @@ function firstExample(): b.IBobrilChildren {
 
         Code.create({
             children: [
-                `import * as b from 'bobril;
+                `import * as b from 'bobril';
 
 b.init(() => {
-    return { tag: 'h1', children: 'Hello World! };
+    return { tag: 'h1', children: 'Hello World!' };
 });`
             ],
             preview: 'Hello World!'
