@@ -1,8 +1,2 @@
-submodule/bobril-samples/
-# Created by .ignore support plugin (hsz.mobi)
-/node_modules/
-.idea/
-*.js.map
-/tools/docBuilder/**/*.js
-src/generatedDoc/page.ts
-src/generatedGuides/page.ts
+/**/node_modules
+examples/**/dist
