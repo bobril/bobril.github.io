@@ -10,6 +10,8 @@ import "./node_modules/prismjs/components/prism-tsx";
 import "./node_modules/prism-themes/themes/prism-darcula.css";
 b.asset("node_modules/bootswatch/cosmo/bootstrap.min.css");
 
+// b.selectorStyleDef("code", { backgroundColor: "transparent" });
+
 b.routes(
   b.route(routes.main, [
     routes.gettingStarted,
