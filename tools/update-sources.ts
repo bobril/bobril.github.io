@@ -1,6 +1,6 @@
 import { readFile, save, listOfFilesInDirectory, newLineRegex } from "./common";
 
-const tutorialPaths: string[] = listOfFilesInDirectory("../../md");
+const tutorialPaths: string[] = listOfFilesInDirectory(__dirname + "/../../md");
 
 const externalFileLinkRegex = /^(<!-- # from-file:)([\/\w\-. ]+)(\-\-\>)/gm;
 let tutorialContent = "";

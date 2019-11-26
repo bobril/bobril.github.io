@@ -8,7 +8,8 @@ import {
 } from "./common";
 import * as fs from "fs-extra";
 const exampleFileRegex = /^(\[Preview example\]\()([\/\w\-. ]+)(\))/gm;
-
+const resourceStaticExamplesPath =
+  __dirname + "/../../bobril-page/resources/staticResources/static-examples/";
 interface IParseDef {
   id: string;
   source: string;
@@ -18,22 +19,23 @@ interface IParseDef {
 const parseDefs: IParseDef[] = [
   {
     id: "get-started",
-    source: "../../md/get-started.md",
-    destination: "../../bobril-page/pages/getStarted/content.tsx"
+    source: __dirname + "/../../md/get-started.md",
+    destination: __dirname + "/../../bobril-page/pages/getStarted/content.tsx"
   },
   {
     id: "more-tutorials",
-    source: "../../md/more-tutorials",
-    destination: "../../bobril-page/pages/moreTutorials/content.tsx"
+    source: __dirname + "/../../md/more-tutorials",
+    destination:
+      __dirname + "/../../bobril-page/pages/moreTutorials/content.tsx"
   },
   {
     id: "eco-system",
-    source: "../../md/eco-system.md",
-    destination: "../../bobril-page/pages/ecoSystem/content.tsx"
+    source: __dirname + "/../../md/eco-system.md",
+    destination: __dirname + "/../../bobril-page/pages/ecoSystem/content.tsx"
   }
 ];
 
-const template = readFile("../contentTemplate.tsx");
+const template = readFile(__dirname + "/../contentTemplate.tsx");
 
 function processFile(definition: IParseDef) {
   const mdContent = isDirectory(definition.source)
@@ -56,8 +58,6 @@ function processFile(definition: IParseDef) {
 parseDefs.forEach(processFile);
 
 function updateExamples(tutorialContent: string, tutorialPath: string) {
-  const resourceStaticExamplesPath =
-    "../../bobril-page/resources/staticResources/static-examples/";
   const links: string[][] = [];
   const lines = tutorialContent.split(newLineRegex);
   for (let i = lines.length - 1; i >= 0; i--) {

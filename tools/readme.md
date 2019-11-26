@@ -4,15 +4,25 @@ It is possible to add new article in section _More Tutorials_.
 
 ## New article
 
-Article can be added as a standard _.md_ file in _tutorial/md/more-tutorials_. Just follow naming format with order number and start with heading level 2.
+Article can be added as a standard _.md_ file in _md/more-tutorials_. Just follow naming format with order number and start with heading level 2.
 
-## Tools
+## Bobril page source generator
 
-All tools are located in _tutorial/tools/dist_.
+In _tools_ folder run.
+
+```bash
+npm run generate
+```
+
+This command supports following generated content:
+
+### Content
+
+The content of your markdown article is parsed to bobril-page project.
 
 ### Code Example
 
-Example projects are located in _tutorial/examples_. Inner scripts can be used to automatic update of code examples in your article. Just add
+Example projects are located in _examples_. Inner scripts can be used to automatic update of code examples in your article. Just add
 
 ````markdown
 <!-- # from-file: ../examples/todo/components/list.tsx -->
@@ -21,19 +31,7 @@ Example projects are located in _tutorial/examples_. Inner scripts can be used t
 ```
 ````
 
-To update your markdowns run:
-
-```bash
-node update-sources
-```
-
-### Parsing content
-
-The content of your markdown article can be parsed to result bobril-page content with following command:
-
-```bash
-node parse
-```
+Generator automatically updates your code examples in _md_ files.
 
 ### Project preview
 
@@ -45,8 +43,12 @@ If you have a project with code example, you can provide a preview of built dist
 
 Path of _index.html_ has to be relative to parsed _.md_ file. Then run again
 
-```bash
-node parse
-```
+Generator parses relative paths to your dist, copy the dist content to bobril-page resource folder and use it in generated content of page.
 
-This command will parse relative paths to your dist, copy the dist content to bobril-page resource folder and use it in generated content of page.
+## Build bobril page
+
+Page sources are located at _bobril-page_. In this folder just run
+
+```bash
+bb b
+```

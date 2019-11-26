@@ -4,24 +4,25 @@ var marked = require("marked");
 var common_1 = require("./common");
 var fs = require("fs-extra");
 var exampleFileRegex = /^(\[Preview example\]\()([\/\w\-. ]+)(\))/gm;
+var resourceStaticExamplesPath = __dirname + "/../../bobril-page/resources/staticResources/static-examples/";
 var parseDefs = [
     {
         id: "get-started",
-        source: "../../md/get-started.md",
-        destination: "../../bobril-page/pages/getStarted/content.tsx"
+        source: __dirname + "/../../md/get-started.md",
+        destination: __dirname + "/../../bobril-page/pages/getStarted/content.tsx"
     },
     {
         id: "more-tutorials",
-        source: "../../md/more-tutorials",
-        destination: "../../bobril-page/pages/moreTutorials/content.tsx"
+        source: __dirname + "/../../md/more-tutorials",
+        destination: __dirname + "/../../bobril-page/pages/moreTutorials/content.tsx"
     },
     {
         id: "eco-system",
-        source: "../../md/eco-system.md",
-        destination: "../../bobril-page/pages/ecoSystem/content.tsx"
+        source: __dirname + "/../../md/eco-system.md",
+        destination: __dirname + "/../../bobril-page/pages/ecoSystem/content.tsx"
     }
 ];
-var template = common_1.readFile("../contentTemplate.tsx");
+var template = common_1.readFile(__dirname + "/../contentTemplate.tsx");
 function processFile(definition) {
     var mdContent = common_1.isDirectory(definition.source)
         ? common_1.readFilesFromDirectory(definition.source)
@@ -38,7 +39,6 @@ function processFile(definition) {
 }
 parseDefs.forEach(processFile);
 function updateExamples(tutorialContent, tutorialPath) {
-    var resourceStaticExamplesPath = "../../bobril-page/resources/staticResources/static-examples/";
     var links = [];
     var lines = tutorialContent.split(common_1.newLineRegex);
     for (var i = lines.length - 1; i >= 0; i--) {

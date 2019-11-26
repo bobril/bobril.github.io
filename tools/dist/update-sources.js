@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("./common");
-var tutorialPaths = common_1.listOfFilesInDirectory("../../md");
+var tutorialPaths = common_1.listOfFilesInDirectory(__dirname + "/../../md");
 var externalFileLinkRegex = /^(<!-- # from-file:)([\/\w\-. ]+)(\-\-\>)/gm;
 var tutorialContent = "";
 function run() {
