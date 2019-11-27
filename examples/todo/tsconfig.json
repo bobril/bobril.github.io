@@ -3,6 +3,7 @@
     "allowJs": false,
     "checkJs": false,
     "declaration": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "jsx": "react",
     "lib": [
@@ -11,6 +12,7 @@
       "es2015.core",
       "es2015.promise",
       "es2015.iterable",
+      "es2015.generator",
       "es2015.collection"
     ],
     "module": "commonjs",
@@ -29,9 +31,6 @@
     "target": "es5",
     "resolveJsonModule": true
   },
-  "files": [
-    "node_modules/bobril/jsx.d.ts"
-  ],
   "include": [
     "**/*"
   ]

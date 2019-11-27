@@ -1,19 +1,15 @@
 {
-  "name": "routing",
+  "name": "translations",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "bobril": "^14.0.0",
+    "bobril-g11n": "^4.4.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bobril": "^13.1.0",
-    "bobx": "^0.27.1"
-  },
-  "prettier": {
-    "printWidth": 100
   },
   "bobril": {
     "compilerOptions": {
@@ -30,5 +26,7 @@
       "skipDefaultLibCheck": true,
       "sourceMap": true
     }
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }

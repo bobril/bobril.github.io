@@ -428,4 +428,11 @@ export class PageTwo extends b.Component<IPageTwoData> {
 <li><code>canDeactivate</code>{` - Can stop the current transition in the a source handler by returning false or redirect to the new specified transition`}</li>
 </ul>
 <p>{`The previous code also contains example, which handles leaving the page `}<em>{`one`}</em>{` with empty value of a textbox by adding `}<em>{`canDeactivate`}</em>{` function and example of handling the not logged user on accessing the page `}<em>{`two`}</em>{` by adding `}<code>static canActivate</code>{` function definition.`}</p>
+<h2 id="localizations-and-formatting">{`Localizations and Formatting`}</h2>
+<h3 id="globalization-package">{`Globalization package`}</h3>
+<p>{`Bobril eco-system contains globalization package `}<code>bobril-g11n</code>{` to deal with localizations and formatting.`}</p>
+
+
+<pre><code class="language-tsx">{`t("Hello World!");`}</code></pre>
+<p><a href="./static-examples/translations/index.html">{`Preview example`}</a></p>
 </>;
