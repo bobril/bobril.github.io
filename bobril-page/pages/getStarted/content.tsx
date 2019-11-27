@@ -47,13 +47,13 @@ b.init(() => <Hello name="Developer" />);
 <p><a href="./static-examples/hello/index.html">{`Preview example`}</a></p>
 <p>{`Now just start `}<code>bobril-build</code>{` and let it watch your code for changes.`}</p>
 <pre><code class="language-bash">{`bb`}</code></pre>
-<p>{`To Preview you application visit `}<a href="http://localhost:8080">http://localhost:8080</a>{` .`}</p>
+<p>{`To preview your application visit `}<a href="http://localhost:8080">http://localhost:8080</a>{` .`}</p>
 <h2 id="bring-it-to-life-with-stateful-component">{`Bring it to life with Stateful Component`}</h2>
 <p>{`Component can work beside input data also with its internal state. This state is accessible by `}<code>this</code>{` keyword. To re-invoke render after change of some part of internal state the `}<code>b.invalidate(this)</code>{` function has to be called.`}</p>
 <p>{`This example also contains usage of another life-cycle methods:`}</p>
 <p><code>init</code>{` - called when bobril node is added to Virtual DOM for the first time`}</p>
 <p><code>destroy</code>{` - called before bobril node is removed from Virtual DOM`}</p>
-<p>{`Timer component use them for setup and clear the interval.`}</p>
+<p><code>Timer</code>{` component uses them for setup and clear the interval.`}</p>
 <p>{`The `}<code>&lt;button&gt;</code>{` html element is used to reset the timer. Reset is implemented as a `}<code>callback</code>{` (event delegation) for handling normalized `}<code>onChange</code>{` event of the element. This normalized event handlers are automatically accessible on html elements or their handling can be written as a public life-cycle method of `}<code>Component</code>{` class delegated up as a callback in input data.`}</p>
 
 
@@ -96,7 +96,7 @@ b.init(() => <Timer />);`}</code></pre>
 <p><a href="./static-examples/timer/index.html">{`Preview example`}</a></p>
 <h2 id="todo-application-and-functional-components">{`Todo Application and Functional Components`}</h2>
 <p>{`Combination of several `}<code>components</code>{` with input `}<code>data</code>{`, `}<code>event delegation</code>{` and `}<code>internal state</code>{` allows to create full Todo application.`}</p>
-<p>{`Following `}<code>functional components</code>{` display list of items given from its parent. It uses `}<code>key</code>{` attribute with unique id of item to assure clear identification of `}<code>&lt;li&gt;</code>{` bobril node . Otherwise it could cause mismatch of internat states.`}</p>
+<p>{`Following `}<code>functional component</code>{`s display list of items given from its parent. It uses `}<code>key</code>{` attribute with unique id of item to assure clear identification of `}<code>&lt;li&gt;</code>{` bobril node . Otherwise it could cause mismatch of internal states.`}</p>
 
 
 <pre><code class="language-tsx">{`import * as b from "bobril";

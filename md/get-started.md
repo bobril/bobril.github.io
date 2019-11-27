@@ -63,7 +63,7 @@ Now just start `bobril-build` and let it watch your code for changes.
 bb
 ```
 
-To Preview you application visit http://localhost:8080 .
+To preview your application visit http://localhost:8080 .
 
 ## Bring it to life with Stateful Component
 
@@ -75,7 +75,7 @@ This example also contains usage of another life-cycle methods:
 
 `destroy` - called before bobril node is removed from Virtual DOM
 
-Timer component use them for setup and clear the interval.
+`Timer` component uses them for setup and clear the interval.
 
 The `<button>` html element is used to reset the timer. Reset is implemented as a `callback` (event delegation) for handling normalized `onChange` event of the element. This normalized event handlers are automatically accessible on html elements or their handling can be written as a public life-cycle method of `Component` class delegated up as a callback in input data.
 
@@ -126,7 +126,7 @@ b.init(() => <Timer />);
 
 Combination of several `components` with input `data`, `event delegation` and `internal state` allows to create full Todo application.
 
-Following `functional components` display list of items given from its parent. It uses `key` attribute with unique id of item to assure clear identification of `<li>` bobril node . Otherwise it could cause mismatch of internat states.
+Following `functional component`s display list of items given from its parent. It uses `key` attribute with unique id of item to assure clear identification of `<li>` bobril node . Otherwise it could cause mismatch of internal states.
 
 <!-- # from-file: ../examples/todo/components/list.tsx -->
 

@@ -1,10 +1,8 @@
 # How to write article
 
-It is possible to add new article in section _More Tutorials_.
-
 ## New article
 
-Article can be added as a standard _.md_ file in _md/more-tutorials_. Just follow naming format with order number and start with heading level 2.
+It is possible to add new article in section _More Tutorials_. Article can be added as a standard _.md_ file in _md/more-tutorials_. Just follow naming format with order number and start with heading level 2.
 
 ## Bobril page source generator
 
