@@ -1,12 +1,12 @@
 import * as b from "bobril";
 import { t, f } from "bobril-g11n";
-import { change } from "./change";
+import { changeLocale } from "./change";
 
 export function MainPage(): b.IBobrilNode {
   return (
     <>
       <h1>{t("Localization")}</h1>
-      <button onClick={change}>{t("Change")}</button>
+      <button onClick={changeLocale}>{t("Change")}</button>
       <h2>{t("Basics")}</h2>
       <p>{basic()}</p>
       <p>{basicWithParameters()}</p>
@@ -88,10 +88,7 @@ function formatCalendarFirst(): b.IBobrilChildren {
 }
 
 function formatDateCustomSecond(): b.IBobrilChildren {
-  return f("{a, date, custom, format:{{myFormat}} }", {
-    a: new Date(2000, 0, 2),
-    myFormat: "ddd"
-  });
+  return f("{a, date, custom, format:{{myFormat}} }", { a: new Date(2000, 0, 2), myFormat: "ddd" });
 }
 
 function formatDateCustomFirst(): b.IBobrilChildren {
@@ -115,10 +112,7 @@ function formatNumberPercent(): b.IBobrilChildren {
 }
 
 function formatNumberCustomSecond(): b.IBobrilChildren {
-  return f("{arg, number, custom, format:{{myFormat}}}", {
-    arg: 1.234,
-    myFormat: "0.00000"
-  });
+  return f("{arg, number, custom, format:{{myFormat}}}", { arg: 1.234, myFormat: "0.00000" });
 }
 
 function formatNumberCustomFirst(): b.IBobrilChildren {
@@ -146,86 +140,47 @@ function formatSimpleNumber(): b.IBobrilChildren {
 }
 
 function selectPerson(): b.IBobrilChildren {
-  return t(
-    "famous {gender, select, female {woman} male {man} other {person}}",
-    {
-      gender: "person"
-    }
-  );
+  return t("famous {gender, select, female {woman} male {man} other {person}}", { gender: "person" });
 }
 
 function selectMale(): b.IBobrilChildren {
-  return t(
-    "famous {gender, select, female {woman} male {man} other {person}}",
-    {
-      gender: "male"
-    }
-  );
+  return t("famous {gender, select, female {woman} male {man} other {person}}", { gender: "male" });
 }
 
 function selectFemale(): b.IBobrilChildren {
-  return t(
-    "famous {gender, select, female {woman} male {man} other {person}}",
-    {
-      gender: "female"
-    }
-  );
+  return t("famous {gender, select, female {woman} male {man} other {person}}", { gender: "female" });
 }
 
 function pluralSecond(): b.IBobrilChildren {
-  return t(
-    "here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}",
-    { floor: 2 }
-  );
+  return t("here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}", { floor: 2 });
 }
 
 function pluralFirst(): b.IBobrilChildren {
-  return t(
-    "here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}",
-    { floor: 1 }
-  );
+  return t("here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}", { floor: 1 });
 }
 
 function pluralZero(): b.IBobrilChildren {
-  return t(
-    "here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}",
-    { floor: 0 }
-  );
+  return t("here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}", { floor: 0 });
 }
 
 function ordinalFourth(): b.IBobrilChildren {
-  return t(
-    "you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor",
-    { floor: 4 }
-  );
+  return t("you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor", { floor: 4 });
 }
 
 function ordinalThird(): b.IBobrilChildren {
-  return t(
-    "you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor",
-    { floor: 3 }
-  );
+  return t("you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor", { floor: 3 });
 }
 
 function ordinalSecond(): b.IBobrilChildren {
-  return t(
-    "you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor",
-    { floor: 2 }
-  );
+  return t("you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor", { floor: 2 });
 }
 
 function ordinalFirst(): b.IBobrilChildren {
-  return t(
-    "you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor",
-    { floor: 1 }
-  );
+  return t("you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor", { floor: 1 });
 }
 
 function ordinalZero(): b.IBobrilChildren {
-  return t(
-    "you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor",
-    { floor: 0 }
-  );
+  return t("you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor", { floor: 0 });
 }
 
 function basicWithParameters(): b.IBobrilChildren {

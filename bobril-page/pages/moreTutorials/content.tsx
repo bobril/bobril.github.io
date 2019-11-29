@@ -429,10 +429,123 @@ export class PageTwo extends b.Component<IPageTwoData> {
 </ul>
 <p>{`The previous code also contains example, which handles leaving the page `}<em>{`one`}</em>{` with empty value of a textbox by adding `}<em>{`canDeactivate`}</em>{` function and example of handling the not logged user on accessing the page `}<em>{`two`}</em>{` by adding `}<code>static canActivate</code>{` function definition.`}</p>
 <h2 id="localizations-and-formatting">{`Localizations and Formatting`}</h2>
+<p>{`Bobril applications can have localized or formatted content with culture specifics. `}</p>
 <h3 id="globalization-package">{`Globalization package`}</h3>
-<p>{`Bobril eco-system contains globalization package `}<code>bobril-g11n</code>{` to deal with localizations and formatting.`}</p>
+<p>{`Bobril eco-system contains globalization package `}<code>bobril-g11n</code>{` to deal with localizations and formatting. It has to be added as a dependency to project.`}</p>
+<pre><code class="language-bash">{`npm i bobril-g11n --save`}</code></pre>
+<h3 id="start-globalization">{`Start globalization`}</h3>
+
+
+<pre><code class="language-tsx">{`import * as b from "bobril";
+import { MainPage } from "./mainPage";
+import { initGlobalization } from "bobril-g11n";
+
+initGlobalization({ defaultLocale: "en-US" }).then(() => {
+  b.routes(b.route({ handler: data => <MainPage {...data} /> }));
+});
+`}</code></pre>
+<p>{`This code imports and calls `}<code>initGlobalization</code>{` function. Its argument with interface `}<code>IG11NConfig</code>{` defines the default locale and optionally the function for getting the path to the localized files. `}<code>Bobril-build</code>{` is configured to generate the default localization file `}<em>{`en-US.js`}</em>{` directly to the root of the `}<em>{`dist`}</em>{` folder. The `}<code>initGlobalization</code>{` function returns a  `}<code>Promise object</code>{`. `}</p>
+<p>{`Initialization of the application by `}<code>b.routes</code>{` has to be called in a fulfillment callback of this promise.`}</p>
+<h3 id="locale-switching">{`Locale switching`}</h3>
+<p>{`The example code changes the locale by `}<code>setLocale</code>{` and renders the page with specific translations. To get the current locale it uses the function `}<code>getLocale</code>{`.`}</p>
+
+
+<pre><code class="language-tsx">{`import { getLocale, setLocale } from "bobril-g11n";
+
+export function changeLocale(): void {
+  setLocale(getLocale() === "en-US" ? "cs-CZ" : "en-US");
+}
+`}</code></pre>
+<p><a href="./static-examples/translations/index.html">{`Preview example`}</a></p>
+<h3 id="translations">{`Translations`}</h3>
+<p>{`Translated content is defined by using the `}<code>t</code>{` function:`}</p>
 
 
 <pre><code class="language-tsx">{`t("Hello World!");`}</code></pre>
 <p><a href="./static-examples/translations/index.html">{`Preview example`}</a></p>
+<p>{`The `}<code>t</code>{` function arguments are:`}</p>
+<ol>
+<li>{`message for input text/pattern`}</li>
+<li>{`optional params object defining the values for the message pattern`}</li>
+<li>{`optional hint`}</li>
+</ol>
+<p>{`Bobril-build takes all usages of `}<code>t(&quot;some string&quot;)</code>{` in code and replaces it by e.g. `}<code>t(125)</code>{` where `}<em>{`125`}</em>{` is the index of `}<code>&quot;some string&quot;</code>{` constant in the array of localized strings. This array is placed in every localization file and corresponds to the array in the generated `}<em>{`en-US.js.`}</em></p>
+<p>{`To add a new localization definition just type the command:`}</p>
+<pre><code class="language-bash">{`bb t -a cs-CZ
+bb b -u 1`}</code></pre>
+<p>{`The first command creates a new translation file `}<em>{`translations/cs-CZ.json`}</em>{`. The second command adds the missing translations from the default generated `}<em>{`en-US.js`}</em>{` to `}<em>{`cs-CZ.json`}</em>{` translation definition. The content of the created `}<em>{`json`}</em>{` can be e.g.:`}</p>
+<pre><code class="language-json">{`["cs-CZ", ["My name is {a}!", null, 1]]`}</code></pre>
+<p>{`To add translations it can be modified to the following:`}</p>
+<pre><code class="language-json">{`["cs-CZ", ["My name is {a}!", null, 1, "Jmenuji se {a}!"]]`}</code></pre>
+<p>{`The specific parts of localization item represented as an array are:`}</p>
+<ol>
+<li>{`Message - `}<em>{`Hello World`}</em></li>
+<li>{`Translation help (third optional parameter of t function) - null =not used in `}<code>t</code>{` function`}</li>
+<li>{`Indicator of parameters inside of message - 0 = no parameter`}</li>
+<li>{`The translated message - `}<em>{`Ahoj světe`}</em></li>
+</ol>
+<p>{`Parts 1-3 compose the translation key.`}</p>
+<h4 id="basics">{`Basics`}</h4>
+<p>{`We can simply add placeholders to use variables in our text patterns:`}</p>
+<p><em>{`My name is Tomas`}{`!`}</em></p>
+
+
+<pre><code class="language-tsx">{`t("My name is {a}!", { a: "Tomas" });`}</code></pre>
+<h4 id="ordinal">{`Ordinal`}</h4>
+<p>{`To set localized ordinal, use the selectordinal pattern:`}</p>
+<p><em>{`You are in 2nd floor`}</em></p>
+
+
+<pre><code class="language-tsx">{`t("you are in {floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor", { floor: 2 });`}</code></pre>
+<p>{`The # character is replaced by the floor property in the params object.`}</p>
+<h4 id="plural">{`Plural`}</h4>
+<p>{`The similar plural pattern is used to define localized plurals:`}</p>
+<p><em>{`here are 2 floors`}</em></p>
+
+
+<pre><code class="language-tsx">{`t("here {floor, plural, =0{is no floor} =1{is # floor} other{are # floors}}", { floor: 2 });`}</code></pre>
+<h4 id="select">{`Select`}</h4>
+<p>{`To select a specific value according to some input string, we can use the select pattern:`}</p>
+<p><em>{`famous woman`}</em></p>
+
+
+<pre><code class="language-tsx">{`t("famous {gender, select, female {woman} male {man} other {person}}", { gender: "female" });`}</code></pre>
+<h4 id="number">{`Number`}</h4>
+<p>{`We can use a number pattern to keep numbers in culture specific formatting or to define our own format:`}</p>
+<p><em>{`1.234 in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{arg, number}", { arg: 1.234 });`}</code></pre>
+<p><em>{`1.2340 in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{arg, number, custom, format:{0.0000}}", { arg: 1.234 });`}</code></pre>
+<h4 id="date-and-time">{`Date and Time`}</h4>
+<p>{`The date and time patterns work the same way and can be used in the following way:`}</p>
+<p><em>{`Jan 2, 2000 12:00 AM - in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{a, date, lll}", { a: new Date(2000, 0, 2) });`}</code></pre>
+<p><em>{`02 01 - in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{a, date, custom, format:{DD MM}}", { a: new Date(2000, 0, 2) });`}</code></pre>
+<p><em>{`Sun - in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{a, date, custom, format:{{myFormat}} }", { a: new Date(2000, 0, 2), myFormat: "ddd" });`}</code></pre>
+<p>{`The specific format definitions can be found in the `}<a href="http://momentjs.com/docs/#/displaying/format/">{`Moment.js documentation.`}</a></p>
+<p>{`It can also be defined in a calendar format:`}</p>
+<p><em>{`Tomorrow at 4:27 PM - in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{a, time, calendar}", { a: Date.now() + 24 * 60 * 60 * 1000 });`}</code></pre>
+<p>{`or as a relative from now:`}</p>
+<p><em>{`2 minutes ago - in en`}</em></p>
+
+
+<pre><code class="language-tsx">{`f("{a, time, relative}", { a: Date.now() - 100000 });`}</code></pre>
+<h3 id="just-formatting">{`Just Formatting`}</h3>
+<p>{`If you only want to do the formatting of a text without a translation, just replace the `}<code>t</code>{` function by the `}<code>f</code>{` function.`}</p>
+<p>{`It will only take care of culture specific formatting.`}</p>
 </>;
