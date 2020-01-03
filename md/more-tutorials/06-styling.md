@@ -1,12 +1,15 @@
 ## Styling
+
 Bobril has two ways of defining styles, **inline styles** and **styles definitions**
 
 ### Inline styles
- - Basic way of defining component style, just write css style as js object into style property of an element.
- - CSS properties must be camelCased (*padding-top* -> *paddingTop* ).
- - Disadvantage of inline style is a bigger and less readable HTML and no advance CSS options - see style definitions.
+
+- Basic way of defining component style, just write css style as js object into style property of an element.
+- CSS properties must be camelCased (_padding-top_ → _paddingTop_ ).
+- Disadvantage of inline style is a bigger and less readable HTML and no advance CSS options - see style definitions.
 
 <!-- # from-file: ../../examples/styling/examples/inlineStyling.tsx -->
+
 ```tsx
 import * as b from "bobril";
 import {IStyledComponentData} from "./interfaces";
@@ -24,10 +27,12 @@ export class InlineStyling extends b.Component<IStyledComponentData> {
 ```
 
 ### Style definition
+
 - CSS style can be defined by `b.styleDef`
 - Bobril build will generate CSS class from style definitions and use CSS classes in components.
 
 <!-- # from-file: ../../examples/styling/examples/cssBaseStyling.tsx -->
+
 ```tsx
 import * as b from "bobril";
 import { IStyledComponentData } from "./interfaces";
@@ -69,7 +74,7 @@ export class CssExtendingStyling extends b.Component<IStyledComponentData> {
 ```
 
 - CSS selectors can be used in Bobril as well. Just use second optional parameter in `b.styleDef`.
-<!-- # from-file: ../../examples/styling/examples/cssSelectorsStyling.tsx -->
+  <!-- # from-file: ../../examples/styling/examples/cssSelectorsStyling.tsx -->
 
 ```tsx
 import * as b from "bobril";
@@ -90,6 +95,7 @@ export class CssSelectorsStyling extends b.Component<IStyledComponentData> {
 ```
 
 ### Media Queries
+
 - To define media query use `b.mediaQueryDef`, first parameter is media query and second affected styles with styling changes.
 - Build-in builder `b.createMediaQuery` can be used to write media query.
 
