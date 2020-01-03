@@ -23,7 +23,7 @@ export class SideBar extends b.Component<IDocsSidebarData> {
   }
   render(): b.IBobrilChildren {
     return (
-      <Affix top={this.data.main ? 457 : 62}>
+      <Affix top={this.data.main ? 457 : 62} bottom={25}>
         <nav style={docsSideBar}>
           <SideBarItems
             items={this.data.items}
