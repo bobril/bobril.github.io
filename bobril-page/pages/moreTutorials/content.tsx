@@ -553,9 +553,10 @@ bb b -u 1`}</code></pre>
 <h3 id="inline-styles">{`Inline styles`}</h3>
 <ul>
 <li>{`Basic way of defining component style, just write css style as js object into style property of an element.`}</li>
-<li>{`CSS properties must be camelCased (`}<em>{`padding-top`}</em>{` -&gt; `}<em>{`paddingTop`}</em>{` ).`}</li>
+<li>{`CSS properties must be camelCased (`}<em>{`padding-top`}</em>{` → `}<em>{`paddingTop`}</em>{` ).`}</li>
 <li>{`Disadvantage of inline style is a bigger and less readable HTML and no advance CSS options - see style definitions.`}</li>
 </ul>
+
 
 <pre><code class="language-tsx">{`import * as b from "bobril";
 import {IStyledComponentData} from "./interfaces";
@@ -575,6 +576,7 @@ export class InlineStyling extends b.Component<IStyledComponentData> {
 <li>{`CSS style can be defined by `}<code>b.styleDef</code></li>
 <li>{`Bobril build will generate CSS class from style definitions and use CSS classes in components.`}</li>
 </ul>
+
 
 <pre><code class="language-tsx">{`import * as b from "bobril";
 import { IStyledComponentData } from "./interfaces";
