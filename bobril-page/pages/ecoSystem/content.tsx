@@ -9,9 +9,9 @@ export class Content extends b.Component {
 
 export const content: b.IBobrilNode = <><h1 id="eco-system">{`Eco-system`}</h1>
 <p>{`Bobril is an opinionated framework distributed with portfolio of supporting packages.`}</p>
-<h2 id="bobril-build"><a href="https://github.com/Bobris/bobril-build">{`Bobril-build`}</a></h2>
-<p><a href="https://badge.fury.io/js/bobril-build"><img src="https://badge.fury.io/js/bobril-build.svg" alt="npm version"/></a></p>
-<p>{`Helper tool to build Bobril applications Mainly it will support copying sprites, building big sprites. support i18n. All this during optimal TypeScript compilation. `}<a href="https://github.com/Bobris/bobril-build">{`GitHub`}</a></p>
+<h2 id="bobril-build"><a href="https://github.com/bobril/bbcore">{`Bobril-build`}</a></h2>
+<p><a href="https://badge.fury.io/js/bobril-build-core"><img src="https://badge.fury.io/js/bobril-build-core.svg" alt="npm version"/></a></p>
+<p>{`Helper tool to build Bobril applications Mainly it will support copying sprites, building big sprites. support i18n. All this during optimal TypeScript compilation. `}<a href="https://github.com/bobril/bbcore">{`GitHub`}</a></p>
 <h2 id="bobril-g11n"><a href="https://github.com/Bobris/bobril-g11n">{`Bobril-G11N`}</a></h2>
 <p><a href="https://badge.fury.io/js/bobril-g11n"><img src="https://badge.fury.io/js/bobril-g11n.svg" alt="npm version"/></a></p>
 <p>{`Bobril Globalization extension. `}<a href="https://github.com/Bobris/bobril-g11n">{`GitHub`}</a></p>

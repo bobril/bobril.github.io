@@ -195,4 +195,8 @@ class Todo extends b.Component {
 b.init(() => <Todo />);
 `}</code></pre>
 <p><a href="./static-examples/todo/index.html">{`Preview example`}</a></p>
+<h2 id="production-build">{`Production build`}</h2>
+<p>{`In the beginning of this page is described how to run `}<code>bobril-build</code>{` in `}<code>interactive</code>{` mode. Production-ready build (minified, uglified etc.) can be performed by command:`}</p>
+<pre><code class="language-bash">{`bb b`}</code></pre>
+<p>{`The built application can be found in `}<em>{`dist`}</em>{` folder.`}</p>
 </>;

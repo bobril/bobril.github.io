@@ -237,3 +237,13 @@ b.init(() => <Todo />);
 ```
 
 [Preview example](../examples/todo/dist/index.html)
+
+## Production build
+
+In the beginning of this page is described how to run `bobril-build` in `interactive` mode. Production-ready build (minified, uglified etc.) can be performed by command:
+
+```bash
+bb b
+```
+
+The built application can be found in _dist_ folder.
