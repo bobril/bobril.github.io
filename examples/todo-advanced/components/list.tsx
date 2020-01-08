@@ -1,11 +1,5 @@
 import * as b from "bobril";
-import { ListItem } from "./listItem";
-
-export interface IItem {
-  id: number;
-  text: string;
-  done: boolean;
-}
+import { ListItem, IItem } from "./listItem";
 
 export interface IListData {
   items: IItem[];

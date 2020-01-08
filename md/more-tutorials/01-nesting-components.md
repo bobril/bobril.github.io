@@ -47,13 +47,7 @@ Following list allows to check state of task in todo list. `Checked` event is de
 
 ```tsx
 import * as b from "bobril";
-import { ListItem } from "./listItem";
-
-export interface IItem {
-  id: number;
-  text: string;
-  done: boolean;
-}
+import { ListItem, IItem } from "./listItem";
 
 export interface IListData {
   items: IItem[];
@@ -80,7 +74,12 @@ const noBullets = b.styleDef({ listStyleType: "none" });
 
 ```tsx
 import * as b from "bobril";
-import { IItem } from "./list";
+
+export interface IItem {
+  id: number;
+  text: string;
+  done: boolean;
+}
 
 export interface IItemData extends IItem {
   index: number;
@@ -185,8 +184,9 @@ There is also new function `edit` for editing the current state of Todo Item.
 ```tsx
 import * as b from "bobril";
 import { Layout } from "./components/layout";
-import { List, IItem } from "./components/list";
+import { List } from "./components/list";
 import { Form } from "./components/form";
+import { IItem } from "./components/listItem";
 
 class Todo extends b.Component {
   private _todos: IItem[] = [];

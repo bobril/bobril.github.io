@@ -1,5 +1,5 @@
 import { observable } from "bobx";
-import { IItem } from "./components/list";
+import { IItem } from "./components/listItem";
 
 export class TodoStore {
   @observable

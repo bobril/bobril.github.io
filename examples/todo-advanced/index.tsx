@@ -1,7 +1,8 @@
 import * as b from "bobril";
 import { Layout } from "./components/layout";
-import { List, IItem } from "./components/list";
+import { List } from "./components/list";
 import { Form } from "./components/form";
+import { IItem } from "./components/listItem";
 
 class Todo extends b.Component {
   private _todos: IItem[] = [];

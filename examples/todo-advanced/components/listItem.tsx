@@ -1,5 +1,10 @@
 import * as b from "bobril";
-import { IItem } from "./list";
+
+export interface IItem {
+  id: number;
+  text: string;
+  done: boolean;
+}
 
 export interface IItemData extends IItem {
   index: number;

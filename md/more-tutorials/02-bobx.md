@@ -22,7 +22,7 @@ Next code defines `TodoStore` with private list of `_todos`. This property is de
 
 ```tsx
 import { observable } from "bobx";
-import { IItem } from "./components/list";
+import { IItem } from "./components/listItem";
 
 export class TodoStore {
   @observable
