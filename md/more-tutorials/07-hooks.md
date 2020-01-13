@@ -70,7 +70,7 @@ export function Example() {
 
     b.useEffect(() => {
         history.replaceState({text}, "Example", `?text=${text}`);
-    }, []);
+    }, [text]);
 
     return (
         <div>
@@ -188,4 +188,87 @@ Now everytime error event is emitted from any children it is caught in ErrorComp
 
 ### useCaptureEvents
 It is same as useEvents hook but for capturing mode. When event is handled in capturing mode. Whole process of event propagation is stopped so handler defined in useEvents will never trigger.
+
+## Custom hooks
+As said in the beginning hooks are a way how we can share logic across the components. When we wanna share a logic we have to enclose that logic into custom hook which will be our logic holder. Let's say we have a component for searching. We have got a text input here. Every input change is sent to the server which then return searched value. Searchig through our whole database can be computational heavy thing so we get a idea to debounce it. We also expect that debouncing will be used on many more places. 
+```typescript
+function useDebouncer(value, time) {
+	const [debouncedValue, value] = b.useState(value);
+
+	b.useEffect(() => {
+		const timeout = setTimeout(() => setDebouncedValue(value), time);
+		return () => clearTimeout(timeout);
+	}, [value, time]);
+
+	return debouncedValue;
+}
+
+function DebounceExample() {
+	const [result, setResult] = b.useState([]);
+	const [text, setText] = b.useState("");
+	const debouncedValue = useDebouncer(text, 500);
+
+	b.useEffect(() => {
+		fetch(`/search?query=${debouncedValue}`)
+			.then(data => data.json())
+			.then(result => setResult(result));
+	}, [debouncedValue]);
+
+	return (
+		<>
+			{result.map((r) => <div>{r}</div>)}
+		<>
+	)
+}
+```
+
+### Hooks composability
+Because hooks are just a functions we have another huge advantage and that is easy composability of them. Let's say we want to have search box more powerful so we will store its value in localstorage.
+First of all wrap api call to own custom hook and prepare it for composing.
+```typescript
+function useBackendSearch(value, setter) {
+	const [results, setResults] = b.useState([]);
+	const debouncedValue = useDebouncer(value, 500);
+
+        b.useEffect(() => {
+                fetch(`/search?query=${debouncedValue}`)
+                        .then(data => data.json())
+                        .then(result => setResult(result));
+        }, [debouncedValue]);
+	return [value, setter, results]
+}
+```
+Now lets create a hook for storing in localStorage.
+```typescript
+function useLocalStorage(value, setter){
+	b.useEffect(() => {
+		localStorage.setItem("item", value);
+	}, [value])
+
+	return [
+		value,
+		setter
+	]
+}
+```
+Both of our hooks have same parametrs so we can compose then and create new hook. For composing we will use lodashs [flowRight](https://lodash.com/docs/4.17.15#flowRight).
+```typescript
+const useStorageAndSearch = _.flowRight(
+	useBackendSearch,
+	useLocalStorage,
+	b.useState
+)
+``` 
+And now use this composed hook in component
+```typescript
+function Example() {
+	const [value, setValue, results] = useStorageAndSearch("");
+	return (
+		<input value={value} onChange={(val) => {
+			setValue(val);
+			return true;
+		}}/>
+	)
+}
+```
 
