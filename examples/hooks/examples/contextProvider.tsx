@@ -1,16 +1,14 @@
 import * as b from "bobril";
-import {ColorConsumer} from "./contextConsumer";
+import { ColorConsumer } from "./contextConsumer";
 
 export const theme = b.createContext({
-    color: "blue"
+  color: "blue"
 });
 
 export function ContextProvider() {
-    b.useProvideContext(theme, {
-        color: "red"
-    });
+  b.useProvideContext(theme, {
+    color: "red"
+  });
 
-    return (
-        <ColorConsumer/>
-    );
+  return <ColorConsumer />;
 }
