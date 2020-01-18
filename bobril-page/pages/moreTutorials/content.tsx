@@ -669,4 +669,12 @@ export class MediaQueriesStyling extends b.Component<IStyledComponentData> {
     }
 }`}</code></pre>
 <p><a href="./static-examples/styling/index.html">{`Preview example`}</a></p>
+<h2 id="bobril-build">{`Bobril-build`}</h2>
+<h3 id="how-to-find-out-what-takes-space-in-your-bundle">{`How to find out what takes space in your bundle`}</h3>
+<p>{`First you need to build your project with enabled sourcemaps. Because only new bundler support generating them it needs to be enabled with `}<code>newBundler</code>{` parameter. It is good to override sourceRoot in generated sourcemap to be just `}<code>.</code>{`, because it will remove one nesting from result.`}</p>
+<pre><code class="language-bash">{`bb build -newBundler true --sourcemap yes --sourceRoot .`}</code></pre>
+<p>{`or shorter`}</p>
+<pre><code class="language-bash">{`bb b -x 1 -g yes --sourceRoot .`}</code></pre>
+<p>{`Second and last step is to use `}<a href="https://github.com/danvk/source-map-explorer">{`source-map-explorer`}</a>{` on generated bundle. By default it will be in `}<code>dist</code>{` subdirectory and will be named `}<code>a.js</code>{`.`}</p>
+<pre><code class="language-bash">{`npx source-map-explorer a.js`}</code></pre>
 </>;
