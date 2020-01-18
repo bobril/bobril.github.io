@@ -5,7 +5,7 @@
 First you need to build your project with enabled sourcemaps. Because only new bundler support generating them it needs to be enabled with `newBundler` parameter. It is good to override sourceRoot in generated sourcemap to be just `.`, because it will remove one nesting from result.
 
 ```bash
-bb build -newBundler true --sourcemap yes --sourceRoot .
+bb build --newBundler true --sourcemap yes --sourceRoot .
 ```
 
 or shorter
