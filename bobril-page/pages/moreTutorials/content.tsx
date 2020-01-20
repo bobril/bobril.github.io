@@ -673,7 +673,7 @@ export class MediaQueriesStyling extends b.Component<IStyledComponentData> {
 <p>{`Hooks are yet another way how you can write your components in Bobril. You may be asking: why another aproach? The answer is not simple but i will try to answer.`}</p>
 <h2 id="why-hooks">{`Why hooks`}</h2>
 <p>{`First of all let&#39;s say that old ways of writing components are not deprecated. They are still valid but as we all know they have its problems. Hooks are here to try solve theese problems. Mostly the problems which are connected with design patterns for code reuse. Mainly high order components (HOC) and render props. Because when we use this type of component composition we create indirection. The indirection can be on DOM level or on the component level, which means in VDOM. This don&#39;t have to be always bad. But it&#39;s sometimes hard to debug and get know what is going on when there are for example multiple HOCs on top of our component. So it&#39;s good to have a way how to avoid it.`}</p>
-<p>{`Let&#39;s show usage of hook on example. The implementation of useCursorCoordinates is not important currently, just focus on the idea. At component level we want to have access to the cursor position on the screen. To get it only thing which we have to do is call useCursorCoordinates`}</p>
+<p>{`Let&#39;s show usage of hook on example. The implementation of useCursorCoordinates is not important currently, just focus on the idea. At component level we want to have access to the cursor position on the screen. So we follow our idea and just call function which returns value that we wanted. And what is the best: hook takes care about rerendering component every time the cursor position change.`}</p>
 
 
 <pre><code class="language-typescript">{`import * as b from "bobril";
@@ -707,7 +707,7 @@ export function Coordinates(props) {
 `}</code></pre>
 <h2 id="types-of-hooks">{`Types of hooks`}</h2>
 <h3 id="usestate">{`useState`}</h3>
-<p>{`This is most basic hook which you will use in most scenarios. It persists part of data in component memory cell and expose a function for mutating this data. It also invalidates the component when mutating function was called and something have been really changed. Its api is simple. Just call useState from bobril exports and provide it default value or factory which will create default value. It gives you IProp back. Which is a function which can be called without parameters for getting value and with parameter for setting value. The IProp can be also destructured to 2 items array which will contain value on first place and setter in the second place. The setter function also have 2 possibilities how it can be used. If you provide a value to it. It just store the value. You can also provide a function to it and get current state as parameter to his function.`}</p>
+<p>{`This is most basic hook which you will use in most scenarios. It persists part of data in component memory cell and expose a function for mutating this data. It also invalidates the component when mutating function is called and something have been really changed. Its api is simple. Just call useState from bobril exports and provide it default value or factory which will create default value. It gives you IProp back. Which is a function which can be called without parameters for getting value and with parameter for setting value. The IProp can be also destructured to 2 items array which will contain value on first place and setter in the second place. The setter function also have 2 possibilities how it can be used. If you provide a value to it. It just store the value. You can also provide a function to it and get current state as parameter to his function.`}</p>
 
 
 <pre><code class="language-typescript">{`import * as b from "bobril";
@@ -795,7 +795,7 @@ export function EffectImprovedExample() {
 }
 `}</code></pre>
 <p>{`Another thing which is important to understand is that when we return function from effect hook, bobril use it as dispose function for component in which is the hook declared. So when this component is destroyed, bobril calls the dispose function and we have chance to clean stuffs.
-With useEffect we can actually achieve same behaviour like when using lifecycle methods in class components. UseEffect without dependencies is similar to postUpdateDomEverytime lifecycle. When using with empty array dependency we are de facto declaring postInitDom. As said before with defining return function we define destroy lifecycle.`}</p>
+With useEffect we can actually achieve same behaviour like when using lifecycle methods in class components. UseEffect without dependencies is similar to postUpdateDomEverytime lifecycle. When using with empty array dependency we are de facto declaring postInitDom. The difference between hook and lifecycle is that effect hook is not synchronous. As said before with defining return function we define destroy lifecycle.`}</p>
 <h3 id="useprovidecontext">{`useProvideContext`}</h3>
 <p>{`Hook which is used for declaring context for children of component in which is hook declared.`}</p>
 
@@ -829,7 +829,8 @@ export function ColorConsumer() {
 }
 `}</code></pre>
 <h3 id="uselayouteffect">{`useLayoutEffect`}</h3>
-<p>{`This hook is used for handling side effects as well but unlike useEffect hook this one is called right after the render when bobril prints VDOM to actual DOM. It can be used for example for recalculation of DOM stuffs. For sure only when you need a javascript for that :). It&#39;s always better to use css when you can. `}</p>
+<p>{`This hook is used for handling side effects as well but unlike useEffect hook this one is called right after the render when bobril prints VDOM to actual DOM. It can be used for example for recalculation of DOM stuffs. For sure only when you need a javascript for that :). It&#39;s always better to use css when you can. This hook is similar topostInitDom and postUpdateDomEverytime.
+Hook is called even if component was not invalidated because there could be change in size or position due to children change.  `}</p>
 <h3 id="useref">{`useRef`}</h3>
 <p>{`UseRef is here for working with mutable data structures. We can imagine the return value of this hook as a box. Value of the box is accessible on .current property.
 The reference on the box does not change over time when rerendering component. The most common usecase is to store reference to VDOM node in the box. But you can always use it for storing any other mutable value in the box just keep in mind that changing this mutable value will not trigger rerender.`}</p>

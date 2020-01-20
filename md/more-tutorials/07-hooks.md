@@ -4,7 +4,7 @@ Hooks are yet another way how you can write your components in Bobril. You may b
 ## Why hooks
 First of all let's say that old ways of writing components are not deprecated. They are still valid but as we all know they have its problems. Hooks are here to try solve theese problems. Mostly the problems which are connected with design patterns for code reuse. Mainly high order components (HOC) and render props. Because when we use this type of component composition we create indirection. The indirection can be on DOM level or on the component level, which means in VDOM. This don't have to be always bad. But it's sometimes hard to debug and get know what is going on when there are for example multiple HOCs on top of our component. So it's good to have a way how to avoid it.
 
-Let's show usage of hook on example. The implementation of useCursorCoordinates is not important currently, just focus on the idea. At component level we want to have access to the cursor position on the screen. So we follow our idea and just call function which returns value we want. And what is the best. Hook takes care about rerendering component every time the cursor position change.
+Let's show usage of hook on example. The implementation of useCursorCoordinates is not important currently, just focus on the idea. At component level we want to have access to the cursor position on the screen. So we follow our idea and just call function which returns value that we wanted. And what is the best: hook takes care about rerendering component every time the cursor position change.
 
 <!-- # from-file: ../../examples/hooks/examples/coordinates.tsx -->
 
@@ -144,7 +144,7 @@ export function EffectImprovedExample() {
 
 ```
 Another thing which is important to understand is that when we return function from effect hook, bobril use it as dispose function for component in which is the hook declared. So when this component is destroyed, bobril calls the dispose function and we have chance to clean stuffs.
-With useEffect we can actually achieve same behaviour like when using lifecycle methods in class components. UseEffect without dependencies is similar to postUpdateDomEverytime lifecycle. When using with empty array dependency we are de facto declaring postInitDom. As said before with defining return function we define destroy lifecycle.
+With useEffect we can actually achieve same behaviour like when using lifecycle methods in class components. UseEffect without dependencies is similar to postUpdateDomEverytime lifecycle. When using with empty array dependency we are de facto declaring postInitDom. The difference between hook and lifecycle is that effect hook is not synchronous. As said before with defining return function we define destroy lifecycle.
 
 ### useProvideContext
 Hook which is used for declaring context for children of component in which is hook declared.
@@ -186,7 +186,8 @@ export function ColorConsumer() {
 
 ```
 ### useLayoutEffect
-This hook is used for handling side effects as well but unlike useEffect hook this one is called right after the render when bobril prints VDOM to actual DOM. It can be used for example for recalculation of DOM stuffs. For sure only when you need a javascript for that :). It's always better to use css when you can. 
+This hook is used for handling side effects as well but unlike useEffect hook this one is called right after the render when bobril prints VDOM to actual DOM. It can be used for example for recalculation of DOM stuffs. For sure only when you need a javascript for that :). It's always better to use css when you can. This hook is similar topostInitDom and postUpdateDomEverytime.
+Hook is called even if component was not invalidated because there could be change in size or position due to children change.  
 
 ### useRef
 UseRef is here for working with mutable data structures. We can imagine the return value of this hook as a box. Value of the box is accessible on .current property.
