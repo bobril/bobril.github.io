@@ -4,7 +4,7 @@ Hooks are yet another way how you can write your components in Bobril. You may b
 ## Why hooks
 First of all let's say that old ways of writing components are not deprecated. They are still valid but as we all know they have its problems. Hooks are here to try solve theese problems. Mostly the problems which are connected with design patterns for code reuse. Mainly high order components (HOC) and render props. Because when we use this type of component composition we create indirection. The indirection can be on DOM level or on the component level, which means in VDOM. This don't have to be always bad. But it's sometimes hard to debug and get know what is going on when there are for example multiple HOCs on top of our component. So it's good to have a way how to avoid it.
 
-Let's show usage of hook on example. The implementation of useCursorCoordinates is not important currently, just focus on the idea. At component level we want to have access to the cursor position on the screen. To get it only thing which we have to do is call useCursorCoordinates
+Let's show usage of hook on example. The implementation of useCursorCoordinates is not important currently, just focus on the idea. At component level we want to have access to the cursor position on the screen. So we follow our idea and just call function which returns value we want. And what is the best. Hook takes care about rerendering component every time the cursor position change.
 
 <!-- # from-file: ../../examples/hooks/examples/coordinates.tsx -->
 
@@ -42,7 +42,7 @@ export function Coordinates(props) {
 
 ## Types of hooks
 ### useState
-This is most basic hook which you will use in most scenarios. It persists part of data in component memory cell and expose a function for mutating this data. It also invalidates the component when mutating function was called and something have been really changed. Its api is simple. Just call useState from bobril exports and provide it default value or factory which will create default value. It gives you IProp back. Which is a function which can be called without parameters for getting value and with parameter for setting value. The IProp can be also destructured to 2 items array which will contain value on first place and setter in the second place. The setter function also have 2 possibilities how it can be used. If you provide a value to it. It just store the value. You can also provide a function to it and get current state as parameter to his function.
+This is most basic hook which you will use in most scenarios. It persists part of data in component memory cell and expose a function for mutating this data. It also invalidates the component when mutating function is called and something have been really changed. Its api is simple. Just call useState from bobril exports and provide it default value or factory which will create default value. It gives you IProp back. Which is a function which can be called without parameters for getting value and with parameter for setting value. The IProp can be also destructured to 2 items array which will contain value on first place and setter in the second place. The setter function also have 2 possibilities how it can be used. If you provide a value to it. It just store the value. You can also provide a function to it and get current state as parameter to his function.
 
 <!-- # from-file: ../../examples/hooks/examples/store.tsx -->
 
