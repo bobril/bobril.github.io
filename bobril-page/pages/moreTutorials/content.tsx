@@ -681,14 +681,13 @@ export class MediaQueriesStyling extends b.Component<IStyledComponentData> {
 function useCursorCoordinates() {
   const [x, setX] = b.useState(0);
   const [y, setY] = b.useState(0);
-  b.useEffect(() => {
-    function handler(ev) {
-      setX(ev.clientX);
-      setY(ev.clientY);
+  b.useCaptureEvents({
+    onPointerMove(event: b.IBobrilPointerEvent): b.GenericEventResult {
+      setX(event.x);
+      setY(event.y);
+      return b.EventResult.HandledButRunDefault;
     }
-    document.body.addEventListener("mousemove", handler);
-    return () => document.body.removeEventListener("mousemove", handler);
-  }, []);
+  });
 
   return [x, y];
 }
@@ -926,6 +925,7 @@ function useDebouncer(value, time) {
 export function DebounceExample() {
   const [result, setResult] = b.useState([]);
   const [text, setText] = b.useState("");
+  // const iprop = b.useState("");  OR with IPROP
   const debouncedValue = useDebouncer(text, 500);
 
   b.useEffect(() => {
@@ -943,6 +943,7 @@ export function DebounceExample() {
           return true;
         }}
       />
+      {/*<input value={iprop}/>*/}
       {result.map(r => (
         <div>{r}</div>
       ))}

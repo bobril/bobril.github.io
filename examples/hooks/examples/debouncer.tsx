@@ -14,6 +14,7 @@ function useDebouncer(value, time) {
 export function DebounceExample() {
   const [result, setResult] = b.useState([]);
   const [text, setText] = b.useState("");
+  // const iprop = b.useState("");  OR with IPROP
   const debouncedValue = useDebouncer(text, 500);
 
   b.useEffect(() => {
@@ -31,6 +32,7 @@ export function DebounceExample() {
           return true;
         }}
       />
+      {/*<input value={iprop}/>*/}
       {result.map(r => (
         <div>{r}</div>
       ))}

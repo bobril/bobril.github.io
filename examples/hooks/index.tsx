@@ -8,7 +8,7 @@ import { ErrorComponent } from "./examples/events";
 import { Memoized } from "./examples/memo";
 import { TextWithFocus } from "./examples/ref";
 import { Counter } from "./examples/state";
-import {StoreCounter} from "./examples/store";
+import { StoreCounter } from "./examples/store";
 
 class Hooks extends b.Component<{}> {
   render(): b.IBobrilChildren {
@@ -23,7 +23,7 @@ class Hooks extends b.Component<{}> {
         <Memoized />
         <TextWithFocus />
         <Counter />
-        <StoreCounter/>
+        <StoreCounter />
       </>
     );
   }

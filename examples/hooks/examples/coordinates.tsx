@@ -3,14 +3,13 @@ import * as b from "bobril";
 function useCursorCoordinates() {
   const [x, setX] = b.useState(0);
   const [y, setY] = b.useState(0);
-  b.useEffect(() => {
-    function handler(ev) {
-      setX(ev.clientX);
-      setY(ev.clientY);
+  b.useCaptureEvents({
+    onPointerMove(event: b.IBobrilPointerEvent): b.GenericEventResult {
+      setX(event.x);
+      setY(event.y);
+      return b.EventResult.HandledButRunDefault;
     }
-    document.body.addEventListener("mousemove", handler);
-    return () => document.body.removeEventListener("mousemove", handler);
-  }, []);
+  });
 
   return [x, y];
 }
