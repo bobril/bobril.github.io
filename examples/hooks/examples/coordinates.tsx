@@ -4,10 +4,10 @@ function useCursorCoordinates() {
   const [x, setX] = b.useState(0);
   const [y, setY] = b.useState(0);
   b.useCaptureEvents({
-    onPointerMove(event: b.IBobrilPointerEvent): b.GenericEventResult {
+    onPointerMove(event: b.IBobrilPointerEvent): void {
       setX(event.x);
       setY(event.y);
-      return b.EventResult.HandledButRunDefault;
+      // Or NotHandled return b.EventResult.NotHandled;
     }
   });
 

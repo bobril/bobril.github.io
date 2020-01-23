@@ -682,10 +682,10 @@ function useCursorCoordinates() {
   const [x, setX] = b.useState(0);
   const [y, setY] = b.useState(0);
   b.useCaptureEvents({
-    onPointerMove(event: b.IBobrilPointerEvent): b.GenericEventResult {
+    onPointerMove(event: b.IBobrilPointerEvent): void {
       setX(event.x);
       setY(event.y);
-      return b.EventResult.HandledButRunDefault;
+      // Or NotHandled return b.EventResult.NotHandled;
     }
   });
 
@@ -713,22 +713,22 @@ export function Coordinates(props) {
 import { observable } from "bobx";
 
 class Counter {
-    @observable
-    count: number = 0;
+  @observable
+  count: number = 0;
 }
 
 export function StoreCounter() {
-    const store = b.useStore(() => new Counter());
-    return (
-        <div
-            onClick={() => {
-                store.count = store.count + 1;
-                return true;
-            }}
-        >
-            Number of click: {store.count}
-        </div>
-    );
+  const store = b.useStore(() => new Counter());
+  return (
+    <div
+      onClick={() => {
+        store.count = store.count + 1;
+        return true;
+      }}
+    >
+      Number of click: {store.count}
+    </div>
+  );
 }
 `}</code></pre>
 <h3 id="usestore">{`useStore`}</h3>
