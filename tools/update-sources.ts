@@ -1,4 +1,4 @@
-import { readFile, save, listOfFilesInDirectory, newLineRegex } from "./common";
+import {readFile, save, listOfFilesInDirectory, newLineRegex, isCodeMark} from "./common";
 
 const tutorialPaths: string[] = listOfFilesInDirectory(__dirname + "/../../md");
 // <!-- # from-file: ../../examples/routing/index.tsx line:10 col:0 -->
@@ -27,7 +27,7 @@ function updateCodeBlocks(tutorialPath: string) {
   let lastCodeEnd = -1;
 
   for (let i = lines.length - 1; i >= 0; i--) {
-    if (lines[i].startsWith("```")) {
+    if (isCodeMark(lines[i])) {
       lastCodeEnd = processCodeLine(lines, i, lastCodeEnd, tutorialPath);
     }
   }

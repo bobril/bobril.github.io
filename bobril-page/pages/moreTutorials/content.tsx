@@ -747,7 +747,7 @@ export function EffectExample() {
   const [text, setText] = b.useState(new URLSearchParams(window.location.search).get("text") || "");
 
   b.useEffect(() => {
-    history.replaceState({ text }, "Example", `?text=${text}`);
+    history.replaceState({ text }, "Example", \`?text=\${text}\`);
   });
 
   return (
@@ -776,7 +776,7 @@ export function EffectImprovedExample() {
   const [text, setText] = b.useState(new URLSearchParams(window.location.search).get("text") || "");
 
   b.useEffect(() => {
-    history.replaceState({ text }, "Example", `?text=${text}`);
+    history.replaceState({ text }, "Example", \`?text=\${text}\`);
   }, [text]);
 
   return (
@@ -929,7 +929,7 @@ export function DebounceExample() {
   const debouncedValue = useDebouncer(text, 500);
 
   b.useEffect(() => {
-    fetch(`/search?query=${debouncedValue}`)
+    fetch(\`/search?query=\${debouncedValue}\`)
       .then(data => /**data.json()*/ [])
       .then(result => setResult(result));
   }, [debouncedValue]);
