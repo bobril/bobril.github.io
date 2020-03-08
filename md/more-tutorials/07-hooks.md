@@ -43,6 +43,31 @@ export function Coordinates(props) {
 ### useState
 This is most basic hook which you will use in most scenarios. It persists part of data in component memory cell and expose a function for mutating this data. It also invalidates the component when mutating function is called and something have been really changed. Its api is simple. Just call useState from bobril exports and provide it default value or factory which will create default value. It gives you IProp back. Which is a function which can be called without parameters for getting value and with parameter for setting value. The IProp can be also destructured to 2 items array which will contain value on first place and setter in the second place. The setter function also have 2 possibilities how it can be used. If you provide a value to it. It just store the value. You can also provide a function to it and get current state as parameter to his function.
 
+<!-- # from-file: ../../examples/hooks/examples/state.tsx -->
+
+```typescript
+import * as b from "bobril";
+
+export function Counter() {
+  const [count, setCount] = b.useState(0);
+  // const [count, setCount] = useState(() => 0); is also valid;
+  return (
+    <div
+      onClick={() => {
+        setCount(count => count + 1);
+        return true;
+      }}
+    >
+      Number of click: {count}
+    </div>
+  );
+}
+
+```
+
+### useStore
+Hook made for working with bobx store in function component. It accepts factory and holds the reference to the object created by factory in every render.
+
 <!-- # from-file: ../../examples/hooks/examples/store.tsx -->
 
 ```typescript
@@ -68,13 +93,6 @@ export function StoreCounter() {
   );
 }
 
-```
-
-### useStore
-Hook made for working with bobx store in function component. It accepts factory and holds the reference to the object created by factory in every render.
-
-<!-- # from-file: ../../examples/hooks/examples/store.tsx -->
-```typescript
 ```
 
 ### useEffect
