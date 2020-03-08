@@ -710,6 +710,27 @@ export function Coordinates(props) {
 
 
 <pre><code class="language-typescript">{`import * as b from "bobril";
+
+export function Counter() {
+  const [count, setCount] = b.useState(0);
+  // const [count, setCount] = useState(() => 0); is also valid;
+  return (
+    <div
+      onClick={() => {
+        setCount(count => count + 1);
+        return true;
+      }}
+    >
+      Number of click: {count}
+    </div>
+  );
+}
+`}</code></pre>
+<h3 id="usestore">{`useStore`}</h3>
+<p>{`Hook made for working with bobx store in function component. It accepts factory and holds the reference to the object created by factory in every render.`}</p>
+
+
+<pre><code class="language-typescript">{`import * as b from "bobril";
 import { observable } from "bobx";
 
 class Counter {
@@ -731,10 +752,6 @@ export function StoreCounter() {
   );
 }
 `}</code></pre>
-<h3 id="usestore">{`useStore`}</h3>
-<p>{`Hook made for working with bobx store in function component. It accepts factory and holds the reference to the object created by factory in every render.`}</p>
-
-<pre><code class="language-typescript">{``}</code></pre>
 <h3 id="useeffect">{`useEffect`}</h3>
 <p>{`Here we operate with something called &quot;side effects&quot; or &quot;effects&quot; which is something that comes from functional programming. As a definition says side effect is something what can change values outside local environment or relies on variable out of local env.
 So we have to be always careful when doing things like this because we can simply affect or be affected by others. Let&#39;s mention DOM operations or data fetching as examples of side effects. Let&#39;s see how useEffect is used.`}</p>
@@ -747,7 +764,7 @@ export function EffectExample() {
   const [text, setText] = b.useState(new URLSearchParams(window.location.search).get("text") || "");
 
   b.useEffect(() => {
-    history.replaceState({ text }, "Example", `?text=${text}`);
+    history.replaceState({ text }, "Example", \`?text=\${text}\`);
   });
 
   return (
@@ -776,7 +793,7 @@ export function EffectImprovedExample() {
   const [text, setText] = b.useState(new URLSearchParams(window.location.search).get("text") || "");
 
   b.useEffect(() => {
-    history.replaceState({ text }, "Example", `?text=${text}`);
+    history.replaceState({ text }, "Example", \`?text=\${text}\`);
   }, [text]);
 
   return (
@@ -929,7 +946,7 @@ export function DebounceExample() {
   const debouncedValue = useDebouncer(text, 500);
 
   b.useEffect(() => {
-    fetch(`/search?query=${debouncedValue}`)
+    fetch(\`/search?query=\${debouncedValue}\`)
       .then(data => /**data.json()*/ [])
       .then(result => setResult(result));
   }, [debouncedValue]);

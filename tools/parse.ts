@@ -4,7 +4,8 @@ import {
   save,
   isDirectory,
   readFilesFromDirectory,
-  newLineRegex
+  newLineRegex,
+  isCodeMark
 } from "./common";
 import * as fs from "fs-extra";
 const exampleFileRegex = /^(\[Preview example\]\()([\/\w\-. ]+)(\))/gm;
@@ -58,9 +59,15 @@ function processFile(definition: IParseDef) {
 parseDefs.forEach(processFile);
 
 function updateExamples(tutorialContent: string, tutorialPath: string) {
-  const links: string[][] = [];
   const lines = tutorialContent.split(newLineRegex);
+  let inCode = false;
+  let line = "";
   for (let i = lines.length - 1; i >= 0; i--) {
+    line = lines[i];
+    if (isCodeMark(line)) {
+      inCode = !inCode;
+      continue;
+    }
     const link = getExampleLink(lines[i]);
     if (link) {
       console.log("Processing link: " + link);
@@ -82,19 +89,15 @@ function updateExamples(tutorialContent: string, tutorialPath: string) {
         "Copying from " + fullExampleProjectPath + " to " + resourceProjectPath
       );
       fs.copySync(fullExampleProjectPath, resourceProjectPath);
-      links.push([
-        link,
-        `./static-examples/${resourceProjectName}/${linkFileName}`
-      ]);
+      line = line.replace(link,  `./static-examples/${resourceProjectName}/${linkFileName}`);
     }
+    if (inCode) {
+      line = line.replace(/(\`|\$)/g, (_a, b) => `\\${b}`)
+    }
+    lines[i] = line;
   }
 
-  for (let i = 0; i < links.length; i++) {
-    tutorialContent = tutorialContent.replace(links[i][0], links[i][1]);
-    console.log("Link " + links[i][0] + " updated to: " + links[i][1]);
-  }
-
-  return tutorialContent;
+  return lines.join("\n");
 }
 
 function getExampleLink(line: string): string {

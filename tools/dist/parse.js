@@ -39,9 +39,15 @@ function processFile(definition) {
 }
 parseDefs.forEach(processFile);
 function updateExamples(tutorialContent, tutorialPath) {
-    var links = [];
     var lines = tutorialContent.split(common_1.newLineRegex);
+    var inCode = false;
+    var line = "";
     for (var i = lines.length - 1; i >= 0; i--) {
+        line = lines[i];
+        if (line.startsWith('```')) {
+            inCode = !inCode;
+            continue;
+        }
         var link = getExampleLink(lines[i]);
         if (link) {
             console.log("Processing link: " + link);
@@ -57,17 +63,14 @@ function updateExamples(tutorialContent, tutorialPath) {
             fs.removeSync(resourceProjectPath);
             console.log("Copying from " + fullExampleProjectPath + " to " + resourceProjectPath);
             fs.copySync(fullExampleProjectPath, resourceProjectPath);
-            links.push([
-                link,
-                "./static-examples/" + resourceProjectName + "/" + linkFileName
-            ]);
+            line = line.replace(link, "./static-examples/" + resourceProjectName + "/" + linkFileName);
         }
+        if (inCode) {
+            line = line.replace(/(\`|\$)/g, function (_a, b) { return "\\" + b; });
+        }
+        lines[i] = line;
     }
-    for (var i = 0; i < links.length; i++) {
-        tutorialContent = tutorialContent.replace(links[i][0], links[i][1]);
-        console.log("Link " + links[i][0] + " updated to: " + links[i][1]);
-    }
-    return tutorialContent;
+    return lines.join("\n");
 }
 function getExampleLink(line) {
     if (line === undefined)

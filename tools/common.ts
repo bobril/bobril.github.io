@@ -46,6 +46,10 @@ export function listOfFilesInDirectory(path: string): string[] {
   return result;
 }
 
+export function isCodeMark(line: string) {
+  return line.startsWith("```");
+}
+
 export function save(content: string, path: string) {
   try {
     console.info(`Updating file ${path}`);
