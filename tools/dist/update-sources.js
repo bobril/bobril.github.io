@@ -23,7 +23,7 @@ function updateCodeBlocks(tutorialPath) {
     var lines = tutorialContent.split(common_1.newLineRegex);
     var lastCodeEnd = -1;
     for (var i = lines.length - 1; i >= 0; i--) {
-        if (lines[i].startsWith("```")) {
+        if (common_1.isCodeMark(lines[i])) {
             lastCodeEnd = processCodeLine(lines, i, lastCodeEnd, tutorialPath);
         }
     }

@@ -47,6 +47,7 @@ function processFile(definition: IParseDef) {
 
   const htmlContent = marked(updatedMdContent, {
     renderer: getRenderer(),
+    smartypants: true,
     xhtml: true
   }).replace(/(<!--)(.*)(-->)/g, "");
 

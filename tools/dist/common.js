@@ -48,6 +48,10 @@ function listOfFilesInDirectory(path) {
     return result;
 }
 exports.listOfFilesInDirectory = listOfFilesInDirectory;
+function isCodeMark(line) {
+    return line.startsWith("```");
+}
+exports.isCodeMark = isCodeMark;
 function save(content, path) {
     try {
         console.info("Updating file " + path);
