@@ -8,7 +8,7 @@ Let's show usage of hook on example. The implementation of useCursorCoordinates 
 
 <!-- # from-file: ../../examples/hooks/examples/coordinates.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 function useCursorCoordinates() {
@@ -45,7 +45,7 @@ This is most basic hook which you will use in most scenarios. It persists part o
 
 <!-- # from-file: ../../examples/hooks/examples/state.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 export function Counter() {
@@ -70,7 +70,7 @@ Hook made for working with bobx store in function component. It accepts factory 
 
 <!-- # from-file: ../../examples/hooks/examples/store.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 import { observable } from "bobx";
 
@@ -103,7 +103,7 @@ In our example we will touch real DOM, so we are going to do some side effect an
 
 <!-- # from-file: ../../examples/hooks/examples/effect.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 export function EffectExample() {
@@ -135,7 +135,7 @@ For this cases useEffect hook accepts second parameter, which is array of functi
 
 <!-- # from-file: ../../examples/hooks/examples/effectImproved.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 export function EffectImprovedExample() {
@@ -168,7 +168,7 @@ Hook which is used for declaring context for children of component in which is h
 
 <!-- # from-file: ../../examples/hooks/examples/contextProvider.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 import { ColorConsumer } from "./contextConsumer";
 
@@ -191,7 +191,7 @@ This hook is closely related to the useProvideContext hook. It's used for gettin
 
 <!-- # from-file: ../../examples/hooks/examples/contextConsumer.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 import { theme } from "./contextProvider";
 
@@ -212,7 +212,7 @@ The reference on the box does not change over time when rerendering component. T
 
 <!-- # from-file: ../../examples/hooks/examples/ref.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 export function TextWithFocus() {
@@ -237,7 +237,7 @@ component is rerendered so we can embrace the power of useMemo.
 
 <!-- # from-file: ../../examples/hooks/examples/memo.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 export function Memoized() {
@@ -260,7 +260,7 @@ With useEvents hook we can declare event handler on our component level and not 
 
 <!-- # from-file: ../../examples/hooks/examples/events.tsx -->
 
-```typescript
+```tsx
 import * as b from "bobril";
 
 declare module "bobril" {
@@ -299,7 +299,7 @@ As said in the beginning hooks are a way how we can share logic across the compo
 
 <!-- # from-file: ../../examples/hooks/examples/debouncer.tsx -->
  
-```typescript
+```tsx
 import * as b from "bobril";
 
 function useDebouncer(value, time) {
