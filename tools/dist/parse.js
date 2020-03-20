@@ -30,6 +30,7 @@ function processFile(definition) {
     var updatedMdContent = updateExamples(mdContent, definition.source);
     var htmlContent = marked(updatedMdContent, {
         renderer: getRenderer(),
+        smartypants: true,
         xhtml: true
     }).replace(/(<!--)(.*)(-->)/g, "");
     var newFileContent = template
@@ -44,7 +45,7 @@ function updateExamples(tutorialContent, tutorialPath) {
     var line = "";
     for (var i = lines.length - 1; i >= 0; i--) {
         line = lines[i];
-        if (line.startsWith('```')) {
+        if (common_1.isCodeMark(line)) {
             inCode = !inCode;
             continue;
         }
