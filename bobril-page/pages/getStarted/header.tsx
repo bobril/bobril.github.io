@@ -6,7 +6,7 @@ export function Header(data: { large?: boolean }): b.IBobrilNode {
     : [
         hiddenStyles(Device.Sm),
         hiddenStyles(Device.Md),
-        hiddenStyles(Device.Lg)
+        hiddenStyles(Device.Lg),
       ];
   return (
     <Row style={[...styles, data.large && typography.textCenter]}>
@@ -25,10 +25,13 @@ export function Header(data: { large?: boolean }): b.IBobrilNode {
         span={6}
         style={[
           data.large ? typography.textLeft : typography.textCenter,
-          data.large && paddingForHeaderBobril
+          data.large && paddingForHeaderBobril,
         ]}
       >
         <h1>Bobril</h1>
+        <div style={typography.small}>
+          {"\xa0"}Reactlike framework{"\xa0"}
+        </div>
       </Col>
     </Row>
   );
