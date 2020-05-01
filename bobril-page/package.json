@@ -4,15 +4,20 @@
   "description": "",
   "dependencies": {
     "@types/prismjs": "1.16.0",
-    "bobril": "^13.1.1",
-    "bobrilstrap": "^3.2.2",
+    "bobril": "^14.6.0",
+    "bobrilstrap": "^3.4.0",
     "bobx": "^0.27.1",
     "bootswatch": "3.4.1",
     "prism-themes": "1.3.0",
     "prismjs": "1.16.0"
   },
   "devDependencies": {
-    "bb-tslint-plugin": "^1.2.2"
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-config-bobril": "^1.0.2",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
