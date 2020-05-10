@@ -21,31 +21,36 @@ export class PageTwo extends b.Component<IPageTwoData> {
 
   render(): b.IBobrilNode {
     return (
-        <>
-          {this.renderContent()}
-          <Link name="one">
-            <a>Go Home</a>
-          </Link>
-          {this.renderKeyBuilderNote()}
-        </>
+      <>
+        {this.renderContent()}
+        {this.renderLinkToHome()}
+        {this.renderKeyBuilderNote()}
+      </>
     );
   }
 
-  private renderContent = (): b.IBobrilNode => {
+  private renderContent(): b.IBobrilNode {
     return <p>Your text: {this.data.readOnly ? this._text : this.renderInput()}</p>;
-  };
+  }
 
-  private renderInput = (): b.IBobrilNode => {
+  private renderInput(): b.IBobrilNode {
     return <input type="text" value={this._text} onChange={newVal => (this._text = newVal)} />;
-  };
+  }
 
-  private renderKeyBuilderNote = () => {
+  private renderLinkToHome(): b.IBobrilNode {
     return (
-        <p>
-          {!this.data.readOnly
-              ? "Route parameter KeyBuilder is not defined. Nothing will happen when url parameter is changed."
-              : "Route parameter KeyBuilder is defined. Text will change when url parameter is changed."}
-        </p>
+      <Link name="one">
+        <a>Go Home</a>
+      </Link>
     );
-  };
+  }
+  private renderKeyBuilderNote(): b.IBobrilNode {
+    return (
+      <p>
+        {!this.data.readOnly
+          ? "Route parameter KeyBuilder is not defined. Nothing will happen when url parameter is changed."
+          : "Route parameter KeyBuilder is defined. Text will change when url parameter is changed."}
+      </p>
+    );
+  }
 }
