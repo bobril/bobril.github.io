@@ -4,9 +4,17 @@
 
 Bobril has few methods for defining the application route tree:
 
-- `b.route` - defines a route url, name, handler and a list of sub-routes
+- `b.route` - defines route parameters and a list of sub-routes
 - `b.routes` - registers routes to the application and calls `b.init`
 - `b.routeDefault` - defines the default route if no sub-route is specified in the current url
+
+Route parameters:
+
+- `url` - Define the name of the route. The name is used as an identifier during redirection. Name cannot contain ":" or "/"
+- `name` - Define the url of the route. A part of it can also include URL parameters. With these parameters, it is possible to modify how the page will be displayed.
+- `handler` - Define the content of a page at a specified URL. The content is rendered after redirection. Different routes can have the same handler.
+- `data` - Already defined information for a specific handler. For example, there is one handler used in different routes. In one route, I want an editable page, and in the other one, I want to a read-only page. Both of these routes will have the same handler, but different parameter readOnly.
+- `keyBuilder`- KeyBuilder describes a function that defines which URL parameter changes cause the page to reload. When you change the parameters in the URL, bobril won't recognize if the page is different or not. In this case, it's necessary to define a function which determines when to call up the reload of the components (including init).
 
 <!-- # from-file: ../../examples/routing/index.tsx -->
 
@@ -17,20 +25,41 @@ import { PageTwo } from "./pages/pageTwo";
 import { MainPage } from "./pages/main";
 
 b.routes(
-  b.route({ handler: data => <MainPage {...data} /> }, [
-    b.route({ url: "/one", name: "one", handler: data => <PageOne {...data} /> }),
-    b.route({ url: "/two/:text?", name: "two", handler: data => <PageTwo {...data} /> }),
-    b.routeDefault({ handler: data => <PageOne {...data} /> })
-  ])
+    b.route({ handler: data => <MainPage {...data} /> }, [
+        b.route({ url: "/one", name: "one", handler: data => <PageOne {...data} /> }),
+        b.route({
+            url: "/two/:text?",
+            name: "two",
+            data: { readOnly: false },
+            handler: data => <PageTwo {...data} />
+        }),
+        b.route({
+            url: "/twoReadOnly/:text?",
+            name: "twoReadOnly",
+            data: { readOnly: true },
+            handler: data => <PageTwo {...data} />,
+            keyBuilder: keyBuilder
+        }),
+        b.routeDefault({ handler: data => <PageOne {...data} /> })
+    ])
 );
+
+function keyBuilder(params: b.Params): string {
+    if (params.text) {
+        return params.text;
+    }
+    throw new Error("Route parameter doesn't exist ");
+}
 
 ```
 
 [Preview example](../../examples/routing/dist/index.html)
 
-The whole application will be handled by a handler `MainPage` with sub-routes _one_ and _two_ on urls `/one` and `/two/` handled by handlers `PageOne` and `PageTwo` and the default handler `PageOne` will be used when no sub-route is specified.
+The whole application will be handled by a handler `MainPage` with sub-routes _one_ and _two_ (_twoReadOnly_) on urls `/one` and `/two/` (`/twoReadOnly/`)  handled by handlers `PageOne` and `PageTwo` and the default handler `PageOne` will be used when no sub-route is specified.
 
 The url for page _two_ contains a parameter specification after a second slash. It is defined by a **colon** and a **name** of the parameter. The **question mark** defines the parameter as optional. Route parameters can then be found in the input data prpoerty `routeParams`.
+
+
 
 ### Handling Routes
 
@@ -83,21 +112,28 @@ import * as b from "bobril";
 import { observable } from "bobx";
 
 export class PageOne extends b.Component {
-  @observable private _text: string = "";
+    @observable private _text: string = "";
 
-  render(): b.IBobrilNode {
-    return (
-      <>
-        <input type="text" value={this._text} onChange={newVal => (this._text = newVal)} />
-        <button onClick={() => b.runTransition(b.createRedirectPush("two", { text: this._text }))}>
-          Confirm
-        </button>
-      </>
-    );
-  }
-  canDeactivate(): b.IRouteCanResult {
-    return !!this._text.trim() || confirm("The textbox is empty. Are you sure?");
-  }
+    render(): b.IBobrilNode {
+        return (
+            <>
+                <input type="text" value={this._text} onChange={newVal => (this._text = newVal)} />
+                <button onClick={this.redirectToPageTwoWithManageRight}>Confirm with manage right</button>
+                <button onClick={this.redirectToPageTwoWithViewRight}>Confirm with only view right</button>
+            </>
+        );
+    }
+    canDeactivate(): b.IRouteCanResult {
+        return !!this._text.trim() || confirm("The textbox is empty. Are you sure?");
+    }
+
+    private redirectToPageTwoWithManageRight = (): void => {
+        b.runTransition(b.createRedirectPush("two", { text: this._text }));
+    };
+
+    private redirectToPageTwoWithViewRight = (): void => {
+        b.runTransition(b.createRedirectPush("twoReadOnly", { text: this._text }));
+    };
 }
 
 ```
@@ -115,9 +151,12 @@ import { loggedIn } from "./main";
 
 export interface IPageTwoData extends b.IRouteHandlerData {
   routeParams: { text?: string };
+  readOnly: boolean;
 }
 
 export class PageTwo extends b.Component<IPageTwoData> {
+  private _text: string = this.data.routeParams.text || "nothing";
+
   static canActivate(): b.IRouteCanResult {
     if (loggedIn) {
       return true;
@@ -129,14 +168,33 @@ export class PageTwo extends b.Component<IPageTwoData> {
 
   render(): b.IBobrilNode {
     return (
-      <>
-        <p>Your text: {this.data.routeParams.text || "nothing"}</p>
-        <Link name="one">
-          <a>Go Home</a>
-        </Link>
-      </>
+        <>
+          {this.renderContent()}
+          <Link name="one">
+            <a>Go Home</a>
+          </Link>
+          {this.renderKeyBuilderNote()}
+        </>
     );
   }
+
+  private renderContent = (): b.IBobrilNode => {
+    return <p>Your text: {this.data.readOnly ? this._text : this.renderInput()}</p>;
+  };
+
+  private renderInput = (): b.IBobrilNode => {
+    return <input type="text" value={this._text} onChange={newVal => (this._text = newVal)} />;
+  };
+
+  private renderKeyBuilderNote = () => {
+    return (
+        <p>
+          {!this.data.readOnly
+              ? "Route parameter KeyBuilder is not defined. Nothing will happen when url parameter is changed."
+              : "Route parameter KeyBuilder is defined. Text will change when url parameter is changed."}
+        </p>
+    );
+  };
 }
 
 ```

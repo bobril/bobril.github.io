@@ -4,9 +4,12 @@ import { loggedIn } from "./main";
 
 export interface IPageTwoData extends b.IRouteHandlerData {
   routeParams: { text?: string };
+  readOnly: boolean;
 }
 
 export class PageTwo extends b.Component<IPageTwoData> {
+  private _text: string = this.data.routeParams.text || "nothing";
+
   static canActivate(): b.IRouteCanResult {
     if (loggedIn) {
       return true;
@@ -18,12 +21,31 @@ export class PageTwo extends b.Component<IPageTwoData> {
 
   render(): b.IBobrilNode {
     return (
-      <>
-        <p>Your text: {this.data.routeParams.text || "nothing"}</p>
-        <Link name="one">
-          <a>Go Home</a>
-        </Link>
-      </>
+        <>
+          {this.renderContent()}
+          <Link name="one">
+            <a>Go Home</a>
+          </Link>
+          {this.renderKeyBuilderNote()}
+        </>
     );
   }
+
+  private renderContent = (): b.IBobrilNode => {
+    return <p>Your text: {this.data.readOnly ? this._text : this.renderInput()}</p>;
+  };
+
+  private renderInput = (): b.IBobrilNode => {
+    return <input type="text" value={this._text} onChange={newVal => (this._text = newVal)} />;
+  };
+
+  private renderKeyBuilderNote = () => {
+    return (
+        <p>
+          {!this.data.readOnly
+              ? "Route parameter KeyBuilder is not defined. Nothing will happen when url parameter is changed."
+              : "Route parameter KeyBuilder is defined. Text will change when url parameter is changed."}
+        </p>
+    );
+  };
 }
