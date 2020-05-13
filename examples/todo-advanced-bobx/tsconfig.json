@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": false,
+    "allowSyntheticDefaultImports": true,
     "checkJs": false,
     "declaration": true,
     "downlevelIteration": true,
@@ -31,10 +32,6 @@
     "target": "es5",
     "resolveJsonModule": true
   },
-  "files": [
-    "C:/Users/t.rut/.bbcore/tools/jasmine330.d.ts"
-  ],
-  "include": [
-    "**/*"
-  ]
+  "files": ["C:/Users/t.rut/.bbcore/tools/jasmine330.d.ts"],
+  "include": ["**/*"]
 }
