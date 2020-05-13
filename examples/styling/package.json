@@ -12,6 +12,13 @@
     "bobril": "^13.1.0",
     "bobx": "^0.27.1"
   },
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-bobril": "*",
+    "@typescript-eslint/parser": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "typescript": "*"
+  },
   "prettier": {
     "printWidth": 100
   }
