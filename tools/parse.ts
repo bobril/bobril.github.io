@@ -5,7 +5,7 @@ import {
   isDirectory,
   readFilesFromDirectory,
   newLineRegex,
-  isCodeMark
+  isCodeMark,
 } from "./common";
 import * as fs from "fs-extra";
 const exampleFileRegex = /^(\[Preview example\]\()([\/\w\-. ]+)(\))/gm;
@@ -21,19 +21,24 @@ const parseDefs: IParseDef[] = [
   {
     id: "get-started",
     source: __dirname + "/../../md/get-started.md",
-    destination: __dirname + "/../../bobril-page/pages/getStarted/content.tsx"
+    destination: __dirname + "/../../bobril-page/pages/getStarted/content.tsx",
   },
   {
     id: "more-tutorials",
     source: __dirname + "/../../md/more-tutorials",
     destination:
-      __dirname + "/../../bobril-page/pages/moreTutorials/content.tsx"
+      __dirname + "/../../bobril-page/pages/moreTutorials/content.tsx",
   },
   {
     id: "eco-system",
     source: __dirname + "/../../md/eco-system.md",
-    destination: __dirname + "/../../bobril-page/pages/ecoSystem/content.tsx"
-  }
+    destination: __dirname + "/../../bobril-page/pages/ecoSystem/content.tsx",
+  },
+  {
+    id: "theory",
+    source: __dirname + "/../../md/theory",
+    destination: __dirname + "/../../bobril-page/pages/theory/content.tsx",
+  },
 ];
 
 const template = readFile(__dirname + "/../contentTemplate.tsx");
@@ -48,7 +53,7 @@ function processFile(definition: IParseDef) {
   const htmlContent = marked(updatedMdContent, {
     renderer: getRenderer(),
     smartypants: true,
-    xhtml: true
+    xhtml: true,
   }).replace(/(<!--)(.*)(-->)/g, "");
 
   const newFileContent = template
@@ -90,10 +95,13 @@ function updateExamples(tutorialContent: string, tutorialPath: string) {
         "Copying from " + fullExampleProjectPath + " to " + resourceProjectPath
       );
       fs.copySync(fullExampleProjectPath, resourceProjectPath);
-      line = line.replace(link,  `./static-examples/${resourceProjectName}/${linkFileName}`);
+      line = line.replace(
+        link,
+        `./static-examples/${resourceProjectName}/${linkFileName}`
+      );
     }
     if (inCode) {
-      line = line.replace(/(\`|\$)/g, (_a, b) => `\\${b}`)
+      line = line.replace(/(\`|\$)/g, (_a, b) => `\\${b}`);
     }
     lines[i] = line;
   }
@@ -110,11 +118,15 @@ function getExampleLink(line: string): string {
 function getRenderer(): marked.Renderer {
   const renderer = new marked.Renderer();
 
-  renderer.text = function(text: string) {
+  renderer.text = function (text: string) {
     return "{`" + text + "`}";
   };
 
-  renderer.code = function(code: string, infostring: string, escaped: boolean) {
+  renderer.code = function (
+    code: string,
+    infostring: string,
+    escaped: boolean
+  ) {
     const lang = (infostring || "").match(/\S*/)![0];
     escaped = true;
     if ((this as any).options.highlight) {
@@ -158,7 +170,7 @@ function escape(html: string, encode: boolean) {
     "<": "&lt;",
     ">": "&gt;",
     '"': "&quot;",
-    "'": "&#39;"
+    "'": "&#39;",
   };
 
   const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
@@ -166,13 +178,13 @@ function escape(html: string, encode: boolean) {
 
   if (encode) {
     if (escapeTest.test(html)) {
-      return html.replace(escapeReplace, function(ch) {
+      return html.replace(escapeReplace, function (ch) {
         return (replacements as any)[ch];
       });
     }
   } else {
     if (escapeTestNoEncode.test(html)) {
-      return html.replace(escapeReplaceNoEncode, function(ch) {
+      return html.replace(escapeReplaceNoEncode, function (ch) {
         return (replacements as any)[ch];
       });
     }

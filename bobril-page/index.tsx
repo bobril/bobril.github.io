@@ -16,7 +16,8 @@ b.routes(
   b.route(routes.main, [
     routes.gettingStarted,
     routes.moreTutorials,
-    b.route(routes.ecoSystem),
-    b.routeDefault(routes.gettingStarted)
+    routes.ecoSystem,
+    routes.theory,
+    b.routeDefault(routes.gettingStarted),
   ])
 );

@@ -14,7 +14,7 @@ import {
   NavbarNav,
   NavbarNavItem,
   Target,
-  NavbarStatic
+  NavbarStatic,
 } from "bobrilstrap";
 import { observable } from "bobx";
 
@@ -70,6 +70,12 @@ export class Navigation extends b.Component<{}> {
                   <a href={b.urlOfRoute(routes.moreTutorials.name!)}>
                     More Tutorials
                   </a>
+                </NavbarNavItem>
+                <NavbarNavItem
+                  onClick={() => this.handleMenuItemClick()}
+                  active={b.isActive(routes.theory.name)}
+                >
+                  <a href={b.urlOfRoute(routes.theory.name!)}>Theory</a>
                 </NavbarNavItem>
               </NavbarNav>
               <NavbarNav style={navStyles.navbarRight}>

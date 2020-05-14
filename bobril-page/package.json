@@ -23,7 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bobril": {
-    "title": "Bobril - A TypeScript library for creating web applications",
+    "title": "Bobril - A TypeScript React-like library for creating web applications",
     "head": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link rel=\"shortcut icon\" type=\"image/ico\" href=\"favicon.ico\" />",
     "additionalResourcesDirectory": "resources/staticResources",
     "buildOutputDir": "../",

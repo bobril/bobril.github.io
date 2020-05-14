@@ -9,18 +9,23 @@ var parseDefs = [
     {
         id: "get-started",
         source: __dirname + "/../../md/get-started.md",
-        destination: __dirname + "/../../bobril-page/pages/getStarted/content.tsx"
+        destination: __dirname + "/../../bobril-page/pages/getStarted/content.tsx",
     },
     {
         id: "more-tutorials",
         source: __dirname + "/../../md/more-tutorials",
-        destination: __dirname + "/../../bobril-page/pages/moreTutorials/content.tsx"
+        destination: __dirname + "/../../bobril-page/pages/moreTutorials/content.tsx",
     },
     {
         id: "eco-system",
         source: __dirname + "/../../md/eco-system.md",
-        destination: __dirname + "/../../bobril-page/pages/ecoSystem/content.tsx"
-    }
+        destination: __dirname + "/../../bobril-page/pages/ecoSystem/content.tsx",
+    },
+    {
+        id: "theory",
+        source: __dirname + "/../../md/theory",
+        destination: __dirname + "/../../bobril-page/pages/theory/content.tsx",
+    },
 ];
 var template = common_1.readFile(__dirname + "/../contentTemplate.tsx");
 function processFile(definition) {
@@ -31,7 +36,7 @@ function processFile(definition) {
     var htmlContent = marked(updatedMdContent, {
         renderer: getRenderer(),
         smartypants: true,
-        xhtml: true
+        xhtml: true,
     }).replace(/(<!--)(.*)(-->)/g, "");
     var newFileContent = template
         .replace("--ID--", definition.id)
@@ -120,7 +125,7 @@ function escape(html, encode) {
         "<": "&lt;",
         ">": "&gt;",
         '"': "&quot;",
-        "'": "&#39;"
+        "'": "&#39;",
     };
     var escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
     var escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
