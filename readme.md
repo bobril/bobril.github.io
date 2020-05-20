@@ -4,6 +4,8 @@
 
 It is possible to add new article in section _More Tutorials_. Article can be added as a standard _.md_ file in _md/more-tutorials_. Just follow naming format with order number and start with heading level 2.
 
+It is possible to add new article in section _Theory_. Article can be added as a standard _.md_ file in _md/theory_. Just follow naming format with order number and start with heading level 2.
+
 ## Bobril page source generator
 
 In _tools_ folder run.
@@ -50,3 +52,5 @@ Page sources are located at _bobril-page_. In this folder just run
 ```bash
 bb b
 ```
+
+After push do github repository, new version of page is deployed to bobril.com

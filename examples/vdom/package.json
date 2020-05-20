@@ -1,0 +1,36 @@
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "bobril": "^11.2.0"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-config-bobril": "*",
+    "@typescript-eslint/parser": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "typescript": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bobril": {
+    "compilerOptions": {
+      "declaration": true,
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "noEmitHelpers": true,
+      "preserveConstEnums": false,
+      "removeComments": false,
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true,
+      "sourceMap": true
+    }
+  },
+  "author": "",
+  "license": "ISC"
+}
