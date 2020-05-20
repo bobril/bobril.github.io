@@ -311,8 +311,8 @@ describe("Todo store", () => {
 </ul>
 <p>{`Route parameters:`}</p>
 <ul>
-<li><code>url</code>{` - Define the name of the route. The name is used as an identifier during redirection. Name cannot contain “:” or “/“`}</li>
-<li><code>name</code>{` - Define the url of the route. A part of it can also include URL parameters. With these parameters, it is possible to modify how the page will be displayed.`}</li>
+<li><code>url</code>{` - Define the url of the route. A part of it can also include URL parameters. With these parameters, it is possible to modify how the page will be displayed.`}</li>
+<li><code>name</code>{` - Define the name of the route. The name is used as an identifier during redirection. Name cannot contain “:” or “/“.`}</li>
 <li><code>handler</code>{` - Define the content of a page at a specified URL. The content is rendered after redirection. Different routes can have the same handler.`}</li>
 <li><code>data</code>{` - Already defined information for a specific handler. For example, there is one handler used in different routes. In one route, I want an editable page, and in the other one, I want to a read-only page. Both of these routes will have the same handler, but different parameter readOnly.`}</li>
 <li><code>keyBuilder</code>{`- KeyBuilder describes a function that defines which URL parameter changes cause the page to reload. When you change the parameters in the URL, bobril won’t recognize if the page is different or not. In this case, it’s necessary to define a function which determines when to call up the reload of the components (including init).`}</li>
