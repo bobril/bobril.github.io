@@ -307,7 +307,7 @@ describe("Todo store", () => {
 <ul>
 <li><code>b.route</code>{` - defines route parameters and a list of sub-routes`}</li>
 <li><code>b.routes</code>{` - registers routes to the application and calls `}<code>b.init</code></li>
-<li><code>b.routeDefault</code>{` - defines the default route if no sub-route is specified in the current url`}</li>
+<li><code>b.routeDefault</code>{` - defines the default target route (the final leaf of the routing tree) if no sub-route is specified in the current url`}</li>
 </ul>
 <p>{`Route parameters:`}</p>
 <ul>

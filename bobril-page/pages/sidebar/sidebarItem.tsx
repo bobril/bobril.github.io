@@ -41,7 +41,7 @@ export class SideBarItem extends b.Component<IItemData> {
             {this.data.title}
           </a>
         </Li>
-        {!!this.data.subs && (
+        {!!this.data.subs && this.active && (
           <SideBarItems items={this.data.subs} nextId={this.data.nextId} />
         )}
       </>

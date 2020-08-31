@@ -6,7 +6,7 @@ Bobril has few methods for defining the application route tree:
 
 - `b.route` - defines route parameters and a list of sub-routes
 - `b.routes` - registers routes to the application and calls `b.init`
-- `b.routeDefault` - defines the default route if no sub-route is specified in the current url
+- `b.routeDefault` - defines the default target route (the final leaf of the routing tree) if no sub-route is specified in the current url
 
 Route parameters:
 
