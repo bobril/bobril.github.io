@@ -30,3 +30,11 @@ describe("Todo store", () => {
 });
 
 ```
+
+Results are available on `bobril-build` page on http://localhost:8080/bb/. The tree can be filtered by the result and sorted by path or describe hierarchy.
+
+![Test and build results](https://github.com/bobril/bobril.github.io/raw/master/resources/md-images/result-page.png)
+
+You can also check the code coverage. If you switch the _Coverage_ button on then the coverage is represented as a highlighted code in the Visual Studio Code:
+
+![Code coverage](https://github.com/bobril/bobril.github.io/raw/master/resources/md-images/code-coverage.png)
