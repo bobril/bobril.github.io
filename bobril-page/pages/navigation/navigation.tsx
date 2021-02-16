@@ -76,8 +76,15 @@ export class Navigation extends b.Component<{}> {
                   active={b.isActive(routes.theory.name)}
                 >
                   <a href={b.urlOfRoute(routes.theory.name!)}>Theory</a>
+                </NavbarNavItem>{" "}
+                <NavbarNavItem
+                  onClick={() => this.handleMenuItemClick()}
+                  active={b.isActive(routes.changelog.name)}
+                >
+                  <a href={b.urlOfRoute(routes.changelog.name!)}>Changelog</a>
                 </NavbarNavItem>
               </NavbarNav>
+
               <NavbarNav style={navStyles.navbarRight}>
                 <NavbarNavItem onClick={() => this.handleMenuItemClick()}>
                   <a

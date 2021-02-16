@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@types/marked": "^1.2.2",
     "@types/prismjs": "1.16.0",
     "bobril": "^14.6.0",
     "bobrilstrap": "^3.4.0",
     "bobx": "^0.27.1",
     "bootswatch": "3.4.1",
+    "marked": "^2.0.0",
     "prism-themes": "1.3.0",
     "prismjs": "1.21.0"
   },

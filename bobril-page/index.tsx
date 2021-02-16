@@ -17,6 +17,7 @@ b.routes(
     routes.moreTutorials,
     routes.ecoSystem,
     routes.theory,
+    routes.changelog,
     b.routeDefault(routes.gettingStarted),
   ])
 );
