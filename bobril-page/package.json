@@ -11,7 +11,7 @@
     "bootswatch": "3.4.1",
     "marked": "^2.0.0",
     "prism-themes": "1.3.0",
-    "prismjs": "1.23.0"
+    "prismjs": "1.24.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.30.0",
