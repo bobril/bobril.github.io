@@ -19,17 +19,18 @@ export function buildPageRoute(
   routeContent: b.IBobrilNode
 ): IRouteWithItems {
   const route = b.route(routeDef, [
-    b.route({ url: routeDef.url + "-top", name: routeDef.name + "-top" })
+    b.route({ url: routeDef.url + "-top", name: routeDef.name + "-top" }),
   ]);
   const item: IItemData = { subs: [], targetId: "", title: "" };
 
   buildSubRoutes(routeContent, {
     route,
     level: 0,
-    item
+    item,
   });
 
   console.log(route.children);
+  console.log(item);
   return { route, item: item };
 }
 
@@ -39,7 +40,7 @@ function buildSubRoutes(
 ): IRouteWithLevel {
   childrenAsArray(
     node.children || (node.data ? node.data.children : undefined)
-  ).forEach(child => {
+  ).forEach((child) => {
     let foundLevel = 0;
     const id = getId(child);
     if (child.tag && id) {
@@ -70,14 +71,14 @@ function buildSubRoutes(
       const item: IItemData = {
         subs: [],
         title: child.children as string,
-        targetId: id!
+        targetId: id!,
       };
       lastRoute.item.subs!.push(item);
       lastRoute = {
         route: newRoute,
         level: foundLevel,
         parent: lastRoute,
-        item
+        item,
       };
     }
   });
